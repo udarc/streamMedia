@@ -1,6 +1,22 @@
 # Steam Media project
 The Stream Media website will hosts
+## Problem Statement
+A Media Creator/Filmmaker has many types of media content such as films,
+trailers, music videos, short stories and books.
+These Contents are hosted on diverse platforms and accessible in
+different ways and forms such as YouTube (free to watch) or Amazon (on demand
+or with Prime membership) or on physical media such as DVDs or books.
 
+
+
+How does the Media Creator/filmmaker go about letting his audience
+know what is available and accessibility and where? Stream Media website
+will provide a centralized platform for his customers to access
+all the content and learn more about them. It will provide an administrator
+a way to create, read, update and delete some the content and customers
+links, embedded videos or even exclusive content when logged in on
+Stream Media website. The high-level navigation of the website is as follow:
+home, media, frequently asked questions (FAQ and Account.
 
 ## Project Technologies/Techniques
 Admin role: WIll have create/read/update/delete (crud) of all data
@@ -53,4 +69,5 @@ IDE: IntelliJ IDEA
 
 * [Application Flow](projectDesigns/applicationFlow.md)
 
-* [Database Design](projectDesigns/databaseDiagram.png)
+* [Database Design](projectDesigns/databaseDimagesiagram.png)
+* [High  Level Navigation](projectDesigns/image.png)
