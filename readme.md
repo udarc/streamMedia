@@ -66,7 +66,6 @@ IDE: IntelliJ IDEA
 ## Design
 * [User Stories](projectDesigns/userStories.md)
 * [Screen Design](projectDesigns/Screens.md)
-
 * [Application Flow](projectDesigns/applicationFlow.md)
 
 * [Database Design](projectDesigns/databaseDimagesiagram.png)
