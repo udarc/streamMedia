@@ -3,7 +3,7 @@
 ## Home Page
 
 ![Home Page](Wireframes/1-Home.jpg)
-
+![Home Page](wireframes/1-Reports.png)
 ## Contact Form
 
 ![Contact](Wireframes/2-Contact.jpg)
