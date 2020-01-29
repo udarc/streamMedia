@@ -68,5 +68,5 @@ IDE: IntelliJ IDEA
 * [Screen Design](projectDesigns/Screens.md)
 * [Application Flow](projectDesigns/applicationFlow.md)
 
-* [Database Design](projectDesigns/databaseDimagesiagram.png)
+* [Database Design](projectDesigns/DatabaseDiagram.png)
 * [High  Level Navigation](projectDesigns/image.png)
