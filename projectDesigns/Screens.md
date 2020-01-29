@@ -119,3 +119,11 @@
 ## Frequently Asked Questions (FAQ)
 
 ![FAQ](Wireframes/31-faq.jpg)
+
+## Add / Edit Music Video
+
+![Add / Edit Music](Wireframes/32_addEditMusic.png)
+
+## Music Video List
+
+![Music List](Wireframes/33_Music_List.png)
