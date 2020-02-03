@@ -7,10 +7,17 @@ As a registered user I want to log in so that I view private content.
 As a registered admin user I want to be able to create, read, update and delete any content on the website
 ## Profile
 As a logged in user I want to be able to view my account detailed information.
+
+## Edit Profile
+As a logged in user I want to be able to update my account detailed information.
+
 ## Reset Password
 As a registered user I want to be able to reset my password in case I forgot it.
 ## Change Password
 As a logged in user I want to be able to create a new password.
+## Send Reset Link
+As registered user I want to be able to input an email associated with my account and
+get a reset password.
 
 ## Find Trailers
 As any user I want to be able to find trailers by title.

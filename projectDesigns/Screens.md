@@ -28,6 +28,10 @@
 
 ![Reset Password](Wireframes/7-ResetPassword.jpg)
 
+## Send Reset Link to Email
+
+![ Send Reset Link to an Email](Wireframes/sendResetPasswordLink.png)
+
 ## Change Password
 
 ![Change Password](Wireframes/8-ChangePassword.jpg)
