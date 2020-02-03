@@ -82,7 +82,7 @@
 - [ ] Weekly journal entry
 - [ ] Unit test all api integrations
 - [ ] Weekly journal entry
-- [ ] Add password reset , Password change and User Profile Update
+- [ ] Add password reset , Password change, send Password Link  and User Profile Update functionality
 - [ ] Start Team project
 
 ### Week 11
