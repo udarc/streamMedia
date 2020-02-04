@@ -1,9 +1,9 @@
 # Weekly Reflexion
 
 ## Week 1
-###Jan 21, 2020:
+### Jan 21, 2020:
 
-####Tasks completed in 11.25 hours:
+#### Tasks completed in 11.25 hours:
 * I set up the development environment with all the tools necessary to get started with the project.
 * Chose the project and created its structure and repo
 * Wrote the problem statement
@@ -15,9 +15,9 @@
 website. 
 
 ## Week 2
-###Jan 26,2020:
+### Jan 26,2020:
 
-####Task Completed in 13.25:
+#### Task Completed in 13.25:
 
 * Created most of the user stories  and High level navigation for the application.
 * Created some of  the wireframes.
@@ -28,8 +28,8 @@ website.
 * Filled weekly journal and Time Log
 
 ## Week 3
-###Feb 2, 2020:
-####Task completed in 3.5 hours: 
+### Feb 2, 2020:
+#### Task completed in 8.5 hours: 
 
 * Filled weekly journal and Time Log 
 * Completed Project Plan and weekly reflexion documentation
