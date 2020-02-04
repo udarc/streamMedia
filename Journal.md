@@ -1,9 +1,9 @@
 # Journal
 
 ## Week 1
-###Jan 21, 2020
+### Jan 21, 2020
 
-####Completed tasks:
+#### Completed tasks:
 * Set up the development environment
 * Chose the project and a draft of main part of the project
 * Created this repository and the project structure.
@@ -22,8 +22,8 @@ and 5MB of storage).
     and export the SQL query to create database with tables and relationships according to the design.
 
 ## Week 2
-####Jan 26, 2020
-####Completed tasks:
+#### Jan 26, 2020
+#### Completed tasks:
 * Created high level site map and User stories all the web pages
 * Created wireframes (design screen page). Used moqups and mockflow.
 * Created database design in vertabelo.
@@ -31,7 +31,7 @@ and 5MB of storage).
 * Completed Problem Statement
 ## Week 3
 ### Feb 2, 2020
-####Completed tasks:
+#### Completed tasks:
 * Completed Weekly Journal and TimeLog
 * Completed Project Plan and Weekly reflexion.
 * Reviewed and updated the content of the project so it is ready for first check.
