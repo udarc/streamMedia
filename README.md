@@ -19,20 +19,19 @@ Stream Media website. The high-level navigation of the website is as follow:
 home, media, frequently asked questions (FAQ and Account.
 
 ## Project Technologies/Techniques
-Admin role: WIll have create/read/update/delete (crud) of all data
-
-All: anyone can view all media content without login
+Admin role: Will have permission to create/read/update/delete (crud) of all data.
+Registered User: will have access to private content and in future be able to buy product on the website.
+All: anyone can view all public media content.
 ##  Database
 MySQL database
 
 Store Users with their roles
 
-Store all media information such films, movie/video, books and trailers
+Store all media information such films, movie/video, books, Casting Crew and trailers
 ## Object Relational Mapping (ORM)  Framework
 Hibernate 5
 ## Dependency Management
 Maven
-
 Web Services consumed using Java
 
 CSS
@@ -52,7 +51,7 @@ CI tools in AWS
 
 Materialize or W3C CSS
 
-Books API
+Books API/YouTube Api
 
 Hibernate Validation
 

@@ -3,7 +3,7 @@
 ### Week 2
 - [ ] Create project repository on GitHub
 - [ ] Create project structure in intellij and push
-- [ ] Add link to list of indie projects in student repo.
+- [ ] Add link to list of individual project in student repo.
 - [ ] Complete Problem Statement
 - [ ] Write User stories
 - [ ] Create project wireframes for the project screen

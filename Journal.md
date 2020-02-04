@@ -30,7 +30,8 @@ and export the SQL query to create database with tables and relationships accord
 * Completed Problem Statement
 ## Week 3
 * Completed Weekly Journal and TimeLog
-* Completed Project Plan
+* Completed Project Plan and Weekly reflexion.
+* Reviewed and updated the content of the project so it is ready for first check.
 ## Week 4
 
 ## Week 5
