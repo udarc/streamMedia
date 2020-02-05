@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-01-29 04:29:50.156
+-- Last modification date: 2020-02-05 03:35:35.834
 
 -- tables
 -- Table: Book
@@ -106,6 +106,7 @@ CREATE TABLE ROLES (
     name char(30) NOT NULL,
     created_at timestamp NOT NULL,
     updated_at timestamp NOT NULL,
+    username varchar(60) NOT NULL,
     CONSTRAINT ROLES_pk PRIMARY KEY (role_id)
 );
 
@@ -141,7 +142,7 @@ CREATE TABLE Trailer (
 -- Table: USERS
 CREATE TABLE USERS (
     user_id int NOT NULL AUTO_INCREMENT,
-    username varchar(40) NOT NULL,
+    username varchar(60) NOT NULL,
     email varchar(120) NOT NULL,
     password varchar(200) NOT NULL,
     first_name varchar(80) NULL,
