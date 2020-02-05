@@ -17,7 +17,8 @@ Stream Media website. The high-level navigation of the website is as follow:
 home, media, frequently asked questions (FAQ) and Account.
 
 ## Project Technologies/Techniques
-* Admin who is the same as media creator: Will have permission to create/read/update/delete (crud) of all data.
+* Admin: Will have permission to create/read/update/delete (crud) of all data on the website.
+* media creator: Will have permission to perform crud for the content their own.
 * Registered User: will have access to private content and in future be able to buy product on the website.
 * Everyone else : can view all public media content.
 ##  Database
