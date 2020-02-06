@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <project xmlns="http://maven.apache.org/POM/4.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
   <groupId>com.streamMedia</groupId>
   <artifactId>streamMedia</artifactId>
@@ -19,6 +21,7 @@
       <junit-platform-runner-version>1.0.0</junit-platform-runner-version>
       <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
       <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
+      <lombok-verion>1.18.10</lombok-verion>
     </properties>
     <dependencies>
       <dependency>
@@ -74,26 +77,25 @@
         <artifactId>log4j-core</artifactId>
         <version>${log4j-version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-surefire-provider</artifactId>
+        <version>${junit-platform-runner-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.10</version>
+      </dependency>
     </dependencies>
     <build>
-      <finalName>YourIndieProject</finalName>
+      <finalName>streamMedia</finalName>
       <pluginManagement>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>${maven-compiler-plugin-version}</version>
-          </plugin>
-          <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>${maven-surefire-plugin-version}</version>
-            <dependencies>
-              <dependency>
-                <groupId>org.junit.platform</groupId>
-                <artifactId>junit-platform-surefire-provider</artifactId>
-                <version>${junit-platform-runner-version}</version>
-              </dependency>
-            </dependencies>
           </plugin>
         </plugins>
       </pluginManagement>

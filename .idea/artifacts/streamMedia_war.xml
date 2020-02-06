@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="YourIndieProject.war">
+    <root id="archive" name="streamMedia.war">
       <element id="artifact" artifact-name="streamMedia:war exploded" />
     </root>
   </artifact>
