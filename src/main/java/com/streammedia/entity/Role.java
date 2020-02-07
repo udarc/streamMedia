@@ -8,8 +8,8 @@ import java.time.*;
 @Getter
 @Setter
 public class Role {
-    private  int role_id;
+    private  int roleId;
     private String name;
     private LocalDate createdAt;
-    private LocalDate updated_at;
+    private LocalDate updatedAt;
 }

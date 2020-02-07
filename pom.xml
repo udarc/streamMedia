@@ -22,6 +22,7 @@
       <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
       <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
       <lombok-verion>1.18.10</lombok-verion>
+      <hibernate-verion>5.4.4.Final</hibernate-verion>
     </properties>
     <dependencies>
       <dependency>
@@ -85,7 +86,20 @@
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.10</version>
+        <version>${lombok-verion}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate-verion}</version>
+      </dependency>
+      <!-- c3p0 - used to handle connection pooling with hibernate -->
+      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
+        <version>${hibernate-verion}</version>
       </dependency>
     </dependencies>
     <build>

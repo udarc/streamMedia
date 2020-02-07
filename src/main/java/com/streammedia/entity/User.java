@@ -8,14 +8,15 @@ import java.time.*;
 @ToString
 @EqualsAndHashCode
 public class User {
-    private int user_id;
+    private int userId;
     private String username;
     private String email;
     private String password;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private LocalDate date;
     private String picture;
+    private String gender;
     private String biography;
     private LocalDate createdAt;
     private LocalDate updateAt;

@@ -5,7 +5,16 @@ body {
 }
 .bg-dark {
     background-color: darkred !important;
+
 }
-.navbar-dark .navbar-nav .nav-link {
+.bg-light {
+    background-color: #400101 !important;
+
+}
+.navbar-dark .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link {
     color: #f5f5f5;
+}
+.fixed-bottom {
+    background-color: #150000;
+    color: aliceblue;
 }

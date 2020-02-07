@@ -3,6 +3,13 @@
 <%@include file="head.jsp"%>
 <body>
 <%@include file="navbar.jsp"%>
-<h2>Hello World!</h2>
-</body>
-</html>
+<div class="container">
+
+    <h1>Welcome to Stream Media</h1>
+
+
+
+</div>
+
+<%@include file="footer.jsp"%>
+
