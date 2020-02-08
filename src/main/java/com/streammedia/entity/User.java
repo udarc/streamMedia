@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private LocalDate date;
+    private LocalDate birthdate;
     private String picture;
     private String gender;
     private String biography;
