@@ -10,12 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Users.
+ */
 @WebServlet(urlPatterns = {"/users"})
 public class users extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDao userDao = new UserDao();
-        request.setAttribute("users", userDao.getAllUsers());
+        if(request.getParameter("submit").equals("search")){
+            request.setAttribute("users",userDao.getUserByLastName(request.getParameter("username")));
+        } else {
+            request.setAttribute("users", userDao.getAllUsers());
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/account/users.jsp");
         dispatcher.forward(request, response);
     }
