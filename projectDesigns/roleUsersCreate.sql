@@ -27,7 +27,8 @@ CREATE TABLE SM_Users (
                           created_at timestamp NOT NULL,
                           updated_at timestamp NOT NULL,
                           role_id int NOT NULL,
-                          CONSTRAINT SM_Users_pk PRIMARY KEY (user_id)
+                          CONSTRAINT SM_Users_pk PRIMARY KEY (user_id),
+                          UNIQUE KEY `username_UNIQUE` (`username`)
 );
 
 -- End of file.
