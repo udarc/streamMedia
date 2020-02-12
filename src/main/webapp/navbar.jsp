@@ -5,7 +5,7 @@
                 <li class="nav-item">
                     <a class="nav-link"  href="users">Users</a>
                 </li>
-                    <a class="nav-link"  href="./account/signup.jsp">Register</a>
+                    <a class="nav-link"  href="register">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="./account/signin.jsp">Login</a>

@@ -31,4 +31,13 @@ CREATE TABLE SM_Users (
                           UNIQUE KEY `username_UNIQUE` (`username`)
 );
 
+UPDATE SM_Users
+SET
+    email = 'kjames@madisoncollege.edu',
+    username = 'kjames',
+    first_name = 'King',
+    last_name = 'James',
+    password = 12345
+WHERE
+        user_id = 4;
 -- End of file.

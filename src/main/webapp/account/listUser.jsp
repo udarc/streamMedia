@@ -38,7 +38,7 @@
             </table>
         </div>
         <div class="col-sm-3">
-            <a href="account/register">Add New User</a>
+            <a href="register">Add New User</a>
             <main id="main">
                 <form action="searchUser" method="get">
                     <div class="form-group row">

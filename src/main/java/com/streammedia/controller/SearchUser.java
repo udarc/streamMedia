@@ -1,13 +1,13 @@
-package edu.matc.controller;
+package com.streammedia.controller;
 
-import edu.matc.persistence.UserData;
+import com.streammedia.perisistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 
 /**
@@ -22,7 +22,7 @@ import java.io.IOException;
 public class SearchUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserData userData = new UserData();
+        UserDao userData = new UserDao();
         String searchTerm = req.getParameter("searchTerm").trim();
         if((searchTerm != null && !searchTerm.isEmpty())){
             try {
@@ -32,7 +32,7 @@ public class SearchUser extends HttpServlet {
             }
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/SearchUser.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("account/users.jsp");
         dispatcher.forward(req, resp);
     }
 }

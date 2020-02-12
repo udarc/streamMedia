@@ -1,5 +1,5 @@
-package edu.matc.controller;
-import edu.matc.persistence.UserData;
+package com.streammedia.controller;
+import com.streammedia.perisistence.UserDao;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
