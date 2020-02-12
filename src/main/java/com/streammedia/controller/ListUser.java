@@ -1,5 +1,5 @@
 package com.streammedia.controller;
-
+import com.streammedia.entity.User;
 import com.streammedia.perisistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
@@ -9,23 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * The type Users.
  */
-@WebServlet(urlPatterns = {"/users"})
-public class users extends HttpServlet {
+@WebServlet(
+        name = "users",
+        urlPatterns = {"/users"})
+public class ListUser extends HttpServlet {
+    private UserDao userDao;
+
+    public void init() {
+        userDao = new UserDao();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserDao userDao = new UserDao();
-        if(request.getParameter("submit").equals("search")){
-            request.setAttribute("users",userDao.getUserByLastName(request.getParameter("username")));
-        } else {
-            request.setAttribute("users", userDao.getAllUsers());
-        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/account/users.jsp");
+        List<User> listUser = userDao.getAllUsers();
+        request.setAttribute("users", listUser);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/account/listUser.jsp");
         dispatcher.forward(request, response);
     }
-
 }

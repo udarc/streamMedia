@@ -15,12 +15,14 @@ import java.time.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 
 @Entity(name = "User")
 @Table(name = "SM_Users")
 public class User implements Serializable {
+
 
     @Id
     @Column(name = "user_id")
@@ -61,5 +63,13 @@ public class User implements Serializable {
     @Column(name = "updated_at",nullable = false)
     private LocalDate updateAt;
 
+    public User(String userName, String email, String password, LocalDate createdAt, LocalDate updateAt) {
+        this.username = userName;
+        this.email = email;
+        this.password = password;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+
+    }
     //https://www.baeldung.com/hibernate-one-to-many
 }

@@ -13,6 +13,7 @@ CREATE TABLE Role (
 );
 
 -- Table: SM_Users
+DROP TABLE IF EXISTS `SM_Users`;
 CREATE TABLE SM_Users (
                           user_id int NOT NULL AUTO_INCREMENT,
                           username varchar(60) NOT NULL,
@@ -26,7 +27,6 @@ CREATE TABLE SM_Users (
                           biography text NULL,
                           created_at timestamp NOT NULL,
                           updated_at timestamp NOT NULL,
-                          role_id int NOT NULL,
                           CONSTRAINT SM_Users_pk PRIMARY KEY (user_id),
                           UNIQUE KEY `username_UNIQUE` (`username`)
 );

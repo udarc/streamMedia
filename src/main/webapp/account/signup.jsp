@@ -13,7 +13,7 @@
 <%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
-    <form class="card col-sm-10 offset-sm-1">
+     <form action="signup" method="post" class="card col-sm-10 offset-sm-1">
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">

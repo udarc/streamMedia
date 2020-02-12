@@ -23,6 +23,7 @@
       <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
       <lombok-verion>1.18.10</lombok-verion>
       <hibernate-verion>5.4.4.Final</hibernate-verion>
+      <servlet-version>4.0.1</servlet-version>
     </properties>
     <dependencies>
       <dependency>
@@ -100,6 +101,19 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-c3p0</artifactId>
         <version>${hibernate-verion}</version>
+      </dependency>
+
+      <dependency>
+<!--        Dependencies for Servlet-->
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet-version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mindrot</groupId>
+        <artifactId>jbcrypt</artifactId>
+        <version>0.3m</version>
       </dependency>
     </dependencies>
     <build>

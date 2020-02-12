@@ -1,6 +1,6 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2020-02-07 17:10:33.785
-
+--Tutorial https://www.quackit.com/mysql/tutorial/mysql_create_table.cfm
 -- tables
 -- Table: BKCategory
 CREATE TABLE BKCategory (
@@ -130,10 +130,10 @@ CREATE TABLE SM_Users (
     last_name varchar(90) NULL,
     birthdate date NULL,
     gender char(15) NULL,
-    picture blob NULL,
+    picture varchar(300) NULL,
     biography text NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     role_id int NOT NULL,
     CONSTRAINT SM_Users_pk PRIMARY KEY (user_id)
 );
@@ -146,7 +146,7 @@ CREATE TABLE ShortStory (
     publication_date timestamp NOT NULL,
     descrition text NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     user_id int NOT NULL,
     CONSTRAINT ShortStory_pk PRIMARY KEY (short_story_id)
 );

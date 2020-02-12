@@ -1,10 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
-  Autheor: Jeanne d'Arc
-  Date: 2/9/20
-  Time: 12:50 PM
+  User: Jeanne
+  Date: 2/10/20
+  Time: 1:37 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <%@include file="../head.jsp"%>
@@ -17,28 +18,27 @@
             <h1>All Users</h1>
 
             <table class="table table-striped">
-        <thead class="thead-dark">
-        <tr>
-            <th>User Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
+                <thead class="thead-dark">
+                <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
 
-        </tr>
-        </thead>
-        <c:forEach var ="user" items= "${users}">
-            <tr>
-                <td>${user.userId}</td>
-                <td>${user.username}</td>
-                <td> ${user.email}</td>
+                </tr>
+                </thead>
+                <c:forEach var ="user" items= "${users}">
+                    <tr>
+                        <td>${user.userId}</td>
+                        <td>${user.username}</td>
+                        <td> ${user.email}</td>
 
-
-
-            </tr>
-        </c:forEach>
-    </table>
-            </div>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
         <div class="col-sm-3">
+            <a href="account/register">Add New User</a>
             <main id="main">
                 <form action="searchUser" method="get">
                     <div class="form-group row">
