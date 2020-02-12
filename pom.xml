@@ -24,6 +24,7 @@
       <lombok-verion>1.18.10</lombok-verion>
       <hibernate-verion>5.4.4.Final</hibernate-verion>
       <servlet-version>4.0.1</servlet-version>
+      <javamail-version>1.6.2</javamail-version>
     </properties>
     <dependencies>
       <dependency>
@@ -110,10 +111,18 @@
         <version>${servlet-version}</version>
         <scope>provided</scope>
       </dependency>
+
+<!--      Password hashing dependencies-->
       <dependency>
         <groupId>org.mindrot</groupId>
         <artifactId>jbcrypt</artifactId>
         <version>0.3m</version>
+      </dependency>
+<!--      JavaMail dependencies-->
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>javax.mail</artifactId>
+        <version>${javamail-version}</version>
       </dependency>
     </dependencies>
     <build>

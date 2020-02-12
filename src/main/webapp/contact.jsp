@@ -14,7 +14,7 @@
 <div class="container">
     <div class="form row">
         <h1>Contact Us</h1>
-        <form class="card col-sm-10 offset-sm-1">
+        <form class="card col-sm-10 offset-sm-1" action="contact-us" method="post">
             <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
@@ -47,7 +47,7 @@
             <div class="form-group row">
                 <label for="bio" class="col-sm-3 col-form-label" >Message</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" id="bio" rows="6"></textarea>
+                    <textarea class="form-control"name="message" id="bio" rows="6"></textarea>
                 </div>
             </div>
             <div class="form-group row">
