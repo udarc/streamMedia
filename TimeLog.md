@@ -16,6 +16,22 @@
 |Feb 2, 2020 |Filled weekly journal and Time Log|2||
 |Feb 2, 2020|Completed Project Plan for Individual project|3||
 |Feb 4, 2020|Review the whole project, complete the Weekly Reflexion and updated some content|3.5||
+|Feb 4, 2020|Reviewed the comments from first check point and made the necessary changes based on review comments|1||
+
+|Feb 6, 2020|Create User and Role entity, User table and created Navbar, head and footer JSPs and reading about Hibernate|4.5||
+|Feb 7, 2020|Created User Dao, SessionFactory provider and all the CRUD operation and their respective tests |5||
+|Feb 7, 2020|Review Created user servlet for listing all users |.5||
+
+|Feb 7, 2020|Created signin, signup, profile,editUserProfile and Contact JSPs  |2||
+|Feb 8, 2020|Review User listing |.5||
+|Feb 9, 2020|Started working on User registration controller |2||
+|Feb 12, 2020|completed User registration using form and controller |3||
+|Feb 12, 2020|Started to work on contact with JavaMail |2||
+|Feb 13, 2020|Completed Contact Us functionality |1.5||
+|Feb 13, 2020|Completed Weekly reflexion |.75||
+
+
+
 
 
 
