@@ -52,7 +52,7 @@ fabric.properties
 /projectDesigns/roleUsersCreate.sql
 /notes/
 /src/main/java/com/streammedia/perisistence/Database.java
-/src/main/resources/database.properties
+/src/test/resources/database.properties
 /src/main/java/com/streammedia/controller/SearchForm.java
 /src/main/java/com/streammedia/controller/SearchUser.java
 /notes/users.java

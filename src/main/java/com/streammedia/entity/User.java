@@ -3,9 +3,9 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 import java.io.Serializable;
 import java.time.*;
+import java.util.Objects;
 
 
 /**
@@ -68,8 +68,26 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.createdAt = createdAt;
-        this.updateAt = updateAt;
+        this.updateAt = LocalDate.now();
 
     }
+/**
+    @Override
+    public boolean equals(Object obj) {
+        if ( this == obj ) {
+            return true;
+        }
+        if ( !( obj instanceof User ) ) {
+            return false;
+        }
+        User user = (User) obj;
+        return Objects.equals( getUserId(), user.getUserId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash( getUserId() );
+    }
+*/
     //https://www.baeldung.com/hibernate-one-to-many
 }

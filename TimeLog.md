@@ -28,7 +28,7 @@
 |Feb 12, 2020|completed User registration using form and controller |3||
 |Feb 12, 2020|Started to work on contact with JavaMail |2||
 |Feb 13, 2020|Completed Contact Us functionality |1.5||
-|Feb 13, 2020|Completed Weekly reflexion |.75||
+|Feb 13, 2020|Completed Weekly reflexion |.5||
 
 
 
