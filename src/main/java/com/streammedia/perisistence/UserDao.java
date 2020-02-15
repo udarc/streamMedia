@@ -47,7 +47,7 @@ public class UserDao {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);
         Root<User> root = query.from(User.class);
-        Expression<String> propertyPath = root.get("username");
+        Expression<String> propertyPath = root.get("lastName");
         query.where(builder.like(propertyPath,"%" + lastname + "%"));
         List<User> users = session.createQuery(query).getResultList();
         session.close();
@@ -55,6 +55,7 @@ public class UserDao {
     }
 
     public User getUserById(int userId) {
+        log.debug("Getting user by Id {}",userId);
         Session session = sessionFactory.openSession();
         User user = session.get(User.class,userId);
         session.close();
@@ -66,8 +67,11 @@ public class UserDao {
      * @param user  User to be inserted or updated
      */
     public void saveOrUpdate(User user) {
+        log.info("Save Mathoth");
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(user);
+        transaction.commit();
         session.close();
     }
 

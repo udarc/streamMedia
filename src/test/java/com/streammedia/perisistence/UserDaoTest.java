@@ -2,7 +2,6 @@ package com.streammedia.perisistence;
 
 import com.streammedia.entity.User;
 import com.streammedia.test.utility.Database;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -15,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * The type User dao test.
  */
+
+//@Disabled
 class UserDaoTest {
 
     UserDao dao;
@@ -37,7 +38,7 @@ class UserDaoTest {
     @Test
     void getAllUsersSuccess() {
         List<User> users = dao.getAllUsers();
-        assertEquals(5, users.size());
+        assertEquals(6, users.size());
     }
 
     /**
@@ -74,7 +75,7 @@ class UserDaoTest {
         assertEquals("fflintstone@streammedia.com",insertedUser.getEmail());
         // Could continue comparing all values, but
         // it may make sense to use .equals()
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        // TO DO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
     }
 
     /**

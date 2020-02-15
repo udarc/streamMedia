@@ -14,12 +14,17 @@
 <%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
-        <form class="card col-sm-10 offset-sm-1">
+        <form class="card col-sm-10 offset-sm-1"
+        method="post" action="profile-edit">
+            <input type="hidden" id="id"
+                   name="id"
+                   value = ${user.id}>
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control"
-                           name="email" id="inputEmail" placeholder="Email">
+                           name="email" id="inputEmail" placeholder="Email"
+                     value="${user.email}">
                 </div>
             </div>
             <div class="form-group row">
@@ -32,7 +37,7 @@
             <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="firstName"p
+                    <input type="text" class="form-control" name="firstName"
                            id="inputFirstName" placeholder="First Name">
                 </div>
             </div>
@@ -57,15 +62,15 @@
                     <div class="col-sm-9">
                         <div class="form-check">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="genderOptions" id="male" value="Male">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
                                 <label class="form-check-label" for="male"> Male</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="genderOptions" id="female" value="Female">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
                                 <label class="form-check-label" for="female"> Female</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="genderOptions" id="other" value="Other" >
+                                <input class="form-check-input" type="radio" name="gender" id="other" value="Other" >
                                 <label class="form-check-label" for="other"> Other</label>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
             <div class="form-group row">
                 <label for="bio" class="col-sm-3 col-form-label" >Biography</label>
                 <div class="col-sm-9">
-                <textarea class="form-control" id="bio" rows="4"></textarea>
+                <textarea class="form-control" name="biography" id="bio" rows="4"></textarea>
                 </div>
             </div>
             <div class="form-group row">

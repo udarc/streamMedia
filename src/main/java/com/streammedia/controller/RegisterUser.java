@@ -65,8 +65,5 @@ public class RegisterUser extends HttpServlet {
         } else {
             req.getRequestDispatcher("/account/signup.jsp").forward(req,resp);
         }
-
-
     }
-
 }

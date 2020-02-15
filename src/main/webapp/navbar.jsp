@@ -7,6 +7,9 @@
                 </li>
                     <a class="nav-link"  href="register">Register</a>
                 </li>
+                </li>
+                <a class="nav-link"  href="profile-edit">Edit Porfile</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="./account/signin.jsp">Login</a>
                 </li>
