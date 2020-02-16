@@ -1,4 +1,5 @@
 package com.streammedia.controller;
+import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.UserDao;
 import lombok.extern.log4j.Log4j2;
@@ -55,10 +56,10 @@ public class RegisterUser extends HttpServlet {
         if(confirmPassword.equals(user.getPassword())){
 
             log.debug("Adding User: " + user);
-//        Role role = new Role();
-//        role.setUser(user);
-//        role.setRole("user");
-//        user.addRole(role);
+        Role role = new Role();
+        role.setUser(user);
+        role.setName("user");
+        user.addRole(role);
             userDao.insert(user);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
             dispatcher.forward(req, resp);

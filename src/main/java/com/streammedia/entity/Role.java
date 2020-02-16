@@ -26,11 +26,14 @@ public class Role {
     @Column(name = "username")
     private String username;
     @Column(name = "create_at")
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
+    @EqualsAndHashCode.Exclude
     private LocalDate updatedAt;
 
-//    @OneToMany(mappedBy = "role")
-//    private Set<User> users;
+    @ManyToOne
+    @JoinColumn(name="username", referencedColumnName = "username",nullable = false)
+    private User user;
 }
