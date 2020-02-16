@@ -18,7 +18,7 @@
         method="post" action="profile-edit">
             <input type="hidden" id="id"
                    name="id"
-                   value = ${user.id}>
+                   value = ${user.userId}>
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
@@ -31,28 +31,32 @@
                 <label for="username" class="col-sm-3 col-form-label">Username</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="username" id="username" placeholder="Username">
+                           name="username" id="username" placeholder="Username"
+                    value="${user.username}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="firstName"
-                           id="inputFirstName" placeholder="First Name">
+                           id="inputFirstName" placeholder="First Name"
+                    value="${user.firstName}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputLastName" class="col-sm-3 col-form-label">Last Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="lastName" id="inputLastName" placeholder="Last Name">
+                           name="lastName" id="inputLastName" placeholder="Last Name"
+                    value="${user.lastName}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputBirthday" class="col-sm-3 col-form-label">Birthday</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="birthday" id="inputBirthday" placeholder="Date Of Birth">
+                           name="birthday" id="inputBirthday" placeholder="Date Of Birth"
+                    value="${user.birthdate}">
                 </div>
             </div>
 
@@ -81,7 +85,8 @@
                 <label for="profilePicture" class="col-sm-3 col-form-label">Profile Picture</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control-file"
-                           name="profilePicture" id="profilePicture">
+                           name="profilePicture" id="profilePicture"
+                    ${user.picture}>
                 </div>
             </div>
 
