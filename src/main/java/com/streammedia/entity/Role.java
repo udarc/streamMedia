@@ -26,14 +26,9 @@ public class Role {
     @Column(name = "username")
     private String username;
     @Column(name = "create_at")
-    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
-    @EqualsAndHashCode.Exclude
     private LocalDate updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name="username", referencedColumnName = "username",nullable = false)
-    private User user;
 }
