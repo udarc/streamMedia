@@ -35,6 +35,8 @@ public class EditUserProfile extends HttpServlet {
         @Override
         public void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+//            request.setAttribute("user",userDao.getUserById(Integer.parseInt(request.getParameter("id"))));
+            request.setAttribute("user",userDao.getUserById(1));
             String url ="/account/editUserProfile.jsp";
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request,response);
@@ -68,7 +70,7 @@ public class EditUserProfile extends HttpServlet {
 //        role.setUser(user);
 //        role.setRole("user");
 //        user.addRole(role);
-                userDao.insert(user);
+                userDao.saveOrUpdate(user);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
                 dispatcher.forward(req, resp);
             } else {
