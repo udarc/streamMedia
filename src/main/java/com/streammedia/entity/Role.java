@@ -31,6 +31,4 @@ public class Role {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-//    @OneToMany(mappedBy = "role")
-//    private Set<User> users;
 }
