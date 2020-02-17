@@ -21,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserDaoTest {
 
     UserDao dao;
+    GenericDao genericDao;
 
     /**
      * Creating the dao.
@@ -28,6 +29,7 @@ class UserDaoTest {
     @BeforeEach
     void setUp() {
         dao = new UserDao();
+        genericDao =  new GenericDao(User.class);
 
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
@@ -39,7 +41,7 @@ class UserDaoTest {
      */
     @Test
     void getAllUsersSuccess() {
-        List<User> users = dao.getAllUsers();
+        List<User> users = genericDao.getAllUsers();
         assertEquals(6, users.size());
     }
 
@@ -57,7 +59,7 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrievedUser = dao.getUserById(3);
+        User retrievedUser = (User)genericDao.getUserById(3);
         assertNotNull(retrievedUser);
         assertEquals("Barney", retrievedUser.getFirstName());
     }
@@ -70,9 +72,9 @@ class UserDaoTest {
     void insertSuccess() {
 
         User newUser = new User("fflintstone", "fflintstone@streammedia.com", "fflintstone", LocalDate.now(),LocalDate.now());
-        int id = dao.insert(newUser);
+        int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getUserById(id);
+        User insertedUser = (User)genericDao.getUserById(id);
 //        assertEquals("fflintstone", insertedUser.getUsername());
 //        assertEquals("fflintstone@streammedia.com",insertedUser.getEmail());
         assertEquals(newUser,insertedUser);
@@ -90,9 +92,9 @@ class UserDaoTest {
        role.setUser(newUser);
        role.setCreatedAt(LocalDate.now());
        newUser.addRole(role);
-        int id = dao.insert(newUser);
+        int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getUserById(id);
+        User insertedUser = (User)genericDao.getUserById(id);
         assertEquals("ujeanne", insertedUser.getUsername());
         assertEquals("ujeanne@streammedia.com",insertedUser.getEmail());
         assertEquals(1,insertedUser.getRoles().size());
@@ -103,12 +105,13 @@ class UserDaoTest {
     @Test
     void updateSuccess() {
         String newLastName = "Davis";
-        User userToUpdate = dao.getUserById(3);
+        User userToUpdate = (User)genericDao.getUserById(3);
         userToUpdate.setLastName(newLastName);
-        dao.saveOrUpdate(userToUpdate);
-        User retrievedUser = dao.getUserById(3);
+        genericDao.saveOrUpdate(userToUpdate);
+        User retrievedUser = (User)genericDao.getUserById(3);
 //        assertEquals(newLastName, retrievedUser.getLastName());
-        assertEquals(userToUpdate, retrievedUser);
+        assertEquals(userToUpdate,retrievedUser);
+        assertTrue(userToUpdate.equals(retrievedUser));
     }
 
     /**
@@ -116,7 +119,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyEqual("lastName", "Curry");
+        List<User> users = genericDao.getByPropertyEqual("lastName", "Curry");
         assertEquals(1, users.size());
         assertEquals(3, users.get(0).getUserId());
     }
@@ -126,7 +129,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "c");
+        List<User> users = genericDao.getByPropertyLike("lastName", "c");
         assertEquals(3, users.size());
     }
 
@@ -136,7 +139,7 @@ class UserDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getUserById(6));
-        assertNull(dao.getUserById(6));
+        genericDao.delete(genericDao.getUserById(6));
+        assertNull(genericDao.getUserById(6));
     }
 }
