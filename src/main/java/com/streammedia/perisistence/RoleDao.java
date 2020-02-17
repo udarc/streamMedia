@@ -25,7 +25,9 @@ public class RoleDao {
 
     /**
      * update role
-     * @param role  Role to be inserted or updated
+     *
+     * @param role Role to be inserted or updated
+     * @return the int
      */
     public int insert(Role role) {
         int id = 0;
@@ -57,6 +59,12 @@ public class RoleDao {
         return roles;
     }
 
+    /**
+     * Gets role name.
+     *
+     * @param name the name
+     * @return the role name
+     */
     public List<Role> getRoleName(String name) {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -69,6 +77,12 @@ public class RoleDao {
         return roles;
     }
 
+    /**
+     * Gets role by id.
+     *
+     * @param roleId the role id
+     * @return the role by id
+     */
     public Role getRoleById(int roleId) {
         log.debug("Getting role by Id {}",roleId);
         Session session = sessionFactory.openSession();
@@ -79,7 +93,8 @@ public class RoleDao {
 
     /**
      * update role
-     * @param role  Role to be inserted or updated
+     *
+     * @param role Role to be inserted or updated
      */
     public void saveOrUpdate(Role role) {
         log.info("Save Mathoth");
@@ -91,9 +106,9 @@ public class RoleDao {
     }
 
 
-
     /**
      * Delete a role
+     *
      * @param role Role to be deleted
      */
     public void delete(Role role) {
@@ -107,6 +122,10 @@ public class RoleDao {
     /**
      * Get role by property (exact match)
      * sample usage: getByPropertyEqual("name", "admin")
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property equal
      */
     public List<Role> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
@@ -126,6 +145,10 @@ public class RoleDao {
     /**
      * Get role by property (like)
      * sample usage: getByPropertyLike("name", "a")
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property like
      */
     public List<Role> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
