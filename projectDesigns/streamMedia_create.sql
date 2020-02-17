@@ -1,14 +1,132 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2020-02-07 17:10:33.785
---Tutorial https://www.quackit.com/mysql/tutorial/mysql_create_table.cfm
 -- tables
+
+
+-- Table: Role
+CREATE TABLE Role (
+                      role_id int NOT NULL AUTO_INCREMENT,
+                      name char(30) NOT NULL,
+                      created_at timestamp NOT NULL,
+                      updated_at timestamp NOT NULL,
+                      username varchar(60) NOT NULL,
+                      CONSTRAINT Role_pk PRIMARY KEY (role_id)
+);
+
+-- Table: SM_Users
+CREATE TABLE SM_Users (
+                          user_id int NOT NULL AUTO_INCREMENT,
+                          username varchar(60) NOT NULL,
+                          email varchar(120) NOT NULL,
+                          password varchar(200) NOT NULL,
+                          first_name varchar(80) NULL,
+                          last_name varchar(90) NULL,
+                          birthdate date NULL,
+                          gender char(15) NULL,
+                          picture varchar(300) NULL,
+                          biography text NULL,
+                          created_at timestamp NOT NULL,
+                          updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                          role_id int NOT NULL,
+                          CONSTRAINT SM_Users_pk PRIMARY KEY (user_id)
+);
+
+
+
+-- Table: Crew
+CREATE TABLE Crew (
+                      crew_id int NOT NULL,
+                      firt_name varchar(70) NOT NULL,
+                      last_name varchar(50) NOT NULL,
+                      email varchar(120) NULL,
+                      profession varchar(100) NOT NULL,
+                      biography text NULL,
+                      created_at timestamp NOT NULL,
+                      updated_at timestamp NOT NULL,
+                      user_id int NOT NULL,
+                      CONSTRAINT Crew_pk PRIMARY KEY (crew_id)
+);
+
+-- Table: Film
+CREATE TABLE Film (
+                      film_id int NOT NULL,
+                      title varchar(200) NOT NULL,
+                      duration time NOT NULL,
+                      director varchar(120) NOT NULL,
+                      pub_date timestamp NOT NULL,
+                      episode int NULL,
+                      cover blob NOT NULL,
+                      summary text NOT NULL,
+                      created_at int NOT NULL,
+                      user_id int NOT NULL,
+                      CONSTRAINT Film_pk PRIMARY KEY (film_id)
+);
+
+-- Table: FilmCrew
+CREATE TABLE FilmCrew (
+                          film_crew_id int NOT NULL,
+                          created_at timestamp NOT NULL,
+                          updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                          film_id int NOT NULL,
+                          crew_id int NOT NULL,
+                          CONSTRAINT FilmCrew_pk PRIMARY KEY (film_crew_id)
+);
+
+-- Table: FilmGenre
+CREATE TABLE FilmGenre (
+                           film_genre_id int NOT NULL,
+                           created_at timestamp NOT NULL,
+                           updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                           genre_id int NOT NULL,
+                           film_id int NOT NULL,
+                           CONSTRAINT FilmGenre_pk PRIMARY KEY (film_genre_id)
+);
+
+-- Table: Genre
+CREATE TABLE Genre (
+                       genre_id int NOT NULL,
+                       title varchar(100) NOT NULL,
+                       description text NOT NULL,
+                       created_at timestamp NOT NULL,
+                       updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                       CONSTRAINT Genre_pk PRIMARY KEY (genre_id)
+);
+
+
+-- Table: Trailer
+CREATE TABLE Trailer (
+                         trailer_id int NOT NULL,
+                         title varchar(150) NOT NULL,
+                         author varchar(150) NULL,
+                         duration time NOT NULL,
+                         pub_date timestamp NOT NULL,
+                         links varchar(150) NULL,
+                         video blob NULL,
+                         summary text NOT NULL,
+                         created_at timestamp NOT NULL,
+                         updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+                         user_id int NOT NULL,
+                         CONSTRAINT Trailer_pk PRIMARY KEY (trailer_id)
+);
+
+-- Table: faq
+CREATE TABLE faq (
+                     faq_id int NOT NULL,
+                     title varchar(150) NOT NULL,
+                     description text NOT NULL,
+                     created_at timestamp NOT NULL,
+                     updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+                     user_id int NOT NULL,
+                     CONSTRAINT faq_pk PRIMARY KEY (faq_id)
+);
+
 -- Table: BKCategory
 CREATE TABLE BKCategory (
     bkCategory_id int NOT NULL,
     title varchar(100) NOT NULL,
     description text NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
     CONSTRAINT BKCategory_pk PRIMARY KEY (bkCategory_id)
 );
 
@@ -23,7 +141,7 @@ CREATE TABLE Book (
     cover blob NULL,
     summary text NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_id int NOT NULL,
     CONSTRAINT Book_pk PRIMARY KEY (book_id)
 );
@@ -32,69 +150,10 @@ CREATE TABLE Book (
 CREATE TABLE BookCategory (
     book_category_id int NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     book_id int NOT NULL,
     bkCategory_id int NOT NULL,
     CONSTRAINT BookCategory_pk PRIMARY KEY (book_category_id)
-);
-
--- Table: Crew
-CREATE TABLE Crew (
-    crew_id int NOT NULL,
-    firt_name varchar(70) NOT NULL,
-    last_name varchar(50) NOT NULL,
-    email varchar(120) NULL,
-    profession varchar(100) NOT NULL,
-    biography text NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    user_id int NOT NULL,
-    CONSTRAINT Crew_pk PRIMARY KEY (crew_id)
-);
-
--- Table: Film
-CREATE TABLE Film (
-    film_id int NOT NULL,
-    title varchar(200) NOT NULL,
-    duration time NOT NULL,
-    director varchar(120) NOT NULL,
-    pub_date timestamp NOT NULL,
-    episode int NULL,
-    cover blob NOT NULL,
-    summary text NOT NULL,
-    created_at int NOT NULL,
-    user_id int NOT NULL,
-    CONSTRAINT Film_pk PRIMARY KEY (film_id)
-);
-
--- Table: FilmCrew
-CREATE TABLE FilmCrew (
-    film_crew_id int NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    film_id int NOT NULL,
-    crew_id int NOT NULL,
-    CONSTRAINT FilmCrew_pk PRIMARY KEY (film_crew_id)
-);
-
--- Table: FilmGenre
-CREATE TABLE FilmGenre (
-    film_genre_id int NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    genre_id int NOT NULL,
-    film_id int NOT NULL,
-    CONSTRAINT FilmGenre_pk PRIMARY KEY (film_genre_id)
-);
-
--- Table: Genre
-CREATE TABLE Genre (
-    genre_id int NOT NULL,
-    title varchar(100) NOT NULL,
-    description text NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    CONSTRAINT Genre_pk PRIMARY KEY (genre_id)
 );
 
 -- Table: Music
@@ -105,38 +164,11 @@ CREATE TABLE Music (
     artist varchar(80) NULL,
     duration time NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_id int NOT NULL,
     CONSTRAINT Music_pk PRIMARY KEY (music_id)
 );
 
--- Table: Role
-CREATE TABLE Role (
-    role_id int NOT NULL AUTO_INCREMENT,
-    name char(30) NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    username varchar(60) NOT NULL,
-    CONSTRAINT Role_pk PRIMARY KEY (role_id)
-);
-
--- Table: SM_Users
-CREATE TABLE SM_Users (
-    user_id int NOT NULL AUTO_INCREMENT,
-    username varchar(60) NOT NULL,
-    email varchar(120) NOT NULL,
-    password varchar(200) NOT NULL,
-    first_name varchar(80) NULL,
-    last_name varchar(90) NULL,
-    birthdate date NULL,
-    gender char(15) NULL,
-    picture varchar(300) NULL,
-    biography text NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    role_id int NOT NULL,
-    CONSTRAINT SM_Users_pk PRIMARY KEY (user_id)
-);
 
 -- Table: ShortStory
 CREATE TABLE ShortStory (
@@ -146,37 +178,11 @@ CREATE TABLE ShortStory (
     publication_date timestamp NOT NULL,
     descrition text NOT NULL,
     created_at timestamp NOT NULL,
-    updated_at DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_id int NOT NULL,
     CONSTRAINT ShortStory_pk PRIMARY KEY (short_story_id)
 );
 
--- Table: Trailer
-CREATE TABLE Trailer (
-    trailer_id int NOT NULL,
-    title varchar(150) NOT NULL,
-    author varchar(150) NULL,
-    duration time NOT NULL,
-    pub_date timestamp NOT NULL,
-    links varchar(150) NULL,
-    video blob NULL,
-    summary text NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    user_id int NOT NULL,
-    CONSTRAINT Trailer_pk PRIMARY KEY (trailer_id)
-);
-
--- Table: faq
-CREATE TABLE faq (
-    faq_id int NOT NULL,
-    title varchar(150) NOT NULL,
-    description text NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    user_id int NOT NULL,
-    CONSTRAINT faq_pk PRIMARY KEY (faq_id)
-);
 
 -- foreign keys
 -- Reference: BookCategory_BKCategory (table: BookCategory)
