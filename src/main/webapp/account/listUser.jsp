@@ -32,6 +32,12 @@
                         <td>${user.userId}</td>
                         <td>${user.username}</td>
                         <td> ${user.email}</td>
+                        <td>
+                           <c:forEach var="role" items="${user.roles}" >
+                               ${role.name}
+                           </c:forEach>
+
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
