@@ -67,7 +67,7 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Role> roles = new HashSet<Role>();

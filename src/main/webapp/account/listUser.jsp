@@ -32,7 +32,6 @@
                         <td>${user.userId}</td>
                         <td>${user.username}</td>
                         <td> ${user.email}</td>
-
                     </tr>
                 </c:forEach>
             </table>
