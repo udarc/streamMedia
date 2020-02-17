@@ -25,6 +25,15 @@
                 <div class="invalid-feedback">Title is required.</div>
             </div>
             <div class="form-group row">
+                <label for="category" class="col-sm-3 col-form-label">Category</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control"
+                           name="category" id="category" placeholder="Category" required>
+                </div>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Category is required.</div>
+            </div>
+            <div class="form-group row">
                 <label for="description" class="col-sm-3 col-form-label" >Description</label>
                 <div class="col-sm-9">
                     <textarea class="form-control"name="description" id="description" rows="6"></textarea>
