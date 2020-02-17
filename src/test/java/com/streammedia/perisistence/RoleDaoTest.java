@@ -20,14 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoleDaoTest {
 
     RoleDao dao;
-
+    GenericDao genericDao;
     /**
      * Creating the dao.
      */
     @BeforeEach
     void setUp() {
         dao = new RoleDao();
-
+        genericDao = new GenericDao(Role.class);
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
 
@@ -38,7 +38,7 @@ class RoleDaoTest {
      */
     @Test
     void getAllRolesSuccess() {
-        List<Role> roles = dao.getAllRoles();
+        List<Role> roles = genericDao.getAll();
         assertEquals(5, roles.size());
     }
 
@@ -56,7 +56,7 @@ class RoleDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        Role retrievedRole = dao.getRoleById(2);
+        Role retrievedRole = (Role)genericDao.getById(2);
         assertNotNull(retrievedRole);
         assertEquals("admin", retrievedRole.getName());
     }
@@ -73,9 +73,9 @@ class RoleDaoTest {
         newRole.setName("media creator");
         newRole.setUser(user);
 
-        int id = dao.insert(newRole);
+        int id = genericDao.insert(newRole);
         assertTrue(id > 0);
-        Role insertedRole = dao.getRoleById(id);
+        Role insertedRole = (Role)genericDao.getById(id);
         assertEquals("media creator", insertedRole.getName());
         assertNotNull(insertedRole.getUser());
         assertEquals("jcoyne",insertedRole.getUser().getUsername());
@@ -87,11 +87,12 @@ class RoleDaoTest {
     @Test
     void updateSuccess() {
         String newName = "manager";
-        Role roleToUpdate = dao.getRoleById(1);
+        Role roleToUpdate = (Role)genericDao.getById(1);
         roleToUpdate.setName(newName);
-        dao.saveOrUpdate(roleToUpdate);
-        Role retrievedRole = dao.getRoleById(1);
-        assertEquals(newName, retrievedRole.getName());
+        genericDao.saveOrUpdate(roleToUpdate);
+        Role retrievedRole = (Role)genericDao.getById(1);
+//        assertEquals(newName, retrievedRole.getName());
+        assertTrue(newName.equals(retrievedRole.getName()));
     }
 
     /**
@@ -99,7 +100,7 @@ class RoleDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<Role> roles = dao.getByPropertyEqual("name", "admin");
+        List<Role> roles = genericDao.getByPropertyEqual("name", "admin");
         assertEquals(1, roles.size());
         assertEquals(2, roles.get(0).getRoleId());
     }
@@ -109,7 +110,7 @@ class RoleDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<Role> roles = dao.getByPropertyLike("name", "a");
+        List<Role> roles = genericDao.getByPropertyLike("name", "a");
         assertEquals(3, roles.size());
     }
 
@@ -119,7 +120,7 @@ class RoleDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getRoleById(5));
-        assertNull(dao.getRoleById(5));
+        genericDao.delete(genericDao.getById(5));
+        assertNull(genericDao.getById(5));
     }
 }

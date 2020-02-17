@@ -41,7 +41,7 @@ class UserDaoTest {
      */
     @Test
     void getAllUsersSuccess() {
-        List<User> users = genericDao.getAllUsers();
+        List<User> users = genericDao.getAll();
         assertEquals(6, users.size());
     }
 
@@ -59,7 +59,7 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrievedUser = (User)genericDao.getUserById(3);
+        User retrievedUser = (User)genericDao.getById(3);
         assertNotNull(retrievedUser);
         assertEquals("Barney", retrievedUser.getFirstName());
     }
@@ -74,7 +74,7 @@ class UserDaoTest {
         User newUser = new User("fflintstone", "fflintstone@streammedia.com", "fflintstone", LocalDate.now(),LocalDate.now());
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = (User)genericDao.getUserById(id);
+        User insertedUser = (User)genericDao.getById(id);
 //        assertEquals("fflintstone", insertedUser.getUsername());
 //        assertEquals("fflintstone@streammedia.com",insertedUser.getEmail());
         assertEquals(newUser,insertedUser);
@@ -94,7 +94,7 @@ class UserDaoTest {
        newUser.addRole(role);
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = (User)genericDao.getUserById(id);
+        User insertedUser = (User)genericDao.getById(id);
         assertEquals("ujeanne", insertedUser.getUsername());
         assertEquals("ujeanne@streammedia.com",insertedUser.getEmail());
         assertEquals(1,insertedUser.getRoles().size());
@@ -105,10 +105,10 @@ class UserDaoTest {
     @Test
     void updateSuccess() {
         String newLastName = "Davis";
-        User userToUpdate = (User)genericDao.getUserById(3);
+        User userToUpdate = (User)genericDao.getById(3);
         userToUpdate.setLastName(newLastName);
         genericDao.saveOrUpdate(userToUpdate);
-        User retrievedUser = (User)genericDao.getUserById(3);
+        User retrievedUser = (User)genericDao.getById(3);
 //        assertEquals(newLastName, retrievedUser.getLastName());
         assertEquals(userToUpdate,retrievedUser);
         assertTrue(userToUpdate.equals(retrievedUser));
@@ -139,7 +139,7 @@ class UserDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getUserById(6));
-        assertNull(genericDao.getUserById(6));
+        genericDao.delete(genericDao.getById(6));
+        assertNull(genericDao.getById(6));
     }
 }
