@@ -1,7 +1,9 @@
 package com.streammedia.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 import javax.persistence.*;
@@ -10,7 +12,8 @@ import java.util.Set;
 
 @Getter
 @Setter
-
+@ToString
+@EqualsAndHashCode
 @Entity(name = "Role")
 @Table(name = "Role")
 public class Role {
@@ -20,15 +23,28 @@ public class Role {
     @GenericGenerator(name = "native",strategy = "native")
     private  int roleId;
 
+
     @Column(name = "name")
     private String name;
 
-    @Column(name = "username")
-    private String username;
-    @Column(name = "create_at")
+    @ManyToOne
+    @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
+    private User user;
+
+    @EqualsAndHashCode.Exclude
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;
 
-    @Column(name = "updated_at")
+    @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
+    @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 
+
+
+    public Role() {
+        this.createdAt = LocalDate.now();
+        this.updatedAt = LocalDate.now();
+    }
 }
