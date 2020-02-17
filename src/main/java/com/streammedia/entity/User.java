@@ -20,7 +20,6 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-
 @Entity(name = "User")
 @Table(name = "SM_Users")
 public class User implements Serializable {
