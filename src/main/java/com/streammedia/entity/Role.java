@@ -42,7 +42,6 @@ public class Role {
     private LocalDate updatedAt;
 
 
-
     public Role() {
         this.createdAt = LocalDate.now();
         this.updatedAt = LocalDate.now();

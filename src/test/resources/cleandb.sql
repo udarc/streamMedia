@@ -1,3 +1,4 @@
+DELETE  FROM Role;
 DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
@@ -6,3 +7,11 @@ VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-0
 (4,'Karen','Mack','kmack','supersecret4','kmack@streammedia.com','1986-07-08',NOW()),
 (5,'Dianne','Klein','dklein','supersecret5','dklein@streammedia.com','1991-09-22',NOW()),
 (6,'Dawn','Tillman','dtillman','supersecret6','dtillman@streammedia.com','1979-08-30',NOW());
+
+
+INSERT INTO Role(role_id,name,username , created_at) VALUES
+              (1,'user','jcoyne',Now()),
+              (2,'admin','fhensen',Now()),
+              (3,'developer','bcurry',Now()),
+              (4,'sale','kmack',Now()),
+              (5,'staff','bcurry',Now());
