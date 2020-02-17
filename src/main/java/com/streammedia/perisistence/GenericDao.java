@@ -21,7 +21,7 @@ public class GenericDao <T> {
      *
      * @return the list of all entities
      */
-    public List<T> getAllUsers() {
+    public List<T> getAll() {
 
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -52,7 +52,7 @@ public class GenericDao <T> {
      * @param EntityId the entity id to search by
      * @return the entity
      */
-    public <T>T getUserById(int EntityId) {
+    public <T>T getById(int EntityId) {
         logger.debug("Getting Entity by Id {}",EntityId);
         Session session = getSession();
         T entity = (T)session.get(type,EntityId);
