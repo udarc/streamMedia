@@ -45,9 +45,9 @@
             </div>
 
             <div class="form-group row">
-                <label for="bio" class="col-sm-3 col-form-label" >Message</label>
+                <label for="message" class="col-sm-3 col-form-label" >Message</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="message" id="bio" rows="6"></textarea>
+                    <textarea class="form-control"name="message" id="message" rows="6"></textarea>
                 </div>
             </div>
             <div class="form-group row">
