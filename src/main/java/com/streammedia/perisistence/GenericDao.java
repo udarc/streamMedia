@@ -1,6 +1,7 @@
 package com.streammedia.perisistence;
 
 import com.streammedia.entity.User;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -12,9 +13,10 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 
+@Log4j2
 public class GenericDao <T> {
     private Class<T> type;
-    private final Logger logger = LogManager.getLogger(this.getClass());
+//    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
      * Gets all entities.
@@ -29,7 +31,7 @@ public class GenericDao <T> {
         Root<T> root = query.from(type);
         List<T> list = session.createQuery(query).getResultList();
         session.close();
-        logger.debug("The list of users " + list);
+        log.debug("The list of Entities " + list);
         return list;
     }
 
@@ -53,7 +55,7 @@ public class GenericDao <T> {
      * @return the entity
      */
     public <T>T getById(int EntityId) {
-        logger.debug("Getting Entity by Id {}",EntityId);
+        log.debug("Getting Entity by Id {}" + EntityId);
         Session session = getSession();
         T entity = (T)session.get(type,EntityId);
         session.close();
@@ -64,7 +66,7 @@ public class GenericDao <T> {
      * @param entity Entity to be inserted or updated
      */
     public void saveOrUpdate(T entity) {
-        logger.debug("Updating");
+        log.debug("Updating");
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(entity);
@@ -111,7 +113,7 @@ public class GenericDao <T> {
     public List<T> getByPropertyEqual(String propertyName, String value) {
         Session session = getSession();
 
-        logger.debug("Searching for entity with " + propertyName + " = " + value);
+        log.info("Searching for entity with " + propertyName + " = " + value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
@@ -133,7 +135,7 @@ public class GenericDao <T> {
     public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
 
-        logger.debug("Searching for entity with {} = {}",  propertyName, value);
+        log.info("Searching for entity with {} = {}",  propertyName, value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
