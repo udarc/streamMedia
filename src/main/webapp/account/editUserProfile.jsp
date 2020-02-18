@@ -54,29 +54,28 @@
             <div class="form-group row">
                 <label for="inputBirthday" class="col-sm-3 col-form-label">Birthday</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
+                    <input type="date" class="form-control"
                            name="birthday" id="inputBirthday" placeholder="Date Of Birth"
                     value="${user.birthdate}">
                 </div>
             </div>
-
+<%--    TODO        http://www.instanceofjava.com/2016/08/jstl-if-else-statement-conditions.html--%>
             <fieldset class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-3 pt-0">Gender</legend>
                     <div class="col-sm-9">
                         <div class="form-check">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
-                                <label class="form-check-label" for="male"> Male</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
-                                <label class="form-check-label" for="female"> Female</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="other" value="Other" >
-                                <label class="form-check-label" for="other"> Other</label>
-                            </div>
+                            <c:choose>
+                                <c:when test="${(user.gender).equalsIgnoreCase('Male')}">
+                                <%@include file="includes/checkMale.jsp"%>
+                                </c:when>
+                                <c:when test="${(user.gender).equalsIgnoreCase('Female')}">
+                                    <%@include file="includes/checkFemale.jsp"%>
+                                </c:when>
+                                <c:otherwise >
+                                    <%@include file="includes/checkOther.jsp"%>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>
@@ -93,7 +92,7 @@
             <div class="form-group row">
                 <label for="bio" class="col-sm-3 col-form-label" >Biography</label>
                 <div class="col-sm-9">
-                <textarea class="form-control" name="biography" id="bio" rows="4"></textarea>
+                <textarea class="form-control" name="biography" id="bio" rows="4">${user.biography}</textarea>
                 </div>
             </div>
             <div class="form-group row">
