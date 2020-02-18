@@ -8,7 +8,7 @@
                     <a class="nav-link"  href="register">Register</a>
                 </li>
                 </li>
-                <a class="nav-link"  href="profile-edit">Edit Porfile</a>
+                <a class="nav-link"  href="profile-edit?id=1">Edit Porfile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="./account/signin.jsp">Login</a>
@@ -34,7 +34,7 @@
                        aria-haspopup="true" aria-expanded="false">Media</a>
                     <div class="dropdown-menu" aria-labelledby="streammedia">
                         <a class="dropdown-item" href="#">Film</a>
-                        <a class="dropdown-item" href="#">Trailers</a>
+                        <a class="dropdown-item" href="trailer/trailerList.jsp">Trailers</a>
                         <a class="dropdown-item" href="#">Short Stories</a>
                     </div>
                 </li>

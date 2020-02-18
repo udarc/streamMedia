@@ -24,7 +24,7 @@ import java.util.List;
 @WebServlet(
         name = "users",
         urlPatterns = {"/users"})
-public class ListUser extends HttpServlet {
+public class UserList extends HttpServlet {
 //    private UserDao userDao;
     GenericDao genericDao;
 

@@ -15,12 +15,16 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 
+/**
+ * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
+ * The type Add trailer.
+ */
 @Log4j2
 @WebServlet(
         name = "addTailer",
         urlPatterns = {"/add-trailer"}
 )
-public class AddTrailer extends HttpServlet {
+public class TraillerAdd extends HttpServlet {
     private GenericDao genericDao;
 
     public void init() {
@@ -37,7 +41,7 @@ public class AddTrailer extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url ="/templates/addTrailer.jsp";
+        String url ="/templates/trailerAdd.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
