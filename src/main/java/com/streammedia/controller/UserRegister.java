@@ -21,7 +21,7 @@ import java.time.LocalDate;
         name = "signup",
         urlPatterns = {"/register"}
 )
-public class RegisterUser extends HttpServlet {
+public class UserRegister extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDao userDao;
 
