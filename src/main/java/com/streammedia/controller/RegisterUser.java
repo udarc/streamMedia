@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
+/**
+ * The type Register user.
+ */
 @Log4j2
 @WebServlet(
         name = "signup",

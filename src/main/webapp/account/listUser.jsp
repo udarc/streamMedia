@@ -23,7 +23,9 @@
                     <th>User Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Age</th>
+                    <th>Roles</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
 
                 </tr>
                 </thead>
@@ -37,7 +39,8 @@
                                ${role.name}
                            </c:forEach>
 
-                        </td>
+                    <td><a class="btn btn-outline-primary" href="profile-edit?id=<c:out value="${user.userId}"/>">Edit</a></td>
+                    <td><a class="btn btn-outline-danger"  href="deleteUser?id=<c:out value="${user.userId}"/>">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
