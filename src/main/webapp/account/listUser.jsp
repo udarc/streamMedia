@@ -23,7 +23,8 @@
                     <th>User Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
 
                 </tr>
                 </thead>
@@ -33,7 +34,7 @@
                         <td>${user.username}</td>
                         <td> ${user.email}</td>
                         <td>view</td>
-                        <td><a class="btn bg-dark" href="profile-edit/?id=<c:out value='${user.userId}'/>">Edit</a> </td>
+                        <td><a class="btn bg-dark" href="profile-edit?id=<c:out value='${user.userId}'/>">Edit</a> </td>
                         <td><a class="btn btn-danger" href="">Delete</a></td>
 
                     </tr>
