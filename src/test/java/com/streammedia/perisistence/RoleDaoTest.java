@@ -78,7 +78,8 @@ class RoleDaoTest {
         Role insertedRole = (Role)genericDao.getById(id);
         assertEquals("media creator", insertedRole.getName());
         assertNotNull(insertedRole.getUser());
-        assertEquals("jcoyne",insertedRole.getUser().getUsername());
+//        assertEquals("jcoyne",insertedRole.getUser().getUsername());
+        assertTrue(user.equals(insertedRole.getUser()));
     }
 
     /**

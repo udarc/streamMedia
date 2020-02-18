@@ -95,8 +95,9 @@ class UserDaoTest {
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
-        assertEquals("ujeanne", insertedUser.getUsername());
-        assertEquals("ujeanne@streammedia.com",insertedUser.getEmail());
+//        assertEquals("ujeanne", insertedUser.getUsername());
+//        assertEquals("ujeanne@streammedia.com",insertedUser.getEmail());
+        assertTrue(newUser.equals(insertedUser));
         assertEquals(1,insertedUser.getRoles().size());
         }
     /**
@@ -110,7 +111,7 @@ class UserDaoTest {
         genericDao.saveOrUpdate(userToUpdate);
         User retrievedUser = (User)genericDao.getById(3);
 //        assertEquals(newLastName, retrievedUser.getLastName());
-        assertEquals(userToUpdate,retrievedUser);
+//        assertEquals(userToUpdate,retrievedUser);
         assertTrue(userToUpdate.equals(retrievedUser));
     }
 
