@@ -33,9 +33,10 @@
                         <td>${user.userId}</td>
                         <td>${user.username}</td>
                         <td> ${user.email}</td>
-                        <td>view</td>
-                        <td><a class="btn bg-dark" href="profile-edit?id=<c:out value='${user.userId}'/>">Edit</a> </td>
-                        <td><a class="btn btn-danger" href="">Delete</a></td>
+                        <td>
+                           <c:forEach var="role" items="${user.roles}" >
+                               ${role.name}
+                           </c:forEach>
 
                     </tr>
                 </c:forEach>

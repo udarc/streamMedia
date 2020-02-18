@@ -1,5 +1,7 @@
 package com.streammedia.controller;
+import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
+import com.streammedia.perisistence.RoleDao;
 import com.streammedia.perisistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
@@ -21,12 +23,14 @@ public class ListUser extends HttpServlet {
     private UserDao userDao;
 
     public void init() {
+
         userDao = new UserDao();
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<User> listUser = userDao.getAllUsers();
+
         request.setAttribute("users", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/account/listUser.jsp");
         dispatcher.forward(request, response);

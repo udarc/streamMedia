@@ -5,7 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 /**
@@ -18,7 +20,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-
 @Entity(name = "User")
 @Table(name = "SM_Users")
 public class User implements Serializable {
@@ -58,10 +59,17 @@ public class User implements Serializable {
     private String biography;
 
     @Column(name = "created_at",nullable = false)
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at",nullable = false)
+    @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Role> roles = new HashSet<Role>();
 
     public User(String userName, String email, String password, LocalDate createdAt, LocalDate updateAt) {
         this.username = userName;
@@ -70,6 +78,15 @@ public class User implements Serializable {
         this.createdAt = createdAt;
         this.updateAt = LocalDate.now();
 
+    }
+
+    /**
+     * Add role.
+     *
+     * @param role the role
+     */
+    public void addRole(Role role) {
+        roles.add(role);
     }
 /**
     @Override

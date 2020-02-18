@@ -42,6 +42,12 @@ public class UserDao {
         return users;
     }
 
+    /**
+     * Gets user by last name.
+     *
+     * @param lastname the lastname
+     * @return the user by last name
+     */
     public List<User> getUserByLastName(String lastname) {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -54,6 +60,12 @@ public class UserDao {
         return users;
     }
 
+    /**
+     * Gets user by id.
+     *
+     * @param userId the user id
+     * @return the user by id
+     */
     public User getUserById(int userId) {
         log.debug("Getting user by Id {}",userId);
         Session session = sessionFactory.openSession();
@@ -64,7 +76,8 @@ public class UserDao {
 
     /**
      * update user
-     * @param user  User to be inserted or updated
+     *
+     * @param user User to be inserted or updated
      */
     public void saveOrUpdate(User user) {
         log.info("Save Mathoth");
@@ -77,7 +90,9 @@ public class UserDao {
 
     /**
      * update user
-     * @param user  User to be inserted or updated
+     *
+     * @param user User to be inserted or updated
+     * @return the int
      */
     public int insert(User user) {
         int id = 0;
@@ -91,6 +106,7 @@ public class UserDao {
 
     /**
      * Delete a user
+     *
      * @param user User to be deleted
      */
     public void delete(User user) {
@@ -104,6 +120,10 @@ public class UserDao {
     /**
      * Get user by property (exact match)
      * sample usage: getByPropertyEqual("lastname", "Curry")
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property equal
      */
     public List<User> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
@@ -123,6 +143,10 @@ public class UserDao {
     /**
      * Get user by property (like)
      * sample usage: getByPropertyLike("lastname", "C")
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property like
      */
     public List<User> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
