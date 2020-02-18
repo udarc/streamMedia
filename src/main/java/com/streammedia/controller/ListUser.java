@@ -1,9 +1,12 @@
 package com.streammedia.controller;
 import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
+import com.streammedia.perisistence.GenericDao;
 import com.streammedia.perisistence.RoleDao;
 import com.streammedia.perisistence.UserDao;
+import lombok.extern.log4j.Log4j2;
 
+import javax.persistence.GeneratedValue;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,21 +19,25 @@ import java.util.List;
 /**
  * The type Users.
  */
+
+@Log4j2
 @WebServlet(
         name = "users",
         urlPatterns = {"/users"})
 public class ListUser extends HttpServlet {
-    private UserDao userDao;
+//    private UserDao userDao;
+    GenericDao genericDao;
 
     public void init() {
 
-        userDao = new UserDao();
+//        userDao = new UserDao();
+        genericDao =  new GenericDao(User.class);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<User> listUser = userDao.getAllUsers();
-
+        List<User> listUser = genericDao.getAll();
+        log.debug("Getting All Users servlet" + listUser);
         request.setAttribute("users", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/account/listUser.jsp");
         dispatcher.forward(request, response);

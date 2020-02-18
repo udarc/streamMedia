@@ -18,6 +18,7 @@
 
         <mapping class="com.streammedia.entity.User"/>
         <mapping class="com.streammedia.entity.Role"/>
+        <mapping class="com.streammedia.entity.Trailer"/>
 
 
     </session-factory>
