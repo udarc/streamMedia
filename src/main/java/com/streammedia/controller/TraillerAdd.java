@@ -2,7 +2,6 @@ package com.streammedia.controller;
 
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
-import com.streammedia.perisistence.UserDao;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
