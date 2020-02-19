@@ -20,7 +20,7 @@ import java.io.IOException;
         urlPatterns = {"/deleteUser"}
 )
 
-public class DeleteUser extends HttpServlet {
+public class UserDelete extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         GenericDao genericDao = new GenericDao(User.class);

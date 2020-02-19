@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
         name = "userEdit",
         urlPatterns = {"/profile-edit"}
 )
-public class EditUserProfile extends HttpServlet {
+public class UserEditProfile extends HttpServlet {
         private GenericDao genericDao;
 
         public void init() {
