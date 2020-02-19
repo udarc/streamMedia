@@ -3,9 +3,7 @@ package com.streammedia.perisistence;
 import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
 import com.streammedia.test.utility.Database;
-import org.hibernate.criterion.Order;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -20,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 //@Disabled
 class UserDaoTest {
 
-    UserDao dao;
     GenericDao genericDao;
 
     /**
@@ -28,7 +25,6 @@ class UserDaoTest {
      */
     @BeforeEach
     void setUp() {
-        dao = new UserDao();
         genericDao =  new GenericDao(User.class);
 
         Database database = Database.getInstance();
@@ -43,15 +39,6 @@ class UserDaoTest {
     void getAllUsersSuccess() {
         List<User> users = genericDao.getAll();
         assertEquals(6, users.size());
-    }
-
-    /**
-     * Verifies gets users by last name successfully.
-     */
-    @Test
-    void getUsersByLastNameSuccess() {
-        List<User> users = dao.getUserByLastName("c");
-        assertEquals(3, users.size());
     }
 
     /**
@@ -78,9 +65,7 @@ class UserDaoTest {
 //        assertEquals("fflintstone", insertedUser.getUsername());
 //        assertEquals("fflintstone@streammedia.com",insertedUser.getEmail());
         assertEquals(newUser,insertedUser);
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TO DO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertTrue(newUser.equals(insertedUser));
     }
     @Test
     void insertWithRoleSuccess() {
