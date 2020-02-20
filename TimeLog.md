@@ -28,7 +28,16 @@
 |Feb 12, 2020|completed User registration using form and controller |3||
 |Feb 12, 2020|Started to work on contact with JavaMail |2||
 |Feb 13, 2020|Completed Contact Us functionality |1.5||
-|Feb 13, 2020|Completed Weekly reflexion |.5||
+|Feb 13, 2020|Completed Weekly Time Log |.5||
+|Feb 14, 2020|Added Role table, Entity and RoleDaoTest |4.5||
+|Feb 15, 2020|Completed Weekly Time Log |.5||
+|Feb 16, 2020|Created GenericDao and replace User and Role Dao with Generic Dao |3.5||
+|Feb 17, 2020|Completed UserEditProfile Servlet and JSP |||
+|Feb 17, 2020|Added UserDelete Controller and added link to listUser |2||
+|Feb 18, 2020|Created FAQ,trailer,Crew,film and genre table, Trailer  entity, add Film, Genre, genre and FAQ JSPs  and
+ list Trailer and Film JSP and Trailer controller |5||
+|Feb 18, 2020|Replace UserDao and RoleDao with GenericDao in UserDao and RoleDaoTest|1.25||
+|Feb 19, 2020|Completed Weekly Time Log |1.5||
 
 
 
