@@ -64,13 +64,25 @@ public class TraillerAdd extends HttpServlet {
         trailer.setUpdatedAt(LocalDate.now());
         GenericDao userDao =  new GenericDao(User.class);
 //        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
-        User user = (User) userDao.getById(1);
-        trailer.setUser(user);
-        int trailerId = genericDao.insert(trailer);
-        log.debug("Adding Trailer: ", trailer);
-        genericDao.insert(trailer);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
-        dispatcher.forward(req, resp);
+        try {
+            User user = (User) userDao.getById(1);
+            if (!user.equals(null)) {
+                trailer.setUser(user);
+                log.debug("Adding Trailer: ", trailer);
+                genericDao.insert(trailer);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
+                dispatcher.forward(req, resp);
+            } else {
+                req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
+            }
+        }catch (NullPointerException npe){
+            log.error("User Does not Exists", npe);
+        }
+
+
+
+
+
     }
 
 }

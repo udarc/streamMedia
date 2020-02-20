@@ -89,3 +89,209 @@
 [DEBUG] 2020-02-18 19:43:48.002 [main] GenericDao - Getting Entity by Id {}49
 [DEBUG] 2020-02-18 19:43:48.079 [main] GenericDao - The list of Entities [User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18), User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18), User(userId=3, username=bcurry, email=bcurry@streammedia.com, password=supersecret3, firstName=Barney, lastName=Curry, birthdate=1947-11-11, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18), User(userId=4, username=kmack, email=kmack@streammedia.com, password=supersecret4, firstName=Karen, lastName=Mack, birthdate=1986-07-08, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18), User(userId=5, username=dklein, email=dklein@streammedia.com, password=supersecret5, firstName=Dianne, lastName=Klein, birthdate=1991-09-22, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18), User(userId=6, username=dtillman, email=dtillman@streammedia.com, password=supersecret6, firstName=Dawn, lastName=Tillman, birthdate=1979-08-30, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
 [DEBUG] 2020-02-18 19:43:48.109 [main] GenericDao - Getting Entity by Id {}50
+[DEBUG] 2020-02-20 11:07:56.290 [http-nio-8080-exec-45] GenericDao - The list of Entities [User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:07:56.292 [http-nio-8080-exec-45] UserList - Getting All Users servlet[User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:11:24.663 [http-nio-8080-exec-64] GenericDao - The list of Entities [User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:11:24.664 [http-nio-8080-exec-64] UserList - Getting All Users servlet[User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:18:16.947 [http-nio-8080-exec-5] GenericDao - The list of Entities []
+[DEBUG] 2020-02-20 11:18:16.949 [http-nio-8080-exec-5] TrailerList - Getting All Users servlet[]
+[DEBUG] 2020-02-20 11:19:27.961 [http-nio-8080-exec-13] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:32:51.407 [http-nio-8080-exec-1] GenericDao - The list of Entities []
+[DEBUG] 2020-02-20 11:32:51.408 [http-nio-8080-exec-1] TrailerList - Getting All Users servlet[]
+[DEBUG] 2020-02-20 11:33:18.933 [http-nio-8080-exec-11] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:33:19.267 [http-nio-8080-exec-11] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 11:36:39.424 [http-nio-8080-exec-15] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:38:57.763 [http-nio-8080-exec-26] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:40:10.117 [http-nio-8080-exec-29] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:40:33.419 [http-nio-8080-exec-31] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:40:49.102 [http-nio-8080-exec-33] GenericDao - The list of Entities [User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:40:49.102 [http-nio-8080-exec-33] UserList - Getting All Users servlet[User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=5, username=ella, email=ella@streammedia.com, password=12345, firstName=Ella, lastName=Ishimwe, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-18, updateAt=2020-02-18)]
+[DEBUG] 2020-02-20 11:40:54.905 [http-nio-8080-exec-37] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78]
+[DEBUG] 2020-02-20 11:40:54.905 [http-nio-8080-exec-37] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78]
+[DEBUG] 2020-02-20 11:42:23.599 [http-nio-8080-exec-32] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:43:40.588 [http-nio-8080-exec-4] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78]
+[DEBUG] 2020-02-20 11:43:40.590 [http-nio-8080-exec-4] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78]
+[DEBUG] 2020-02-20 11:43:43.736 [http-nio-8080-exec-8] GenericDao - Getting Entity by Id {}2
+[DEBUG] 2020-02-20 11:43:43.832 [http-nio-8080-exec-8] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 11:44:20.642 [http-nio-8080-exec-3] GenericDao - Getting Entity by Id {}2
+[DEBUG] 2020-02-20 11:44:50.301 [http-nio-8080-exec-6] GenericDao - Getting Entity by Id {}2
+[DEBUG] 2020-02-20 11:46:55.575 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 11:47:39.294 [http-nio-8080-exec-13] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:49:12.943 [http-nio-8080-exec-11] GenericDao - Getting Entity by Id {}5
+[DEBUG] 2020-02-20 11:50:20.063 [http-nio-8080-exec-23] GenericDao - Getting Entity by Id {}5
+[DEBUG] 2020-02-20 11:51:05.498 [http-nio-8080-exec-25] GenericDao - Getting Entity by Id {}5
+[DEBUG] 2020-02-20 11:52:02.600 [http-nio-8080-exec-23] GenericDao - Getting Entity by Id {}5
+[DEBUG] 2020-02-20 11:53:44.611 [http-nio-8080-exec-8] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d]
+[DEBUG] 2020-02-20 11:53:44.612 [http-nio-8080-exec-8] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d]
+[DEBUG] 2020-02-20 11:54:32.261 [http-nio-8080-exec-12] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 11:54:32.461 [http-nio-8080-exec-12] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 11:57:06.694 [http-nio-8080-exec-17] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:00:01.477 [http-nio-8080-exec-23] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:00:03.583 [http-nio-8080-exec-23] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:01:31.048 [http-nio-8080-exec-31] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:01:31.069 [http-nio-8080-exec-31] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:03:02.120 [http-nio-8080-exec-33] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:03:02.234 [http-nio-8080-exec-33] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:04:00.645 [http-nio-8080-exec-2] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895]
+[DEBUG] 2020-02-20 12:04:00.647 [http-nio-8080-exec-2] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895]
+[DEBUG] 2020-02-20 12:04:26.338 [http-nio-8080-exec-10] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:04:26.370 [http-nio-8080-exec-10] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:05:55.329 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:05:57.368 [http-nio-8080-exec-1] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:07:01.408 [http-nio-8080-exec-13] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:07:01.427 [http-nio-8080-exec-13] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:08:31.325 [http-nio-8080-exec-14] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:08:31.378 [http-nio-8080-exec-14] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:09:41.406 [http-nio-8080-exec-4] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500]
+[DEBUG] 2020-02-20 12:09:41.407 [http-nio-8080-exec-4] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500]
+[DEBUG] 2020-02-20 12:10:25.729 [http-nio-8080-exec-2] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:10:25.760 [http-nio-8080-exec-2] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:11:45.892 [http-nio-8080-exec-3] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33]
+[DEBUG] 2020-02-20 12:11:45.894 [http-nio-8080-exec-3] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33]
+[DEBUG] 2020-02-20 12:12:28.108 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:12:28.140 [http-nio-8080-exec-1] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 12:13:07.941 [http-nio-8080-exec-4] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 12:13:07.980 [http-nio-8080-exec-4] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 13:47:52.315 [http-nio-8080-exec-7] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c]
+[DEBUG] 2020-02-20 13:47:52.317 [http-nio-8080-exec-7] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c]
+[DEBUG] 2020-02-20 13:49:16.514 [http-nio-8080-exec-4] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 13:49:16.567 [http-nio-8080-exec-4] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 13:50:17.312 [http-nio-8080-exec-2] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 13:52:10.608 [http-nio-8080-exec-10] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 13:53:37.552 [http-nio-8080-exec-3] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275]
+[DEBUG] 2020-02-20 13:53:37.554 [http-nio-8080-exec-3] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275]
+[DEBUG] 2020-02-20 13:53:41.848 [http-nio-8080-exec-7] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 13:54:05.190 [http-nio-8080-exec-2] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 13:55:12.737 [http-nio-8080-exec-6] GenericDao - Getting Entity by Id {}3
+[DEBUG] 2020-02-20 13:59:48.906 [http-nio-8080-exec-3] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275]
+[DEBUG] 2020-02-20 13:59:48.907 [http-nio-8080-exec-3] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275]
+[DEBUG] 2020-02-20 14:00:47.874 [http-nio-8080-exec-11] GenericDao - Getting Entity by Id {}3
+[ERROR] 2020-02-20 14:00:48.000 [http-nio-8080-exec-11] TraillerAdd - User Does not Exists
+java.lang.NullPointerException: null
+	at com.streammedia.controller.TraillerAdd.doPost(TraillerAdd.java:69) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBValve.invoke(OpenEJBValve.java:44) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [catalina.jar:8.5.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBSecurityListener$RequestCapturer.invoke(OpenEJBSecurityListener.java:97) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:8.5.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.41]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+[DEBUG] 2020-02-20 14:00:55.338 [http-nio-8080-exec-12] GenericDao - Getting Entity by Id {}3
+[ERROR] 2020-02-20 14:00:55.341 [http-nio-8080-exec-12] TraillerAdd - User Does not Exists
+java.lang.NullPointerException: null
+	at com.streammedia.controller.TraillerAdd.doPost(TraillerAdd.java:69) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBValve.invoke(OpenEJBValve.java:44) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [catalina.jar:8.5.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBSecurityListener$RequestCapturer.invoke(OpenEJBSecurityListener.java:97) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:8.5.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.41]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+[DEBUG] 2020-02-20 14:02:34.174 [http-nio-8080-exec-18] GenericDao - Getting Entity by Id {}3
+[ERROR] 2020-02-20 14:02:36.151 [http-nio-8080-exec-18] TraillerAdd - User Does not Exists
+java.lang.NullPointerException: null
+	at com.streammedia.controller.TraillerAdd.doPost(TraillerAdd.java:69) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBValve.invoke(OpenEJBValve.java:44) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [catalina.jar:8.5.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [catalina.jar:8.5.41]
+	at org.apache.tomee.catalina.OpenEJBSecurityListener$RequestCapturer.invoke(OpenEJBSecurityListener.java:97) [tomee-catalina-7.1.1.jar:7.1.1]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660) [catalina.jar:8.5.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:8.5.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-coyote.jar:8.5.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.41]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+[DEBUG] 2020-02-20 14:04:31.610 [http-nio-8080-exec-25] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:04:33.652 [http-nio-8080-exec-25] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:06:06.682 [http-nio-8080-exec-4] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a]
+[DEBUG] 2020-02-20 14:06:06.684 [http-nio-8080-exec-4] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a]
+[DEBUG] 2020-02-20 14:06:41.705 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:06:41.739 [http-nio-8080-exec-1] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:06:53.572 [http-nio-8080-exec-3] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:06:53.578 [http-nio-8080-exec-3] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:07:59.146 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:08:01.198 [http-nio-8080-exec-1] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:08:16.453 [http-nio-8080-exec-2] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:08:16.491 [http-nio-8080-exec-2] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:09:21.809 [http-nio-8080-exec-3] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:09:25.197 [http-nio-8080-exec-3] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:10:08.033 [http-nio-8080-exec-3] GenericDao - Getting Entity by Id {}1
+[DEBUG] 2020-02-20 14:10:10.324 [http-nio-8080-exec-3] TraillerAdd - Adding Trailer: 
+[DEBUG] 2020-02-20 14:10:17.004 [http-nio-8080-exec-10] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:10:17.008 [http-nio-8080-exec-10] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:15:04.009 [http-nio-8080-exec-18] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:15:04.011 [http-nio-8080-exec-18] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:16:54.505 [http-nio-8080-exec-26] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:16:54.507 [http-nio-8080-exec-26] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:29.898 [http-nio-8080-exec-33] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:29.899 [http-nio-8080-exec-33] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:33.076 [http-nio-8080-exec-29] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:33.076 [http-nio-8080-exec-29] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:36.798 [http-nio-8080-exec-34] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:18:36.798 [http-nio-8080-exec-34] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:21:06.869 [http-nio-8080-exec-38] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:21:06.870 [http-nio-8080-exec-38] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:21:53.268 [http-nio-8080-exec-49] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:21:53.272 [http-nio-8080-exec-49] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:22:57.673 [http-nio-8080-exec-50] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:22:57.676 [http-nio-8080-exec-50] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:23:04.716 [http-nio-8080-exec-54] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:23:04.717 [http-nio-8080-exec-54] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:28:22.422 [http-nio-8080-exec-68] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:28:22.423 [http-nio-8080-exec-68] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:29:44.687 [http-nio-8080-exec-68] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-20 14:29:44.689 [http-nio-8080-exec-68] TrailerList - Getting All Users servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]

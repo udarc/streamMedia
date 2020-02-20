@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 //@Disabled
 class RoleDaoTest {
 
-
     GenericDao genericDao;
     GenericDao userGenericDao;
     /**
