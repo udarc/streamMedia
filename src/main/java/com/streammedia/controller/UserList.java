@@ -1,12 +1,8 @@
 package com.streammedia.controller;
-import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
-import com.streammedia.perisistence.RoleDao;
-import com.streammedia.perisistence.UserDao;
 import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.GeneratedValue;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

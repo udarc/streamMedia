@@ -71,10 +71,10 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Role> roles = new HashSet<Role>();
 
-//    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    private Set<Trailer> trailers = new HashSet<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Trailer> trailers = new HashSet<>();
 
     public User(String userName, String email, String password, LocalDate createdAt, LocalDate updateAt) {
         this.username = userName;

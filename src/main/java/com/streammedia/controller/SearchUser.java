@@ -1,6 +1,8 @@
 package com.streammedia.controller;
 
-import com.streammedia.perisistence.UserDao;
+import com.streammedia.entity.User;
+import com.streammedia.perisistence.GenericDao;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,11 +24,11 @@ import java.io.IOException;
 public class SearchUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userData = new UserDao();
+        GenericDao userData = new GenericDao(User.class);
         String searchTerm = req.getParameter("searchTerm").trim();
         if((searchTerm != null && !searchTerm.isEmpty())){
             try {
-                req.setAttribute("searches",userData.getUserByLastName(searchTerm));
+                req.setAttribute("searches",userData.getByPropertyLike("lastName",searchTerm));
             } catch (Exception e) {
                 e.printStackTrace();
             }

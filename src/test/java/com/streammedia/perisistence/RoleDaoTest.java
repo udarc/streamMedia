@@ -1,13 +1,11 @@
 package com.streammedia.perisistence;
 
 import com.streammedia.entity.Role;
-import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
 import com.streammedia.test.utility.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,14 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 //@Disabled
 class RoleDaoTest {
 
-    RoleDao dao;
     GenericDao genericDao;
     /**
      * Creating the dao.
      */
     @BeforeEach
     void setUp() {
-        dao = new RoleDao();
+
         genericDao = new GenericDao(Role.class);
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
@@ -42,14 +39,14 @@ class RoleDaoTest {
         assertEquals(5, roles.size());
     }
 
-    /**
-     * Verifies gets roles by last name successfully.
-     */
-    @Test
-    void getRolesByName() {
-        List<Role> roles = dao.getRoleName("a");
-        assertEquals(3, roles.size());
-    }
+//    /**
+//     * Verifies gets roles by last name successfully.
+//     */
+//    @Test
+//    void getRolesByName() {
+//        List<Role> roles = dao.getRoleName("a");
+//        assertEquals(3, roles.size());
+//    }
 
     /**
      * Verifies a role is returned correctly based on id search
@@ -67,8 +64,8 @@ class RoleDaoTest {
 //    @Disabled
     @Test
     void insertSuccess() {
-        UserDao userDao =  new UserDao();
-        User user = userDao.getUserById(1);
+        genericDao  =  new GenericDao(User.class);
+        User user = (User)genericDao.getById(1);
         Role newRole = new Role();
         newRole.setName("media creator");
         newRole.setUser(user);
