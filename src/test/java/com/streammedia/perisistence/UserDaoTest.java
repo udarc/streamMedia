@@ -41,15 +41,6 @@ class UserDaoTest {
         assertEquals(6, users.size());
     }
 
-//    /**
-//     * Verifies gets users by last name successfully.
-//     */
-//    @Test
-//    void getUsersByLastNameSuccess() {
-//        List<User> users = dao.getUserByLastName("c");
-//        assertEquals(3, users.size());
-//    }
-
     /**
      * Verifies a user is returned correctly based on id search
      */
@@ -74,9 +65,7 @@ class UserDaoTest {
 //        assertEquals("fflintstone", insertedUser.getUsername());
 //        assertEquals("fflintstone@streammedia.com",insertedUser.getEmail());
         assertEquals(newUser,insertedUser);
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TO DO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertTrue(newUser.equals(insertedUser));
     }
     @Test
     void insertWithRoleSuccess() {

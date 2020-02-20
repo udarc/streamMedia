@@ -1,7 +1,7 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.entity.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import java.io.IOException;
 public class UserProfile extends HttpServlet {
     private GenericDao genericDao;
     public void init() {
-         genericDao = new GenericDao(User.class);
+        genericDao = new GenericDao(User.class);
     }
     /**
      *  Handles HTTP GET requests.
