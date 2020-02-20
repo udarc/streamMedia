@@ -14,12 +14,12 @@
 <div class="container">
     <div class="form row">
         <h1>Add Trailer</h1>
-        <form class="card col-sm-10 offset-sm-1" action="addTrailer" method="post">
+        <form class="card col-sm-10 offset-sm-1" action="add-trailer" method="post">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="title"
-                           id="title" placeholder="Trailerb Title">
+                           id="title" placeholder="Trailer Title">
                 </div>
             </div>
             <div class="form-group row">

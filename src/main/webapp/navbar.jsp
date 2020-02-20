@@ -34,7 +34,7 @@
                        aria-haspopup="true" aria-expanded="false">Media</a>
                     <div class="dropdown-menu" aria-labelledby="streammedia">
                         <a class="dropdown-item" href="#">Film</a>
-                        <a class="dropdown-item" href="trailer/trailerList.jsp">Trailers</a>
+                        <a class="dropdown-item" href="trailers">Trailers</a>
                         <a class="dropdown-item" href="#">Short Stories</a>
                     </div>
                 </li>
