@@ -17,7 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
 //@Disabled
 class RoleDaoTest {
 
+
     GenericDao genericDao;
+    GenericDao userGenericDao;
     /**
      * Creating the dao.
      */
@@ -25,6 +27,8 @@ class RoleDaoTest {
     void setUp() {
 
         genericDao = new GenericDao(Role.class);
+        userGenericDao = new GenericDao(User.class);
+
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
 
@@ -39,14 +43,7 @@ class RoleDaoTest {
         assertEquals(5, roles.size());
     }
 
-//    /**
-//     * Verifies gets roles by last name successfully.
-//     */
-//    @Test
-//    void getRolesByName() {
-//        List<Role> roles = dao.getRoleName("a");
-//        assertEquals(3, roles.size());
-//    }
+
 
     /**
      * Verifies a role is returned correctly based on id search
@@ -64,8 +61,8 @@ class RoleDaoTest {
 //    @Disabled
     @Test
     void insertSuccess() {
-        genericDao  =  new GenericDao(User.class);
-        User user = (User)genericDao.getById(1);
+
+        User user = (User)userGenericDao.getById(1);
         Role newRole = new Role();
         newRole.setName("media creator");
         newRole.setUser(user);
@@ -75,8 +72,8 @@ class RoleDaoTest {
         Role insertedRole = (Role)genericDao.getById(id);
         assertEquals("media creator", insertedRole.getName());
         assertNotNull(insertedRole.getUser());
-//        assertEquals("jcoyne",insertedRole.getUser().getUsername());
-        assertTrue(user.equals(insertedRole.getUser()));
+        assertEquals("jcoyne",insertedRole.getUser().getUsername());
+//        assertTrue(user.equals(insertedRole.getUser()));
     }
 
     /**
