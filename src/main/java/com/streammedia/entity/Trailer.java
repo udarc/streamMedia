@@ -10,6 +10,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @EqualsAndHashCode
+@Entity(name = "Trailer")
+@Table(name = "Trailer")
 public class Trailer {
     @Id
     @Column(name = "trailer_id")
@@ -48,6 +50,6 @@ public class Trailer {
     private LocalDate updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
+    @JoinColumn(name = "user")
     private User user;
 }

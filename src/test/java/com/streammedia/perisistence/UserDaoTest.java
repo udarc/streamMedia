@@ -3,9 +3,7 @@ package com.streammedia.perisistence;
 import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
 import com.streammedia.test.utility.Database;
-import org.hibernate.criterion.Order;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -20,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 //@Disabled
 class UserDaoTest {
 
-    UserDao dao;
     GenericDao genericDao;
 
     /**
@@ -28,7 +25,6 @@ class UserDaoTest {
      */
     @BeforeEach
     void setUp() {
-        dao = new UserDao();
         genericDao =  new GenericDao(User.class);
 
         Database database = Database.getInstance();
@@ -45,14 +41,14 @@ class UserDaoTest {
         assertEquals(6, users.size());
     }
 
-    /**
-     * Verifies gets users by last name successfully.
-     */
-    @Test
-    void getUsersByLastNameSuccess() {
-        List<User> users = dao.getUserByLastName("c");
-        assertEquals(3, users.size());
-    }
+//    /**
+//     * Verifies gets users by last name successfully.
+//     */
+//    @Test
+//    void getUsersByLastNameSuccess() {
+//        List<User> users = dao.getUserByLastName("c");
+//        assertEquals(3, users.size());
+//    }
 
     /**
      * Verifies a user is returned correctly based on id search

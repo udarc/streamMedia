@@ -1,7 +1,7 @@
 package com.streammedia.controller;
 import com.streammedia.entity.Role;
 import com.streammedia.entity.User;
-import com.streammedia.perisistence.UserDao;
+import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
@@ -23,10 +23,10 @@ import java.time.LocalDate;
 )
 public class UserRegister extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private UserDao userDao;
+    private GenericDao genericDao;
 
     public void init() {
-        userDao = new UserDao();
+        genericDao = new GenericDao(User.class);
     }
     /**
      *  Handles HTTP GET requests.
@@ -63,7 +63,7 @@ public class UserRegister extends HttpServlet {
         role.setUser(user);
         role.setName("user");
         user.addRole(role);
-            userDao.insert(user);
+            genericDao.insert(user);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
             dispatcher.forward(req, resp);
         } else {

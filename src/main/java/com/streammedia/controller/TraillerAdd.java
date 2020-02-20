@@ -2,7 +2,6 @@ package com.streammedia.controller;
 
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
-import com.streammedia.perisistence.UserDao;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
@@ -27,8 +26,12 @@ import java.time.LocalDate;
 public class TraillerAdd extends HttpServlet {
     private GenericDao genericDao;
 
+
     public void init() {
+
         genericDao = new GenericDao(Trailer.class);
+
+
     }
     /**
      *  Handles HTTP GET requests.
@@ -41,7 +44,7 @@ public class TraillerAdd extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url ="/templates/trailerAdd.jsp";
+        String url ="/trailer/trailerAdd.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
@@ -59,11 +62,15 @@ public class TraillerAdd extends HttpServlet {
         trailer.setSummary(req.getParameter("summary"));
         trailer.setCreatedAt(LocalDate.now());
         trailer.setUpdatedAt(LocalDate.now());
-
-            log.debug("Adding User: ", trailer);
-            genericDao.insert(trailer);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
-            dispatcher.forward(req, resp);
+        GenericDao userDao =  new GenericDao(User.class);
+//        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
+        User user = (User) userDao.getById(1);
+        trailer.setUser(user);
+        int trailerId = genericDao.insert(trailer);
+        log.debug("Adding Trailer: ", trailer);
+        genericDao.insert(trailer);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
+        dispatcher.forward(req, resp);
     }
 
 }

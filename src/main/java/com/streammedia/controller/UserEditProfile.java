@@ -2,7 +2,6 @@ package com.streammedia.controller;
 //TODO https://www.javatpoint.com/crud-in-servlet
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
-import com.streammedia.perisistence.UserDao;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * The type Edit user profile.
