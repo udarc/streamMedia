@@ -10,6 +10,10 @@ import javax.persistence.*;
 import java.time.*;
 import java.util.Set;
 
+/**
+ * The type Role.
+ * @author Jeanne
+ */
 @Getter
 @Setter
 @ToString
@@ -42,6 +46,9 @@ public class Role {
     private LocalDate updatedAt;
 
 
+    /**
+     * Instantiates a new Role.
+     */
     public Role() {
         this.createdAt = LocalDate.now();
         this.updatedAt = LocalDate.now();
