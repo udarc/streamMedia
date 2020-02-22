@@ -1,6 +1,7 @@
 package com.streammedia.controller;
 
 import com.streammedia.utility.JavaMailUtility;
+import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -23,9 +24,9 @@ import javax.mail.*;
         name="Contactus",
         urlPatterns = {"/contact-us"}
 )
-public class ContactUs extends HttpServlet {
-
-    private static final String receiverEmail = "some@gmail.com";
+public class ContactUs extends HttpServlet implements PropertiesLoader {
+    private  Properties properties;
+    private static String sendEmail;
 
 
     /**
@@ -47,22 +48,28 @@ public class ContactUs extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
             String name = req.getParameter("firstName").trim() + " " + req.getParameter("lastName").trim();
             String email =  req.getParameter("email").trim();
             String subject = req.getParameter("subject").trim();
             String content = req.getParameter("message").trim();
-            String amessage = "\n" + name + "\n" + email + "\n" + content;
+            String amessage = "\n" + name + "\n" + email + "\n" + content ;
 
         if (!(name.equals(null) && !email.equals(null) && !subject.equals(null) && !amessage.equals(null))) {
             log.info("Preparing to send a message: " + amessage);
 
             try {
-                JavaMailUtility.sendAsHtml(receiverEmail,
+                properties = loadProperties("contact.properties");
+                sendEmail = properties.getProperty("email");
+                JavaMailUtility.sendAsHtml(sendEmail,
                         subject,
                         amessage);
             } catch (MessagingException e) {
                 log.info("Sending Mail error" + e);
-            }
+            }catch (Exception ex) {
+            log.debug("Error loading properties" + ex);
+        }
+            log.debug(properties);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
             dispatcher.forward(req, resp);
         }

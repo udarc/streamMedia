@@ -4,10 +4,13 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.*;
 
 import lombok.extern.log4j.Log4j2;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -17,12 +20,28 @@ import org.apache.logging.log4j.core.*;
  * The type Java mail utility.
  */
 @Log4j2
-public class JavaMailUtility {
+public  class JavaMailUtility implements PropertiesLoader {
 
 //    private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
+    private static Properties mailProperties;
+    private static  String receiverEmail;
+    private  static  String senderPassword;
 
-    private static final String receiverEmail = "some@gmail.com";
-    private  static final String senderPassword = "Password";
+    private  JavaMailUtility(){
+
+        try {
+            mailProperties = loadProperties("contac.propeties") ;
+            receiverEmail = mailProperties.getProperty("email");
+            senderPassword =  mailProperties.getProperty("contact-password");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
 
     /**
      * Send as html.
@@ -58,7 +77,7 @@ public class JavaMailUtility {
      */
     private static void prepareEmailMessage(MimeMessage message, String toEmail, String title, String content) throws MessagingException {
         message.setText(content);
-        message.setFrom(new InternetAddress(receiverEmail));
+        message.setFrom(new InternetAddress(toEmail));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
         message.setSubject(title);
     }
