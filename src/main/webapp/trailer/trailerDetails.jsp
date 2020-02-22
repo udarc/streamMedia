@@ -15,29 +15,36 @@
 <main class="container-fluid" role="main">
     <h1 class="text-center">List of Trailers</h1> <a href="add-trailer" class="btn btn-success ml-auto" >Add Trailer</a>
     <div class="row">
+        <c:choose>
+            <c:when test="${trailer ne null}">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="card">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
 
-            <div class="col-sm-3">
-                <div class="card">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+                        <div class="card-body">
 
-                    <div class="card-body">
-<%--                        <h2 class="card-title"><a href=""></a>${trailer.title}</h2>--%>
+                            <h2 class="card-title"><a href=""></a>${trailer.title}</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">${trailer.author}</li>
+                                <li class="list-group-item">${trailer.duration}</li>
+                            </ul>
+                            <p class="card-text">${trailer.summary}</p>
+                            <p>Published ${trailer.publicationDate}</p>
+                        </div>
 
-<%--                        <p class="card-text">${trailer.summary}</p>--%>
-                        <h2>Details</h2>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link btn btn-primary">Trailer Details</a>
+                        <div class="card-body">
+                            <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
+                            <a  class="card-link btn btn-danger" href="trailer-remove?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p>Trailer was not found!</p>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </main>
 <%@include file="../footer.jsp"%>
