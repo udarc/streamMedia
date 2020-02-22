@@ -14,13 +14,16 @@ import java.util.List;
 
 /**
  * The type Users.
+ * @author Jeanne
  */
-
 @Log4j2
 @WebServlet(
         name = "users",
         urlPatterns = {"/users"})
 public class UserList extends HttpServlet {
+    /**
+     * The Generic dao.
+     */
 //    private UserDao userDao;
     GenericDao genericDao;
 

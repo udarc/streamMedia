@@ -17,6 +17,7 @@ import java.time.LocalDate;
 /**
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  * The type Add trailer.
+ * @author Jeanne
  */
 @Log4j2
 @WebServlet(
@@ -57,7 +58,7 @@ public class TraillerAdd extends HttpServlet {
         trailer.setDuration(req.getParameter("duration"));
         trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
         trailer.setCover(req.getParameter("cover"));
-        trailer.setLinks(req.getParameter("links"));
+        trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
         trailer.setCreatedAt(LocalDate.now());
