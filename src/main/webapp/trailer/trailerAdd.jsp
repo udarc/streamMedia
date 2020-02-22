@@ -14,7 +14,8 @@
 <div class="container">
     <div class="form row">
         <h1>Add Trailer</h1>
-        <form class="card col-sm-10 offset-sm-1" action="add-trailer" method="post">
+        <form class="card col-sm-10 offset-sm-1" action="add-trailer"
+              method="post" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
@@ -39,7 +40,7 @@
             <div class="form-group row">
                 <label for="cover" class="col-sm-3 col-form-label">Cover</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="cover" id="cover" placeholder="Cover">
                 </div>
             </div>
@@ -53,14 +54,14 @@
             <div class="form-group row">
                 <label for="video" class="col-sm-3 col-form-label">Video</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="video" id="video" placeholder="Video">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="link" class="col-sm-3 col-form-label">Link To Video</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="link" id="link" placeholder="Link">
                 </div>
             </div>
@@ -73,7 +74,7 @@
             <div class="form-group row">
                 <div class="col-sm-9">
                     <button type="submit"
-                            name="sendMessage" class="btn btn-lg btn-success">Send Message</button>
+                            name="saveTrailer" class="btn btn-lg btn-success">Save Trailer</button>
                 </div>
             </div>
         </form>

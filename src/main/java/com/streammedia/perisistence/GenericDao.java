@@ -13,6 +13,11 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 
+/**
+ * The type Generic dao.
+ * @author Jeanne
+ * @param <T> the type parameter
+ */
 @Log4j2
 public class GenericDao <T> {
     private Class<T> type;
@@ -51,22 +56,25 @@ public class GenericDao <T> {
     /**
      * Gets an entity by EntityId.
      *
+     * @param <T>      the type parameter
      * @param EntityId the entity id to search by
      * @return the entity
      */
     public <T>T getById(int EntityId) {
-        log.debug("Getting Entity by Id {}" + EntityId);
+        log.debug("Getting Entity by Id " + EntityId);
         Session session = getSession();
         T entity = (T)session.get(type,EntityId);
         session.close();
         return entity;
     }
+
     /**
      * update Entity
+     *
      * @param entity Entity to be inserted or updated
      */
     public void saveOrUpdate(T entity) {
-        log.debug("Updating");
+        log.debug("Updating an Entity");
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(entity);
@@ -82,16 +90,19 @@ public class GenericDao <T> {
      */
     public int insert(T entity) {
         int id = 0;
+
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
+        log.debug("A new user was Added with an Id" + id);
         return id;
     }
 
     /**
      * Delete an Entity
+     *
      * @param entity Entity to be deleted
      */
     public void delete(T entity) {
@@ -135,7 +146,7 @@ public class GenericDao <T> {
     public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
 
-        log.info("Searching for entity with {} = {}",  propertyName, value);
+        log.info("Searching for entity with ",  propertyName, value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
