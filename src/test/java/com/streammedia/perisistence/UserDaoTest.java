@@ -14,10 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * The type User dao test.
  */
-
 //@Disabled
 class UserDaoTest {
 
+    /**
+     * The Generic dao.
+     */
     GenericDao genericDao;
 
     /**
@@ -67,6 +69,10 @@ class UserDaoTest {
         assertEquals(newUser,insertedUser);
         assertTrue(newUser.equals(insertedUser));
     }
+
+    /**
+     * Insert with role success.
+     */
     @Test
     void insertWithRoleSuccess() {
 
@@ -85,6 +91,7 @@ class UserDaoTest {
         assertTrue(newUser.equals(insertedUser));
         assertEquals(1,insertedUser.getRoles().size());
         }
+
     /**
      * Verify successful update of user
      */
@@ -125,7 +132,21 @@ class UserDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(6));
-        assertNull(genericDao.getById(6));
+        genericDao.delete(genericDao.getById(5));
+        assertNull(genericDao.getById(5));
+    }
+
+    /**
+     * Delete user with r ole success.
+     */
+    @Test
+    void deleteUserWithROleSuccess() {
+        GenericDao roleDao = new GenericDao(Role.class);
+        Role role = new Role();
+        User user  =  (User)genericDao.getById(1);
+        genericDao.delete(user);
+        role = (Role)roleDao.getById(1);
+        assertNull(genericDao.getById(1));
+        assertNull(role);
     }
 }
