@@ -22,4 +22,21 @@ public interface PropertiesLoader {
         }
         return properties;
     }
+
+
+//    {
+//        try (
+//                InputStream input = getClass().getClassLoader().getResourceAsStream("contact.properties")) {
+//
+//            mailProperties = new Properties();
+//
+//            //load a properties file from class path, inside static method
+//            mailProperties.load(input);
+//            receiverEmail = mailProperties.getProperty("email");
+//            senderPassword =  mailProperties.getProperty("contact-password");
+//        } catch (
+//                IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
 }
