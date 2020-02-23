@@ -14,61 +14,65 @@
 <div class="container">
     <div class="form row">
         <h1>Add Trailer</h1>
-        <form class="card col-sm-10 offset-sm-1" action="add-trailer"
+        <form class="card col-sm-10 offset-sm-1" action="trailer-edit"
               method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id"
+                   name="uid"
+                   value="1">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="title"
-                           id="title" placeholder="Trailer Title">
+                           id="title" value="${trailer.title}" placeholder="Trailer Title">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="author" class="col-sm-3 col-form-label">Author</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="author" id="author" placeholder="Author">
+                           name="author" id="author" placeholder="Author" value="${trailer.author}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="duration" class="col-sm-3 col-form-label">Duration</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="duration" id="duration" placeholder="Duration">
+                           name="duration" id="duration" value="${trailer.duration}" placeholder="Duration">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="cover" class="col-sm-3 col-form-label">Cover</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control"
-                           name="cover" id="cover" placeholder="Cover">
+                           name="cover"  value="${trailer.cover}" id="cover" placeholder="Cover">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="pub_date" class="col-sm-3 col-form-label">Publication Date</label>
                 <div class="col-sm-9">
                     <input type="date" class="form-control"
-                           name="pub_date" id="pub_date" placeholder="Publication Date">
+                           name="pub_date" id="pub_date" value="${trailer.publicationDate}" placeholder="Publication Date">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="video" class="col-sm-3 col-form-label">Video</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control"
-                           name="video" id="video" placeholder="Video">
+                           name="video" id="video" value="${trailer.video}" placeholder="Video">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="link" class="col-sm-3 col-form-label">Link To Video</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control"
-                           name="link" id="link" placeholder="Link">
+                           name="link" id="link" value="${trailer.link}" placeholder="Link">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="summary" class="col-sm-3 col-form-label" >Summary</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="summary" id="Summary" rows="6"></textarea>
+                    <textarea class="form-control"name="summary" id="Summary" rows="6">
+                        ${trailer.summary}</textarea>
                 </div>
             </div>
             <div class="form-group row">

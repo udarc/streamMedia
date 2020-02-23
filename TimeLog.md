@@ -36,6 +36,9 @@
  list Trailer and Film JSP and Trailer controller |5||
 |Feb 18, 2020|Replace UserDao and RoleDao with GenericDao in UserDao and RoleDaoTest|1.25||
 |Feb 19, 2020|Completed Weekly Time Log |1.5||
+|Feb 20, 2020|Completed Trailer Add abd Details Controllers and  Created trailerDetails JSP|4.5||
+|Feb 20, 2020|Completed Trailer Add abd Details Controllers and  Created trailerDetails JSP|4.5||
+|Feb 20, 2020|Completed Trailer Add abd Details Controllers and  Created trailerDetails JSP|4.5||
 
 
 

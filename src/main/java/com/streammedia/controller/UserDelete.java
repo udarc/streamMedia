@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Add or edit the user
+ * Delete the user
  * https://www.javatpoint.com/crud-in-servlet
- * @author pwaite
+ * @author Jeanne
  */
 @WebServlet(
         urlPatterns = {"/deleteUser"}

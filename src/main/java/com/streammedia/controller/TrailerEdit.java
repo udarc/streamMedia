@@ -13,26 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
-
 /**
- * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
- * The type Add trailer.
+ * The type Trailer edit.
  * @author Jeanne
  */
 @Log4j2
 @WebServlet(
-        name = "addTailer",
-        urlPatterns = {"/add-trailer"}
+        name = "trailerEdit",
+        urlPatterns = {"/trailer-edit"}
 )
-public class TraillerAdd extends HttpServlet {
+public class TrailerEdit extends HttpServlet {
     private GenericDao genericDao;
 
-
     public void init() {
-
         genericDao = new GenericDao(Trailer.class);
-
-
     }
     /**
      *  Handles HTTP GET requests.
@@ -45,45 +39,39 @@ public class TraillerAdd extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url ="/trailer/trailerAdd.jsp";
+        request.setAttribute("trailer",genericDao.getById(Integer.valueOf(request.getParameter("uid"))));
+        String url ="/trailer/trailerEdit.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
     }
+    /**
+     *  Handles HTTP POST requests.
+     *@param  req              Description of the Parameter
+     *@param  resp             Description of the Parameter
+     *@exception ServletException  if there is a Servlet failure
+     *@exception IOException       if there is an IO failure
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Trailer trailer = new Trailer();
-        trailer.setTitle(req.getParameter("title"));
+        int trailerId = Integer.valueOf(req.getParameter("uid"));
+//        int trailerId = Integer.valueOf(String.valueOf(req.getParameterValues("uid")));
+
+        trailer = (Trailer)genericDao.getById(trailerId);
+        trailer.setTitle(req.getParameter("title").trim());
         trailer.setAuthor(req.getParameter("author"));
         trailer.setDuration(req.getParameter("duration"));
-        trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
         trailer.setCover(req.getParameter("cover"));
+        trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
-        trailer.setSummary(req.getParameter("summary"));
-        trailer.setCreatedAt(LocalDate.now());
-        trailer.setUpdatedAt(LocalDate.now());
-        GenericDao userDao =  new GenericDao(User.class);
-//        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
-        try {
-            User user = (User) userDao.getById(1);
-            if (!user.equals(null)) {
-                trailer.setUser(user);
-                log.debug("Adding Trailer: ", trailer);
-                genericDao.insert(trailer);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
-                dispatcher.forward(req, resp);
-            } else {
-                req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
-            }
-        }catch (NullPointerException npe){
-            log.error("User Does not Exists", npe);
-        }
-
-
-
-
-
+        trailer.setSummary(req.getParameter("summary").trim());
+//        trailer.setUpdateAt(LocalDate.now());
+        log.debug("Updating Trailer: " + trailer);
+        genericDao.saveOrUpdate(trailer);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerDetails.jsp");
+        dispatcher.forward(req, resp);
     }
-
 }
+

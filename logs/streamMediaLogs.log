@@ -1,5 +1,5 @@
 
-[INFO ] 2020-02-22 18:34:30.077 [http-nio-8080-exec-75] ContactUs - Preparing to send a message: 
+[INFO ] 2020-02-22 18:34:30.077 [http-nio-8080-exec-75] ContactUs - Preparing to send a message:
 Jeanne Doe
 emailuscontact@gmail.com
 More Data to Test
@@ -8,7 +8,7 @@ More Data to Test
 [INFO ] 2020-02-22 18:34:50.178 [http-nio-8080-exec-75] ContactUs - Sending Mail errorcom.sun.mail.util.MailConnectException: Couldn't connect to host, port: smtp.gmail.com, 587; timeout -1;
   nested exception is:
 	java.net.UnknownHostException: smtp.gmail.com
-[INFO ] 2020-02-22 18:36:11.007 [http-nio-8080-exec-79] ContactUs - Preparing to send a message: 
+[INFO ] 2020-02-22 18:36:11.007 [http-nio-8080-exec-79] ContactUs - Preparing to send a message:
 Jeanne Doe
 emailuscontact@gmail.com
 More Data to Test
@@ -17,10 +17,17 @@ More Data to Test
 [INFO ] 2020-02-22 18:36:14.106 [http-nio-8080-exec-79] ContactUs - Sending Mail errorjavax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials j184sm3297007ywa.39 - gsmtp
 
-[INFO ] 2020-02-22 18:39:42.548 [http-nio-8080-exec-81] ContactUs - Preparing to send a message: 
+[INFO ] 2020-02-22 18:39:42.548 [http-nio-8080-exec-81] ContactUs - Preparing to send a message:
 Jeanne Doe
 emailuscontact@gmail.com
 More Data to Test
 [DEBUG] 2020-02-22 18:39:42.555 [http-nio-8080-exec-81] ContactUs - Usernameinfocontactdev@gmail.com
 [INFO ] 2020-02-22 18:39:42.560 [http-nio-8080-exec-81] JavaMailUtility - Sending email to infocontactdev@gmail.com
 [INFO ] 2020-02-22 18:39:44.505 [http-nio-8080-exec-81] JavaMailUtility - Done
+[DEBUG] 2020-02-22 09:03:54.311 [http-nio-8080-exec-45] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-22 09:09:03.146 [http-nio-8080-exec-6] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-22 09:09:05.833 [http-nio-8080-exec-6] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-22 09:09:11.912 [http-nio-8080-exec-5] UserEditProfile - Value of Get Parameter null
+[DEBUG] 2020-02-22 09:12:35.196 [http-nio-8080-exec-16] UserEditProfile - Value of Get Parameter null
+[DEBUG] 2020-02-22 09:12:58.020 [http-nio-8080-exec-20] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-22 09:13:00.401 [http-nio-8080-exec-20] GenericDao - Getting Entity by Id 1

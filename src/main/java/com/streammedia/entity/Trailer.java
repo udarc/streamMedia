@@ -7,9 +7,18 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+
+/**
+ * The type Trailer.
+ * @author Jeanne
+ */
+//Lombok annotations
 @Getter
 @Setter
 @EqualsAndHashCode
+//Hibernate Annotations
+@Entity(name = "Trailer")
+@Table(name = "Trailer")
 public class Trailer {
     @Id
     @Column(name = "trailer_id")
@@ -33,7 +42,7 @@ public class Trailer {
     private LocalDate publicationDate;
 
     @Column(name = "links")
-    private String links;
+    private String link;
 
     @Column(name = "video")
     private String video;
@@ -48,6 +57,6 @@ public class Trailer {
     private LocalDate updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
+    @JoinColumn(name = "user")
     private User user;
 }
