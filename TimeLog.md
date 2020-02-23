@@ -41,6 +41,7 @@
 |Feb 22, 2020|Created Aws EC2 and Elastic IP address and connect to Tomcat in brwoser|2||
 |Feb 23, 2020|Created Database in AWS and deployed |1|
 |Feb 23, 2020|Completed Time Log and hibernate config file|.5||
+|Feb 23, 2020|Updated Project plan to check off completed tasks|.5||
 
 
 
