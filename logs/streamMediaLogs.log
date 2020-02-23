@@ -50,3 +50,26 @@ More Data to Test
 [DEBUG] 2020-02-23 12:13:14.679 [http-nio-8080-exec-12] TrailerList - Getting All Trailers servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
 [DEBUG] 2020-02-23 12:19:04.442 [http-nio-8080-exec-16] GenericDao - The list of Entities [com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
 [DEBUG] 2020-02-23 12:19:04.444 [http-nio-8080-exec-16] TrailerList - Getting All Trailers servlet[com.streammedia.entity.Trailer@580aea78, com.streammedia.entity.Trailer@cfa2d7d, com.streammedia.entity.Trailer@baa45895, com.streammedia.entity.Trailer@a19ee500, com.streammedia.entity.Trailer@a3e06e33, com.streammedia.entity.Trailer@b840555c, com.streammedia.entity.Trailer@f1dd2275, com.streammedia.entity.Trailer@547ef38a, com.streammedia.entity.Trailer@77c2096b, com.streammedia.entity.Trailer@d924d70b]
+[DEBUG] 2020-02-23 12:51:53.772 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:51:57.323 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:51:57.390 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:53:23.953 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:53:25.442 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:53:25.471 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:12.518 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:15.401 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:15.512 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:47.411 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:49.097 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:54:49.102 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:56:02.908 [main] GenericDao - Getting Entity by Id 1
+[INFO ] 2020-02-23 12:56:04.465 [main] GenericDao - Searching for entity with name = user
+[DEBUG] 2020-02-23 12:57:18.416 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:57:20.019 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:57:20.023 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:57:49.490 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:57:51.095 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:57:51.099 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:58:35.186 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:58:36.822 [main] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-23 12:58:36.826 [main] GenericDao - Getting Entity by Id 1
