@@ -56,4 +56,5 @@ fabric.properties
 /src/main/java/com/streammedia/controller/SearchForm.java
 /src/main/java/com/streammedia/controller/SearchUser.java
 /logs/
-/src/main/resources/contact.properties
+/src/main/resources/*
+/src/test/resources/*
