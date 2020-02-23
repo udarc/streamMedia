@@ -36,7 +36,7 @@
 |Feb 18, 2020|Replace UserDao and RoleDao with GenericDao in UserDao and RoleDaoTest|1.25||
 |Feb 19, 2020|Completed Weekly Time Log |1.5||
 |Feb 20, 2020|Completed Trailer Add and Details Controllers and  Created trailerDetails JSP|4.5||
-|Feb 21, 2020| Added properties file for Contact us credentials JSP and updated ContactUs functionality to use the file|3||
+|Feb 21, 2020| Added properties file for Contact us credentials JSP and updated ContactUs functionality to use the file|3|Opening properties file in both contact servlet and utility class that handles sendMail, it does not work|
 |Feb 22, 2020|Research for professional Project|4.5||
 |Feb 22, 2020|Created Aws EC2 and Elastic IP address and connect to Tomcat in brwoser|2||
 |Feb 23, 2020|Created Database in AWS and deployed |1|
