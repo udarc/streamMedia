@@ -13,6 +13,7 @@ import java.util.Set;
 /**
  * The type User.
  * https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html
+ * @author Jeanne
  */
 @Getter
 @Setter
@@ -71,11 +72,20 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Role> roles = new HashSet<Role>();
 
-//    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    private Set<Trailer> trailers = new HashSet<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Trailer> trailers = new HashSet<>();
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param userName  the user name
+     * @param email     the email
+     * @param password  the password
+     * @param createdAt the created at
+     * @param updateAt  the update at
+     */
     public User(String userName, String email, String password, LocalDate createdAt, LocalDate updateAt) {
         this.username = userName;
         this.email = email;

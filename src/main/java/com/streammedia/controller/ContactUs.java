@@ -18,6 +18,7 @@ import javax.mail.*;
 /**
  * The type Contact us.
  * Responsible for getting form data
+ * @author Jeanne
  */
 @Log4j2
 @WebServlet(

@@ -15,6 +15,7 @@ import java.time.LocalDate;
 
 /**
  * The type Register user.
+ * @author Jeanne
  */
 @Log4j2
 @WebServlet(

@@ -15,10 +15,10 @@
 <div class="container">
     <div class="form row">
         <form class="card col-sm-10 offset-sm-1"
-        method="post" action="profile-edit">
+        method="post" action="profile-edit" enctype="multipart/form-data">
             <input type="hidden" id="id"
                    name="id"
-                   value = ${user.userId}>
+                   value="${user.userId}">
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
