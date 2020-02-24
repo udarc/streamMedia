@@ -26,12 +26,10 @@
                         <p class="card-text">${trailer.summary}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">Published by ${trailer.author} on ${trailer.publicationDate}</li>
                     </ul>
                     <div class="card-body">
-                        <a  class="card-link btn btn-outline-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a>
+                        <a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a>
                         <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
                         <a class="card-link btn btn-outline-danger" href="trailer-remove?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
 
