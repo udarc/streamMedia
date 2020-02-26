@@ -19,12 +19,13 @@ import java.io.IOException;
             urlPatterns = {"/remove-trailer"}
     )
 
+
     public class TrailerDelete extends HttpServlet {
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             GenericDao genericDao = new GenericDao(Trailer.class);
             genericDao.delete(genericDao.getById(Integer.parseInt(req.getParameter("uid"))));
-            resp.sendRedirect("/trailers");
+            resp.sendRedirect("trailers");
         }
 
         @Override

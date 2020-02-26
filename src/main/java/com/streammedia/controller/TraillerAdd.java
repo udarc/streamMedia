@@ -71,8 +71,9 @@ public class TraillerAdd extends HttpServlet {
                 trailer.setUser(user);
                 log.debug("Adding Trailer: ", trailer);
                 genericDao.insert(trailer);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
-                dispatcher.forward(req, resp);
+//                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
+//                dispatcher.forward(req, resp);
+                resp.sendRedirect("trailers");
             } else {
                 req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
             }

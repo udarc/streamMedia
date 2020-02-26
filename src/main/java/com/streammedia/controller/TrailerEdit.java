@@ -57,21 +57,24 @@ public class TrailerEdit extends HttpServlet {
         Trailer trailer = new Trailer();
         int trailerId = Integer.valueOf(req.getParameter("uid"));
 //        int trailerId = Integer.valueOf(String.valueOf(req.getParameterValues("uid")));
-
         trailer = (Trailer)genericDao.getById(trailerId);
-        trailer.setTitle(req.getParameter("title").trim());
-        trailer.setAuthor(req.getParameter("author"));
-        trailer.setDuration(req.getParameter("duration"));
-        trailer.setCover(req.getParameter("cover"));
-        trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
-        trailer.setLink(req.getParameter("link"));
-        trailer.setVideo(req.getParameter("video"));
-        trailer.setSummary(req.getParameter("summary").trim());
-//        trailer.setUpdateAt(LocalDate.now());
-        log.debug("Updating Trailer: " + trailer);
-        genericDao.saveOrUpdate(trailer);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerDetails.jsp");
-        dispatcher.forward(req, resp);
+        if (!trailer.equals(null)) {
+            trailer.setTitle(req.getParameter("title"));
+            trailer.setAuthor(req.getParameter("author"));
+            trailer.setDuration(req.getParameter("duration"));
+            trailer.setCover(req.getParameter("cover"));
+            trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
+            trailer.setLink(req.getParameter("link"));
+            trailer.setVideo(req.getParameter("video"));
+            trailer.setSummary(req.getParameter("summary").trim());
+            trailer.setUpdatedAt(LocalDate.now());
+            log.debug("Updating Trailer: " + trailer.getTitle());
+            genericDao.saveOrUpdate(trailer);
+//            RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerDetails.jsp");
+//            dispatcher.forward(req, resp);
+            String destination = "trailer-detail?uid=" + trailerId;
+            resp.sendRedirect(destination);
+        }
     }
 }
 
