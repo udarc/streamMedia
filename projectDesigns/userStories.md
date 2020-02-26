@@ -30,7 +30,10 @@ my film or genre or crew content so that all other users can view the informatio
 ## Delete a film/genre/crew
 As an admin user / a media creator , I want to be able to delete either all film or genre or crew content/ 
 my film or genre or crew content so that only relevant information exists on the website.
-# ------------------------------------------------------ 
+
+
+------------------------------------------------------ 
+--------------------------------------------------------------
 
 # The following User stories will be implemented after finishing the ones provided above.
 ## Reset Password.
