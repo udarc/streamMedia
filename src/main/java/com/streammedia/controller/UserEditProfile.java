@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Enumeration;
 
 /**
  * The type Edit user profile.
@@ -67,6 +68,8 @@ public class UserEditProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
+        Enumeration<String> testUsersEdit = req.getParameterNames();
+
         int userId = Integer.valueOf(req.getParameter("id"));
 //        int userId = 1;
 //        int userId = user.getUserId();
