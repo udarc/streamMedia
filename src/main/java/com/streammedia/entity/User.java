@@ -72,10 +72,25 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Role> roles = new HashSet<Role>();
 
+    //Trailers
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Trailer> trailers = new HashSet<>();
+
+    //Films
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Film> films = new HashSet<>();
+
+    //FAQ
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<FAQ> faqs = new HashSet<>();
+
+
 
     /**
      * Instantiates a new User.

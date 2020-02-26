@@ -1,9 +1,12 @@
 package com.streammedia.entity;
 
+import jdk.jfr.Timestamp;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -50,9 +53,11 @@ public class Trailer {
     @Column(name = "summary", nullable = false)
     private String summary;
 
+    @CreationTimestamp
     @Column(name = "created_at" , nullable = false)
     private LocalDate createdAt;
 
+    @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDate updatedAt;
 
