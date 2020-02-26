@@ -15,3 +15,12 @@ INSERT INTO Role(role_id,name,username , created_at) VALUES
               (3,'developer','bcurry',Now()),
               (4,'sale','kmack',Now()),
               (5,'staff','bcurry',Now());
+
+DELETE FROM  `Trailer`;
+-- DROP TABLE IF EXISTS `Trailer`;
+ INSERT INTO Trailer(trailer_id,title,author , duration,pub_date,summary,created_at, user) VALUES
+(1,'Home Sweet Home','James','140',Now(),'Hibernate ORM is concerned with helping your application to achieve persistence.',Now(),1),
+(2,'Hope','Henry','140',Now(), 'So what is persistence? Persistence simply means that we would like our application’s data to outlive the applications process.',Now(),6),
+(3,'Peace','Chantal','140',Now(),' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.',Now(),2),
+(4,'The happiness','Nadine','140',Now(),'So what is persistence?',Now(),2),
+(5,'Great Dane','Ella','140',Now(),'Hibernate ORM is concerned with helping your application to achieve persistence.',Now(),1);

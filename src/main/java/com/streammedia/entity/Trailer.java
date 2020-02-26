@@ -1,9 +1,7 @@
 package com.streammedia.entity;
 
 import jdk.jfr.Timestamp;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -18,7 +16,9 @@ import java.time.LocalDate;
 //Lombok annotations
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode
+@NoArgsConstructor
 //Hibernate Annotations
 @Entity(name = "Trailer")
 @Table(name = "Trailer",
@@ -61,10 +61,21 @@ public class Trailer {
     private LocalDate createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at")
     private LocalDate updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
+
+    public Trailer(String title, String author, String duration, LocalDate publicationDate, String summary, LocalDate createdAt, LocalDate updatedAt, User user) {
+        this.title = title;
+        this.author = author;
+        this.duration = duration;
+        this.publicationDate = publicationDate;
+        this.summary = summary;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.user = user;
+    }
 }
