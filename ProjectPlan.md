@@ -46,10 +46,9 @@
 - [X] Create db on AWS
 - [X] Deploy to AWS for first time
 - [X] Weekly journal entry
-- [ ] Create Book, Category and Story tables
-- [ ] Add the film, genre, Trailer, Book, Category and Story and FAQ entity (test, dev and prod dbs)
-- [ ] Add update and delete functionality in jsp for user and role
-- [X] Build the film, genre, Trailer, Book, Category and Story and add/update/delete jsp
+- [X] Add the film, genre, Trailer, Crew and FAQ entities and tables (test, dev and prod dbs)
+- [x] Add update and delete functionality in jsp for user and role
+- [X] Create the film, genre, Trailer and Crew add/update/delete jsp
 - [ ] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams I am planning to use have been created.
 
 
@@ -58,17 +57,17 @@
 - [ ] Weekly journal entry
 - [ ] Set up authentication locally
 - [ ] Set up authentication on AWS
-- [ ] Create Contact jsp pages and set it up to send the message to an email
-- [ ] Create film, genre, Trailer and FAQ entities
+- [x] Create Contact jsp pages and set it up to send the message to an email
+- [] Create film, genre, Trailer, Crew and FAQ entities
 - [ ] Review and incorporate any feedback from Checkpoint 2.
 
 ### Week 8
 
 - [ ] Weekly journal entry
-- [ ] Create Music, Casting Crew, Book and Book Category tables (test, dev and prod dbs)
-- [ ] Add Music, Casting Crew, Book and Book Category entities
-- [ ] Create Music, Casting Crew, Book and Book Category dao
-- [ ] Create the Music, Casting Crew, Book and Book Category unit tests
+- [ ] Create Music, Book and Book Category tables (test, dev and prod dbs)
+- [ ] Add Music, Book and Book Category entities
+- [ ] Create Music, Book and Book Category dao
+- [ ] Create the Music, Book and Book Category unit tests
 - [ ] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented.
 
 ### Week 9
@@ -92,6 +91,7 @@
 ### Week 12 - Team project due
 - [ ] Weekly journal entry
 - [ ] Review individual project and create list of todos
+- [ ] Create Book, Category, Music and Story add/update/delete and view JSPs
 
 ### Week 13
 - [ ] Weekly journal entry
