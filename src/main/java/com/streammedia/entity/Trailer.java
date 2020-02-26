@@ -21,7 +21,10 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 //Hibernate Annotations
 @Entity(name = "Trailer")
-@Table(name = "Trailer")
+@Table(name = "Trailer",
+        uniqueConstraints=
+        @UniqueConstraint(columnNames={"title", "author"})
+)
 public class Trailer {
     @Id
     @Column(name = "trailer_id")
@@ -32,7 +35,7 @@ public class Trailer {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "author")
+    @Column(name = "author",nullable = false)
     private String author;
 
     @Column(name = "duration")

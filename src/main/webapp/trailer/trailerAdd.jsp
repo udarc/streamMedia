@@ -15,7 +15,7 @@
     <div class="form row">
         <h1>Add Trailer</h1>
         <form class="card col-sm-10 offset-sm-1" action="add-trailer"
-              method="post" enctype="multipart/form-data">
+              method="post">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">

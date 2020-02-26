@@ -68,9 +68,10 @@ public class UserEditProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
-        Enumeration<String> testUsersEdit = req.getParameterNames();
+//        Enumeration<String> testUsersEdit = req.getParameterNames();
 
         int userId = Integer.valueOf(req.getParameter("id"));
+        user = (User)genericDao.getById(userId);
 //        int userId = 1;
 //        int userId = user.getUserId();
         log.error("Value of Get Parameter"+ userId);
@@ -90,7 +91,8 @@ public class UserEditProfile extends HttpServlet {
         user.setUpdateAt(LocalDate.now());
         log.debug("Updating User: " + user);
         genericDao.saveOrUpdate(user);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
-        dispatcher.forward(req, resp);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/account/listUser.jsp");
+//        dispatcher.forward(req, resp);
+        resp.sendRedirect("users");
     }
 }

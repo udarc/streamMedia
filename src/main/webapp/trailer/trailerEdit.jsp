@@ -15,7 +15,7 @@
     <div class="form row">
         <h1>Add Trailer</h1>
         <form class="card col-sm-10 offset-sm-1" action="trailer-edit"
-              method="post" enctype="multipart/form-data">
+              method="post">
             <input type="hidden" id="id"
                    name="uid"
                    value="1">

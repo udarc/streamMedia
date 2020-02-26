@@ -15,7 +15,7 @@
 <div class="container">
     <div class="form row">
         <form class="card col-sm-10 offset-sm-1"
-        method="post" action="profile-edit" enctype="multipart/form-data">
+        method="post" action="profile-edit">
             <input type="hidden" id="id"
                    name="id"
                    value="${user.userId}">
