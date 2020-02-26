@@ -84,16 +84,6 @@ is signed in).
 1. Servlet creates contact object
 1. Servlet sends object to the preconfigured email to receive the information
 
-### Add Trail Report
-
-1. Option only available to logged in users with proper role
-1. User selects trail to report on
-1. User enters trail report details
-1. Details are sent to Add Trail Report servlet
-1. Servlet creates trail report object
-1. Servlet sends object to dao
-1. Dao adds report to the database
-1. Servlet sends confirmation to report page that report has been added.
 
 ### Add/ Edit Film or Genre or Book or Category or Short story or FAQ Trailer or Music or Casting Crew
 1. Option only available to logged in users with proper role
