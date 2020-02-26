@@ -58,7 +58,7 @@
 - [ ] Set up authentication locally
 - [ ] Set up authentication on AWS
 - [x] Create Contact jsp pages and set it up to send the message to an email
-- [] Create film, genre, Trailer, Crew and FAQ entities
+- [ ] Create film, genre, Trailer, Crew and FAQ entities
 - [ ] Review and incorporate any feedback from Checkpoint 2.
 
 ### Week 8
