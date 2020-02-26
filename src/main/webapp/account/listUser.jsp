@@ -48,7 +48,7 @@
         <div class="col-sm-3">
             <a href="register">Add New User</a>
             <main id="main">
-                <form action="searchUser" method="get">
+                <form action="#" method="get">
                     <div class="form-group row">
                         <label for="searchTerm" class="col-sm-4 col-form-label">
                             Search Term</label>
