@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -55,7 +57,14 @@ public class TraillerAdd extends HttpServlet {
         Trailer trailer = new Trailer();
         trailer.setTitle(req.getParameter("title"));
         trailer.setAuthor(req.getParameter("author"));
-        trailer.setDuration(req.getParameter("duration"));
+        // create a LocalTime Objects
+//        LocalTime time
+//                = LocalTime.parse("23:59:59");
+//
+//        // create formatter Object for ISO_LOCAL_TIME
+//        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
+
+        trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
         trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));

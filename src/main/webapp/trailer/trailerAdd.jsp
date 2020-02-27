@@ -34,7 +34,7 @@
                 <label for="duration" class="col-sm-3 col-form-label">Duration</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="duration" id="duration" placeholder="Duration">
+                           name="duration" id="duration" placeholder="Duration (HH:mm:ss)">
                 </div>
             </div>
             <div class="form-group row">

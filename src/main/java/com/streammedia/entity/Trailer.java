@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * The type Trailer.
@@ -39,7 +40,7 @@ public class Trailer {
     private String author;
 
     @Column(name = "duration")
-    private String duration;
+    private LocalTime duration;
 
     @Column(name = "cover")
     private String cover;
@@ -68,7 +69,7 @@ public class Trailer {
     @JoinColumn(name = "user")
     private User user;
 
-    public Trailer(String title, String author, String duration, LocalDate publicationDate, String summary, LocalDate createdAt, LocalDate updatedAt, User user) {
+    public Trailer(String title, String author, LocalTime duration, LocalDate publicationDate, String summary, LocalDate createdAt, LocalDate updatedAt, User user) {
         this.title = title;
         this.author = author;
         this.duration = duration;
