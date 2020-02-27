@@ -30,8 +30,8 @@
                     </ul>
                     <div class="card-body">
                         <a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a>
-                        <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
-                        <a class="card-link btn btn-outline-danger" href="trailer-remove?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
+                        <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=${trailer.trailerId}">Edit</a>
+                        <a class="card-link btn btn-outline-danger" href="remove-trailer?uid=${trailer.trailerId}">Remove</a>
 
                     </div>
                 </div>
