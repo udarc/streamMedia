@@ -118,23 +118,8 @@ public class User implements Serializable {
     public void addRole(Role role) {
         roles.add(role);
     }
-/**
-    @Override
-    public boolean equals(Object obj) {
-        if ( this == obj ) {
-            return true;
-        }
-        if ( !( obj instanceof User ) ) {
-            return false;
-        }
-        User user = (User) obj;
-        return Objects.equals( getUserId(), user.getUserId());
+    public void removeRole(Role role){
+        roles.remove(role);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash( getUserId() );
-    }
-*/
     //https://www.baeldung.com/hibernate-one-to-many
 }
