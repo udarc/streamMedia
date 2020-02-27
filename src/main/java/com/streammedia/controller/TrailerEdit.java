@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * The type Trailer edit.
@@ -61,7 +62,7 @@ public class TrailerEdit extends HttpServlet {
         if (!trailer.equals(null)) {
             trailer.setTitle(req.getParameter("title"));
             trailer.setAuthor(req.getParameter("author"));
-            trailer.setDuration(req.getParameter("duration"));
+            trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
             trailer.setCover(req.getParameter("cover"));
             trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
             trailer.setLink(req.getParameter("link"));
