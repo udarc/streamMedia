@@ -14,18 +14,24 @@
 <%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
-        <c:if test="${faq != null}">
-            <form action="add-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
-            </c:if>
-            <c:if test="${faq == null}">
-                <form action="add-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
-                </c:if>
-
-            <div class="form-group row">
+        <c:choose>
+            <c:when test="${faq ne null}">
+            <form action="edit-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+                <input type="hidden" name="uid" value="${faq.faqId}">
+            </c:when>
+            <c:otherwise>
+            <form action="add-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            </c:otherwise>
+        </c:choose>
+<%--                <c:if test="${faq != null}" >--%>
+<%--                    --%>
+<%--                </c:if>--%>
+                <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="title" id="title" placeholder="Title" required>
+                           name="title" id="title" placeholder="Title"
+                           required value="${faq.title}">
                 </div>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Title is required.</div>
@@ -34,7 +40,8 @@
                 <label for="category" class="col-sm-3 col-form-label">Category</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="category" id="category" placeholder="Category" required>
+                           name="category" id="category" placeholder="Category" required
+                    value="${faq.category}">
                 </div>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Category is required.</div>
@@ -42,13 +49,14 @@
             <div class="form-group row">
                 <label for="description" class="col-sm-3 col-form-label" >Description</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="description" id="description" rows="6"></textarea>
+                    <textarea class="form-control"name="description" id="description"
+                              rows="6">${faq.description}</textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-9">
                     <button type="submit"
-                            name="createFAQ" class="btn btn-lg btn-success">Add EAQ</button>
+                            name="createFAQ" class="btn btn-lg btn-success">Save EAQ</button>
                 </div>
             </div>
         </form>

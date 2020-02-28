@@ -21,8 +21,9 @@
                 <c:forEach var="faq" items="${listFAQ}">
                     <li class="list-group-item "><a class="btn-link mr-auto" href="">${faq.title}</a>
                         <span class="btn-group ml-auto " role="group" aria-label="Edit and Delete FAQ">
-                        <a href="new" class="btn btn-primary" ><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit FAQ</a>
-                    <a href="new" class="btn btn-danger" ><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete FAQ</a>
+                        <a href="edit?uid=<c:out value="${faq.faqId}"/>" class="btn btn-primary" ><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit FAQ</a>
+                    <a href="delete-faq?uid=<c:out value="${faq.faqId}"/>" class="btn btn-danger" ><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete FAQ</a>
+
                         </span>
                     </li>
                 </c:forEach>

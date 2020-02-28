@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,13 +21,14 @@ import javax.servlet.http.HttpServletResponse;
  * FAQController.java
  * This servlet acts as a page controller for the application, handling all
  * requests from the user.
+ * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  * @author Jeanne
  */
 @Log4j2
 @WebServlet("/")
 public class FAQController extends HttpServlet {
 
-        private static final long serialVersionUID = 1L;
+//        private static final long serialVersionUID = 1L;
         private GenericDao faqDao;
         private GenericDao userDao;
 
@@ -43,7 +46,6 @@ public class FAQController extends HttpServlet {
                 throws ServletException, IOException {
             String action = request.getServletPath();
 
-            try {
                 switch (action) {
                     case "/new":
                         displayNewForm(request, response);
@@ -60,6 +62,9 @@ public class FAQController extends HttpServlet {
                     case "/edit-faq":
                         editFAQ(request, response);
                         break;
+//                    case "/faq-details":
+//                        listFAQ(request, response);
+//                        break;
                     case "/faqs":
                         listFAQ(request, response);
                         break;
@@ -67,9 +72,6 @@ public class FAQController extends HttpServlet {
 //                        listFAQ(request, response);
 //                        break;
                 }
-            } catch (SQLException ex) {
-                throw new ServletException(ex);
-            }
         }
 
         private void listFAQ(HttpServletRequest request, HttpServletResponse response)
@@ -87,18 +89,18 @@ public class FAQController extends HttpServlet {
         }
 
         private void displayEditForm(HttpServletRequest request, HttpServletResponse response)
-                throws SQLException, ServletException, IOException {
-//            int id = Integer.parseInt(request.getParameter("id"));
-//            FAQ existingFAQ = (FAQ)faqDao.getById(id);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
-//            request.setAttribute("faq", existingFAQ);
-//            dispatcher.forward(request, response);
+                throws ServletException, IOException {
+            int id = Integer.parseInt(request.getParameter("uid"));
+            FAQ existingFAQ = (FAQ)faqDao.getById(id);
             log.debug("Display Edit Form");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
+            request.setAttribute("faq", existingFAQ);
+            dispatcher.forward(request, response);
 
         }
 
         private void createFAQ(HttpServletRequest request, HttpServletResponse response)
-                throws SQLException, IOException {
+                throws IOException {
             FAQ newFAQ = new  FAQ();
             String title = request.getParameter("title").trim();
             String category = request.getParameter("category").trim();
@@ -109,6 +111,8 @@ public class FAQController extends HttpServlet {
                     newFAQ.setTitle(title);
                     newFAQ.setCategory(category);
                     newFAQ.setDescription(description);
+                    newFAQ.setCreatedAt(LocalDateTime.now());
+                    newFAQ.setUpdatedAt(LocalDateTime.now());
                     newFAQ.setUser(user);
                     log.debug("Adding FAQ: ", newFAQ.getTitle());
                     faqDao.insert(newFAQ);
@@ -125,24 +129,25 @@ public class FAQController extends HttpServlet {
         }
 
         private void editFAQ(HttpServletRequest request, HttpServletResponse response)
-                throws SQLException, IOException {
-//            int id = Integer.parseInt(request.getParameter("id"));
-//
-//
-//            FAQ faq = new FAQ();
-//            faqDao.saveOrUpdate(faq);
-//            response.sendRedirect("list");
-            log.debug("Updating FAQ");
+                throws IOException {
+            int id = Integer.parseInt(request.getParameter("uid"));
+            log.debug("Updating FAQ", id);
+            FAQ faq = (FAQ)faqDao.getById(id);
+            faq.setTitle(request.getParameter("title").trim());
+            faq.setCategory(request.getParameter("category").trim());
+            faq.setDescription(request.getParameter("description").trim());
+            faq.setUpdatedAt(LocalDateTime.now());
+            faqDao.saveOrUpdate(faq);
+            response.sendRedirect("faqs");
+
 
         }
 
         private void deleteFAQ(HttpServletRequest request, HttpServletResponse response)
-                throws SQLException, IOException {
-//            int id = Integer.parseInt(request.getParameter("id"));
-//                log.debug("Delete FAQ");
-//            FAQ book = new FAQ();
-//            faqDao.delete(faqDao.getById(id));
-//            response.sendRedirect("list-faq");
-            log.debug("Deleting FAQ");
+                throws  IOException {
+            int id = Integer.parseInt(request.getParameter("uid"));
+            log.debug("Delete FAQ");
+            faqDao.delete(faqDao.getById(id));
+            response.sendRedirect("faqs");
         }
 }
