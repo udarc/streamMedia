@@ -45,7 +45,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <li class="nav-item">
-            <a class="nav-link" href="/faq/faqList.jsp">FAQ</a>
+            <a class="nav-link" href="faqs">FAQ</a>
         </li>
     </nav>
 </header>

@@ -6,16 +6,16 @@
     <nav class="row">
             <ul class=" navbar-nav col-md-4">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Stream Media</a>
+                    <a class="nav-link" href="streamMedia">Stream Media</a>
                 </li>
             </ul>
         <ul class=" navbar-nav col-md-4">
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="contact-us">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" href="faqs">FAQ</a>
             <li class="nav-item">
                 <a class="nav-link" href="#">Terms and Conditions</a>
             </li>
