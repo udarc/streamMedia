@@ -89,11 +89,5 @@ public class TraillerAdd extends HttpServlet {
         }catch (NullPointerException npe){
             log.error("User Does not Exists", npe);
         }
-
-
-
-
-
     }
-
 }

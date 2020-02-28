@@ -94,3 +94,31 @@
 [DEBUG] 2020-02-27 15:02:11.738 [http-nio-8080-exec-138] GenericDao - Updating an Entity
 [DEBUG] 2020-02-27 15:02:11.751 [http-nio-8080-exec-139] GenericDao - Getting Entity by Id 1
 [DEBUG] 2020-02-27 15:02:11.760 [http-nio-8080-exec-139] TrailerDetails - Getting a Single Trailer servletTrailer(trailerId=1, title=TomorrowHome, author=Jeanne, duration=00:01:20, cover=, publicationDate=2020-02-06, link=, video=, summary=This is a working Example of Editing a trailer.Is this Working?, createdAt=2020-02-20, updatedAt=2020-02-27, user=User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test.TestMore and More, createdAt=2020-02-16, updateAt=2020-02-27))
+[DEBUG] 2020-02-28 12:53:39.794 [http-nio-8080-exec-111] GenericDao - The list of Entities [User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test.TestMore and More, createdAt=2020-02-16, updateAt=2020-02-27), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=7, username=atorrence, email=atorrance@streammedia.com, password=12345, firstName=Aria, lastName=Torrence, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-27, updateAt=2020-02-27)]
+[DEBUG] 2020-02-28 12:53:39.797 [http-nio-8080-exec-111] UserList - Getting All Users servlet[User(userId=1, username=ian, email=ian@madisoncollege.edu, password=12345, firstName=Ian, lastName=Declan, birthdate=1995-06-12, picture=, gender=Male, biography=This is a Test.TestMore and More, createdAt=2020-02-16, updateAt=2020-02-27), User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18), User(userId=7, username=atorrence, email=atorrance@streammedia.com, password=12345, firstName=Aria, lastName=Torrence, birthdate=null, picture=null, gender=null, biography=null, createdAt=2020-02-27, updateAt=2020-02-27)]
+[DEBUG] 2020-02-28 12:54:58.120 [http-nio-8080-exec-128] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 12:54:58.140 [http-nio-8080-exec-128] FAQController - Adding FAQ: 
+[DEBUG] 2020-02-28 13:09:17.429 [http-nio-8080-exec-1] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 13:09:22.573 [http-nio-8080-exec-1] FAQController - Adding FAQ: 
+[DEBUG] 2020-02-28 13:09:22.672 [http-nio-8080-exec-1] GenericDao - A new user was Added with an Id1
+[DEBUG] 2020-02-28 13:13:04.539 [http-nio-8080-exec-2] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6e575356]
+[DEBUG] 2020-02-28 13:13:08.313 [http-nio-8080-exec-5] GenericDao - The list of Entities [com.streammedia.entity.FAQ@5728257]
+[DEBUG] 2020-02-28 13:19:15.060 [http-nio-8080-exec-25] GenericDao - The list of Entities [com.streammedia.entity.FAQ@34cdab3b]
+[DEBUG] 2020-02-28 13:19:16.769 [http-nio-8080-exec-21] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6859f799]
+[DEBUG] 2020-02-28 13:20:34.869 [http-nio-8080-exec-34] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 13:20:34.891 [http-nio-8080-exec-34] FAQController - Adding FAQ: 
+[DEBUG] 2020-02-28 13:20:35.037 [http-nio-8080-exec-34] GenericDao - A new user was Added with an Id2
+[DEBUG] 2020-02-28 13:20:35.055 [http-nio-8080-exec-35] GenericDao - The list of Entities [com.streammedia.entity.FAQ@4fd88376, com.streammedia.entity.FAQ@42dd892e]
+[DEBUG] 2020-02-28 13:20:37.302 [http-nio-8080-exec-30] GenericDao - The list of Entities [com.streammedia.entity.FAQ@657eba18, com.streammedia.entity.FAQ@ddb070f]
+[DEBUG] 2020-02-28 13:20:38.447 [http-nio-8080-exec-31] GenericDao - The list of Entities [com.streammedia.entity.FAQ@ef60cde, com.streammedia.entity.FAQ@3c12d24e]
+[DEBUG] 2020-02-28 13:33:47.042 [http-nio-8080-exec-40] GenericDao - The list of Entities [com.streammedia.entity.FAQ@1183a0dd, com.streammedia.entity.FAQ@4e0c81f]
+[DEBUG] 2020-02-28 13:35:34.986 [http-nio-8080-exec-36] GenericDao - The list of Entities [com.streammedia.entity.FAQ@2770260, com.streammedia.entity.FAQ@5ef80208]
+[DEBUG] 2020-02-28 13:35:37.604 [http-nio-8080-exec-43] GenericDao - The list of Entities [com.streammedia.entity.FAQ@13f0abec, com.streammedia.entity.FAQ@71d9f9fa]
+[DEBUG] 2020-02-28 13:40:56.165 [http-nio-8080-exec-52] GenericDao - The list of Entities [com.streammedia.entity.FAQ@20bc09dd, com.streammedia.entity.FAQ@5a548f18]
+[DEBUG] 2020-02-28 13:42:07.076 [http-nio-8080-exec-55] GenericDao - The list of Entities [com.streammedia.entity.FAQ@67a5b52a, com.streammedia.entity.FAQ@6fbbdea5]
+[DEBUG] 2020-02-28 13:47:17.588 [http-nio-8080-exec-74] GenericDao - The list of Entities [com.streammedia.entity.FAQ@55498e27, com.streammedia.entity.FAQ@7687fef7]
+[DEBUG] 2020-02-28 13:51:00.388 [http-nio-8080-exec-76] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6ed13a77, com.streammedia.entity.FAQ@603fbe29]
+[DEBUG] 2020-02-28 13:54:21.644 [http-nio-8080-exec-94] GenericDao - The list of Entities [com.streammedia.entity.FAQ@1cb11452, com.streammedia.entity.FAQ@2dd21b9]
+[DEBUG] 2020-02-28 13:56:32.637 [http-nio-8080-exec-99] GenericDao - The list of Entities [com.streammedia.entity.FAQ@7f963a02, com.streammedia.entity.FAQ@314b702]
+[DEBUG] 2020-02-28 13:58:24.361 [http-nio-8080-exec-100] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6043d082, com.streammedia.entity.FAQ@6d7ab7fc]
+[DEBUG] 2020-02-28 13:58:34.428 [http-nio-8080-exec-111] GenericDao - The list of Entities [com.streammedia.entity.FAQ@48f91cf4, com.streammedia.entity.FAQ@4ed22175]
