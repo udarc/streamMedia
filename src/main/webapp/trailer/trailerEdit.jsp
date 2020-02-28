@@ -18,7 +18,7 @@
               method="post">
             <input type="hidden" id="id"
                    name="uid"
-                   value="1">
+                   value="${trailer.trailerId}">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
@@ -71,8 +71,8 @@
             <div class="form-group row">
                 <label for="summary" class="col-sm-3 col-form-label" >Summary</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="summary" id="Summary" rows="6">
-                        ${trailer.summary}</textarea>
+                    <textarea class="form-control"name="summary" id="Summary"
+                              rows="6">${trailer.summary}</textarea>
                 </div>
             </div>
             <div class="form-group row">

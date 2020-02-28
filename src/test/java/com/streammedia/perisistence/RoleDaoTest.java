@@ -114,7 +114,7 @@ class RoleDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(5));
-        assertNull(genericDao.getById(5));
+        genericDao.delete(genericDao.getById(4));
+        assertNull(genericDao.getById(4));
     }
 }

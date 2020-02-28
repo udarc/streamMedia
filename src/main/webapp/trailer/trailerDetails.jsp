@@ -34,7 +34,7 @@
 
                         <div class="card-body">
                             <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
-                            <a  class="card-link btn btn-danger" href="trailer-remove?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
+                            <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
 
                         </div>
                     </div>

@@ -55,10 +55,9 @@ public class TrailerEdit extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Trailer trailer = new Trailer();
         int trailerId = Integer.valueOf(req.getParameter("uid"));
 //        int trailerId = Integer.valueOf(String.valueOf(req.getParameterValues("uid")));
-        trailer = (Trailer)genericDao.getById(trailerId);
+        Trailer trailer = (Trailer)genericDao.getById(trailerId);
         if (!trailer.equals(null)) {
             trailer.setTitle(req.getParameter("title"));
             trailer.setAuthor(req.getParameter("author"));
