@@ -4,6 +4,7 @@ import com.streammedia.entity.Trailer;
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,8 @@ import java.io.IOException;
             genericDao.delete(genericDao.getById(Integer.parseInt(req.getParameter("uid"))));
             resp.sendRedirect("trailers");
         }
+
+
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
