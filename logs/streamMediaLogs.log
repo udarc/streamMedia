@@ -69,3 +69,84 @@
 [DEBUG] 2020-02-28 15:36:42.905 [http-nio-8080-exec-101] GenericDao - Getting Entity by Id 3
 [DEBUG] 2020-02-28 15:36:42.973 [http-nio-8080-exec-98] GenericDao - The list of Entities [com.streammedia.entity.FAQ@38a3f4b9, com.streammedia.entity.FAQ@43a67c0d]
 [DEBUG] 2020-02-28 15:36:45.128 [http-nio-8080-exec-93] GenericDao - The list of Entities [com.streammedia.entity.FAQ@17372ee1, com.streammedia.entity.FAQ@6c5df7d4]
+[DEBUG] 2020-02-28 15:50:40.814 [http-nio-8080-exec-111] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6b9ab0ed, com.streammedia.entity.FAQ@410fe863]
+[DEBUG] 2020-02-28 15:54:01.591 [http-nio-8080-exec-121] GenericDao - The list of Entities [com.streammedia.entity.FAQ@518de2f0, com.streammedia.entity.FAQ@46fb9d27]
+[DEBUG] 2020-02-28 15:54:04.736 [http-nio-8080-exec-120] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 15:54:04.754 [http-nio-8080-exec-120] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@104aad80
+[ERROR] 2020-02-28 15:54:04.843 [http-nio-8080-exec-120] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 15:56:19.201 [http-nio-8080-exec-128] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 15:56:20.822 [http-nio-8080-exec-128] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@278f670e
+[DEBUG] 2020-02-28 15:56:20.862 [http-nio-8080-exec-130] GenericDao - The list of Entities [com.streammedia.entity.FAQ@414033fd, com.streammedia.entity.FAQ@7d750b18]
+[ERROR] 2020-02-28 15:56:21.010 [http-nio-8080-exec-128] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 15:56:28.292 [http-nio-8080-exec-124] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 15:56:28.309 [http-nio-8080-exec-124] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@2539fde0
+[ERROR] 2020-02-28 15:56:28.312 [http-nio-8080-exec-124] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:00:15.419 [http-nio-8080-exec-137] GenericDao - The list of Entities [com.streammedia.entity.FAQ@6b2d58b9, com.streammedia.entity.FAQ@61b39fb0]
+[DEBUG] 2020-02-28 16:00:17.443 [http-nio-8080-exec-138] GenericDao - The list of Entities [com.streammedia.entity.FAQ@545c36b6, com.streammedia.entity.FAQ@25272cb9]
+[DEBUG] 2020-02-28 16:00:23.256 [http-nio-8080-exec-140] GenericDao - The list of Entities [com.streammedia.entity.FAQ@5e391a99, com.streammedia.entity.FAQ@42d65641]
+[DEBUG] 2020-02-28 16:00:25.391 [http-nio-8080-exec-143] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:00:25.413 [http-nio-8080-exec-143] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4dba06c7
+[ERROR] 2020-02-28 16:00:25.514 [http-nio-8080-exec-143] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:01:17.892 [http-nio-8080-exec-146] GenericDao - The list of Entities [com.streammedia.entity.FAQ@426676c, com.streammedia.entity.FAQ@75c17e81]
+[DEBUG] 2020-02-28 16:01:19.563 [http-nio-8080-exec-147] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:01:19.579 [http-nio-8080-exec-147] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@319a6789
+[DEBUG] 2020-02-28 16:02:23.105 [http-nio-8080-exec-150] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:02:24.444 [http-nio-8080-exec-150] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4d7b7a59
+[DEBUG] 2020-02-28 16:02:24.769 [http-nio-8080-exec-144] GenericDao - The list of Entities [com.streammedia.entity.FAQ@31a636c0, com.streammedia.entity.FAQ@6cf84801]
+[DEBUG] 2020-02-28 16:04:06.852 [http-nio-8080-exec-163] GenericDao - The list of Entities [com.streammedia.entity.FAQ@18bd1a76, com.streammedia.entity.FAQ@4655dcea]
+[DEBUG] 2020-02-28 16:04:08.637 [http-nio-8080-exec-162] GenericDao - The list of Entities [com.streammedia.entity.FAQ@3c58b245, com.streammedia.entity.FAQ@77826500]
+[DEBUG] 2020-02-28 16:04:10.359 [http-nio-8080-exec-156] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:04:10.375 [http-nio-8080-exec-156] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4a0293ce
+[DEBUG] 2020-02-28 16:08:45.403 [http-nio-8080-exec-171] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:08:47.623 [http-nio-8080-exec-171] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@17b3ccd8
+[ERROR] 2020-02-28 16:08:47.704 [http-nio-8080-exec-171] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:08:52.145 [http-nio-8080-exec-174] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:08:52.157 [http-nio-8080-exec-174] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@3d756407
+[ERROR] 2020-02-28 16:08:52.159 [http-nio-8080-exec-174] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:10:20.837 [http-nio-8080-exec-168] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:10:22.785 [http-nio-8080-exec-168] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@651bba9
+[DEBUG] 2020-02-28 16:12:02.596 [http-nio-8080-exec-185] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:12:04.476 [http-nio-8080-exec-185] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@208838f6
+[ERROR] 2020-02-28 16:12:04.608 [http-nio-8080-exec-185] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:12:09.432 [http-nio-8080-exec-189] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:12:09.448 [http-nio-8080-exec-189] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@5a61a68f
+[ERROR] 2020-02-28 16:12:09.453 [http-nio-8080-exec-189] FAQController - Servlet Error: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: Property [summary] not found on type [com.streammedia.entity.FAQ]
+[DEBUG] 2020-02-28 16:13:11.315 [http-nio-8080-exec-195] GenericDao - The list of Entities [com.streammedia.entity.FAQ@76050736, com.streammedia.entity.FAQ@203ad20d]
+[DEBUG] 2020-02-28 16:13:13.819 [http-nio-8080-exec-194] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:13:13.830 [http-nio-8080-exec-194] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@7fba1be1
+[DEBUG] 2020-02-28 16:13:19.755 [http-nio-8080-exec-184] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:13:19.777 [http-nio-8080-exec-184] FAQController - Display Edit Form
+[DEBUG] 2020-02-28 16:14:50.173 [http-nio-8080-exec-200] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:14:52.022 [http-nio-8080-exec-200] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@468d01c8
+[DEBUG] 2020-02-28 16:14:56.536 [http-nio-8080-exec-206] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:14:56.551 [http-nio-8080-exec-206] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@784d389e
+[DEBUG] 2020-02-28 16:15:55.013 [http-nio-8080-exec-206] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:15:57.127 [http-nio-8080-exec-206] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@7fa14b32
+[DEBUG] 2020-02-28 16:16:00.612 [http-nio-8080-exec-212] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:16:00.626 [http-nio-8080-exec-212] FAQController - Display Edit Form
+[DEBUG] 2020-02-28 16:16:14.944 [http-nio-8080-exec-205] FAQController - Updating FAQ
+[DEBUG] 2020-02-28 16:16:14.944 [http-nio-8080-exec-205] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:16:14.978 [http-nio-8080-exec-205] GenericDao - Updating an Entity
+[DEBUG] 2020-02-28 16:16:15.203 [http-nio-8080-exec-211] GenericDao - The list of Entities [com.streammedia.entity.FAQ@2eee89d2, com.streammedia.entity.FAQ@702ebde8]
+[DEBUG] 2020-02-28 16:16:18.065 [http-nio-8080-exec-213] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:16:18.072 [http-nio-8080-exec-213] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@6e3d01ed
+[DEBUG] 2020-02-28 16:18:51.416 [http-nio-8080-exec-213] GenericDao - The list of Entities [com.streammedia.entity.FAQ@1f5d6eb2, com.streammedia.entity.FAQ@47e9c658]
+[DEBUG] 2020-02-28 16:18:51.417 [http-nio-8080-exec-215] GenericDao - The list of Entities [com.streammedia.entity.FAQ@70a09e49, com.streammedia.entity.FAQ@1463fb80]
+[DEBUG] 2020-02-28 16:18:53.529 [http-nio-8080-exec-217] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:18:53.548 [http-nio-8080-exec-217] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@f5372f7
+[DEBUG] 2020-02-28 16:18:56.114 [http-nio-8080-exec-219] GenericDao - The list of Entities [com.streammedia.entity.FAQ@42ea00c1, com.streammedia.entity.FAQ@5b910d2c]
+[DEBUG] 2020-02-28 16:18:59.845 [http-nio-8080-exec-223] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:18:59.856 [http-nio-8080-exec-223] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@2f8f0db4
+[DEBUG] 2020-02-28 16:19:07.521 [http-nio-8080-exec-218] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:19:07.532 [http-nio-8080-exec-218] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4d68d2e
+[DEBUG] 2020-02-28 16:19:11.044 [http-nio-8080-exec-225] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:19:11.050 [http-nio-8080-exec-225] FAQController - Display Edit Form
+[DEBUG] 2020-02-28 16:19:19.686 [http-nio-8080-exec-216] FAQController - Updating FAQ
+[DEBUG] 2020-02-28 16:19:19.686 [http-nio-8080-exec-216] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:19:19.700 [http-nio-8080-exec-216] GenericDao - Updating an Entity
+[DEBUG] 2020-02-28 16:19:19.755 [http-nio-8080-exec-227] GenericDao - The list of Entities [com.streammedia.entity.FAQ@5b64ea9, com.streammedia.entity.FAQ@38c9fd92]
+[DEBUG] 2020-02-28 16:19:22.461 [http-nio-8080-exec-223] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-02-28 16:19:22.467 [http-nio-8080-exec-223] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@78d3ba3a
+[DEBUG] 2020-02-28 16:19:25.654 [http-nio-8080-exec-228] GenericDao - The list of Entities [com.streammedia.entity.FAQ@70f5acd3, com.streammedia.entity.FAQ@3757e369]
+[DEBUG] 2020-02-28 16:19:26.803 [http-nio-8080-exec-225] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 16:19:26.813 [http-nio-8080-exec-225] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4123e1ac
