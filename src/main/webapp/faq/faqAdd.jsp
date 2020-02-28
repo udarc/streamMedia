@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: Jeanne
   Date: 2/16/20
   Time: 11:43 PM
   To change this template use File | Settings | File Templates.
@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
-<%@include file="head.jsp"%>
-<link rel="stylesheet" href="css/account.css">
+<%@include file="../head.jsp"%>
+<link rel="stylesheet" href="../css/account.css">
 <body>
-<%@include file="navbar.jsp"%>
+<%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
-        <form action="addFAQ" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+        <form action="add-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
@@ -51,7 +51,7 @@
 
 </div>
 
-<%@include file="footer.jsp"%>
+<%@include file="../footer.jsp"%>
 <script>
     // Disable form submissions if there are invalid fields
     (function() {
@@ -72,4 +72,4 @@
         }, false);
     })();
 </script>
-<%@include file="afterFooter.jsp"%>
+<%@include file="../afterFooter.jsp"%>
