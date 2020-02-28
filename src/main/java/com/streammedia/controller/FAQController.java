@@ -1,5 +1,6 @@
 package com.streammedia.controller;
 import com.streammedia.entity.FAQ;
+import com.streammedia.entity.Trailer;
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
@@ -62,11 +63,11 @@ public class FAQController extends HttpServlet {
                     case "/edit-faq":
                         editFAQ(request, response);
                         break;
-//                    case "/faq-details":
-//                        listFAQ(request, response);
-//                        break;
                     case "/faqs":
                         listFAQ(request, response);
+                        break;
+                    case "/faq-details":
+                        displayFAQDetails(request, response);
                         break;
 //                    default:
 //                        listFAQ(request, response);
@@ -74,7 +75,21 @@ public class FAQController extends HttpServlet {
                 }
         }
 
-        private void listFAQ(HttpServletRequest request, HttpServletResponse response)
+    private void displayFAQDetails(HttpServletRequest request, HttpServletResponse response) {
+        FAQ faq= (FAQ)faqDao.getById(Integer.parseInt(request.getParameter("uid")));
+        log.debug("Getting a Single FAQ " + faq);
+        request.setAttribute("faq", faq);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqDetails.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            log.error("Servlet Error: " + e);
+        } catch (IOException e) {
+            log.error("IO Error: " + e);
+        }
+    }
+
+    private void listFAQ(HttpServletRequest request, HttpServletResponse response)
                 throws  IOException, ServletException {
             List<FAQ> faqs = faqDao.getAll();
             request.setAttribute("listFAQ", faqs);
