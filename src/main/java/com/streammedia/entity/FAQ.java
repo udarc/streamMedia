@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
-//@ToString
-//@EqualsAndHashCode
+@ToString
+@EqualsAndHashCode
 @Entity(name = "FAQ")
 @Table(name = "faq")
 public class FAQ {
@@ -39,19 +39,32 @@ public class FAQ {
     private String description;
 
 
-//    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Exclude
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-//    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Exclude
     @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
+
+
+
+    public FAQ() {
+    }
+
+    public FAQ(String title, String category, String description, LocalDateTime createdAt, User user) {
+        this.title = title;
+        this.category = category;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.user = user;
+    }
 
 //    /**
 //     * Instantiates a new Faq.

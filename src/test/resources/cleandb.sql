@@ -1,6 +1,7 @@
 #
 DELETE  FROM Role;
 DELETE FROM  `Trailer`;
+DELETE FROM faq;
 DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
@@ -25,3 +26,9 @@ INSERT INTO Role(role_id,name,username , created_at) VALUES
 (3,'Peace','Chantal','00:01:40',Now(),' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.',Now(),2),
 (4,'The happiness','Nadine','00:01:40',Now(),'So what is persistence?',Now(),2),
 (5,'Great Dane','Ella','00:01:40',Now(),'Hibernate ORM is concerned with helping your application to achieve persistence.',Now(),1);
+-- DROP TABLE IF EXISTS `Trailer`;
+
+INSERT INTO faq(faq_id,title,category,description ,created_at, user) VALUES
+(1,'How to sell movies','Movie','This is a description of how to sell movies.',Now(),1),
+(2,'How to access paid materials ','Sotories','Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted.',NOW(),2),
+(3,'Taking better photos','Movie',' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.',Now(),2);

@@ -150,3 +150,80 @@
 [DEBUG] 2020-02-28 16:19:25.654 [http-nio-8080-exec-228] GenericDao - The list of Entities [com.streammedia.entity.FAQ@70f5acd3, com.streammedia.entity.FAQ@3757e369]
 [DEBUG] 2020-02-28 16:19:26.803 [http-nio-8080-exec-225] GenericDao - Getting Entity by Id 2
 [DEBUG] 2020-02-28 16:19:26.813 [http-nio-8080-exec-225] FAQController - Getting a Single FAQ com.streammedia.entity.FAQ@4123e1ac
+[DEBUG] 2020-02-28 21:23:53.024 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:23:54.760 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:24:09.479 [main] GenericDao - The list of Entities [com.streammedia.entity.FAQ@d120d7c, com.streammedia.entity.FAQ@4a9bce99, com.streammedia.entity.FAQ@5a0f87e5]
+[DEBUG] 2020-02-28 21:24:21.946 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:25:25.487 [main] GenericDao - Getting Entity by Id 3
+[ERROR] 2020-02-28 21:31:31.358 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:31:31.368 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:31:33.023 [main] FAQDaoTest - com.streammedia.entity.FAQ@153cfd86
+[DEBUG] 2020-02-28 21:31:33.043 [main] GenericDao - A new user was Added with an Id4
+[DEBUG] 2020-02-28 21:31:33.046 [main] GenericDao - Getting Entity by Id 4
+[ERROR] 2020-02-28 21:32:34.354 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:32:34.365 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:32:35.803 [main] FAQDaoTest - FAQ(faqId=0, title=Test, category=Trailer, description=Sme Data for Test, createdAt=2020-02-28T21:32:35.803107, updatedAt=null, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))
+[DEBUG] 2020-02-28 21:32:35.830 [main] GenericDao - A new user was Added with an Id5
+[DEBUG] 2020-02-28 21:32:35.832 [main] GenericDao - Getting Entity by Id 5
+[ERROR] 2020-02-28 21:35:05.081 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:05.091 [main] GenericDao - Getting Entity by Id 3
+[ERROR] 2020-02-28 21:35:06.613 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:06.698 [main] GenericDao - The list of Entities []
+[ERROR] 2020-02-28 21:35:06.740 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[INFO ] 2020-02-28 21:35:06.746 [main] GenericDao - Searching for entity with category = Movie
+[ERROR] 2020-02-28 21:35:06.809 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[INFO ] 2020-02-28 21:35:06.813 [main] GenericDao - Searching for entity with 
+[ERROR] 2020-02-28 21:35:06.870 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:06.871 [main] GenericDao - Getting Entity by Id 3
+[ERROR] 2020-02-28 21:35:06.919 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:06.919 [main] GenericDao - Getting Entity by Id 4
+[ERROR] 2020-02-28 21:35:06.959 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:06.960 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:35:07.035 [main] FAQDaoTest - FAQ(faqId=0, title=Test, category=Trailer, description=Sme Data for Test, createdAt=2020-02-28T21:35:07.035589, updatedAt=null, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))
+[DEBUG] 2020-02-28 21:35:07.074 [main] GenericDao - A new user was Added with an Id6
+[DEBUG] 2020-02-28 21:35:07.074 [main] GenericDao - Getting Entity by Id 6
+[ERROR] 2020-02-28 21:35:54.948 [main] Database - java.sql.SQLException: Column count doesn't match value count at row 1
+[DEBUG] 2020-02-28 21:35:56.678 [main] GenericDao - The list of Entities []
+[DEBUG] 2020-02-28 21:38:19.712 [main] GenericDao - The list of Entities [FAQ(faqId=1, title=How to sell movies, category=Movie, description=This is a description of how to sell movies., createdAt=2020-02-28T21:38:17, updatedAt=2020-02-28T21:38:17, user=User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=2, title=How to access paid materials , category=Sotories, description=Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted., createdAt=2020-02-28T21:38:17, updatedAt=2020-02-28T21:38:17, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=3, title=Taking better photos, category=Movie, description= In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later., createdAt=2020-02-28T21:38:17, updatedAt=2020-02-28T21:38:17, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))]
+[DEBUG] 2020-02-28 21:38:27.684 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:38:42.359 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:38:44.514 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:38:44.715 [main] GenericDao - The list of Entities [FAQ(faqId=1, title=How to sell movies, category=Movie, description=This is a description of how to sell movies., createdAt=2020-02-28T21:38:44, updatedAt=2020-02-28T21:38:44, user=User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=2, title=How to access paid materials , category=Sotories, description=Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted., createdAt=2020-02-28T21:38:44, updatedAt=2020-02-28T21:38:44, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=3, title=Taking better photos, category=Movie, description= In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later., createdAt=2020-02-28T21:38:44, updatedAt=2020-02-28T21:38:44, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))]
+[INFO ] 2020-02-28 21:38:44.780 [main] GenericDao - Searching for entity with category = Movie
+[INFO ] 2020-02-28 21:38:44.892 [main] GenericDao - Searching for entity with 
+[DEBUG] 2020-02-28 21:38:44.964 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:38:45.015 [main] GenericDao - Getting Entity by Id 4
+[DEBUG] 2020-02-28 21:38:45.071 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:38:45.080 [main] FAQDaoTest - FAQ(faqId=0, title=Test, category=Trailer, description=Sme Data for Test, createdAt=2020-02-28T21:38:45.080946, updatedAt=null, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))
+[DEBUG] 2020-02-28 21:38:45.104 [main] GenericDao - A new user was Added with an Id4
+[DEBUG] 2020-02-28 21:38:45.105 [main] GenericDao - Getting Entity by Id 4
+[INFO ] 2020-02-28 21:39:10.049 [main] GenericDao - Searching for entity with category = Movie
+[INFO ] 2020-02-28 21:39:54.526 [main] GenericDao - Searching for entity with category = Movie
+[INFO ] 2020-02-28 21:40:27.950 [main] GenericDao - Searching for entity with 
+[DEBUG] 2020-02-28 21:40:53.591 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:40:55.280 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:40:55.466 [main] GenericDao - The list of Entities [FAQ(faqId=1, title=How to sell movies, category=Movie, description=This is a description of how to sell movies., createdAt=2020-02-28T21:40:55, updatedAt=2020-02-28T21:40:55, user=User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=2, title=How to access paid materials , category=Sotories, description=Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted., createdAt=2020-02-28T21:40:55, updatedAt=2020-02-28T21:40:55, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=3, title=Taking better photos, category=Movie, description= In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later., createdAt=2020-02-28T21:40:55, updatedAt=2020-02-28T21:40:55, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))]
+[INFO ] 2020-02-28 21:40:55.509 [main] GenericDao - Searching for entity with category = Movie
+[INFO ] 2020-02-28 21:40:55.587 [main] GenericDao - Searching for entity with 
+[DEBUG] 2020-02-28 21:40:55.651 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:40:55.703 [main] GenericDao - Getting Entity by Id 4
+[DEBUG] 2020-02-28 21:40:55.752 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:40:55.763 [main] FAQDaoTest - FAQ(faqId=0, title=Test, category=Trailer, description=Sme Data for Test, createdAt=2020-02-28T21:40:55.763143, updatedAt=null, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))
+[DEBUG] 2020-02-28 21:40:55.777 [main] GenericDao - A new user was Added with an Id5
+[DEBUG] 2020-02-28 21:40:55.778 [main] GenericDao - Getting Entity by Id 5
+[DEBUG] 2020-02-28 21:41:42.852 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:41:44.491 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-02-28 21:41:44.508 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:41:53.263 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:41:55.110 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:41:55.302 [main] GenericDao - The list of Entities [FAQ(faqId=1, title=How to sell movies, category=Movie, description=This is a description of how to sell movies., createdAt=2020-02-28T21:41:55, updatedAt=2020-02-28T21:41:55, user=User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=2, title=How to access paid materials , category=Sotories, description=Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted., createdAt=2020-02-28T21:41:55, updatedAt=2020-02-28T21:41:55, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28)), FAQ(faqId=3, title=Taking better photos, category=Movie, description= In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later., createdAt=2020-02-28T21:41:55, updatedAt=2020-02-28T21:41:55, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))]
+[INFO ] 2020-02-28 21:41:55.349 [main] GenericDao - Searching for entity with category = Movie
+[INFO ] 2020-02-28 21:41:55.433 [main] GenericDao - Searching for entity with 
+[DEBUG] 2020-02-28 21:41:55.501 [main] GenericDao - Getting Entity by Id 3
+[DEBUG] 2020-02-28 21:41:55.554 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:41:55.572 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-02-28 21:41:55.582 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:41:55.633 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-02-28 21:41:55.641 [main] FAQDaoTest - FAQ(faqId=0, title=Test, category=Trailer, description=Sme Data for Test, createdAt=2020-02-28T21:41:55.641565, updatedAt=null, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-02-28, updateAt=2020-02-28))
+[DEBUG] 2020-02-28 21:41:55.655 [main] GenericDao - A new user was Added with an Id6
+[DEBUG] 2020-02-28 21:41:55.656 [main] GenericDao - Getting Entity by Id 6
