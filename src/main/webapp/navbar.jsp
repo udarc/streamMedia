@@ -32,7 +32,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="streammedia" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Media</a>
-                    <div class="dropdown-menu" aria-labelledby="streammedia">
+                    <div class="dropdown-menu" aria-labelledby="/streammedia">
                         <a class="dropdown-item" href="#">Film</a>
                         <a class="dropdown-item" href="trailers">Trailers</a>
                         <a class="dropdown-item" href="#">Short Stories</a>
@@ -40,7 +40,7 @@
                 </li>
             </ul>
         </div>
-        <form action="searchUser" method="get" class="form-inline">
+        <form action="#" method="get" class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
