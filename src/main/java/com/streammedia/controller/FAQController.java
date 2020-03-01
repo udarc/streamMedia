@@ -99,7 +99,7 @@ public class FAQController extends HttpServlet {
 
         private void displayNewForm(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/faqAdd.jsp");
             dispatcher.forward(request, response);
         }
 
@@ -108,7 +108,7 @@ public class FAQController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("uid"));
             FAQ existingFAQ = (FAQ)faqDao.getById(id);
             log.debug("Display Edit Form");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/faqAdd.jsp");
             request.setAttribute("faq", existingFAQ);
             dispatcher.forward(request, response);
 
@@ -133,7 +133,7 @@ public class FAQController extends HttpServlet {
                     faqDao.insert(newFAQ);
                     response.sendRedirect("faqs");
                 } else {
-                    request.getRequestDispatcher("/faq/faqAdd.jsp").forward(request, response);
+                    request.getRequestDispatcher("/adminOnly/faqAdd.jsp").forward(request, response);
                 }
             }catch (NullPointerException npe){
                 log.error("User Does not Exists" + npe);
@@ -154,7 +154,6 @@ public class FAQController extends HttpServlet {
             faq.setUpdatedAt(LocalDateTime.now());
             faqDao.saveOrUpdate(faq);
             response.sendRedirect("faqs");
-
 
         }
 
