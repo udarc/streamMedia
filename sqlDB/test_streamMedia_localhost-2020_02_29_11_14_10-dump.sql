@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: 
+-- Host: 127.0.0.1    Database:
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -33,14 +33,14 @@ DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(70) DEFAULT NULL,
-  `author` varchar(50) DEFAULT NULL,
-  `isbn` varchar(25) DEFAULT NULL,
-  `publication_year` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `book_id_uindex` (`id`),
-  UNIQUE KEY `book_isbn_uindex` (`isbn`)
+                        `id` int NOT NULL AUTO_INCREMENT,
+                        `title` varchar(70) DEFAULT NULL,
+                        `author` varchar(50) DEFAULT NULL,
+                        `isbn` varchar(25) DEFAULT NULL,
+                        `publication_year` int DEFAULT NULL,
+                        PRIMARY KEY (`id`),
+                        UNIQUE KEY `book_id_uindex` (`id`),
+                        UNIQUE KEY `book_isbn_uindex` (`isbn`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -70,14 +70,14 @@ DROP TABLE IF EXISTS `columns_priv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `columns_priv` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Column_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`,`Column_name`)
+                                `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `Column_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                                PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`,`Column_name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Column privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -98,10 +98,10 @@ DROP TABLE IF EXISTS `component`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `component` (
-  `component_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `component_group_id` int unsigned NOT NULL,
-  `component_urn` text NOT NULL,
-  PRIMARY KEY (`component_id`)
+                             `component_id` int unsigned NOT NULL AUTO_INCREMENT,
+                             `component_group_id` int unsigned NOT NULL,
+                             `component_urn` text NOT NULL,
+                             PRIMARY KEY (`component_id`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Components';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,30 +122,30 @@ DROP TABLE IF EXISTS `db`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `db` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Select_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Insert_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Update_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Delete_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Drop_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Grant_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `References_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Index_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Alter_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Execute_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Event_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`Host`,`Db`,`User`),
-  KEY `User` (`User`)
+                      `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                      `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                      `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                      `Select_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Insert_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Update_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Delete_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Create_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Drop_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Grant_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `References_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Index_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Alter_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Create_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Show_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Execute_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Event_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      `Trigger_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                      PRIMARY KEY (`Host`,`Db`,`User`),
+                      KEY `User` (`User`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Database privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -167,11 +167,11 @@ DROP TABLE IF EXISTS `default_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `default_roles` (
-  `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `DEFAULT_ROLE_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '%',
-  `DEFAULT_ROLE_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`HOST`,`USER`,`DEFAULT_ROLE_HOST`,`DEFAULT_ROLE_USER`)
+                                 `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                 `USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                 `DEFAULT_ROLE_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '%',
+                                 `DEFAULT_ROLE_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                 PRIMARY KEY (`HOST`,`USER`,`DEFAULT_ROLE_HOST`,`DEFAULT_ROLE_USER`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Default roles';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -192,14 +192,14 @@ DROP TABLE IF EXISTS `engine_cost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `engine_cost` (
-  `engine_name` varchar(64) NOT NULL,
-  `device_type` int NOT NULL,
-  `cost_name` varchar(64) NOT NULL,
-  `cost_value` float DEFAULT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `comment` varchar(1024) DEFAULT NULL,
-  `default_value` float GENERATED ALWAYS AS ((case `cost_name` when _utf8mb3'io_block_read_cost' then 1.0 when _utf8mb3'memory_block_read_cost' then 0.25 else NULL end)) VIRTUAL,
-  PRIMARY KEY (`cost_name`,`engine_name`,`device_type`)
+                               `engine_name` varchar(64) NOT NULL,
+                               `device_type` int NOT NULL,
+                               `cost_name` varchar(64) NOT NULL,
+                               `cost_value` float DEFAULT NULL,
+                               `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                               `comment` varchar(1024) DEFAULT NULL,
+                               `default_value` float GENERATED ALWAYS AS ((case `cost_name` when _utf8mb3'io_block_read_cost' then 1.0 when _utf8mb3'memory_block_read_cost' then 0.25 else NULL end)) VIRTUAL,
+                               PRIMARY KEY (`cost_name`,`engine_name`,`device_type`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -221,11 +221,11 @@ DROP TABLE IF EXISTS `func`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `func` (
-  `name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `ret` tinyint(1) NOT NULL DEFAULT '0',
-  `dl` char(128) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `type` enum('function','aggregate') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`name`)
+                        `name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                        `ret` tinyint(1) NOT NULL DEFAULT '0',
+                        `dl` char(128) COLLATE utf8_bin NOT NULL DEFAULT '',
+                        `type` enum('function','aggregate') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        PRIMARY KEY (`name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='User defined functions';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -246,11 +246,11 @@ DROP TABLE IF EXISTS `global_grants`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `global_grants` (
-  `USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `PRIV` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `WITH_GRANT_OPTION` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`USER`,`HOST`,`PRIV`)
+                                 `USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                 `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                 `PRIV` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                                 `WITH_GRANT_OPTION` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                                 PRIMARY KEY (`USER`,`HOST`,`PRIV`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Extended global grants';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -271,10 +271,10 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE IF NOT EXISTS `gtid_executed` (
-  `source_uuid` char(36) NOT NULL COMMENT 'uuid of the source where the transaction was originally executed.',
-  `interval_start` bigint NOT NULL COMMENT 'First number of interval.',
-  `interval_end` bigint NOT NULL COMMENT 'Last number of interval.',
-  PRIMARY KEY (`source_uuid`,`interval_start`)
+                                               `source_uuid` char(36) NOT NULL COMMENT 'uuid of the source where the transaction was originally executed.',
+                                               `interval_start` bigint NOT NULL COMMENT 'First number of interval.',
+                                               `interval_end` bigint NOT NULL COMMENT 'Last number of interval.',
+                                               PRIMARY KEY (`source_uuid`,`interval_start`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -286,12 +286,12 @@ DROP TABLE IF EXISTS `help_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `help_category` (
-  `help_category_id` smallint unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  `parent_category_id` smallint unsigned DEFAULT NULL,
-  `url` text NOT NULL,
-  PRIMARY KEY (`help_category_id`),
-  UNIQUE KEY `name` (`name`)
+                                 `help_category_id` smallint unsigned NOT NULL,
+                                 `name` char(64) NOT NULL,
+                                 `parent_category_id` smallint unsigned DEFAULT NULL,
+                                 `url` text NOT NULL,
+                                 PRIMARY KEY (`help_category_id`),
+                                 UNIQUE KEY `name` (`name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='help categories';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -313,10 +313,10 @@ DROP TABLE IF EXISTS `help_keyword`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `help_keyword` (
-  `help_keyword_id` int unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  PRIMARY KEY (`help_keyword_id`),
-  UNIQUE KEY `name` (`name`)
+                                `help_keyword_id` int unsigned NOT NULL,
+                                `name` char(64) NOT NULL,
+                                PRIMARY KEY (`help_keyword_id`),
+                                UNIQUE KEY `name` (`name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='help keywords';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -338,9 +338,9 @@ DROP TABLE IF EXISTS `help_relation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `help_relation` (
-  `help_topic_id` int unsigned NOT NULL,
-  `help_keyword_id` int unsigned NOT NULL,
-  PRIMARY KEY (`help_keyword_id`,`help_topic_id`)
+                                 `help_topic_id` int unsigned NOT NULL,
+                                 `help_keyword_id` int unsigned NOT NULL,
+                                 PRIMARY KEY (`help_keyword_id`,`help_topic_id`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='keyword-topic relation';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -362,14 +362,14 @@ DROP TABLE IF EXISTS `help_topic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `help_topic` (
-  `help_topic_id` int unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  `help_category_id` smallint unsigned NOT NULL,
-  `description` text NOT NULL,
-  `example` text NOT NULL,
-  `url` text NOT NULL,
-  PRIMARY KEY (`help_topic_id`),
-  UNIQUE KEY `name` (`name`)
+                              `help_topic_id` int unsigned NOT NULL,
+                              `name` char(64) NOT NULL,
+                              `help_category_id` smallint unsigned NOT NULL,
+                              `description` text NOT NULL,
+                              `example` text NOT NULL,
+                              `url` text NOT NULL,
+                              PRIMARY KEY (`help_topic_id`),
+                              UNIQUE KEY `name` (`name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='help topics';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -388,7 +388,7 @@ UNLOCK TABLES;
 --
 
 /*!40000 ALTER TABLE `innodb_index_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_index_stats` VALUES ('BookSeller','book','PRIMARY','2020-02-09 04:08:04','n_diff_pfx01',3,1,'id'),('BookSeller','book','PRIMARY','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','PRIMARY','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','n_diff_pfx01',3,1,'id'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','n_diff_pfx01',3,1,'isbn'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('mysql','component','PRIMARY','2020-01-22 04:57:10','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2020-01-22 04:57:10','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2020-01-22 04:57:10','size',1,NULL,'Number of pages in the index'),('sample','user','PRIMARY','2020-01-25 17:28:29','n_diff_pfx01',5,1,'id'),('sample','user','PRIMARY','2020-01-25 17:28:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sample','user','PRIMARY','2020-01-25 17:28:29','size',1,NULL,'Number of pages in the index'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','n_diff_pfx01',5,1,'user_name'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','size',1,NULL,'Number of pages in the index'),('streamMedia','Crew','Crew_SM_Users_username_fk','2020-02-27 16:51:23','n_diff_pfx01',0,1,'username'),('streamMedia','Crew','Crew_SM_Users_username_fk','2020-02-27 16:51:23','n_diff_pfx02',0,1,'username,crew_id'),('streamMedia','Crew','Crew_SM_Users_username_fk','2020-02-27 16:51:23','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Crew','Crew_SM_Users_username_fk','2020-02-27 16:51:23','size',1,NULL,'Number of pages in the index'),('streamMedia','Crew','PRIMARY','2020-02-27 16:51:23','n_diff_pfx01',0,1,'crew_id'),('streamMedia','Crew','PRIMARY','2020-02-27 16:51:23','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Crew','PRIMARY','2020-02-27 16:51:23','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','Film_SM_Users','2020-02-27 16:51:23','n_diff_pfx01',0,1,'username'),('streamMedia','Film','Film_SM_Users','2020-02-27 16:51:23','n_diff_pfx02',0,1,'username,film_id'),('streamMedia','Film','Film_SM_Users','2020-02-27 16:51:23','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','Film_SM_Users','2020-02-27 16:51:23','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','PRIMARY','2020-02-27 16:51:23','n_diff_pfx01',0,1,'film_id'),('streamMedia','Film','PRIMARY','2020-02-27 16:51:23','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','PRIMARY','2020-02-27 16:51:23','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','title_UNIQUE','2020-02-27 16:51:23','n_diff_pfx01',0,1,'title'),('streamMedia','Film','title_UNIQUE','2020-02-27 16:51:23','n_diff_pfx02',0,1,'title,director'),('streamMedia','Film','title_UNIQUE','2020-02-27 16:51:23','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','title_UNIQUE','2020-02-27 16:51:23','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-27 16:51:24','n_diff_pfx01',0,1,'crew_id'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-27 16:51:24','n_diff_pfx02',0,1,'crew_id,film_crew_id'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-27 16:51:24','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-27 16:51:24','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-27 16:51:24','n_diff_pfx01',0,1,'film_id'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-27 16:51:24','n_diff_pfx02',0,1,'film_id,film_crew_id'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-27 16:51:24','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-27 16:51:24','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','PRIMARY','2020-02-27 16:51:24','n_diff_pfx01',0,1,'film_crew_id'),('streamMedia','FilmCrew','PRIMARY','2020-02-27 16:51:24','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','PRIMARY','2020-02-27 16:51:24','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-27 16:51:25','n_diff_pfx01',0,1,'film_id'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-27 16:51:25','n_diff_pfx02',0,1,'film_id,film_genre_id'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-27 16:51:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-27 16:51:25','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-27 16:51:25','n_diff_pfx01',0,1,'genre_id'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-27 16:51:25','n_diff_pfx02',0,1,'genre_id,film_genre_id'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-27 16:51:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-27 16:51:25','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','PRIMARY','2020-02-27 16:51:25','n_diff_pfx01',0,1,'film_genre_id'),('streamMedia','FilmGenre','PRIMARY','2020-02-27 16:51:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','PRIMARY','2020-02-27 16:51:25','size',1,NULL,'Number of pages in the index'),('streamMedia','Genre','PRIMARY','2020-02-27 16:51:26','n_diff_pfx01',0,1,'genre_id'),('streamMedia','Genre','PRIMARY','2020-02-27 16:51:26','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Genre','PRIMARY','2020-02-27 16:51:26','size',1,NULL,'Number of pages in the index'),('streamMedia','Genre','title_UNIQUE','2020-02-27 16:51:26','n_diff_pfx01',0,1,'title'),('streamMedia','Genre','title_UNIQUE','2020-02-27 16:51:26','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Genre','title_UNIQUE','2020-02-27 16:51:26','size',1,NULL,'Number of pages in the index'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','n_diff_pfx01',3,1,'role_id'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_diff_pfx01',3,1,'username'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_diff_pfx02',3,1,'username,role_id'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','n_diff_pfx01',3,1,'user_id'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','n_diff_pfx01',3,1,'username'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','n_diff_pfx01',1,1,'trailer_id'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_diff_pfx01',1,1,'user'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_diff_pfx02',1,1,'user,trailer_id'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_diff_pfx01',1,1,'title'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_diff_pfx02',1,1,'title,author'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','PRIMARY','2020-02-27 16:51:28','n_diff_pfx01',0,1,'faq_id'),('streamMedia','faq','PRIMARY','2020-02-27 16:51:28','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','PRIMARY','2020-02-27 16:51:28','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','faq_User_username_fk','2020-02-27 16:51:28','n_diff_pfx01',0,1,'username'),('streamMedia','faq','faq_User_username_fk','2020-02-27 16:51:28','n_diff_pfx02',0,1,'username,faq_id'),('streamMedia','faq','faq_User_username_fk','2020-02-27 16:51:28','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','faq_User_username_fk','2020-02-27 16:51:28','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','title_UNIQUE','2020-02-27 16:51:28','n_diff_pfx01',0,1,'title'),('streamMedia','faq','title_UNIQUE','2020-02-27 16:51:28','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','title_UNIQUE','2020-02-27 16:51:28','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','n_diff_pfx01',2,1,'variable'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Role','PRIMARY','2020-02-27 18:12:25','n_diff_pfx01',5,1,'role_id'),('test_streamMedia','Role','PRIMARY','2020-02-27 18:12:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Role','PRIMARY','2020-02-27 18:12:25','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Role','Role_User_username_fk','2020-02-27 18:12:25','n_diff_pfx01',4,1,'username'),('test_streamMedia','Role','Role_User_username_fk','2020-02-27 18:12:25','n_diff_pfx02',5,1,'username,role_id'),('test_streamMedia','Role','Role_User_username_fk','2020-02-27 18:12:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Role','Role_User_username_fk','2020-02-27 18:12:25','size',1,NULL,'Number of pages in the index'),('test_streamMedia','SM_Users','PRIMARY','2020-02-27 18:12:15','n_diff_pfx01',7,1,'user_id'),('test_streamMedia','SM_Users','PRIMARY','2020-02-27 18:12:15','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','SM_Users','PRIMARY','2020-02-27 18:12:15','size',1,NULL,'Number of pages in the index'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-27 18:12:15','n_diff_pfx01',7,1,'username'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-27 18:12:15','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-27 18:12:15','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','PRIMARY','2020-02-27 18:12:35','n_diff_pfx01',5,1,'trailer_id'),('test_streamMedia','Trailer','PRIMARY','2020-02-27 18:12:35','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','PRIMARY','2020-02-27 18:12:35','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 18:12:35','n_diff_pfx01',3,1,'user'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 18:12:35','n_diff_pfx02',5,1,'user,trailer_id'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 18:12:35','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 18:12:35','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-27 18:12:35','n_diff_pfx01',5,1,'title'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-27 18:12:35','n_diff_pfx02',5,1,'title,author'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-27 18:12:35','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-27 18:12:35','size',1,NULL,'Number of pages in the index');
+INSERT  IGNORE INTO `innodb_index_stats` VALUES ('BookSeller','book','PRIMARY','2020-02-09 04:08:04','n_diff_pfx01',3,1,'id'),('BookSeller','book','PRIMARY','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','PRIMARY','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','n_diff_pfx01',3,1,'id'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','book_id_uindex','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','n_diff_pfx01',3,1,'isbn'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('BookSeller','book','book_isbn_uindex','2020-02-09 04:08:04','size',1,NULL,'Number of pages in the index'),('mysql','component','PRIMARY','2020-01-22 04:57:10','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2020-01-22 04:57:10','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2020-01-22 04:57:10','size',1,NULL,'Number of pages in the index'),('sample','user','PRIMARY','2020-01-25 17:28:29','n_diff_pfx01',5,1,'id'),('sample','user','PRIMARY','2020-01-25 17:28:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sample','user','PRIMARY','2020-01-25 17:28:29','size',1,NULL,'Number of pages in the index'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','n_diff_pfx01',5,1,'user_name'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sample','user','users_user_name_uindex','2020-01-25 17:28:29','size',1,NULL,'Number of pages in the index'),('streamMedia','Crew','Crew_User_user_id_fk','2020-02-29 04:29:18','n_diff_pfx01',0,1,'user'),('streamMedia','Crew','Crew_User_user_id_fk','2020-02-29 04:29:18','n_diff_pfx02',0,1,'user,crew_id'),('streamMedia','Crew','Crew_User_user_id_fk','2020-02-29 04:29:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Crew','Crew_User_user_id_fk','2020-02-29 04:29:18','size',1,NULL,'Number of pages in the index'),('streamMedia','Crew','PRIMARY','2020-02-29 04:29:18','n_diff_pfx01',0,1,'crew_id'),('streamMedia','Crew','PRIMARY','2020-02-29 04:29:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Crew','PRIMARY','2020-02-29 04:29:18','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','Film_User_user_id_fk','2020-02-29 04:29:17','n_diff_pfx01',0,1,'user'),('streamMedia','Film','Film_User_user_id_fk','2020-02-29 04:29:17','n_diff_pfx02',0,1,'user,film_id'),('streamMedia','Film','Film_User_user_id_fk','2020-02-29 04:29:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','Film_User_user_id_fk','2020-02-29 04:29:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','PRIMARY','2020-02-29 04:29:17','n_diff_pfx01',0,1,'film_id'),('streamMedia','Film','PRIMARY','2020-02-29 04:29:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','PRIMARY','2020-02-29 04:29:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Film','title_UNIQUE','2020-02-29 04:29:17','n_diff_pfx01',0,1,'title'),('streamMedia','Film','title_UNIQUE','2020-02-29 04:29:17','n_diff_pfx02',0,1,'title,director'),('streamMedia','Film','title_UNIQUE','2020-02-29 04:29:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Film','title_UNIQUE','2020-02-29 04:29:17','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-29 04:29:19','n_diff_pfx01',0,1,'crew_id'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-29 04:29:19','n_diff_pfx02',0,1,'crew_id,film_crew_id'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-29 04:29:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','FilmCrew_Crew_fk','2020-02-29 04:29:19','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-29 04:29:19','n_diff_pfx01',0,1,'film_id'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-29 04:29:19','n_diff_pfx02',0,1,'film_id,film_crew_id'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-29 04:29:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','FilmCrew_Film_fk','2020-02-29 04:29:19','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmCrew','PRIMARY','2020-02-29 04:29:19','n_diff_pfx01',0,1,'film_crew_id'),('streamMedia','FilmCrew','PRIMARY','2020-02-29 04:29:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmCrew','PRIMARY','2020-02-29 04:29:19','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-29 04:29:18','n_diff_pfx01',0,1,'film_id'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-29 04:29:18','n_diff_pfx02',0,1,'film_id,film_genre_id'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-29 04:29:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','FilmGenre_Film','2020-02-29 04:29:18','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-29 04:29:18','n_diff_pfx01',0,1,'genre_id'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-29 04:29:18','n_diff_pfx02',0,1,'genre_id,film_genre_id'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-29 04:29:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','FilmGenre_Genre','2020-02-29 04:29:18','size',1,NULL,'Number of pages in the index'),('streamMedia','FilmGenre','PRIMARY','2020-02-29 04:29:18','n_diff_pfx01',0,1,'film_genre_id'),('streamMedia','FilmGenre','PRIMARY','2020-02-29 04:29:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','FilmGenre','PRIMARY','2020-02-29 04:29:18','size',1,NULL,'Number of pages in the index'),('streamMedia','Genre','PRIMARY','2020-02-29 04:29:15','n_diff_pfx01',0,1,'genre_id'),('streamMedia','Genre','PRIMARY','2020-02-29 04:29:15','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Genre','PRIMARY','2020-02-29 04:29:15','size',1,NULL,'Number of pages in the index'),('streamMedia','Genre','title_UNIQUE','2020-02-29 04:29:15','n_diff_pfx01',0,1,'title'),('streamMedia','Genre','title_UNIQUE','2020-02-29 04:29:15','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Genre','title_UNIQUE','2020-02-29 04:29:15','size',1,NULL,'Number of pages in the index'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','n_diff_pfx01',3,1,'role_id'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Role','PRIMARY','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_diff_pfx01',3,1,'username'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_diff_pfx02',3,1,'username,role_id'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Role','Role_User_username_fk','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','n_diff_pfx01',3,1,'user_id'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','SM_Users','PRIMARY','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','n_diff_pfx01',3,1,'username'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','SM_Users','username_UNIQUE','2020-02-27 17:25:17','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','n_diff_pfx01',1,1,'trailer_id'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','PRIMARY','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_diff_pfx01',1,1,'user'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_diff_pfx02',1,1,'user,trailer_id'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','tariler_User_user_id_fk','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_diff_pfx01',1,1,'title'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_diff_pfx02',1,1,'title,author'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','Trailer','title_UNIQUE','2020-02-27 20:55:39','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','PRIMARY','2020-02-28 21:28:30','n_diff_pfx01',3,1,'faq_id'),('streamMedia','faq','PRIMARY','2020-02-28 21:28:30','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','PRIMARY','2020-02-28 21:28:30','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','faq_User_user_id_fk','2020-02-28 21:28:30','n_diff_pfx01',1,1,'user'),('streamMedia','faq','faq_User_user_id_fk','2020-02-28 21:28:30','n_diff_pfx02',3,1,'user,faq_id'),('streamMedia','faq','faq_User_user_id_fk','2020-02-28 21:28:30','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','faq_User_user_id_fk','2020-02-28 21:28:30','size',1,NULL,'Number of pages in the index'),('streamMedia','faq','title_UNIQUE','2020-02-28 21:28:30','n_diff_pfx01',3,1,'title'),('streamMedia','faq','title_UNIQUE','2020-02-28 21:28:30','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('streamMedia','faq','title_UNIQUE','2020-02-28 21:28:30','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','n_diff_pfx01',2,1,'variable'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2019-05-11 14:57:28','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Role','PRIMARY','2020-02-29 03:58:56','n_diff_pfx01',5,1,'role_id'),('test_streamMedia','Role','PRIMARY','2020-02-29 03:58:56','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Role','PRIMARY','2020-02-29 03:58:56','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Role','Role_User_username_fk','2020-02-29 03:58:56','n_diff_pfx01',4,1,'username'),('test_streamMedia','Role','Role_User_username_fk','2020-02-29 03:58:56','n_diff_pfx02',5,1,'username,role_id'),('test_streamMedia','Role','Role_User_username_fk','2020-02-29 03:58:56','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Role','Role_User_username_fk','2020-02-29 03:58:56','size',1,NULL,'Number of pages in the index'),('test_streamMedia','SM_Users','PRIMARY','2020-02-29 03:58:46','n_diff_pfx01',6,1,'user_id'),('test_streamMedia','SM_Users','PRIMARY','2020-02-29 03:58:46','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','SM_Users','PRIMARY','2020-02-29 03:58:46','size',1,NULL,'Number of pages in the index'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-29 03:58:46','n_diff_pfx01',6,1,'username'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-29 03:58:46','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','SM_Users','username_UNIQUE','2020-02-29 03:58:46','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','PRIMARY','2020-02-29 03:58:25','n_diff_pfx01',5,1,'trailer_id'),('test_streamMedia','Trailer','PRIMARY','2020-02-29 03:58:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','PRIMARY','2020-02-29 03:58:25','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-29 03:58:25','n_diff_pfx01',3,1,'user'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-29 03:58:25','n_diff_pfx02',5,1,'user,trailer_id'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-29 03:58:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','tariler_User_user_id_fk','2020-02-29 03:58:25','size',1,NULL,'Number of pages in the index'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-29 03:58:25','n_diff_pfx01',5,1,'title'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-29 03:58:25','n_diff_pfx02',5,1,'title,author'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-29 03:58:25','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','Trailer','title_UNIQUE','2020-02-29 03:58:25','size',1,NULL,'Number of pages in the index'),('test_streamMedia','faq','PRIMARY','2020-02-29 03:58:36','n_diff_pfx01',4,1,'faq_id'),('test_streamMedia','faq','PRIMARY','2020-02-29 03:58:36','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','faq','PRIMARY','2020-02-29 03:58:36','size',1,NULL,'Number of pages in the index'),('test_streamMedia','faq','faq_User_user_id_fk','2020-02-29 03:58:36','n_diff_pfx01',2,1,'user'),('test_streamMedia','faq','faq_User_user_id_fk','2020-02-29 03:58:36','n_diff_pfx02',4,1,'user,faq_id'),('test_streamMedia','faq','faq_User_user_id_fk','2020-02-29 03:58:36','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','faq','faq_User_user_id_fk','2020-02-29 03:58:36','size',1,NULL,'Number of pages in the index'),('test_streamMedia','faq','title_UNIQUE','2020-02-29 03:58:36','n_diff_pfx01',4,1,'title'),('test_streamMedia','faq','title_UNIQUE','2020-02-29 03:58:36','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('test_streamMedia','faq','title_UNIQUE','2020-02-29 03:58:36','size',1,NULL,'Number of pages in the index');
 /*!40000 ALTER TABLE `innodb_index_stats` ENABLE KEYS */;
 
 --
@@ -396,7 +396,7 @@ INSERT  IGNORE INTO `innodb_index_stats` VALUES ('BookSeller','book','PRIMARY','
 --
 
 /*!40000 ALTER TABLE `innodb_table_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_table_stats` VALUES ('BookSeller','book','2020-02-09 04:08:04',3,1,2),('mysql','component','2020-01-22 04:57:10',0,1,0),('sample','user','2020-01-25 17:28:29',5,1,1),('streamMedia','Crew','2020-02-27 16:51:23',0,1,1),('streamMedia','Film','2020-02-27 16:51:23',0,1,2),('streamMedia','FilmCrew','2020-02-27 16:51:24',0,1,2),('streamMedia','FilmGenre','2020-02-27 16:51:25',0,1,2),('streamMedia','Genre','2020-02-27 16:51:26',0,1,1),('streamMedia','Role','2020-02-27 17:25:17',3,1,1),('streamMedia','SM_Users','2020-02-27 17:25:17',3,1,1),('streamMedia','Trailer','2020-02-27 20:55:39',1,1,2),('streamMedia','faq','2020-02-27 16:51:28',0,1,2),('sys','sys_config','2019-05-11 14:57:28',2,1,0),('test_streamMedia','Role','2020-02-27 18:12:25',5,1,1),('test_streamMedia','SM_Users','2020-02-27 18:12:15',7,1,1),('test_streamMedia','Trailer','2020-02-27 18:12:35',5,1,2);
+INSERT  IGNORE INTO `innodb_table_stats` VALUES ('BookSeller','book','2020-02-09 04:08:04',3,1,2),('mysql','component','2020-01-22 04:57:10',0,1,0),('sample','user','2020-01-25 17:28:29',5,1,1),('streamMedia','Crew','2020-02-29 04:29:18',0,1,1),('streamMedia','Film','2020-02-29 04:29:17',0,1,2),('streamMedia','FilmCrew','2020-02-29 04:29:19',0,1,2),('streamMedia','FilmGenre','2020-02-29 04:29:18',0,1,2),('streamMedia','Genre','2020-02-29 04:29:15',0,1,1),('streamMedia','Role','2020-02-27 17:25:17',3,1,1),('streamMedia','SM_Users','2020-02-27 17:25:17',3,1,1),('streamMedia','Trailer','2020-02-27 20:55:39',1,1,2),('streamMedia','faq','2020-02-28 21:28:30',3,1,2),('sys','sys_config','2019-05-11 14:57:28',2,1,0),('test_streamMedia','Role','2020-02-29 03:58:56',5,1,1),('test_streamMedia','SM_Users','2020-02-29 03:58:46',6,1,1),('test_streamMedia','Trailer','2020-02-29 03:58:25',5,1,2),('test_streamMedia','faq','2020-02-29 03:58:36',4,1,2);
 /*!40000 ALTER TABLE `innodb_table_stats` ENABLE KEYS */;
 
 --
@@ -407,11 +407,11 @@ DROP TABLE IF EXISTS `password_history`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_history` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Password_timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  `Password` text COLLATE utf8_bin,
-  PRIMARY KEY (`Host`,`User`,`Password_timestamp` DESC)
+                                    `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                    `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                    `Password_timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+                                    `Password` text COLLATE utf8_bin,
+                                    PRIMARY KEY (`Host`,`User`,`Password_timestamp` DESC)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Password history for user accounts';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -432,9 +432,9 @@ DROP TABLE IF EXISTS `plugin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `plugin` (
-  `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `dl` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`name`)
+                          `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                          `dl` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                          PRIMARY KEY (`name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='MySQL plugins';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -455,16 +455,16 @@ DROP TABLE IF EXISTS `procs_priv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `procs_priv` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Routine_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `Routine_type` enum('FUNCTION','PROCEDURE') COLLATE utf8_bin NOT NULL,
-  `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Proc_priv` set('Execute','Alter Routine','Grant') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Host`,`Db`,`User`,`Routine_name`,`Routine_type`),
-  KEY `Grantor` (`Grantor`)
+                              `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                              `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                              `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                              `Routine_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                              `Routine_type` enum('FUNCTION','PROCEDURE') COLLATE utf8_bin NOT NULL,
+                              `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
+                              `Proc_priv` set('Execute','Alter Routine','Grant') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                              `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                              PRIMARY KEY (`Host`,`Db`,`User`,`Routine_name`,`Routine_type`),
+                              KEY `Grantor` (`Grantor`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Procedure privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -485,15 +485,15 @@ DROP TABLE IF EXISTS `proxies_priv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proxies_priv` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Proxied_host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Proxied_user` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `With_grant` tinyint(1) NOT NULL DEFAULT '0',
-  `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Host`,`User`,`Proxied_host`,`Proxied_user`),
-  KEY `Grantor` (`Grantor`)
+                                `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `Proxied_host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                                `Proxied_user` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `With_grant` tinyint(1) NOT NULL DEFAULT '0',
+                                `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
+                                `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                PRIMARY KEY (`Host`,`User`,`Proxied_host`,`Proxied_user`),
+                                KEY `Grantor` (`Grantor`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='User proxy privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -515,12 +515,12 @@ DROP TABLE IF EXISTS `role_edges`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_edges` (
-  `FROM_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `FROM_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `TO_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `TO_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `WITH_ADMIN_OPTION` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`FROM_HOST`,`FROM_USER`,`TO_HOST`,`TO_USER`)
+                              `FROM_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                              `FROM_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                              `TO_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                              `TO_USER` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                              `WITH_ADMIN_OPTION` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                              PRIMARY KEY (`FROM_HOST`,`FROM_USER`,`TO_HOST`,`TO_USER`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Role hierarchy and role grants';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -541,12 +541,12 @@ DROP TABLE IF EXISTS `server_cost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `server_cost` (
-  `cost_name` varchar(64) NOT NULL,
-  `cost_value` float DEFAULT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `comment` varchar(1024) DEFAULT NULL,
-  `default_value` float GENERATED ALWAYS AS ((case `cost_name` when _utf8mb3'disk_temptable_create_cost' then 20.0 when _utf8mb3'disk_temptable_row_cost' then 0.5 when _utf8mb3'key_compare_cost' then 0.05 when _utf8mb3'memory_temptable_create_cost' then 1.0 when _utf8mb3'memory_temptable_row_cost' then 0.1 when _utf8mb3'row_evaluate_cost' then 0.1 else NULL end)) VIRTUAL,
-  PRIMARY KEY (`cost_name`)
+                               `cost_name` varchar(64) NOT NULL,
+                               `cost_value` float DEFAULT NULL,
+                               `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                               `comment` varchar(1024) DEFAULT NULL,
+                               `default_value` float GENERATED ALWAYS AS ((case `cost_name` when _utf8mb3'disk_temptable_create_cost' then 20.0 when _utf8mb3'disk_temptable_row_cost' then 0.5 when _utf8mb3'key_compare_cost' then 0.05 when _utf8mb3'memory_temptable_create_cost' then 1.0 when _utf8mb3'memory_temptable_row_cost' then 0.1 when _utf8mb3'row_evaluate_cost' then 0.1 else NULL end)) VIRTUAL,
+                               PRIMARY KEY (`cost_name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -568,16 +568,16 @@ DROP TABLE IF EXISTS `servers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `servers` (
-  `Server_name` char(64) NOT NULL DEFAULT '',
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Db` char(64) NOT NULL DEFAULT '',
-  `Username` char(64) NOT NULL DEFAULT '',
-  `Password` char(64) NOT NULL DEFAULT '',
-  `Port` int NOT NULL DEFAULT '0',
-  `Socket` char(64) NOT NULL DEFAULT '',
-  `Wrapper` char(64) NOT NULL DEFAULT '',
-  `Owner` char(64) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Server_name`)
+                           `Server_name` char(64) NOT NULL DEFAULT '',
+                           `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                           `Db` char(64) NOT NULL DEFAULT '',
+                           `Username` char(64) NOT NULL DEFAULT '',
+                           `Password` char(64) NOT NULL DEFAULT '',
+                           `Port` int NOT NULL DEFAULT '0',
+                           `Socket` char(64) NOT NULL DEFAULT '',
+                           `Wrapper` char(64) NOT NULL DEFAULT '',
+                           `Owner` char(64) NOT NULL DEFAULT '',
+                           PRIMARY KEY (`Server_name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='MySQL Foreign Servers table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -597,38 +597,38 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE IF NOT EXISTS `slave_master_info` (
-  `Number_of_lines` int unsigned NOT NULL COMMENT 'Number of lines in the file.',
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The name of the master binary log currently being read from the master.',
-  `Master_log_pos` bigint unsigned NOT NULL COMMENT 'The master log position of the last read event.',
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL COMMENT 'The host name of the master.',
-  `User_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The user name used to connect to the master.',
-  `User_password` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The password used to connect to the master.',
-  `Port` int unsigned NOT NULL COMMENT 'The network port used to connect to the master.',
-  `Connect_retry` int unsigned NOT NULL COMMENT 'The period (in seconds) that the slave will wait before trying to reconnect to the master.',
-  `Enabled_ssl` tinyint(1) NOT NULL COMMENT 'Indicates whether the server supports SSL connections.',
-  `Ssl_ca` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Authority (CA) certificate.',
-  `Ssl_capath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path to the Certificate Authority (CA) certificates.',
-  `Ssl_cert` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL certificate file.',
-  `Ssl_cipher` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the cipher in use for the SSL connection.',
-  `Ssl_key` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL key file.',
-  `Ssl_verify_server_cert` tinyint(1) NOT NULL COMMENT 'Whether to verify the server certificate.',
-  `Heartbeat` float NOT NULL,
-  `Bind` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Displays which interface is employed when connecting to the MySQL server',
-  `Ignored_server_ids` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The number of server IDs to be ignored, followed by the actual server IDs',
-  `Uuid` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The master server uuid.',
-  `Retry_count` bigint unsigned NOT NULL COMMENT 'Number of reconnect attempts, to the master, before giving up.',
-  `Ssl_crl` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Revocation List (CRL)',
-  `Ssl_crlpath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path used for Certificate Revocation List (CRL) files',
-  `Enabled_auto_position` tinyint(1) NOT NULL COMMENT 'Indicates whether GTIDs will be used to retrieve events from the master.',
-  `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
-  `Tls_version` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Tls version',
-  `Public_key_path` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file containing public key of master server.',
-  `Get_public_key` tinyint(1) NOT NULL COMMENT 'Preference to get public key from master.',
-  `Network_namespace` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Network namespace used for communication with the master server.',
-  `Master_compression_algorithm` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Compression algorithm supported for data transfer between master and slave.',
-  `Master_zstd_compression_level` int unsigned NOT NULL COMMENT 'Compression level associated with zstd compression algorithm.',
-  `Tls_ciphersuites` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Ciphersuites used for TLS 1.3 communication with the master server.',
-  PRIMARY KEY (`Channel_name`)
+                                                   `Number_of_lines` int unsigned NOT NULL COMMENT 'Number of lines in the file.',
+                                                   `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The name of the master binary log currently being read from the master.',
+                                                   `Master_log_pos` bigint unsigned NOT NULL COMMENT 'The master log position of the last read event.',
+                                                   `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL COMMENT 'The host name of the master.',
+                                                   `User_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The user name used to connect to the master.',
+                                                   `User_password` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The password used to connect to the master.',
+                                                   `Port` int unsigned NOT NULL COMMENT 'The network port used to connect to the master.',
+                                                   `Connect_retry` int unsigned NOT NULL COMMENT 'The period (in seconds) that the slave will wait before trying to reconnect to the master.',
+                                                   `Enabled_ssl` tinyint(1) NOT NULL COMMENT 'Indicates whether the server supports SSL connections.',
+                                                   `Ssl_ca` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Authority (CA) certificate.',
+                                                   `Ssl_capath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path to the Certificate Authority (CA) certificates.',
+                                                   `Ssl_cert` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL certificate file.',
+                                                   `Ssl_cipher` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the cipher in use for the SSL connection.',
+                                                   `Ssl_key` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL key file.',
+                                                   `Ssl_verify_server_cert` tinyint(1) NOT NULL COMMENT 'Whether to verify the server certificate.',
+                                                   `Heartbeat` float NOT NULL,
+                                                   `Bind` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Displays which interface is employed when connecting to the MySQL server',
+                                                   `Ignored_server_ids` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The number of server IDs to be ignored, followed by the actual server IDs',
+                                                   `Uuid` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The master server uuid.',
+                                                   `Retry_count` bigint unsigned NOT NULL COMMENT 'Number of reconnect attempts, to the master, before giving up.',
+                                                   `Ssl_crl` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Revocation List (CRL)',
+                                                   `Ssl_crlpath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path used for Certificate Revocation List (CRL) files',
+                                                   `Enabled_auto_position` tinyint(1) NOT NULL COMMENT 'Indicates whether GTIDs will be used to retrieve events from the master.',
+                                                   `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
+                                                   `Tls_version` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Tls version',
+                                                   `Public_key_path` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file containing public key of master server.',
+                                                   `Get_public_key` tinyint(1) NOT NULL COMMENT 'Preference to get public key from master.',
+                                                   `Network_namespace` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Network namespace used for communication with the master server.',
+                                                   `Master_compression_algorithm` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Compression algorithm supported for data transfer between master and slave.',
+                                                   `Master_zstd_compression_level` int unsigned NOT NULL COMMENT 'Compression level associated with zstd compression algorithm.',
+                                                   `Tls_ciphersuites` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Ciphersuites used for TLS 1.3 communication with the master server.',
+                                                   PRIMARY KEY (`Channel_name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Master Information';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -639,19 +639,19 @@ CREATE TABLE IF NOT EXISTS `slave_master_info` (
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE IF NOT EXISTS `slave_relay_log_info` (
-  `Number_of_lines` int unsigned NOT NULL COMMENT 'Number of lines in the file or rows in the table. Used to version table definitions.',
-  `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the current relay log file.',
-  `Relay_log_pos` bigint unsigned DEFAULT NULL COMMENT 'The relay log position of the last executed event.',
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the master binary log file from which the events in the relay log file were read.',
-  `Master_log_pos` bigint unsigned DEFAULT NULL COMMENT 'The master log position of the last executed event.',
-  `Sql_delay` int DEFAULT NULL COMMENT 'The number of seconds that the slave must lag behind the master.',
-  `Number_of_workers` int unsigned DEFAULT NULL,
-  `Id` int unsigned DEFAULT NULL COMMENT 'Internal Id that uniquely identifies this record.',
-  `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
-  `Privilege_checks_username` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT 'Username part of PRIVILEGE_CHECKS_USER.',
-  `Privilege_checks_hostname` char(255) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL COMMENT 'Hostname part of PRIVILEGE_CHECKS_USER.',
-  `Require_row_format` tinyint(1) DEFAULT '0' COMMENT 'Indicates whether the channel shall only accept row based events.',
-  PRIMARY KEY (`Channel_name`)
+                                                      `Number_of_lines` int unsigned NOT NULL COMMENT 'Number of lines in the file or rows in the table. Used to version table definitions.',
+                                                      `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the current relay log file.',
+                                                      `Relay_log_pos` bigint unsigned DEFAULT NULL COMMENT 'The relay log position of the last executed event.',
+                                                      `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the master binary log file from which the events in the relay log file were read.',
+                                                      `Master_log_pos` bigint unsigned DEFAULT NULL COMMENT 'The master log position of the last executed event.',
+                                                      `Sql_delay` int DEFAULT NULL COMMENT 'The number of seconds that the slave must lag behind the master.',
+                                                      `Number_of_workers` int unsigned DEFAULT NULL,
+                                                      `Id` int unsigned DEFAULT NULL COMMENT 'Internal Id that uniquely identifies this record.',
+                                                      `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
+                                                      `Privilege_checks_username` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT 'Username part of PRIVILEGE_CHECKS_USER.',
+                                                      `Privilege_checks_hostname` char(255) CHARACTER SET ascii COLLATE ascii_general_ci DEFAULT NULL COMMENT 'Hostname part of PRIVILEGE_CHECKS_USER.',
+                                                      `Require_row_format` tinyint(1) DEFAULT '0' COMMENT 'Indicates whether the channel shall only accept row based events.',
+                                                      PRIMARY KEY (`Channel_name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Relay Log Information';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -663,20 +663,20 @@ DROP TABLE IF EXISTS `slave_worker_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `slave_worker_info` (
-  `Id` int unsigned NOT NULL,
-  `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Relay_log_pos` bigint unsigned NOT NULL,
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Master_log_pos` bigint unsigned NOT NULL,
-  `Checkpoint_relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Checkpoint_relay_log_pos` bigint unsigned NOT NULL,
-  `Checkpoint_master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Checkpoint_master_log_pos` bigint unsigned NOT NULL,
-  `Checkpoint_seqno` int unsigned NOT NULL,
-  `Checkpoint_group_size` int unsigned NOT NULL,
-  `Checkpoint_group_bitmap` blob NOT NULL,
-  `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
-  PRIMARY KEY (`Channel_name`,`Id`)
+                                     `Id` int unsigned NOT NULL,
+                                     `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+                                     `Relay_log_pos` bigint unsigned NOT NULL,
+                                     `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+                                     `Master_log_pos` bigint unsigned NOT NULL,
+                                     `Checkpoint_relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+                                     `Checkpoint_relay_log_pos` bigint unsigned NOT NULL,
+                                     `Checkpoint_master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+                                     `Checkpoint_master_log_pos` bigint unsigned NOT NULL,
+                                     `Checkpoint_seqno` int unsigned NOT NULL,
+                                     `Checkpoint_group_size` int unsigned NOT NULL,
+                                     `Checkpoint_group_bitmap` blob NOT NULL,
+                                     `Channel_name` char(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'The channel on which the slave is connected to a source. Used in Multisource Replication',
+                                     PRIMARY KEY (`Channel_name`,`Id`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Worker Information';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -697,16 +697,16 @@ DROP TABLE IF EXISTS `tables_priv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tables_priv` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Table_priv` set('Select','Insert','Update','Delete','Create','Drop','Grant','References','Index','Alter','Create View','Show view','Trigger') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`),
-  KEY `Grantor` (`Grantor`)
+                               `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                               `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                               `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                               `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+                               `Grantor` varchar(288) COLLATE utf8_bin NOT NULL DEFAULT '',
+                               `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                               `Table_priv` set('Select','Insert','Update','Delete','Create','Drop','Grant','References','Index','Alter','Create View','Show view','Trigger') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                               `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                               PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`),
+                               KEY `Grantor` (`Grantor`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Table privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -728,9 +728,9 @@ DROP TABLE IF EXISTS `time_zone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_zone` (
-  `Time_zone_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `Use_leap_seconds` enum('Y','N') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`Time_zone_id`)
+                             `Time_zone_id` int unsigned NOT NULL AUTO_INCREMENT,
+                             `Use_leap_seconds` enum('Y','N') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                             PRIMARY KEY (`Time_zone_id`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Time zones';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -751,9 +751,9 @@ DROP TABLE IF EXISTS `time_zone_leap_second`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_zone_leap_second` (
-  `Transition_time` bigint NOT NULL,
-  `Correction` int NOT NULL,
-  PRIMARY KEY (`Transition_time`)
+                                         `Transition_time` bigint NOT NULL,
+                                         `Correction` int NOT NULL,
+                                         PRIMARY KEY (`Transition_time`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Leap seconds information for time zones';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -774,9 +774,9 @@ DROP TABLE IF EXISTS `time_zone_name`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_zone_name` (
-  `Name` char(64) NOT NULL,
-  `Time_zone_id` int unsigned NOT NULL,
-  PRIMARY KEY (`Name`)
+                                  `Name` char(64) NOT NULL,
+                                  `Time_zone_id` int unsigned NOT NULL,
+                                  PRIMARY KEY (`Name`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Time zone names';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -797,10 +797,10 @@ DROP TABLE IF EXISTS `time_zone_transition`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_zone_transition` (
-  `Time_zone_id` int unsigned NOT NULL,
-  `Transition_time` bigint NOT NULL,
-  `Transition_type_id` int unsigned NOT NULL,
-  PRIMARY KEY (`Time_zone_id`,`Transition_time`)
+                                        `Time_zone_id` int unsigned NOT NULL,
+                                        `Transition_time` bigint NOT NULL,
+                                        `Transition_type_id` int unsigned NOT NULL,
+                                        PRIMARY KEY (`Time_zone_id`,`Transition_time`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Time zone transitions';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -821,12 +821,12 @@ DROP TABLE IF EXISTS `time_zone_transition_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `time_zone_transition_type` (
-  `Time_zone_id` int unsigned NOT NULL,
-  `Transition_type_id` int unsigned NOT NULL,
-  `Offset` int NOT NULL DEFAULT '0',
-  `Is_DST` tinyint unsigned NOT NULL DEFAULT '0',
-  `Abbreviation` char(8) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Time_zone_id`,`Transition_type_id`)
+                                             `Time_zone_id` int unsigned NOT NULL,
+                                             `Transition_type_id` int unsigned NOT NULL,
+                                             `Offset` int NOT NULL DEFAULT '0',
+                                             `Is_DST` tinyint unsigned NOT NULL DEFAULT '0',
+                                             `Abbreviation` char(8) NOT NULL DEFAULT '',
+                                             PRIMARY KEY (`Time_zone_id`,`Transition_type_id`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Time zone transition types';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -847,58 +847,58 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
-  `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Select_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Insert_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Update_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Delete_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Drop_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Reload_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Shutdown_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Process_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `File_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Grant_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `References_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Index_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Alter_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Show_db_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Super_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Execute_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Repl_slave_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Repl_client_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_user_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Event_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_tablespace_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `ssl_type` enum('','ANY','X509','SPECIFIED') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ssl_cipher` blob NOT NULL,
-  `x509_issuer` blob NOT NULL,
-  `x509_subject` blob NOT NULL,
-  `max_questions` int unsigned NOT NULL DEFAULT '0',
-  `max_updates` int unsigned NOT NULL DEFAULT '0',
-  `max_connections` int unsigned NOT NULL DEFAULT '0',
-  `max_user_connections` int unsigned NOT NULL DEFAULT '0',
-  `plugin` char(64) COLLATE utf8_bin NOT NULL DEFAULT 'caching_sha2_password',
-  `authentication_string` text COLLATE utf8_bin,
-  `password_expired` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `password_last_changed` timestamp NULL DEFAULT NULL,
-  `password_lifetime` smallint unsigned DEFAULT NULL,
-  `account_locked` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Create_role_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Drop_role_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
-  `Password_reuse_history` smallint unsigned DEFAULT NULL,
-  `Password_reuse_time` smallint unsigned DEFAULT NULL,
-  `Password_require_current` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `User_attributes` json DEFAULT NULL,
-  PRIMARY KEY (`Host`,`User`)
+                        `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+                        `User` char(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+                        `Select_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Insert_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Update_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Delete_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Drop_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Reload_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Shutdown_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Process_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `File_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Grant_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `References_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Index_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Alter_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Show_db_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Super_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Execute_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Repl_slave_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Repl_client_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Show_view_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_user_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Event_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Trigger_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_tablespace_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `ssl_type` enum('','ANY','X509','SPECIFIED') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                        `ssl_cipher` blob NOT NULL,
+                        `x509_issuer` blob NOT NULL,
+                        `x509_subject` blob NOT NULL,
+                        `max_questions` int unsigned NOT NULL DEFAULT '0',
+                        `max_updates` int unsigned NOT NULL DEFAULT '0',
+                        `max_connections` int unsigned NOT NULL DEFAULT '0',
+                        `max_user_connections` int unsigned NOT NULL DEFAULT '0',
+                        `plugin` char(64) COLLATE utf8_bin NOT NULL DEFAULT 'caching_sha2_password',
+                        `authentication_string` text COLLATE utf8_bin,
+                        `password_expired` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `password_last_changed` timestamp NULL DEFAULT NULL,
+                        `password_lifetime` smallint unsigned DEFAULT NULL,
+                        `account_locked` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Create_role_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Drop_role_priv` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'N',
+                        `Password_reuse_history` smallint unsigned DEFAULT NULL,
+                        `Password_reuse_time` smallint unsigned DEFAULT NULL,
+                        `Password_require_current` enum('N','Y') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                        `User_attributes` json DEFAULT NULL,
+                        PRIMARY KEY (`Host`,`User`)
 ) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Users and global privileges';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -919,12 +919,12 @@ UNLOCK TABLES;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE IF NOT EXISTS `general_log` (
-  `event_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `user_host` mediumtext NOT NULL,
-  `thread_id` bigint unsigned NOT NULL,
-  `server_id` int unsigned NOT NULL,
-  `command_type` varchar(64) NOT NULL,
-  `argument` mediumblob NOT NULL
+                                             `event_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+                                             `user_host` mediumtext NOT NULL,
+                                             `thread_id` bigint unsigned NOT NULL,
+                                             `server_id` int unsigned NOT NULL,
+                                             `command_type` varchar(64) NOT NULL,
+                                             `argument` mediumblob NOT NULL
 ) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -935,18 +935,18 @@ CREATE TABLE IF NOT EXISTS `general_log` (
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE IF NOT EXISTS `slow_log` (
-  `start_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `user_host` mediumtext NOT NULL,
-  `query_time` time(6) NOT NULL,
-  `lock_time` time(6) NOT NULL,
-  `rows_sent` int NOT NULL,
-  `rows_examined` int NOT NULL,
-  `db` varchar(512) NOT NULL,
-  `last_insert_id` int NOT NULL,
-  `insert_id` int NOT NULL,
-  `server_id` int unsigned NOT NULL,
-  `sql_text` mediumblob NOT NULL,
-  `thread_id` bigint unsigned NOT NULL
+                                          `start_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+                                          `user_host` mediumtext NOT NULL,
+                                          `query_time` time(6) NOT NULL,
+                                          `lock_time` time(6) NOT NULL,
+                                          `rows_sent` int NOT NULL,
+                                          `rows_examined` int NOT NULL,
+                                          `db` varchar(512) NOT NULL,
+                                          `last_insert_id` int NOT NULL,
+                                          `insert_id` int NOT NULL,
+                                          `server_id` int unsigned NOT NULL,
+                                          `sql_text` mediumblob NOT NULL,
+                                          `thread_id` bigint unsigned NOT NULL
 ) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='Slow log';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -966,14 +966,14 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(25) DEFAULT NULL,
-  `last_name` varchar(30) DEFAULT NULL,
-  `user_name` varchar(15) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
-  `date_of_birth` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_user_name_uindex` (`user_name`)
+                        `id` int NOT NULL AUTO_INCREMENT,
+                        `first_name` varchar(25) DEFAULT NULL,
+                        `last_name` varchar(30) DEFAULT NULL,
+                        `user_name` varchar(15) DEFAULT NULL,
+                        `password` varchar(30) DEFAULT NULL,
+                        `date_of_birth` date DEFAULT NULL,
+                        PRIMARY KEY (`id`),
+                        UNIQUE KEY `users_user_name_uindex` (`user_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1003,18 +1003,18 @@ DROP TABLE IF EXISTS `Crew`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Crew` (
-  `crew_id` int NOT NULL AUTO_INCREMENT,
-  `firt_name` varchar(70) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `email` varchar(120) DEFAULT NULL,
-  `profession` varchar(100) NOT NULL,
-  `biography` text,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `username` varchar(120) NOT NULL,
-  PRIMARY KEY (`crew_id`),
-  KEY `Crew_SM_Users_username_fk` (`username`),
-  CONSTRAINT `Crew_SM_Users_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
+                        `crew_id` int NOT NULL AUTO_INCREMENT,
+                        `firt_name` varchar(70) NOT NULL,
+                        `last_name` varchar(50) NOT NULL,
+                        `email` varchar(120) DEFAULT NULL,
+                        `profession` varchar(100) NOT NULL,
+                        `biography` text,
+                        `created_at` timestamp NOT NULL,
+                        `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        `user` int NOT NULL,
+                        PRIMARY KEY (`crew_id`),
+                        KEY `Crew_User_user_id_fk` (`user`),
+                        CONSTRAINT `Crew_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1035,21 +1035,23 @@ DROP TABLE IF EXISTS `Film`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Film` (
-  `film_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) NOT NULL,
-  `duration` time NOT NULL,
-  `director` varchar(120) NOT NULL,
-  `pub_date` timestamp NOT NULL,
-  `episode` int DEFAULT NULL,
-  `cover` blob NOT NULL,
-  `summary` text NOT NULL,
-  `created_at` int NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `username` varchar(120) NOT NULL,
-  PRIMARY KEY (`film_id`),
-  UNIQUE KEY `title_UNIQUE` (`title`,`director`),
-  KEY `Film_SM_Users` (`username`),
-  CONSTRAINT `Film_SM_Users` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
+                        `film_id` int NOT NULL AUTO_INCREMENT,
+                        `title` varchar(200) NOT NULL,
+                        `duration` time NOT NULL,
+                        `director` varchar(120) NOT NULL,
+                        `pub_date` timestamp NOT NULL,
+                        `episode` int DEFAULT NULL,
+                        `link` varchar(180) DEFAULT NULL,
+                        `video` varchar(200) DEFAULT NULL,
+                        `cover` varchar(200) NOT NULL,
+                        `created_at` int NOT NULL,
+                        `summary` text NOT NULL,
+                        `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        `user` int NOT NULL,
+                        PRIMARY KEY (`film_id`),
+                        UNIQUE KEY `title_UNIQUE` (`title`,`director`),
+                        KEY `Film_User_user_id_fk` (`user`),
+                        CONSTRAINT `Film_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1070,16 +1072,16 @@ DROP TABLE IF EXISTS `FilmCrew`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `FilmCrew` (
-  `film_crew_id` int NOT NULL AUTO_INCREMENT,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `film_id` int NOT NULL,
-  `crew_id` int NOT NULL,
-  PRIMARY KEY (`film_crew_id`),
-  KEY `FilmCrew_Crew_fk` (`crew_id`),
-  KEY `FilmCrew_Film_fk` (`film_id`),
-  CONSTRAINT `FilmCrew_Crew_fk` FOREIGN KEY (`crew_id`) REFERENCES `Crew` (`crew_id`),
-  CONSTRAINT `FilmCrew_Film_fk` FOREIGN KEY (`film_id`) REFERENCES `Film` (`film_id`)
+                            `film_crew_id` int NOT NULL AUTO_INCREMENT,
+                            `created_at` timestamp NOT NULL,
+                            `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                            `film_id` int NOT NULL,
+                            `crew_id` int NOT NULL,
+                            PRIMARY KEY (`film_crew_id`),
+                            KEY `FilmCrew_Crew_fk` (`crew_id`),
+                            KEY `FilmCrew_Film_fk` (`film_id`),
+                            CONSTRAINT `FilmCrew_Crew_fk` FOREIGN KEY (`crew_id`) REFERENCES `Crew` (`crew_id`),
+                            CONSTRAINT `FilmCrew_Film_fk` FOREIGN KEY (`film_id`) REFERENCES `Film` (`film_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1100,16 +1102,16 @@ DROP TABLE IF EXISTS `FilmGenre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `FilmGenre` (
-  `film_genre_id` int NOT NULL AUTO_INCREMENT,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `genre_id` int NOT NULL,
-  `film_id` int NOT NULL,
-  PRIMARY KEY (`film_genre_id`),
-  KEY `FilmGenre_Film` (`film_id`),
-  KEY `FilmGenre_Genre` (`genre_id`),
-  CONSTRAINT `FilmGenre_Film` FOREIGN KEY (`film_id`) REFERENCES `Film` (`film_id`),
-  CONSTRAINT `FilmGenre_Genre` FOREIGN KEY (`genre_id`) REFERENCES `Genre` (`genre_id`)
+                             `film_genre_id` int NOT NULL AUTO_INCREMENT,
+                             `created_at` timestamp NOT NULL,
+                             `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                             `genre_id` int NOT NULL,
+                             `film_id` int NOT NULL,
+                             PRIMARY KEY (`film_genre_id`),
+                             KEY `FilmGenre_Film` (`film_id`),
+                             KEY `FilmGenre_Genre` (`genre_id`),
+                             CONSTRAINT `FilmGenre_Film` FOREIGN KEY (`film_id`) REFERENCES `Film` (`film_id`),
+                             CONSTRAINT `FilmGenre_Genre` FOREIGN KEY (`genre_id`) REFERENCES `Genre` (`genre_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1130,13 +1132,13 @@ DROP TABLE IF EXISTS `Genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Genre` (
-  `genre_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`genre_id`),
-  UNIQUE KEY `title_UNIQUE` (`title`)
+                         `genre_id` int NOT NULL AUTO_INCREMENT,
+                         `title` varchar(100) NOT NULL,
+                         `description` text NOT NULL,
+                         `created_at` timestamp NOT NULL,
+                         `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                         PRIMARY KEY (`genre_id`),
+                         UNIQUE KEY `title_UNIQUE` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1157,14 +1159,14 @@ DROP TABLE IF EXISTS `Role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Role` (
-  `role_id` int NOT NULL AUTO_INCREMENT,
-  `name` char(30) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `username` varchar(120) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`role_id`),
-  KEY `Role_User_username_fk` (`username`),
-  CONSTRAINT `Role_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
+                        `role_id` int NOT NULL AUTO_INCREMENT,
+                        `name` char(30) NOT NULL,
+                        `created_at` timestamp NOT NULL,
+                        `username` varchar(120) NOT NULL,
+                        `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        PRIMARY KEY (`role_id`),
+                        KEY `Role_User_username_fk` (`username`),
+                        CONSTRAINT `Role_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1186,20 +1188,20 @@ DROP TABLE IF EXISTS `SM_Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `SM_Users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(120) NOT NULL,
-  `email` varchar(120) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `first_name` varchar(80) DEFAULT NULL,
-  `last_name` varchar(90) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  `gender` char(15) DEFAULT NULL,
-  `picture` varchar(300) DEFAULT NULL,
-  `biography` text,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
+                            `user_id` int NOT NULL AUTO_INCREMENT,
+                            `username` varchar(120) NOT NULL,
+                            `email` varchar(120) NOT NULL,
+                            `password` varchar(200) NOT NULL,
+                            `first_name` varchar(80) DEFAULT NULL,
+                            `last_name` varchar(90) DEFAULT NULL,
+                            `birthdate` date DEFAULT NULL,
+                            `gender` char(15) DEFAULT NULL,
+                            `picture` varchar(300) DEFAULT NULL,
+                            `biography` text,
+                            `created_at` timestamp NOT NULL,
+                            `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                            PRIMARY KEY (`user_id`),
+                            UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1221,22 +1223,22 @@ DROP TABLE IF EXISTS `Trailer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Trailer` (
-  `trailer_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(150) NOT NULL,
-  `author` varchar(150) DEFAULT NULL,
-  `duration` time DEFAULT NULL,
-  `cover` varchar(200) DEFAULT NULL,
-  `pub_date` timestamp NOT NULL,
-  `links` varchar(150) DEFAULT NULL,
-  `video` varchar(200) DEFAULT NULL,
-  `summary` text NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user` int NOT NULL,
-  PRIMARY KEY (`trailer_id`),
-  UNIQUE KEY `title_UNIQUE` (`title`,`author`),
-  KEY `tariler_User_user_id_fk` (`user`),
-  CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
+                           `trailer_id` int NOT NULL AUTO_INCREMENT,
+                           `title` varchar(150) NOT NULL,
+                           `author` varchar(150) DEFAULT NULL,
+                           `duration` time DEFAULT NULL,
+                           `cover` varchar(200) DEFAULT NULL,
+                           `pub_date` timestamp NOT NULL,
+                           `links` varchar(150) DEFAULT NULL,
+                           `video` varchar(200) DEFAULT NULL,
+                           `summary` text NOT NULL,
+                           `created_at` timestamp NOT NULL,
+                           `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                           `user` int NOT NULL,
+                           PRIMARY KEY (`trailer_id`),
+                           UNIQUE KEY `title_UNIQUE` (`title`,`author`),
+                           KEY `tariler_User_user_id_fk` (`user`),
+                           CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1258,18 +1260,18 @@ DROP TABLE IF EXISTS `faq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `faq` (
-  `faq_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(150) NOT NULL,
-  `category` varchar(200) DEFAULT NULL,
-  `description` text NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `username` varchar(120) NOT NULL,
-  PRIMARY KEY (`faq_id`),
-  UNIQUE KEY `title_UNIQUE` (`title`),
-  KEY `faq_User_username_fk` (`username`),
-  CONSTRAINT `faq_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                       `faq_id` int NOT NULL AUTO_INCREMENT,
+                       `title` varchar(150) NOT NULL,
+                       `category` varchar(200) DEFAULT NULL,
+                       `description` text NOT NULL,
+                       `created_at` timestamp NOT NULL,
+                       `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                       `user` int NOT NULL,
+                       PRIMARY KEY (`faq_id`),
+                       UNIQUE KEY `title_UNIQUE` (`title`),
+                       KEY `faq_User_user_id_fk` (`user`),
+                       CONSTRAINT `faq_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1278,6 +1280,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
+INSERT INTO `faq` VALUES (1,'how movies are created.','Movie','This is FAQ Creates Test. More and more. Very Happy it works!!!','2020-02-28 06:00:00','2020-02-29 04:03:00',2),(2,'Where to find trailers','Trailer','This is a trailer Question. Some data','2020-02-28 06:00:00','2020-02-28 22:19:20',2);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1297,14 +1300,14 @@ DROP TABLE IF EXISTS `Role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Role` (
-  `role_id` int NOT NULL AUTO_INCREMENT,
-  `name` char(30) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `username` varchar(120) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`role_id`),
-  KEY `Role_User_username_fk` (`username`),
-  CONSTRAINT `Role_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
+                        `role_id` int NOT NULL AUTO_INCREMENT,
+                        `name` char(30) NOT NULL,
+                        `created_at` timestamp NOT NULL,
+                        `username` varchar(120) NOT NULL,
+                        `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        PRIMARY KEY (`role_id`),
+                        KEY `Role_User_username_fk` (`username`),
+                        CONSTRAINT `Role_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1314,7 +1317,7 @@ CREATE TABLE `Role` (
 
 LOCK TABLES `Role` WRITE;
 /*!40000 ALTER TABLE `Role` DISABLE KEYS */;
-INSERT INTO `Role` VALUES (1,'user','2020-02-27 18:12:09','jcoyne','2020-02-27 18:12:09'),(2,'admin','2020-02-27 18:12:09','fhensen','2020-02-27 18:12:09'),(3,'developer','2020-02-27 18:12:09','bcurry','2020-02-27 18:12:09'),(4,'sale','2020-02-27 18:12:09','kmack','2020-02-27 18:12:09'),(5,'staff','2020-02-27 18:12:09','bcurry','2020-02-27 18:12:09');
+INSERT INTO `Role` VALUES (1,'user','2020-02-29 03:58:16','jcoyne','2020-02-29 03:58:16'),(2,'admin','2020-02-29 03:58:16','fhensen','2020-02-29 03:58:16'),(3,'developer','2020-02-29 03:58:16','bcurry','2020-02-29 03:58:16'),(4,'sale','2020-02-29 03:58:16','kmack','2020-02-29 03:58:16'),(5,'staff','2020-02-29 03:58:16','bcurry','2020-02-29 03:58:16');
 /*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1326,20 +1329,20 @@ DROP TABLE IF EXISTS `SM_Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `SM_Users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(120) NOT NULL,
-  `email` varchar(120) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `first_name` varchar(80) DEFAULT NULL,
-  `last_name` varchar(90) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  `gender` char(15) DEFAULT NULL,
-  `picture` varchar(300) DEFAULT NULL,
-  `biography` text,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
+                            `user_id` int NOT NULL AUTO_INCREMENT,
+                            `username` varchar(120) NOT NULL,
+                            `email` varchar(120) NOT NULL,
+                            `password` varchar(200) NOT NULL,
+                            `first_name` varchar(80) DEFAULT NULL,
+                            `last_name` varchar(90) DEFAULT NULL,
+                            `birthdate` date DEFAULT NULL,
+                            `gender` char(15) DEFAULT NULL,
+                            `picture` varchar(300) DEFAULT NULL,
+                            `biography` text,
+                            `created_at` timestamp NOT NULL,
+                            `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                            PRIMARY KEY (`user_id`),
+                            UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1349,7 +1352,7 @@ CREATE TABLE `SM_Users` (
 
 LOCK TABLES `SM_Users` WRITE;
 /*!40000 ALTER TABLE `SM_Users` DISABLE KEYS */;
-INSERT INTO `SM_Users` VALUES (1,'jcoyne','jcoyne@streammedia.com','supersecret1','Joe','Coyne','1964-04-01',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(2,'fhensen','fhensen@streammedia.com','supersecret2','Fred','Hensen','1988-05-08',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(3,'bcurry','bcurry@streammedia.com','supersecret3','Barney','Curry','1947-11-11',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(4,'kmack','kmack@streammedia.com','supersecret4','Karen','Mack','1986-07-08',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(5,'dklein','dklein@streammedia.com','supersecret5','Dianne','Klein','1991-09-22',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(6,'dtillman','dtillman@streammedia.com','supersecret6','Dawn','Tillman','1979-08-30',NULL,NULL,NULL,'2020-02-27 18:12:09','2020-02-27 18:12:09'),(25,'fflintstone','fflintstone@streammedia.com','fflintstone',NULL,NULL,NULL,NULL,NULL,NULL,'2020-02-27 06:00:00','2020-02-27 06:00:00');
+INSERT INTO `SM_Users` VALUES (1,'jcoyne','jcoyne@streammedia.com','supersecret1','Joe','Coyne','1964-04-01',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16'),(2,'fhensen','fhensen@streammedia.com','supersecret2','Fred','Hensen','1988-05-08',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16'),(3,'bcurry','bcurry@streammedia.com','supersecret3','Barney','Curry','1947-11-11',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16'),(4,'kmack','kmack@streammedia.com','supersecret4','Karen','Mack','1986-07-08',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16'),(5,'dklein','dklein@streammedia.com','supersecret5','Dianne','Klein','1991-09-22',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16'),(6,'dtillman','dtillman@streammedia.com','supersecret6','Dawn','Tillman','1979-08-30',NULL,NULL,NULL,'2020-02-29 03:58:16','2020-02-29 03:58:16');
 /*!40000 ALTER TABLE `SM_Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1361,22 +1364,22 @@ DROP TABLE IF EXISTS `Trailer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Trailer` (
-  `trailer_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(150) NOT NULL,
-  `author` varchar(150) DEFAULT NULL,
-  `duration` time DEFAULT NULL,
-  `cover` varchar(200) DEFAULT NULL,
-  `pub_date` timestamp NOT NULL,
-  `links` varchar(150) DEFAULT NULL,
-  `video` varchar(200) DEFAULT NULL,
-  `summary` text NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user` int NOT NULL,
-  PRIMARY KEY (`trailer_id`),
-  UNIQUE KEY `title_UNIQUE` (`title`,`author`),
-  KEY `tariler_User_user_id_fk` (`user`),
-  CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
+                           `trailer_id` int NOT NULL AUTO_INCREMENT,
+                           `title` varchar(150) NOT NULL,
+                           `author` varchar(150) DEFAULT NULL,
+                           `duration` time DEFAULT NULL,
+                           `cover` varchar(200) DEFAULT NULL,
+                           `pub_date` timestamp NOT NULL,
+                           `links` varchar(150) DEFAULT NULL,
+                           `video` varchar(200) DEFAULT NULL,
+                           `summary` text NOT NULL,
+                           `created_at` timestamp NOT NULL,
+                           `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                           `user` int NOT NULL,
+                           PRIMARY KEY (`trailer_id`),
+                           UNIQUE KEY `title_UNIQUE` (`title`,`author`),
+                           KEY `tariler_User_user_id_fk` (`user`),
+                           CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1386,8 +1389,40 @@ CREATE TABLE `Trailer` (
 
 LOCK TABLES `Trailer` WRITE;
 /*!40000 ALTER TABLE `Trailer` DISABLE KEYS */;
-INSERT INTO `Trailer` VALUES (1,'Home Sweet Home','James','00:01:40',NULL,'2020-02-27 18:12:09',NULL,NULL,'Hibernate ORM is concerned with helping your application to achieve persistence.','2020-02-27 18:12:09','2020-02-27 18:12:09',1),(2,'Hope','Henry','00:01:40',NULL,'2020-02-27 18:12:09',NULL,NULL,'So what is persistence? Persistence simply means that we would like our application’s data to outlive the applications process.','2020-02-27 18:12:09','2020-02-27 18:12:09',6),(3,'Peace','Chantal','00:01:40',NULL,'2020-02-27 18:12:09',NULL,NULL,' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.','2020-02-27 18:12:09','2020-02-27 18:12:09',2),(4,'The happiness','Nadine','00:01:40',NULL,'2020-02-27 18:12:09',NULL,NULL,'So what is persistence?','2020-02-27 18:12:09','2020-02-27 18:12:09',2),(5,'Great Dane','Ella','00:01:40',NULL,'2020-02-27 18:12:09',NULL,NULL,'Hibernate ORM is concerned with helping your application to achieve persistence.','2020-02-27 18:12:09','2020-02-27 18:12:09',1);
+INSERT INTO `Trailer` VALUES (1,'Home Sweet Home','James','00:01:40',NULL,'2020-02-29 03:58:16',NULL,NULL,'Hibernate ORM is concerned with helping your application to achieve persistence.','2020-02-29 03:58:16','2020-02-29 03:58:16',1),(2,'Hope','Henry','00:01:40',NULL,'2020-02-29 03:58:16',NULL,NULL,'So what is persistence? Persistence simply means that we would like our application’s data to outlive the applications process.','2020-02-29 03:58:16','2020-02-29 03:58:16',6),(3,'Peace','Chantal','00:01:40',NULL,'2020-02-29 03:58:16',NULL,NULL,' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.','2020-02-29 03:58:16','2020-02-29 03:58:16',2),(4,'The happiness','Nadine','00:01:40',NULL,'2020-02-29 03:58:16',NULL,NULL,'So what is persistence?','2020-02-29 03:58:16','2020-02-29 03:58:16',2),(5,'Great Dane','Ella','00:01:40',NULL,'2020-02-29 03:58:16',NULL,NULL,'Hibernate ORM is concerned with helping your application to achieve persistence.','2020-02-29 03:58:16','2020-02-29 03:58:16',1);
 /*!40000 ALTER TABLE `Trailer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faq` (
+                       `faq_id` int NOT NULL AUTO_INCREMENT,
+                       `title` varchar(150) NOT NULL,
+                       `category` varchar(200) DEFAULT NULL,
+                       `description` text NOT NULL,
+                       `created_at` timestamp NOT NULL,
+                       `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                       `user` int NOT NULL,
+                       PRIMARY KEY (`faq_id`),
+                       UNIQUE KEY `title_UNIQUE` (`title`),
+                       KEY `faq_User_user_id_fk` (`user`),
+                       CONSTRAINT `faq_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faq`
+--
+
+LOCK TABLES `faq` WRITE;
+/*!40000 ALTER TABLE `faq` DISABLE KEYS */;
+INSERT INTO `faq` VALUES (1,'How to sell movies','Movie','This is a description of how to sell movies.','2020-02-29 03:58:16','2020-02-29 03:58:16',1),(2,'How to access paid materials ','Sotories','Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted.','2020-02-29 03:58:16','2020-02-29 03:58:16',2),(3,'Taking better photos','Movie',' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.','2020-02-29 03:58:16','2020-02-29 03:58:16',2),(7,'Test','Trailer','Sme Data for Test','2020-02-29 03:58:17','2020-02-29 03:58:17',2);
+/*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=@OLD_INNODB_STATS_AUTO_RECALC */;
@@ -1400,4 +1435,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-28 10:41:29
+-- Dump completed on 2020-02-29 11:14:10

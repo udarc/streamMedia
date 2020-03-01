@@ -6,7 +6,7 @@
     <nav class="row">
             <ul class=" navbar-nav col-md-4">
                 <li class="nav-item">
-                    <a class="nav-link" href="streamMedia">Stream Media</a>
+                    <a class="nav-link" href="/streamMedia">Stream Media</a>
                 </li>
             </ul>
         <ul class=" navbar-nav col-md-4">
@@ -23,8 +23,11 @@
         </ul>
 
         <ul class=" navbar-nav col-md-4">
+            <h3>Stay Connected</h3>
             <li class="nav-item">
-                <a class="nav-link" href="#">Stay Connected</a>
+                <a class="nav-link" target="_blank" href="https://twitter.com/ravensannex"><i class="fab fa-twitter fa-2x"></i></a>
+                <a class="nav-link" target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a>
+                <a class="nav-link" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram-square fa-2x"></i></a>
             </li>
         </ul>
     </nav>

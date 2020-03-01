@@ -19,9 +19,9 @@
         <mapping class="com.streammedia.entity.User"/>
         <mapping class="com.streammedia.entity.Role"/>
         <mapping class="com.streammedia.entity.Trailer"/>
+        <mapping class="com.streammedia.entity.FAQ"/>
         <mapping class="com.streammedia.entity.Genre"/>
         <mapping class="com.streammedia.entity.Film"/>
-        <mapping class="com.streammedia.entity.FAQ"/>
         <mapping class="com.streammedia.entity.Crew"/>
     </session-factory>
 </hibernate-configuration>
