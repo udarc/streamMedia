@@ -15,7 +15,6 @@
     <h1 class="text-center">Crew Details</h1> <a href="#" class="btn btn-success ml-auto" >Add CREW</a>
     <div class="row">
     </div>
-
 </main>
 <%@include file="../footer.jsp"%>
 <%@include file="../afterFooter.jsp"%>
