@@ -32,7 +32,7 @@
 
 ### Week 5
 
-- [ ] Create the template for all jsps using bootstrap or materialize or W3CSS
+- [x] Create the template for all jsps using bootstrap or materialize or W3CSS
 - [X] Create the role dao unit tests
 - [X] Add a jsp to display user and role
 - [X] Add jsp to add a user
@@ -49,7 +49,7 @@
 - [X] Add the film, genre, Trailer, Crew and FAQ entities and tables (test, dev and prod dbs)
 - [x] Add update and delete functionality in jsp for user and role
 - [X] Create the film, genre, Trailer and Crew add/update/delete jsp
-- [ ] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams I am planning to use have been created.
+- [x] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams I am planning to use have been created.
 
 
 ### Week 7
