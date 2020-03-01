@@ -49,12 +49,6 @@
       <point x="667.8" y="367.0" />
       <point x="-77.19999999999999" y="173.5" />
     </edge>
-    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmCrew" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Crew">
-      <point x="48.24999999999994" y="-89.5" />
-      <point x="495.0972222222223" y="793.0" />
-      <point x="530.0" y="793.0" />
-      <point x="0.0" y="137.5" />
-    </edge>
     <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmGenre" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Genre">
       <point x="-48.25" y="-89.5" />
       <point x="136.34722222222229" y="793.0" />
@@ -67,8 +61,14 @@
       <point x="706.4" y="377.0" />
       <point x="-38.60000000000002" y="173.5" />
     </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmCrew" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Crew">
+      <point x="48.24999999999994" y="-89.5" />
+      <point x="495.0972222222223" y="793.0" />
+      <point x="530.0" y="793.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.9180261832829809" x="526.2727073277753" y="635.788503729706" />
+  <settings layout="Hierarchic Group" zoom="0.5830875122910522" x="634.0" y="498.49999999999994" />
   <SelectedNodes>
     <node>971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.faq</node>
   </SelectedNodes>
