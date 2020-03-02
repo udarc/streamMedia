@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
     <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000;">
-            <ul id="utility" class="nav ml-auto">
+            <ul id="utility" class="nav  ml-auto">
                 <c:if test="${request.getRemoteUser()}">
                     <p class="alert alert-success">${request.getRemoteUser()}</p>
                 </c:if>
@@ -14,10 +14,10 @@
                                 <a class="nav-link"  href="users">Users</a>
                             </li>
                         </c:if>
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link"  href="profile-edit?id=1">Edit Profile</a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link"  href="user-profile">Profile ${user.username}</a>
                         </li>
                         <li class="nav-item">
@@ -71,3 +71,4 @@
         </li>
     </nav>
 </header>
+

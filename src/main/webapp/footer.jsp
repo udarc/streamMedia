@@ -1,7 +1,8 @@
 
 <!-- Footer -->
 
-<footerr class="footer">
+<footer class="footer">
+    <div class="container">
     <div class="footer-upper">
     <nav class="row">
             <ul class=" navbar-nav col-md-4">
@@ -33,9 +34,11 @@
     </nav>
     </div>
     <div class="footer-bottom text-center">
-        <small>&copy; Copyright <script> getCurrentYear();</script>, Stream Media. All Rights Reserved</small>
+        <small>&copy; Copyright <script>
+            var d = new Date();
+            d.getFullYear();</script>, Stream Media. All Rights Reserved</small>
     </div>
-
-</footerr>
+    </div>
+</footer>
         <!-- Footer -->
 

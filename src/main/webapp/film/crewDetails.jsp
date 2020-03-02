@@ -7,9 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="../css/account.css">
+</head>
+<body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
     <h1 class="text-center">Crew Details</h1> <a href="#" class="btn btn-success ml-auto" >Add CREW</a>
