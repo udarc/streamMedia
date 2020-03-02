@@ -38,7 +38,7 @@ public class UserList extends HttpServlet {
         List<User> listUser = genericDao.getAll();
         log.debug("Getting All Users servlet" + listUser);
         request.setAttribute("users", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/account/listUser.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/listUser.jsp");
         dispatcher.forward(request, response);
     }
 
