@@ -1,18 +1,40 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
     <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000;">
             <ul id="utility" class="nav ml-auto">
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a class="nav-link"  href="users">Users</a>
-                </li>
-                    <a class="nav-link"  href="register">Register</a>
-                </li>
-                </li>
-                <a class="nav-link"  href="profile-edit?id=1">Edit Porfile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  href="./account/signin.jsp">Login</a>
-                </li>
+                <c:if test="${request.getRemoteUser()}">
+                    <p class="alert alert-success">${request.getRemoteUser()}</p>
+                </c:if>
+
+                <c:choose>
+                    <c:when test="${(pageContext.request.isUserInRole('admin')) ||
+                                    (pageContext.request.isUserInRole('user')) }">
+                        <c:if test="${(pageContext.request.isUserInRole('admin'))}">
+                            <li class="nav-item">
+                                <a class="nav-link"  href="users">Users</a>
+                            </li>
+                        </c:if>
+                        <li>
+                            <a class="nav-link"  href="profile-edit?id=1">Edit Profile</a>
+                        </li>
+                        <li>
+                            <a class="nav-link"  href="user-profile">Profile ${user.username}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="logout">Logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="login">Login</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+
             </ul>
     </nav>
 

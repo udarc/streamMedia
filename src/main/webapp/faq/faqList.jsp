@@ -27,7 +27,11 @@
                         </span>
                     </li>
                 </c:forEach>
-                <a href="new" class="btn btn-success ml-auto" ><i class="fas fa-plus-square fa-3x"></i> Add FAQ</a>
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
+
+                    <a href="new" class="btn btn-success ml-auto" ><i class="fas fa-plus-square fa-3x"></i> Add FAQ</a>
+               </c:if>
+
             </ul>
         </div>
 

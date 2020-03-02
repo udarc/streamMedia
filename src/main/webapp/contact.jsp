@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <%@include file="head.jsp"%>
-<link rel="stylesheet" href="css/account.css">
+<link rel="stylesheet" href="./css/account.css">
 <body>
 <%@include file="navbar.jsp"%>
 <div class="container">

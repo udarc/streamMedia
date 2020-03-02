@@ -33,8 +33,10 @@
                         </div>
 
                         <div class="card-body">
+                            <c:if test="${pageContext.request.isUserInRole('admin')}">
                             <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
                             <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
+                            </c:if>
 
                         </div>
                     </div>

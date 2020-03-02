@@ -47,31 +47,35 @@ public class FAQController extends HttpServlet {
                 throws ServletException, IOException {
             String action = request.getServletPath();
 
-                switch (action) {
-                    case "/new":
-                        displayNewForm(request, response);
-                        break;
-                    case "/add-faq":
-                        createFAQ(request, response);
-                        break;
-                    case "/delete-faq":
-                        deleteFAQ(request, response);
-                        break;
-                    case "/edit":
-                        displayEditForm(request, response);
-                        break;
-                    case "/edit-faq":
-                        editFAQ(request, response);
-                        break;
-                    case "/faqs":
-                        listFAQ(request, response);
-                        break;
-                    case "/faq-details":
-                        displayFAQDetails(request, response);
-                        break;
-//                    default:
-//                        listFAQ(request, response);
-//                        break;
+                if (request.isUserInRole("admin")){
+                    switch (action) {
+                        case "/new":
+                            displayNewForm(request, response);
+                            break;
+                        case "/add-faq":
+                            createFAQ(request, response);
+                            break;
+                        case "/delete-faq":
+                            deleteFAQ(request, response);
+                            break;
+                        case "/edit":
+                            displayEditForm(request, response);
+                            break;
+                        case "/edit-faq":
+                            editFAQ(request, response);
+                            break;
+                        default:
+                            listFAQ(request,response);
+                    }
+                } else {
+                        switch (action) {
+                            case "/faqs":
+                                listFAQ(request, response);
+                                break;
+                            case "/faq-details":
+                                displayFAQDetails(request, response);
+                                break;
+                        }
                 }
         }
 
@@ -105,12 +109,15 @@ public class FAQController extends HttpServlet {
 
         private void displayEditForm(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+
             int id = Integer.parseInt(request.getParameter("uid"));
             FAQ existingFAQ = (FAQ)faqDao.getById(id);
-            log.debug("Display Edit Form");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/faqAdd.jsp");
-            request.setAttribute("faq", existingFAQ);
-            dispatcher.forward(request, response);
+            if (request.getRemoteUser().equals(existingFAQ.getUser()) && !request.getRemoteUser().equals(null)) {
+                log.debug("Display Edit Form");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/faqAdd.jsp");
+                request.setAttribute("faq", existingFAQ);
+                dispatcher.forward(request, response);
+            }
 
         }
 
