@@ -5,9 +5,9 @@
   Time: 2:44 PM
   To change this template use File | Settings | File Templates.
 --%>
-<html lang="en">
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="../css/account.css">
+</head>
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container">

@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
 <%@include file="head.jsp"%>
+</head>
 <body>
 <%@include file="navbar.jsp"%>
 <div class="container wrapper" >

@@ -5,14 +5,14 @@
   Time: 7:19 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="../css/account.css">
+</head>
 <body>
 <%@include file="../navbar.jsp"%>
-<div class="container">
-    <main>
+<main class="container">
     <div class="card-deck">
     <div class="card">
         <div class="card-img">
@@ -32,8 +32,7 @@
         </div>
     </div>
     </div>
-</div>
+</main>
 
-</div>
 <%@include file="../footer.jsp"%>
 <%@include file="../afterFooter.jsp"%>
