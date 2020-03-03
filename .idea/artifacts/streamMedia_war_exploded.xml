@@ -28,7 +28,6 @@
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-surefire-provider:1.0.0" />
           <element id="library" level="project" name="Maven: org.apache.maven.surefire:surefire-api:2.19.1" />
           <element id="library" level="project" name="Maven: org.apache.maven.surefire:common-java5:2.19.1" />
-          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.10" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.4.4.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: javax.persistence:javax.persistence-api:2.2" />
