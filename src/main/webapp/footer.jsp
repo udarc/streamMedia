@@ -2,7 +2,6 @@
 <!-- Footer -->
 
 <footer class="footer">
-    <div class="container">
     <div class="footer-upper">
     <nav class="row">
             <ul class=" navbar-nav col-md-4">
@@ -36,7 +35,6 @@
     <div class="footer-bottom text-center">
         <small>&copy; Copyright <script>const currentDate = new Date();
         document.write(currentDate.getFullYear());</script>, Stream Media. All Rights Reserved</small>
-    </div>
     </div>
 </footer>
         <!-- Footer -->

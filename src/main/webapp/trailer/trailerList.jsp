@@ -5,10 +5,10 @@
   Time: 4:07 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="../css/account.css">
+</head>
+<body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
     <h1 class="text-center">List of Trailers</h1> <a href="add-trailer" class="btn btn-success ml-auto" >Add Trailer</a>
