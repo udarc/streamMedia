@@ -15,13 +15,13 @@
                         <a class="btn btn-media" href="trailers" role="button">Trailers &raquo;</a>
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-media" href="./film/filmList.jsp" role="button">Films &raquo;</a>
+                        <a class="btn btn-media" href="films" role="button">Films &raquo;</a>
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-media" href="./book/bookList.jsp" role="button">Books &raquo;</a>
+                        <a class="btn btn-media" href="books" role="button">Books &raquo;</a>
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-media" href="./stories/storyList.jsp" role="button">Short Stories &raquo;</a>
+                        <a class="btn btn-media" href="short-stories" role="button">Short Stories &raquo;</a>
                     </div>
                 </div>
         </section>
