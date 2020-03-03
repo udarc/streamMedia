@@ -165,10 +165,12 @@ TODO fix external css
                     <a class="nav-link dropdown-toggle" href="" id="streammedia" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Media</a>
                     <div class="dropdown-menu" aria-labelledby="/streammedia">
-                        <a class="dropdown-item" href="/film/filmList.jsp">Films</a>
+                        <a class="dropdown-item" href="books">Books</a>
+                        <a class="dropdown-item" href="films">Films</a>
+                        <a class="dropdown-item" href="short-stories">Short Stories</a>
                         <a class="dropdown-item" href="trailers">Trailers</a>
-                        <a class="dropdown-item" href="/stories/storyList.jsp">Short Stories</a>
-                        <a class="dropdown-item" href="/book/bookList.jsp">Books</a>
+
+
                     </div>
                 </li>
             </ul>
