@@ -21,9 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * FAQController.java
  * This servlet acts as a page controller for the application, handling all
- * requests from the user.
+ * requests from the user to perform CRUD operations.
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-21
  */
 @Log4j2
 @WebServlet("/")

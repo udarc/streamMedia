@@ -19,7 +19,10 @@ import java.time.format.DateTimeFormatter;
 /**
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  * The type Add trailer.
+ * Responsible for getting form data for new trailer
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-25
  */
 @Log4j2
 @WebServlet(

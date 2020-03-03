@@ -16,7 +16,10 @@ import java.util.List;
 
 /**
  * The type Trailer list.
+ * Gets all the trailers and makes them available in JSP
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-19
  */
 @Log4j2
 @WebServlet(
@@ -26,12 +29,10 @@ public class TrailerList extends HttpServlet {
     /**
      * The Generic dao.
      */
-//    private UserDao userDao;
     GenericDao genericDao;
 
     public void init() {
 
-//        userDao = new UserDao();
         genericDao =  new GenericDao(Trailer.class);
     }
     @Override

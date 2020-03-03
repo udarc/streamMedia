@@ -14,22 +14,27 @@ import java.util.List;
 
 /**
  * The type Users.
+ * Responsible for getting all the users and make them available to the JSP.
+ *
  * @author Jeanne
+ * @version 1.0
  */
 @Log4j2
 @WebServlet(
         name = "users",
         urlPatterns = {"/users"})
 public class UserList extends HttpServlet {
+
     /**
      * The Generic dao.
      */
-//    private UserDao userDao;
     GenericDao genericDao;
 
+    /**
+     * Responsible for instantiating Daos
+     */
     public void init() {
 
-//        userDao = new UserDao();
         genericDao =  new GenericDao(User.class);
     }
     @Override
@@ -41,6 +46,4 @@ public class UserList extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/listUser.jsp");
         dispatcher.forward(request, response);
     }
-
-
 }

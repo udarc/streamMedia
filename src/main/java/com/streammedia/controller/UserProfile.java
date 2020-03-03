@@ -14,6 +14,8 @@ import java.io.IOException;
 /**
  * The type User profile.
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-03-03
  */
 @WebServlet(
         name = "profile",

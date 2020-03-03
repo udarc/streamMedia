@@ -14,7 +14,10 @@ import java.time.LocalDateTime;
 
 /**
  * The type FAQ.
+ *
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-2-28
  */
 @Getter
 @Setter
@@ -54,10 +57,21 @@ public class FAQ {
     private User user;
 
 
-
+    /**
+     * Instantiates a new Faq.
+     */
     public FAQ() {
     }
 
+    /**
+     * Instantiates a new Faq.
+     *
+     * @param title       the title
+     * @param category    the category
+     * @param description the description
+     * @param createdAt   the created at
+     * @param user        the user
+     */
     public FAQ(String title, String category, String description, LocalDateTime createdAt, User user) {
         this.title = title;
         this.category = category;

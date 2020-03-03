@@ -16,6 +16,7 @@ import java.util.Set;
 /**
  * The type Genre.
  * @author Jeanne
+ * @version 1.0
  */
 @Getter
 @Setter

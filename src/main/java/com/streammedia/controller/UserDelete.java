@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
- * Delete the user
+ * The type User delete.
+ * Responsible for getting and deleting User
  * https://www.javatpoint.com/crud-in-servlet
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-22
  */
 @WebServlet(
         urlPatterns = {"/deleteUser"}

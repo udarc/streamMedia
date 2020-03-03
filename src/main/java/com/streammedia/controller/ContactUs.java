@@ -19,6 +19,8 @@ import javax.mail.*;
  * The type Contact us.
  * Responsible for getting form data
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-12
  */
 @Log4j2
 @WebServlet(
@@ -73,7 +75,6 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
             }catch (Exception ex) {
             log.debug("Error loading properties" + ex);
         }
-//            log.debug(properties);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
             dispatcher.forward(req, resp);
         }

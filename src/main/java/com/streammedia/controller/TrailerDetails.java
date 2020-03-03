@@ -14,7 +14,10 @@ import java.io.IOException;
 
 /**
  * The type Trailer details.
+ * Gets a single Trailer from and sets it as an attribute to be accessible in JSP
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-21
  */
 @Log4j2
 @WebServlet(
@@ -24,12 +27,10 @@ public class TrailerDetails extends HttpServlet {
     /**
      * The Generic dao.
      */
-//    private UserDao userDao;
+
     GenericDao genericDao;
 
     public void init() {
-
-//        userDao = new UserDao();
         genericDao =  new GenericDao(Trailer.class);
     }
     @Override
