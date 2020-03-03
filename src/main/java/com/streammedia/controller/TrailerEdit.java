@@ -17,6 +17,8 @@ import java.time.LocalTime;
 /**
  * The type Trailer edit.
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-22
  */
 @Log4j2
 @WebServlet(
@@ -70,8 +72,6 @@ public class TrailerEdit extends HttpServlet {
             trailer.setUpdatedAt(LocalDate.now());
             log.debug("Updating Trailer: " + trailer.getTitle());
             genericDao.saveOrUpdate(trailer);
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerDetails.jsp");
-//            dispatcher.forward(req, resp);
             String destination = "trailer-detail?uid=" + trailerId;
             resp.sendRedirect(destination);
         }

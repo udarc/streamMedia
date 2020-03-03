@@ -6,6 +6,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Logout.
+ * @author Jeanne
+ * @version  1.0
+ * @since 2020-03-02
+ */
 @WebServlet(name = "logoutServlet", urlPatterns = {"/logout"})
 public class logout extends HttpServlet{
     protected void doGet(HttpServletRequest request,

@@ -18,35 +18,15 @@ import org.apache.logging.log4j.core.*;
 
 /**
  * The type Java mail utility.
+ * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-21
  */
 @Log4j2
 public  class JavaMailUtility implements PropertiesLoader {
 
-
-//    private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
-//    private  Properties mailProperties;
-//    private static  String username;
-//    private  static  String senderPassword;
-
-//    private  JavaMailUtility(){
-//
-//        try {
-//            mailProperties = loadProperties("/contact.properties");
-//            username =  mailProperties.getProperty("mail.password");
-//            senderPassword =  mailProperties.getProperty("mail.password");
-//            log.debug(mailProperties);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
-
-
-
-
     /**
-     * Send as html.
+     * Send as message.
      *
      * @param toEmail the to email
      * @param title   the title

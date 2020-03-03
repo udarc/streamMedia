@@ -19,7 +19,9 @@ import java.util.Enumeration;
 
 /**
  * The type Edit user profile.
+ * Responsible for getting form data to update User's record
  * @author Jeanne
+ * @version 1.0
  */
 @Log4j2
 @WebServlet(

@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  * The type Film.
- * @director Jeanne
+ * @author Jeanne
  * https://www.baeldung.com/hibernate-many-to-many
  */
 @Getter

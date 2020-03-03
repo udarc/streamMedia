@@ -15,7 +15,9 @@ import java.time.LocalDate;
 
 /**
  * The type Register user.
+ * Simple servlet to get form data
  * @author Jeanne
+ * @version 1.0
  */
 @Log4j2
 @WebServlet(
