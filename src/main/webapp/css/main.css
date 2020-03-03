@@ -32,9 +32,8 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
     height: 50%;
 }
 .homepage {
-    background: url("../images/homepagebg.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background: url("../images/homepagebg.jpg") no-repeat;
     height: auto;
     border-radius: .5em;
     margin: 2em auto;

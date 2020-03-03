@@ -10,8 +10,9 @@
 </head>
 <body>
 <%@include file="navbar.jsp"%>
+
 <div class="container">
-    <div class="form row">
+    <main class="form row">
         <h1>Contact Us</h1>
         <form class="card col-sm-10 offset-sm-1" action="contact-us" method="post">
             <div class="form-group row">
@@ -56,7 +57,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </main>
 
 </div>
 <%@include file="footer.jsp"%>
