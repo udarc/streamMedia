@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="head.jsp"%>
-<link rel="stylesheet" type="text/css" href="css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css"/>
 </head>
 <body>
 <%@include file="navbar.jsp"%>

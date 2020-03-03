@@ -34,9 +34,8 @@
     </nav>
     </div>
     <div class="footer-bottom text-center">
-        <small>&copy; Copyright <script>
-            var d = new Date();
-            d.getFullYear();</script>, Stream Media. All Rights Reserved</small>
+        <small>&copy; Copyright <script>const currentDate = new Date();
+        document.write(currentDate.getFullYear());</script>, Stream Media. All Rights Reserved</small>
     </div>
     </div>
 </footer>

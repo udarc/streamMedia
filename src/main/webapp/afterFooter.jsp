@@ -12,8 +12,6 @@
 <script type="text/javascript" src="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/js/coreui.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" ></script>--%>
-<script type="text/javascript">
-    // document.createElement("link").addEventListener(setAttribute("rel", "stylesheet"));
-</script>
+
 </body>
 </html>
