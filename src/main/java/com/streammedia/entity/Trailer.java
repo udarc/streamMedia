@@ -58,7 +58,7 @@ public class Trailer {
     private String summary;
 
     @CreationTimestamp
-    @Column(name = "created_at" , nullable = false)
+    @Column(name = "created_at")
     private LocalDate createdAt;
 
     @UpdateTimestamp
