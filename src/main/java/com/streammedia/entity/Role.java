@@ -35,14 +35,14 @@ public class Role {
     @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
     private User user;
 
-    @EqualsAndHashCode.Exclude
+//    @EqualsAndHashCode.Exclude
     @CreationTimestamp
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private LocalDate createdAt;
 
     @UpdateTimestamp
-    @EqualsAndHashCode.Exclude
-    @Column(name = "updated_at",nullable = false)
+//    @EqualsAndHashCode.Exclude
+    @Column(name = "updated_at")
     private LocalDate updatedAt;
 
 

@@ -42,13 +42,13 @@ public class FAQ {
     private String description;
 
 
-    @EqualsAndHashCode.Exclude
+//    @EqualsAndHashCode.Exclude
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @EqualsAndHashCode.Exclude
+//    @EqualsAndHashCode.Exclude
     @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
