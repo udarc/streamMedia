@@ -8,3 +8,12 @@
 [DEBUG] 2020-03-04 11:06:14.809 [http-nio-8080-exec-5] GenericDao - Getting Entity by Id 1
 [DEBUG] 2020-03-04 11:06:14.821 [http-nio-8080-exec-5] GenericDao - Updating an Entity
 [DEBUG] 2020-03-04 11:06:14.883 [http-nio-8080-exec-6] GenericDao - The list of Entities [FAQ(faqId=1, title=how movies are created., category=Movies, description=This is FAQ Creates Test. More and more. Very Happy it works!!!yes, createdAt=2020-02-28T00:00, updatedAt=2020-03-04T11:06:15, user=User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18))]
+[DEBUG] 2020-03-04 12:16:44.947 [http-nio-8080-exec-7] GenericDao - The list of Entities []
+[DEBUG] 2020-03-04 12:37:08.765 [http-nio-8080-exec-8] GenericDao - The list of Entities []
+[DEBUG] 2020-03-04 12:44:51.176 [http-nio-8080-exec-2] GenericDao - The list of Entities []
+[INFO ] 2020-03-04 12:44:51.176 [http-nio-8080-exec-2] GenreList - []
+[DEBUG] 2020-03-04 12:54:34.915 [http-nio-8080-exec-1] GenericDao - The list of Entities []
+[INFO ] 2020-03-04 12:54:34.916 [http-nio-8080-exec-1] GenreList - []
+[INFO ] 2020-03-04 12:56:16.221 [http-nio-8080-exec-14] GenreList - []
+[INFO ] 2020-03-04 12:56:24.533 [http-nio-8080-exec-15] GenreList - []
+[INFO ] 2020-03-04 12:56:25.733 [http-nio-8080-exec-11] GenreList - []
