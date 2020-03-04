@@ -15,8 +15,8 @@ import java.util.Set;
 
 /**
  * The type Film.
- * @author Jeanne
- * https://www.baeldung.com/hibernate-many-to-many
+ *
+ * @author Jeanne  https://www.baeldung.com/hibernate-many-to-many
  */
 @Getter
 @Setter
@@ -62,19 +62,25 @@ public class Film {
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
-    @ManyToMany(cascade = { CascadeType.ALL })
+    /**
+     * The Genres.
+     */
+    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmGenre",
-            joinColumns = { @JoinColumn(name = "film_id") },
-            inverseJoinColumns = { @JoinColumn(name = "genre_id") }
+            joinColumns = { @JoinColumn(name = "film_id",nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "genre_id", nullable = false) }
     )
     Set<Genre> genres = new HashSet<>();
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    /**
+     * The Crews.
+     */
+    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmCrew",
-            joinColumns = { @JoinColumn(name = "film_id") },
-            inverseJoinColumns = { @JoinColumn(name = "crew_id") }
+            joinColumns = { @JoinColumn(name = "film_id", nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "crew_id",nullable = false) }
     )
     Set<Crew> crews = new HashSet<>();
     
@@ -87,12 +93,4 @@ public class Film {
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 
-
-    /**
-     * Instantiates a new Film.
-     */
-    public Film() {
-        this.createdAt = LocalDate.now();
-        this.updatedAt = LocalDate.now();
-    }
 }

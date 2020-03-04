@@ -15,6 +15,7 @@ import java.util.Set;
 
 /**
  * The type Role.
+ *
  * @author Jeanne
  */
 @Getter
@@ -52,6 +53,26 @@ public class Crew {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy = "crews")
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "crews")
     private Set<Film> films = new HashSet<>();
+
+    /**
+     * Add film.
+     *
+     * @param film the film
+     */
+    public void addFilm(Film film) {
+        this.films.add(film);
+        film.getCrews().add(this);
+    }
+
+    /**
+     * Remove film.
+     *
+     * @param film the film
+     */
+    public void removeFilm(Film film) {
+        this.films.remove(film);
+        film.getCrews().remove(this);
+    }
 }
