@@ -1,8 +1,7 @@
 package com.streammedia.perisistence;
 
-import com.streammedia.entity.User;
 import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.*;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

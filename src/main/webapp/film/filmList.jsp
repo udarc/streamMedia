@@ -11,7 +11,7 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-    <h1 class="text-center">List of Trailers</h1> <a href="filmList.jsp" class="btn btn-success ml-auto" >Add Trailer</a>
+    <h1 class="text-center">List of Films</h1> <a href="filmList.jsp" class="btn btn-success ml-auto" >Add Film</a>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             <div class="card">
@@ -27,7 +27,7 @@
                     <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link btn btn-primary">Trailer Details</a>
+                    <a href="#" class="card-link btn btn-primary">Film Details</a>
 
                 </div>
             </div>

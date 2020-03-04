@@ -4,15 +4,11 @@ import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 
@@ -26,7 +22,7 @@ import java.time.format.DateTimeFormatter;
  */
 @Log4j2
 @WebServlet(
-        name = "addTailer",
+        name = "trailerAdd",
         urlPatterns = {"/add-trailer"}
 )
 public class TraillerAdd extends HttpServlet {
