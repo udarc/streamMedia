@@ -3,6 +3,7 @@ DELETE  FROM Role;
 DELETE FROM  `Trailer`;
 DELETE FROM faq;
 DELETE FROM  SM_Users;
+DELETE FROM Genre;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
 (2,'Fred','Hensen','fhensen','supersecret2','fhensen@streammedia.com','1988-05-08',NOW()),
@@ -32,3 +33,8 @@ INSERT INTO faq(faq_id,title,category,description ,created_at, user) VALUES
 (1,'How to sell movies','Movie','This is a description of how to sell movies.',Now(),1),
 (2,'How to access paid materials ','Sotories','Paid Materials are only accessible to users who have an account on this web site or pay for them where they are hosted.',NOW(),2),
 (3,'Taking better photos','Movie',' In Java terms, we would like the state of (some of) our objects to live beyond the scope of the JVM so that the same state is available later.',Now(),2);
+
+INSERT INTO Genre(genre_id,title,description ,created_at) VALUES
+(1,'Romance','Love Related Movies',Now()),
+(2,'Horror','Scary movies not recommend for children under 12 years old',NOW()),
+(3,'Comedy','Funny Movies',Now());

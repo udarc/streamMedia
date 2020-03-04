@@ -23,6 +23,8 @@ import java.util.Set;
 @Setter
 @Entity(name = "Genre")
 @Table(name = "Genre")
+@EqualsAndHashCode
+@ToString
 public class Genre {
     @Id
     @Column(name = "genre_id")
