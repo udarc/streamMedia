@@ -15,9 +15,10 @@ import java.time.LocalDateTime;
  * This servlet acts as a page controller for the application, handling all
  * requests from the user to add an object
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-21
+ * @since 2020 -02-21
  */
 @Log4j2
 @WebServlet(urlPatterns = {"/genre-new"})
@@ -50,7 +51,7 @@ public class GenreAdd extends HttpServlet {
                 newGenre.setDescription(description);
                 log.debug("Adding FAQ: ", newGenre.getTitle());
                 genreDao.insert(newGenre);
-                response.sendRedirect("faqs");
+                response.sendRedirect("genres");
             } else {
                 request.getRequestDispatcher("/film/genreAddEdit.jsp").forward(request, response);
             }
