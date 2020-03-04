@@ -6,11 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GenreDaoTest {
     GenericDao genericDao;
@@ -70,5 +67,32 @@ public class GenreDaoTest {
        assertNotNull(retrievedGenre);
         assertTrue(genreToUpdate.equals(retrievedGenre));
     }
+    /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<Genre> genres = genericDao.getByPropertyEqual("title", "Comedy");
+        assertEquals(1, genres.size());
+        assertEquals(3, genres.get(0).getGenreId());
+    }
 
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Genre> genres = genericDao.getByPropertyLike("title", "c");
+        assertEquals(2, genres.size());
+    }
+
+    /**
+     * Verify successful delete of genre
+     */
+//    @Disabled
+    @Test
+    void deleteSuccess() {
+        genericDao.delete(genericDao.getById(2));
+        assertNull(genericDao.getById(2));
+    }
 }

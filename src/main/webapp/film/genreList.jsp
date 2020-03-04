@@ -21,7 +21,7 @@
 
                         <c:forEach var="genre" items="${genres}">
 
-                            <li class="list-group-item ">${genre.title}</li>
+                            <li class="list-group-item "><a href="genre-details?uid=${genre.genreId}">${genre.title}</a></li>
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
