@@ -14,20 +14,20 @@
     <div class="row">
         <div class="col-sm-8">
 
-            <ul class="list-group list-group-flush">
-
+            <ul class="list-group list-group-info list-group-flush">
                 <c:choose>
-                    <li class="list-group-item list-group-item-info"><h1>Genre List</h1></li>
+                    <c:when test="${fn:length(genres) gt 0}">
+                        <li class="list-group-item list-group-item-primary"><h1>Genre List</h1></li>
 
-                </c:choose><c:when test="${genres.size != 0}">
-                <c:forEach var="genre" items="${genres}" >
-                    <li class="list-group-item list-group-item-info">${genre.title}</li>
-                    <li class="list-group-item list-group-item-info">${genre.description}</li>
-                </c:forEach>
-            </c:when>
-                <c:otherwise>
-                    <li class="list-group-item list-group-item-info"><h1>Genres are Not Found!</h1></li>
-                </c:otherwise>
+                        <c:forEach var="genre" items="${genres}">
+
+                            <li class="list-group-item ">${genre.title}</li>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="list-group-item ">No Genre found!</li>
+                    </c:otherwise>
+                </c:choose>
 
             </ul>
         </div>

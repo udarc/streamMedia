@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <header>
     <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000!important;">
             <ul id="utility" class="nav  ml-auto">
