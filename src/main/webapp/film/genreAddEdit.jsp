@@ -15,21 +15,21 @@
         <c:choose>
         <c:when test="${genre ne null}">
             <h1>Edit Genre</h1>
-        <form action="faq-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+        <form action="genre-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <input type="hidden" name="uid" value="${genre.genreId}">
             </c:when>
             <c:otherwise>
             <h1>Add Genre</h1>
-            <form action="faq-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="genre-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
                 </c:otherwise>
                 </c:choose>
 
-        <form action="genre-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="title" id="title" placeholder="Title" required>
+                           name="title" id="title" placeholder="Title"
+                           value="${genre.title}" required>
                 </div>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Title is required.</div>
@@ -37,7 +37,8 @@
             <div class="form-group row">
                 <label for="description" class="col-sm-3 col-form-label" >Description</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="description" id="description" rows="6"></textarea>
+                    <textarea class="form-control"name="description"
+                              id="description" rows="6">${genre.description}</textarea>
                 </div>
             </div>
             <div class="form-group row">

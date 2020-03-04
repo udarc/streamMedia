@@ -41,9 +41,9 @@ public class GenreList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        List<Genre> genreList = genreDao.getAll();
-//        request.setAttribute("genres", genreList);
-//        log.info(genreList);
+        List<Genre> genreList = genreDao.getAll();
+        request.setAttribute("genres", genreList);
+        log.info(genreList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/film/genreList.jsp");
         dispatcher.forward(request, response);
     }
