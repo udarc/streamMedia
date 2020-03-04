@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
 <%--    https://coreui.io/docs/components/bootstrap/carousel/--%>

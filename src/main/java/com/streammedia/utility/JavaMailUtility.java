@@ -1,20 +1,10 @@
 package com.streammedia.utility;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.swing.*;
-
+import javax.mail.internet.*;
 import lombok.extern.log4j.Log4j2;
-
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
-import org.apache.logging.log4j.core.*;
+
 
 /**
  * The type Java mail utility.

@@ -14,11 +14,11 @@
     <div class="form row">
         <c:choose>
             <c:when test="${faq ne null}">
-            <form action="edit-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="faq-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
                 <input type="hidden" name="uid" value="${faq.faqId}">
             </c:when>
             <c:otherwise>
-            <form action="add-faq" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="faq-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             </c:otherwise>
         </c:choose>
 <%--                <c:if test="${faq != null}" >--%>

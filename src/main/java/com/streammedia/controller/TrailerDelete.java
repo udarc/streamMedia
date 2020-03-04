@@ -1,7 +1,6 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Trailer;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;

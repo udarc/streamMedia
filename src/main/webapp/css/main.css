@@ -1,3 +1,6 @@
+html, body{
+    height: 100%;
+}
 body {
     font-family: 'DejaVu Sans Mono', monospace;
     min-height: 100vh;
@@ -29,19 +32,31 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
 }
 
 .wrapper{
-    height: 50%;
+    min-height: 60vh;
 }
-.homepage {
+#home {
+    overflow: auto;
     background-size: cover;
-    background: url("../images/homepagebg.jpg") no-repeat;
+    /*background: url("./images/homepagebg.jpg") no-repeat;*/
     height: auto;
     border-radius: .5em;
     margin: 2em auto;
     padding: 2em;
-    color: whitesmoke;
+    /*color: whitesmoke;*/
 }
-
-
+.btn-media{
+    background-color: #980404;
+    min-height: 4em;
+    padding-top: 1em;
+    color: ghostwhite;
+    font-weight: 600;
+    margin: .5em;
+    min-width: 10em;
+}
+.btn-media:focus,.btn-media:hover{
+    color: #f6b66c;
+    background-color: #450000;
+}
 
 /*Footer style*/
 .footer {
@@ -61,7 +76,7 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
 }
 .footer-bottom{
     background-color: #1b0000;
-padding: 1em;
+    padding: 1em;
 }
 
 /*Input text and placeholder color*/

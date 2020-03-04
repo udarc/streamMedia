@@ -13,7 +13,7 @@ import java.io.IOException;
 
 
 /**
- * BookController.java
+ * BookList.java
  * This servlet acts as a page controller for the application, handling all
  * requests from the user to perform CRUD operations.
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
@@ -23,7 +23,7 @@ import java.io.IOException;
  */
 @Log4j2
 @WebServlet("/short-stories")
-public class ShortStoryController extends HttpServlet {
+public class ShortStoryList extends HttpServlet {
 
 
     public void init() {
