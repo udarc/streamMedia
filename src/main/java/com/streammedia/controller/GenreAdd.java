@@ -33,7 +33,7 @@ public class GenreAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/film/genreAdd.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/film/genreAddEdit.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -52,7 +52,7 @@ public class GenreAdd extends HttpServlet {
                 genreDao.insert(newGenre);
                 response.sendRedirect("faqs");
             } else {
-                request.getRequestDispatcher("/film/genreAdd.jsp").forward(request, response);
+                request.getRequestDispatcher("/film/genreAddEdit.jsp").forward(request, response);
             }
         } catch (NullPointerException npe) {
             log.error("User Does not Exists" + npe);

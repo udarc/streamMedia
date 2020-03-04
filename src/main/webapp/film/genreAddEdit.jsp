@@ -12,8 +12,19 @@
 <%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
-        <h1>Add Genre</h1>
-        <form action="addGenre" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+        <c:choose>
+        <c:when test="${genre ne null}">
+            <h1>Edit Genre</h1>
+        <form action="faq-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <input type="hidden" name="uid" value="${genre.genreId}">
+            </c:when>
+            <c:otherwise>
+            <h1>Add Genre</h1>
+            <form action="faq-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+                </c:otherwise>
+                </c:choose>
+
+        <form action="genre-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
@@ -32,7 +43,7 @@
             <div class="form-group row">
                 <div class="col-sm-9">
                     <button type="submit"
-                            name="createFAQ" class="btn btn-lg btn-success">Add EAQ</button>
+                            name="createFAQ" class="btn btn-lg btn-success">Save Genre</button>
                 </div>
             </div>
         </form>

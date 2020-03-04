@@ -17,3 +17,38 @@
 [INFO ] 2020-03-04 12:56:16.221 [http-nio-8080-exec-14] GenreList - []
 [INFO ] 2020-03-04 12:56:24.533 [http-nio-8080-exec-15] GenreList - []
 [INFO ] 2020-03-04 12:56:25.733 [http-nio-8080-exec-11] GenreList - []
+[DEBUG] 2020-03-04 13:15:50.830 [http-nio-8080-exec-22] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 13:15:54.212 [http-nio-8080-exec-22] GenreAdd - Adding FAQ: 
+[DEBUG] 2020-03-04 13:15:54.276 [http-nio-8080-exec-22] GenericDao - A new user was Added with an Id2
+[DEBUG] 2020-03-04 13:15:54.509 [http-nio-8080-exec-23] GenericDao - The list of Entities [FAQ(faqId=1, title=how movies are created., category=Movies, description=This is FAQ Creates Test. More and more. Very Happy it works!!!yes, createdAt=2020-02-28T00:00, updatedAt=2020-03-04T11:06:15, user=User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18))]
+[DEBUG] 2020-03-04 13:27:24.971 [http-nio-8080-exec-26] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:29:09.039 [http-nio-8080-exec-32] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:30:01.580 [http-nio-8080-exec-39] GenericDao - The list of Entities [FAQ(faqId=1, title=how movies are created., category=Movies, description=This is FAQ Creates Test. More and more. Very Happy it works!!!yes, createdAt=2020-02-28T00:00, updatedAt=2020-03-04T11:06:15, user=User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18))]
+[DEBUG] 2020-03-04 13:30:03.357 [http-nio-8080-exec-36] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:30:03.371 [http-nio-8080-exec-36] FAQDetails - Getting a Single FAQ FAQ(faqId=1, title=how movies are created., category=Movies, description=This is FAQ Creates Test. More and more. Very Happy it works!!!yes, createdAt=2020-02-28T00:00, updatedAt=2020-03-04T11:06:15, user=User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18))
+[DEBUG] 2020-03-04 13:30:11.818 [http-nio-8080-exec-43] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:30:16.543 [http-nio-8080-exec-42] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:30:17.318 [http-nio-8080-exec-41] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:31:26.380 [http-nio-8080-exec-52] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-04 13:44:19.893 [main] GenericDao - The list of Entities [Role(roleId=1, name=user, user=User(userId=1, username=jcoyne, email=jcoyne@streammedia.com, password=supersecret1, firstName=Joe, lastName=Coyne, birthdate=1964-04-01, picture=null, gender=null, biography=null, createdAt=2020-03-04, updateAt=2020-03-04), createdAt=2020-03-04, updatedAt=2020-03-04), Role(roleId=2, name=admin, user=User(userId=2, username=fhensen, email=fhensen@streammedia.com, password=supersecret2, firstName=Fred, lastName=Hensen, birthdate=1988-05-08, picture=null, gender=null, biography=null, createdAt=2020-03-04, updateAt=2020-03-04), createdAt=2020-03-04, updatedAt=2020-03-04), Role(roleId=3, name=developer, user=User(userId=3, username=bcurry, email=bcurry@streammedia.com, password=supersecret3, firstName=Barney, lastName=Curry, birthdate=1947-11-11, picture=null, gender=null, biography=null, createdAt=2020-03-04, updateAt=2020-03-04), createdAt=2020-03-04, updatedAt=2020-03-04), Role(roleId=4, name=sale, user=User(userId=4, username=kmack, email=kmack@streammedia.com, password=supersecret4, firstName=Karen, lastName=Mack, birthdate=1986-07-08, picture=null, gender=null, biography=null, createdAt=2020-03-04, updateAt=2020-03-04), createdAt=2020-03-04, updatedAt=2020-03-04), Role(roleId=5, name=staff, user=User(userId=3, username=bcurry, email=bcurry@streammedia.com, password=supersecret3, firstName=Barney, lastName=Curry, birthdate=1947-11-11, picture=null, gender=null, biography=null, createdAt=2020-03-04, updateAt=2020-03-04), createdAt=2020-03-04, updatedAt=2020-03-04)]
+[DEBUG] 2020-03-04 13:45:05.521 [main] GenericDao - The list of Entities [com.streammedia.entity.Genre@71b0289b, com.streammedia.entity.Genre@6c6379c, com.streammedia.entity.Genre@7df4709e]
+[DEBUG] 2020-03-04 13:47:46.483 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 13:48:49.641 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 13:49:03.522 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 13:49:05.906 [main] GenericDao - The list of Entities [com.streammedia.entity.Genre@5f5c187d, com.streammedia.entity.Genre@464400b3, com.streammedia.entity.Genre@58182b96]
+[DEBUG] 2020-03-04 13:56:20.742 [main] GenericDao - A new user was Added with an Id4
+[DEBUG] 2020-03-04 13:56:20.753 [main] GenericDao - Getting Entity by Id 4
+[DEBUG] 2020-03-04 13:57:37.375 [main] GenericDao - A new user was Added with an Id5
+[DEBUG] 2020-03-04 13:59:35.127 [main] GenericDao - A new user was Added with an Id6
+[DEBUG] 2020-03-04 14:02:03.061 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:02:04.808 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-03-04 14:02:04.828 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:04:14.761 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:04:16.461 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-03-04 14:04:16.480 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:05:19.501 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:05:22.604 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-03-04 14:05:22.646 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:06:35.970 [main] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-03-04 14:06:38.088 [main] GenericDao - Updating an Entity
+[DEBUG] 2020-03-04 14:06:38.107 [main] GenericDao - Getting Entity by Id 2
