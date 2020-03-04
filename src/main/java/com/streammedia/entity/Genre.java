@@ -15,6 +15,7 @@ import java.util.Set;
 
 /**
  * The type Genre.
+ *
  * @author Jeanne
  * @version 1.0
  */
@@ -42,6 +43,26 @@ public class Genre {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "genres")
     private Set<Film> films = new HashSet<>();
+
+    /**
+     * Add film.
+     * https://thoughts-on-java.org/hibernate-tips-map-bidirectional-many-many-association/
+     * @param film the film
+     */
+    public void addFilm(Film film) {
+        this.films.add(film);
+        film.getGenres().add(this);
+    }
+
+    /**
+     * Remove film.
+     *
+     * @param film the film
+     */
+    public void removeFilm(Film film) {
+        this.films.remove(film);
+        film.getGenres().remove(this);
+    }
 }
