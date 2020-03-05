@@ -11,8 +11,39 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
-    <h1 class="text-center">Crew Details</h1> <a href="#" class="btn btn-success ml-auto" >Add CREW</a>
+    <h1>Crew Details</h1>
+    <a href="crew-new" class="btn btn-success ml-auto" >Add Crew</a>
     <div class="row">
+        <c:choose>
+            <c:when test="${crew ne null}">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h2 class="card-title">${crew.firstName} ${crew.lastName}</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">${crew.email}</li>
+                                <li class="list-group-item">${crew.profession}</li>
+                                <li class="list-group-item">${crew.biography}</li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <span class="btn-group ml-auto " role="group" aria-label="Edit and Delete Crew">
+                        <a href="crew-edit?uid=<c:out value="${crew.crewId}"/>" class="btn btn-primary" >
+                            <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit Crew</a>
+                    <a href="crew-delete?uid=<c:out value="${crew.crewId}"/>" class="btn btn-danger" >
+                        <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete Crew</a>
+                        </span>
+                        </div>
+                        <a href="crews" class="btn btn-link" >Crew List</a>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <p>Crew was not found!</p>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </main>
 <%@include file="../footer.jsp"%>

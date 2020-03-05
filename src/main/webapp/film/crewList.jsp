@@ -16,6 +16,18 @@
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-info"><h1>Crew List</h1></li>
+                <c:choose>
+                    <c:when test="${fn:length(crews) gt 0}">
+                        <c:forEach var="crew" items="${crews}">
+                            <li class="list-group-item list-group-item-info">${crew.firstName}</li>
+                        </c:forEach>
+
+                    </c:when>
+                    <c:otherwise>
+                        <li class="list-group-item list-group-item-info">No Crew Data found!</li>
+                    </c:otherwise>
+                </c:choose>
+
           </ul>
         </div>
 
