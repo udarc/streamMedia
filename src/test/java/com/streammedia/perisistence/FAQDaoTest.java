@@ -1,7 +1,6 @@
 package com.streammedia.perisistence;
 
-import com.streammedia.entity.FAQ;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.test.utility.Database;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -45,7 +46,7 @@ public class Genre {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "genres")
+    @ManyToMany(mappedBy = "genres")
     private Set<Film> films = new HashSet<>();
 
     /**

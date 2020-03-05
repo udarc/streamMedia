@@ -17,7 +17,7 @@ import java.time.LocalDate;
  */
 @Log4j2
 @WebServlet(
-        name = "signup",
+        name = "signUp",
         urlPatterns = {"/register"}
 )
 public class UserRegister extends HttpServlet {
@@ -52,8 +52,6 @@ public class UserRegister extends HttpServlet {
         user.setLastName(req.getParameter("lastname"));
         user.setPassword(req.getParameter("password"));
         String confirmPassword = req.getParameter("confirmPassword");
-        user.setCreatedAt(LocalDate.now());
-        user.setUpdateAt(LocalDate.now());
 
         if(confirmPassword.equals(user.getPassword())){
 

@@ -44,6 +44,7 @@
 |Feb 23, 2020|Updated Project plan to check off completed tasks|.5||
 |Mar 04, 2020|Worked on fixing CREATE USER 'username'@'localhost' IDENTIFIED BY 'password'; ERROR 1728 (HY000): Cannot load from mysql.user. The table is probably corrupted error. Fix was using sudo dpkg --configure -a command. Changed Database Middle tables for Film , Genre and Crew|2.5||
 |Mar 04, 2020|Completed CRUD for Genre, GenreTestDao and updated Genre JSPs|4.5||
+|Mar 04, 2020|Completed CRUD for Crew, CrewTestDao and updated Crew JSPs|2.5||
 
 
 

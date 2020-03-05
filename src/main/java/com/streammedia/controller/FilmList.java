@@ -1,5 +1,6 @@
 package com.streammedia.controller;
 
+import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +24,10 @@ import java.io.IOException;
     @WebServlet("/films")
     public class FilmList extends HttpServlet {
 
-
+            private GenericDao filmDao;
+            private GenericDao userDao;
+            private GenericDao crewDao;
+            private GenericDao genericDao;
         public void init() {
 
         }

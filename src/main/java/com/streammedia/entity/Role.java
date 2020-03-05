@@ -45,12 +45,4 @@ public class Role {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-
-    /**
-     * Instantiates a new Role.
-     */
-    public Role() {
-        this.createdAt = LocalDate.now();
-        this.updatedAt = LocalDate.now();
-    }
 }
