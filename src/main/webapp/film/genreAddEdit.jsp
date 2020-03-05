@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
@@ -49,8 +49,6 @@
             </div>
         </form>
     </div>
-
-
 </div>
 
 <%@include file="../footer.jsp"%>

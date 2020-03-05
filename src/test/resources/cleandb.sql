@@ -38,3 +38,11 @@ INSERT INTO Genre(genre_id,title,description ,created_at) VALUES
 (1,'Romance','Love Related Movies',Now()),
 (2,'Horror','Scary movies not recommend for children under 12 years old',NOW()),
 (3,'Comedy','Funny Movies',Now());
+
+
+INSERT INTO Crew(crew_id,first_name,last_name ,email,biography,profession,created_at,user) VALUES
+(1,'Maureen','Patton',' mpatton@gmail.com','Some Bio for you','Student',Now(),2),
+(2,'Priscilla','Campbell','pcampbell@gmail.com','Some Bio for you','Developer',NOW(),2),
+(3,'Calvin','Huff', 'chuff@gmail.com','Some Bio for you','Teacher',Now(),2),
+(4,'Gustavo','Diaz','gdiaz@example.com','Some Bio for you','Doctor',Now(),2),
+(5,'Gertrude','Norman','gnorman@some.com','Some Bio for you','filmmaker',Now(),2);

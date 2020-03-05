@@ -45,11 +45,17 @@ public class Crew {
     @Column(name = "biography")
     private String biography;
 
-    @Column(name = "created_at",nullable = false, updatable = false)
+    @Column(name = "created_at")
+    @CreationTimestamp
     private LocalDate createdAt;
 
-    @Column(name = "updated_at",nullable = false)
+    @Column(name = "updated_at")
+    @UpdateTimestamp
     private LocalDate updateAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude

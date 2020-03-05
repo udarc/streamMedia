@@ -82,6 +82,10 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Trailer> trailers = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Crew> crews = new HashSet<>();
     //Films
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @ToString.Exclude
