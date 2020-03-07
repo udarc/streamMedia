@@ -26,7 +26,8 @@ public class UserDelete extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         GenericDao genericDao = new GenericDao(User.class);
-        genericDao.delete(genericDao.getById(Integer.parseInt(req.getParameter("id"))));
+//        genericDao.delete(genericDao.getById(Integer.parseInt(req.getParameter("id"))));
+        genericDao.delete(genericDao.getByPropertyEqual("username",req.getParameter("user")).get(0));
         resp.sendRedirect("users");
     }
 

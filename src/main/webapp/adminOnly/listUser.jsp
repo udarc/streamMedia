@@ -37,8 +37,8 @@
                                ${role.name}
                            </c:forEach>
 
-                    <td><a class="btn btn-outline-primary" href="profile-edit?id=<c:out value="${user.userId}"/>">Edit</a></td>
-                    <td><a class="btn btn-outline-danger"  href="deleteUser?id=<c:out value="${user.userId}"/>">Delete</a></td>
+                    <td><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">Edit</a></td>
+                    <td><a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
