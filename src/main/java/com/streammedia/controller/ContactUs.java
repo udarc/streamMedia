@@ -31,6 +31,7 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
     private  Properties properties;
     private  String sendEmail;
     private String authPass;
+    private JavaMailUtility contactUtility= new JavaMailUtility();
 
 
     /**
@@ -57,7 +58,7 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
             String email =  req.getParameter("email").trim();
             String subject = req.getParameter("subject").trim();
             String content = req.getParameter("message").trim();
-            String amessage = "\n" + name + "\n" + email + "\n" + content ;
+            String amessage = "\nName: " + name + "\nEmail: " + email + "\nMessage:" + content ;
 
         if (!(name.equals(null) && !email.equals(null) && !subject.equals(null) && !amessage.equals(null))) {
             log.info("Preparing to send a message: " + amessage);
@@ -67,7 +68,7 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
                 sendEmail = properties.getProperty("mail.username");
                 authPass = properties.getProperty("mail.password");
                 log.debug("Username" + sendEmail);
-                JavaMailUtility.sendAsHtml(email,authPass,sendEmail,
+                contactUtility.sendAsHtml(email,sendEmail,
                         subject,
                         amessage);
             } catch (MessagingException e) {
