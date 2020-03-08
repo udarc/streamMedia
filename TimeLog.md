@@ -46,7 +46,7 @@
 |Mar 04, 2020|Completed CRUD for Genre, GenreTestDao and updated Genre JSPs|4.5||
 |Mar 05, 2020|Started working on Film Servlets  and I am still not able to add film and save genre and crew and their respective middle tables|4.5||
 |Mar 06, 2020|Changed Edit  and delete user links to use username instead of Id|.5||
-|Mar 06, 2020|Completed User profile Servlet and J and add secure link. which permit login from menu to work|1.5||
+|Mar 06, 2020|Completed User profile Servlet and JSP and add secure link. which permit login from menu to work|1.5||
 
 
 
