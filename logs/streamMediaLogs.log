@@ -154,3 +154,87 @@
 [DEBUG] 2020-03-04 22:03:21.986 [http-nio-8080-exec-41] GenericDao - Getting Entity by Id 2
 [DEBUG] 2020-03-04 22:03:22.181 [http-nio-8080-exec-39] GenericDao - The list of Entities [Crew(crewId=1, firstName=Lisa, lastName=Larson, email=llarson@example.com, profession=Student, biography=This is bio for Lisa., createdAt=2020-03-04, updateAt=2020-03-04, user=User(userId=2, username=admin, email=admin@streammedia.com, password=12345, firstName=Jane, lastName=Doe, birthdate=2005-07-27, picture=, gender=Female, biography=This is an admin., createdAt=2020-02-16, updateAt=2020-02-18))]
 [DEBUG] 2020-03-04 22:09:17.928 [http-nio-8080-exec-40] GenericDao - Getting Entity by Id 2
+[INFO ] 2020-03-08 10:34:42.090 [http-nio-8080-exec-5] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 10:34:42.108 [http-nio-8080-exec-5] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 10:34:42.157 [http-nio-8080-exec-5] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 10:34:44.691 [http-nio-8080-exec-5] JavaMailUtility - Done
+[INFO ] 2020-03-08 11:00:26.853 [http-nio-8080-exec-7] ContactUs - Preparing to send a message: 
+Jeanne Gahb
+emailuscontact@gmail.com
+This is a test using properties file.
+[DEBUG] 2020-03-08 11:00:26.862 [http-nio-8080-exec-7] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 11:00:26.864 [http-nio-8080-exec-7] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 11:00:28.703 [http-nio-8080-exec-7] JavaMailUtility - Done
+[INFO ] 2020-03-08 11:49:04.106 [http-nio-8080-exec-4] ContactUs - Preparing to send a message: 
+Jeanne Jeajea
+emailuscontact@gmail.com
+This is a test using properties file.
+[DEBUG] 2020-03-08 11:49:04.114 [http-nio-8080-exec-4] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 11:49:04.114 [http-nio-8080-exec-4] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 11:49:06.250 [http-nio-8080-exec-4] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:07:53.056 [http-nio-8080-exec-3] ContactUs - Preparing to send a message: 
+Jeanne Jeajea
+emailuscontact@gmail.com
+This is a test using properties file.This is New
+[DEBUG] 2020-03-08 13:07:53.070 [http-nio-8080-exec-3] ContactUs - Usernameemailuscontact@gmail.com
+[INFO ] 2020-03-08 13:07:53.071 [http-nio-8080-exec-3] JavaMailUtility - Sending email to null
+[DEBUG] 2020-03-08 13:07:53.160 [http-nio-8080-exec-3] ContactUs - Error loading propertiesjava.lang.NullPointerException
+[INFO ] 2020-03-08 13:16:44.423 [http-nio-8080-exec-5] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:16:44.438 [http-nio-8080-exec-5] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:16:44.439 [http-nio-8080-exec-5] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:16:46.435 [http-nio-8080-exec-5] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:23:31.819 [http-nio-8080-exec-2] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:23:31.838 [http-nio-8080-exec-2] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:23:31.840 [http-nio-8080-exec-2] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:23:33.770 [http-nio-8080-exec-2] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:25:03.362 [http-nio-8080-exec-1] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:25:03.367 [http-nio-8080-exec-1] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:25:03.368 [http-nio-8080-exec-1] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:25:04.931 [http-nio-8080-exec-1] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:25:14.402 [http-nio-8080-exec-5] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:25:14.404 [http-nio-8080-exec-5] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:25:14.404 [http-nio-8080-exec-5] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:25:16.819 [http-nio-8080-exec-5] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:28:00.187 [http-nio-8080-exec-5] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:28:00.205 [http-nio-8080-exec-5] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:28:00.205 [http-nio-8080-exec-5] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:28:01.930 [http-nio-8080-exec-5] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:29:32.362 [http-nio-8080-exec-1] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:29:32.367 [http-nio-8080-exec-1] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:29:32.367 [http-nio-8080-exec-1] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:29:33.870 [http-nio-8080-exec-1] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:46:05.544 [http-nio-8080-exec-6] ContactUs - Preparing to send a message: 
+Jea Uwi
+uwi@streammedia.com
+This is a new Test.
+[DEBUG] 2020-03-08 13:46:05.557 [http-nio-8080-exec-6] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:46:05.557 [http-nio-8080-exec-6] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:46:07.415 [http-nio-8080-exec-6] JavaMailUtility - Done
+[INFO ] 2020-03-08 13:48:48.593 [http-nio-8080-exec-5] ContactUs - Preparing to send a message: 
+Name: Jea Uwi
+Email: uwi@streammedia.com
+Message:This is a new Test.
+[DEBUG] 2020-03-08 13:48:48.596 [http-nio-8080-exec-5] ContactUs - Usernameinfocontactdev@gmail.com
+[INFO ] 2020-03-08 13:48:48.597 [http-nio-8080-exec-5] JavaMailUtility - Sending email to infocontactdev@gmail.com
+[INFO ] 2020-03-08 13:48:50.005 [http-nio-8080-exec-5] JavaMailUtility - Done

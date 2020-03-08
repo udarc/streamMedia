@@ -25,6 +25,5 @@ public class SingInAction extends HttpServlet {
         log.info("The logged in user: " + req.getRemoteUser() + " has a role of admin: " + req.isUserInRole("admin"));
         RequestDispatcher dispatcher = req.getRequestDispatcher("/account/signin.jsp");
         dispatcher.forward(req, resp);
-
     }
 }
