@@ -45,9 +45,11 @@ public class UserEditProfile extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        int userId = Integer.valueOf(request.getParameter("id"));
-        session.setAttribute("user", genericDao.getById(userId));
-        request.setAttribute("user", genericDao.getById(userId));
+        String username = request.getParameter("user");
+        request.setAttribute("user", genericDao.getByPropertyEqual("username",username).get(0));
+//        int userId = Integer.valueOf(request.getParameter("id"));
+//        request.setAttribute("user", genericDao.getById(userId));
+//        session.setAttribute("user", genericDao.getById(userId));
 //            request.setAttribute("user",genericDao.getById(1));
         String url = "/account/editUserProfile.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);

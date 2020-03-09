@@ -12,22 +12,32 @@
 <%@include file="../navbar.jsp"%>
 <main class="container">
     <div class="card-deck">
-    <div class="card">
-        <div class="card-img">
-            <img class="card-img-top" src="../images/user.png" alt="Card image cap">
-        </div>
+    <div
+        <c:choose>
+            <c:when test="${user ne null}">
+                <div class="card-img">
+                    <img class="card-img-top img-responsive" src="images/user.png" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title"> Name: ${user.firstName} ${user.lastName}</h1>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Role(s):
+                            <c:forEach var="role" items="${user.roles}" >
+                                ${role.name}
+                            </c:forEach>
+                        </li>
+                        <li class="list-group-item">Email: ${user.email}</li>
 
-        <div class="card-body">
-            <h5 class="card-title">Name</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-            <p>Bio</p>
-        </div>
+                        <li class="list-group-item">Bio: ${user.biography}</li>
+
+                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?id=<c:out value="${user.userId}"/>">Edit</a><a class="btn btn-outline-danger"  href="deleteUser?id=<c:out value="${user.userId}"/>">Delete</a></li>
+                    </ul>
+                    <p>Bio</p>
+                </div>
+            </c:when>
+            <c:otherwise></c:otherwise>
+        </c:choose>
+
     </div>
     </div>
 </main>
