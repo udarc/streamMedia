@@ -30,7 +30,8 @@
 
                         <li class="list-group-item">Bio: ${user.biography}</li>
 
-                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?id=<c:out value="${user.userId}"/>">Edit</a><a class="btn btn-outline-danger"  href="deleteUser?id=<c:out value="${user.userId}"/>">Delete</a></li>
+                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">Edit</a>
+                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">Delete</a></li>
                     </ul>
                     <p>Bio</p>
                 </div>
