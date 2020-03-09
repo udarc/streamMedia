@@ -22,6 +22,15 @@
       <role-name>admin</role-name>
     </auth-constraint>
   </security-constraint>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>userprofile</web-resource-name>
+      <url-pattern>/user-profile</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
 
   <!-- Protect everything in the adminOnly directory -->
   <security-constraint>
