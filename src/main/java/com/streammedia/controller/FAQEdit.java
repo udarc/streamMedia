@@ -35,7 +35,7 @@ public class FAQEdit extends HttpServlet {
             throws ServletException, IOException {
 
         request.setAttribute("faq",faqDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/adminOnly/faqAdd.jsp";
+        String url ="/faq/faqAdd.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
