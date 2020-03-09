@@ -44,6 +44,9 @@
 |Feb 23, 2020|Updated Project plan to check off completed tasks|.5||
 |Mar 04, 2020|Worked on fixing CREATE USER 'username'@'localhost' IDENTIFIED BY 'password'; ERROR 1728 (HY000): Cannot load from mysql.user. The table is probably corrupted error. Fix was using sudo dpkg --configure -a command. Changed Database Middle tables for Film , Genre and Crew|2.5||
 |Mar 04, 2020|Completed CRUD for Genre, GenreTestDao and updated Genre JSPs|4.5||
+|Mar 05, 2020|Started working on Film Servlets  and I am still not able to add film and save genre and crew and their respective middle tables|4.5||
+|Mar 06, 2020|Changed Edit  and delete user links to use username instead of Id|.5||
+|Mar 06, 2020|Completed User profile Servlet and JSP and add secure link. which permit login from menu to work|1.5||
 |Mar 04, 2020|Completed CRUD for Crew, CrewTestDao and updated Crew JSPs|2.5||
 
 

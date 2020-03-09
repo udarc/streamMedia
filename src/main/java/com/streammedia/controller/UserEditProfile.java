@@ -25,7 +25,7 @@ import java.util.Enumeration;
         urlPatterns = {"/profile-edit"}
 )
 public class UserEditProfile extends HttpServlet {
-    private GenericDao genericDao;
+    private GenericDao  genericDao;
 
     public void init() {
         genericDao = new GenericDao(User.class);
@@ -45,9 +45,11 @@ public class UserEditProfile extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        int userId = Integer.valueOf(request.getParameter("id"));
-        session.setAttribute("user", genericDao.getById(userId));
-        request.setAttribute("user", genericDao.getById(userId));
+        String username = request.getParameter("user");
+        request.setAttribute("user", genericDao.getByPropertyEqual("username",username).get(0));
+//        int userId = Integer.valueOf(request.getParameter("id"));
+//        request.setAttribute("user", genericDao.getById(userId));
+//        session.setAttribute("user", genericDao.getById(userId));
 //            request.setAttribute("user",genericDao.getById(1));
         String url = "/account/editUserProfile.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
@@ -65,14 +67,16 @@ public class UserEditProfile extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
+
 //        Enumeration<String> testUsersEdit = req.getParameterNames();
 
-        int userId = Integer.valueOf(req.getParameter("id"));
-        user = (User)genericDao.getById(userId);
+//        int userId = Integer.valueOf(req.getParameter("id"));
+        String username = req.getParameter("user");
+        User user = (User)genericDao.getByPropertyEqual("username",username).get(0);
+
 //        int userId = 1;
 //        int userId = user.getUserId();
-        log.error("Value of Get Parameter"+ userId);
+        log.error("Value of Get Parameter"+ username);
 //        user = (User) genericDao.getById(Integer.valueOf(req.getParameter("id")));
 
         user.setEmail(req.getParameter("email"));

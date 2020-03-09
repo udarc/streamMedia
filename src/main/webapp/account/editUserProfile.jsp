@@ -15,8 +15,8 @@
         <form class="card col-sm-10 offset-sm-1"
         method="post" action="profile-edit">
             <input type="hidden" id="id"
-                   name="id"
-                   value="${user.userId}">
+                   name="user"
+                   value="${user.username}">
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
