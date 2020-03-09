@@ -15,17 +15,18 @@
   <!-- Protect the user search page. -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>RequiredLoggedInUserRole</web-resource-name>
+      <web-resource-name>LoginRequireUserRole</web-resource-name>
       <url-pattern>/search.jsp</url-pattern>
 <!--      Users-->
       <url-pattern>/user-profile</url-pattern>
+      <url-pattern>/account/profile.jsp</url-pattern>
       <url-pattern>/users</url-pattern>
       <url-pattern>/profile-edit</url-pattern>
       <url-pattern>/deleteUser</url-pattern>
       <url-pattern>/user-profile</url-pattern>
       <url-pattern>/logout</url-pattern>
       <url-pattern>/account/listUser.jsp</url-pattern>
-      <url-pattern>/account/profile.jsp</url-pattern>
+
       <url-pattern>/account/editUserProfile.jsp</url-pattern>
       <url-pattern>/account/logout.jsp</url-pattern>
 <!--      Trailer-->
