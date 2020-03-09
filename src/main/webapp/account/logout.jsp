@@ -8,5 +8,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     session.invalidate();
-    response.sendRedirect("/streamMedia");
+    response.sendRedirect("streamMedia");
 %>

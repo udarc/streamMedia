@@ -15,8 +15,40 @@
   <!-- Protect the user search page. -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>search</web-resource-name>
+      <web-resource-name>LoginRequireUserRole</web-resource-name>
       <url-pattern>/search.jsp</url-pattern>
+<!--      Users-->
+      <url-pattern>/user-profile</url-pattern>
+      <url-pattern>/account/profile.jsp</url-pattern>
+      <url-pattern>/users</url-pattern>
+      <url-pattern>/profile-edit</url-pattern>
+      <url-pattern>/deleteUser</url-pattern>
+      <url-pattern>/user-profile</url-pattern>
+      <url-pattern>/logout</url-pattern>
+      <url-pattern>/account/listUser.jsp</url-pattern>
+
+      <url-pattern>/account/editUserProfile.jsp</url-pattern>
+      <url-pattern>/account/logout.jsp</url-pattern>
+<!--      Trailer-->
+      <url-pattern>/add-trailer</url-pattern>
+      <url-pattern>/trailer-edit</url-pattern>
+      <url-pattern>/remove-trailer</url-pattern>
+      <url-pattern>/trailer/trailerEdit.jsp</url-pattern>
+      <url-pattern>/trailer/trailerAdd.jsp</url-pattern>
+<!--      FAQ-->
+      <url-pattern>/faq-new</url-pattern>
+      <url-pattern>/faq-delete</url-pattern>
+      <url-pattern>/faq-edit</url-pattern>
+      <url-pattern>/faq/faqAdd.jsp</url-pattern>
+<!--      Genre / Film/ Crew-->
+      <url-pattern>/crew-new</url-pattern>
+      <url-pattern>/crew-delete</url-pattern>
+      <url-pattern>/crew-edit</url-pattern>
+      <url-pattern>/genre-new</url-pattern>
+      <url-pattern>/genre-delete</url-pattern>
+      <url-pattern>/genre-edit</url-pattern>
+      <url-pattern>/film/crewAddEdit.jsp</url-pattern>
+      <url-pattern>/film/genreAddEdit.jsp</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>admin</role-name>
@@ -24,15 +56,6 @@
   </security-constraint>
 
   <!-- Protect everything in the adminOnly directory -->
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>search</web-resource-name>
-      <url-pattern>/search.js</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>admin</role-name>
-    </auth-constraint>
-  </security-constraint>
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>admin</web-resource-name>
