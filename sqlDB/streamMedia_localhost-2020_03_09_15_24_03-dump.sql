@@ -35,7 +35,7 @@ CREATE TABLE `Crew` (
   PRIMARY KEY (`crew_id`),
   KEY `Crew_User_user_id_fk` (`user`),
   CONSTRAINT `Crew_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +44,7 @@ CREATE TABLE `Crew` (
 
 LOCK TABLES `Crew` WRITE;
 /*!40000 ALTER TABLE `Crew` DISABLE KEYS */;
+INSERT INTO `Crew` VALUES (1,'Lisa','Larson','llarson@example.com','Student','This is biography for Lisa.','2020-03-04 06:00:00','2020-03-05 06:00:00',2);
 /*!40000 ALTER TABLE `Crew` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,8 +64,8 @@ CREATE TABLE `Film` (
   `episode` int DEFAULT NULL,
   `link` varchar(180) DEFAULT NULL,
   `video` varchar(200) DEFAULT NULL,
-  `cover` varchar(200) NOT NULL,
-  `created_at` int NOT NULL,
+  `cover` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NOT NULL,
   `summary` text NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user` int NOT NULL,
@@ -151,7 +152,7 @@ CREATE TABLE `Genre` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`genre_id`),
   UNIQUE KEY `title_UNIQUE` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,6 +161,7 @@ CREATE TABLE `Genre` (
 
 LOCK TABLES `Genre` WRITE;
 /*!40000 ALTER TABLE `Genre` DISABLE KEYS */;
+INSERT INTO `Genre` VALUES (1,'Romantics','This is Love related films','2020-03-04 06:00:00','2020-03-04 06:00:00'),(2,'Horror','These are scary movies. Children should not watch them.More Data.','2020-03-04 06:00:00','2020-03-04 06:00:00');
 /*!40000 ALTER TABLE `Genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +190,7 @@ CREATE TABLE `Role` (
 
 LOCK TABLES `Role` WRITE;
 /*!40000 ALTER TABLE `Role` DISABLE KEYS */;
-INSERT INTO `Role` VALUES (1,'user','2020-02-16 06:00:00','ian','2020-03-02 06:00:00'),(2,'admin','2020-02-16 06:00:00','admin','2020-02-18 06:00:00'),(7,'user','2020-02-27 06:00:00','atorrence','2020-02-27 06:00:00');
+INSERT INTO `Role` VALUES (1,'user','2020-02-16 06:00:00','ian','2020-03-02 06:00:00'),(2,'admin','2020-02-14 05:00:00','admin','2020-03-09 05:00:00');
 /*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,7 +225,7 @@ CREATE TABLE `SM_Users` (
 
 LOCK TABLES `SM_Users` WRITE;
 /*!40000 ALTER TABLE `SM_Users` DISABLE KEYS */;
-INSERT INTO `SM_Users` VALUES (1,'ian','ian@madisoncollege.edu','12345','Ian','Declan','1995-06-12','Male','','This is a Test.TestMore and More and more','2020-02-17 04:03:49','2020-03-02 06:00:00'),(2,'admin','admin@streammedia.com','12345','Jane','Doe','2005-07-27','Female','','This is an admin.','2020-02-17 04:03:49','2020-02-18 06:00:00'),(7,'atorrence','atorrance@streammedia.com','12345','Aria','Torrence',NULL,NULL,NULL,NULL,'2020-02-27 06:00:00','2020-02-27 06:00:00');
+INSERT INTO `SM_Users` VALUES (1,'ian','ian@madisoncollege.edu','12345','Ian','Declan','1995-06-12','Male','','This is a Test.TestMore and More and more','2020-02-17 04:03:49','2020-03-02 06:00:00'),(2,'admin','admin@streammedia.com','12345','Jane','Doe','2005-07-27','Female','','This is an admin Profile.This is an update','2020-02-14 05:00:00','2020-03-09 05:00:00');
 /*!40000 ALTER TABLE `SM_Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +253,7 @@ CREATE TABLE `Trailer` (
   UNIQUE KEY `title_UNIQUE` (`title`,`author`),
   KEY `tariler_User_user_id_fk` (`user`),
   CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +262,7 @@ CREATE TABLE `Trailer` (
 
 LOCK TABLES `Trailer` WRITE;
 /*!40000 ALTER TABLE `Trailer` DISABLE KEYS */;
-INSERT INTO `Trailer` VALUES (1,'TomorrowHome','Jeanne','00:01:20','','2020-02-06 06:00:00','','','This is a working Example of Editing a trailer.Is this Working?','2020-02-20 06:00:00','2020-02-27 06:00:00',1),(37,'Moon Landing','Mary','00:30:03','','2020-02-27 06:00:00','','','Test add Trailer.Mote Test Over and Over','2020-02-27 06:00:00','2020-02-27 06:00:00',1);
+INSERT INTO `Trailer` VALUES (1,'TomorrowHome','Jeanne','00:01:20','','2020-02-06 06:00:00','','','This is a working Example of Editing a trailer.Is this Working?','2020-02-20 06:00:00','2020-02-27 06:00:00',1),(37,'Moon Landing','Mary','00:30:03','','2020-02-27 06:00:00','','','Test add Trailer.Mote Test Over and Over','2020-02-27 06:00:00','2020-02-27 06:00:00',1),(38,'Once in blue moon','Mary','00:02:30','','2020-03-06 06:00:00','','','This is a new Trailer before implementing Upload covers and videos','2020-03-06 06:00:00','2020-03-06 06:00:00',1);
 /*!40000 ALTER TABLE `Trailer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +294,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'how movies are created.','Movies','This is FAQ Creates Test. More and more. Very Happy it works!!!yes','2020-02-28 06:00:00','2020-03-04 17:06:15',2);
+INSERT INTO `faq` VALUES (1,'How movies are created.','Movie','This is FAQ Creates Test. More and more. Very Happy it works!!!yes','2020-02-28 06:00:00','2020-03-05 14:26:50',2);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -305,4 +307,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-04 11:15:37
+-- Dump completed on 2020-03-09 15:24:04

@@ -32,7 +32,7 @@ import java.time.LocalDateTime;
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/adminOnly/faqAdd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
             dispatcher.forward(request, response);
 
         }
@@ -56,7 +56,7 @@ import java.time.LocalDateTime;
                     faqDao.insert(newFAQ);
                     response.sendRedirect("faqs");
                 } else {
-                    request.getRequestDispatcher("/adminOnly/faqAdd.jsp").forward(request, response);
+                    request.getRequestDispatcher("/faq/faqAdd.jsp").forward(request, response);
                 }
             } catch (NullPointerException npe) {
                 log.error("User Does not Exists" + npe);
