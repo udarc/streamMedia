@@ -26,8 +26,8 @@
   <!-- Protect everything in the adminOnly directory -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>search</web-resource-name>
-      <url-pattern>/search.js</url-pattern>
+      <web-resource-name>UserProfile</web-resource-name>
+      <url-pattern>/user-profile</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>admin</role-name>
