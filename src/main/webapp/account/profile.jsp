@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" type="text/css" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
@@ -15,8 +15,8 @@
     <div
         <c:choose>
             <c:when test="${user ne null}">
-                <div class="card-img">
-                    <img class="card-img-top img-responsive" src="images/user.png" alt="Card image cap">
+                <div class="img-responsive">
+                    <img class="card-img-top " src="images/user.png" alt="Card image cap">
                 </div>
                 <div class="card-body">
                     <h1 class="card-title"> Name: ${user.firstName} ${user.lastName}</h1>

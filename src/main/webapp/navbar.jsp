@@ -16,7 +16,6 @@
                             </li>
                         </c:if>
                         <li class="nav-item">
-                            <%= request.getRemoteUser()%>
                             <a class="nav-link"  href="profile-edit?user=<%= request.getRemoteUser()%>">Edit Profile</a>
                         </li>
                         <li class="nav-item">
