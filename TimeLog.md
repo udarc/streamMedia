@@ -41,13 +41,33 @@
 |Feb 22, 2020|Created Aws EC2 and Elastic IP address and connect to Tomcat in brwoser|2||
 |Feb 23, 2020|Created Database in AWS and deployed |1|
 |Feb 23, 2020|Completed Time Log and hibernate config file|.5||
-|Feb 23, 2020|Updated Project plan to check off completed tasks|.5||
+|Feb 24, 2020|Updated Project plan to check off completed tasks|.5||
+|Feb 25, 2020|Updated UserStorties and ApplicationFLow,Added dbDump and a updated project plan|1||
+|Feb 26, 2020| Created Crew, FAQ, Film and Genre entities and all the associated relationships and Mapped for Crew, Film, Genre and Crew in hibernate config file |1.5||
+|Feb 27, 2020|Added TrailerTestDao with GetALlTrailers and GetById tests passing |2.5||
+|Feb 28, 2020|Added TrailerTestDao with Delete, insert, update and search by Equal and like properties tests passing |3||
+|Feb 28, 2020|Added CRUD functionality for FAQ in controller and corresponding JSPs Templates |4.5||
+|Feb 29, 2020|Added FAQ Details JSP and Functionality in controller|1.5||
+|Mar 1, 2020|Added FAQ TestDao, search JSP,Created Web.xml with basic information for authentication and Login/login error Message|2.5||
+|Mar 02, 2020|Added crew, Film,Genre List and Details JSPs pages|1.5||
+|Mar 02, 2020|Added UML classes and updated sqlDB files and Added Login using tomcat functionality|1.25||
+|Mar 03, 2020|Added Short Story, Film and Book Controllers, list JSPs and links in Navbar, improved javadoc and remove unnecessary codes|2.5||
+|Mar 03, 2020|Created separate servlet for FAQS and removed and combined imports, updated links|2.5||
 |Mar 04, 2020|Worked on fixing CREATE USER 'username'@'localhost' IDENTIFIED BY 'password'; ERROR 1728 (HY000): Cannot load from mysql.user. The table is probably corrupted error. Fix was using sudo dpkg --configure -a command. Changed Database Middle tables for Film , Genre and Crew|2.5||
 |Mar 04, 2020|Completed CRUD for Genre, GenreTestDao and updated Genre JSPs|4.5||
+|Mar 04, 2020|Completed CRUD for Crew, CrewTestDao and updated Crew JSPs|2.5||
 |Mar 05, 2020|Started working on Film Servlets  and I am still not able to add film and save genre and crew and their respective middle tables|4.5||
 |Mar 06, 2020|Changed Edit  and delete user links to use username instead of Id|.5||
 |Mar 06, 2020|Completed User profile Servlet and JSP and add secure link. which permit login from menu to work|1.5||
-|Mar 04, 2020|Completed CRUD for Crew, CrewTestDao and updated Crew JSPs|2.5||
+|Mar 08, 2020|Completed authentication in AWS and Modified ContactUser and JavaUlitility to user properties file instead of hard coded values|3||
+|Mar 08, 2020|Added url pattern in web.xml that needs to be secured|.5||
+|Mar 09, 2020|Worked on Fixing Timezone error by setting Global time_zone='-05:00' and Right click data source, choose properties then advanced and set serverTimeZone to UTC.  |2||
+|Mar 09, 2020|Created Book, Music, ShortStory, Category of books and BookCategory tables|1.5||
+|Mar 10, 2020|Created  Created Book, Music, ShortStory and Category entities amd mapped them in hibernate config file|2||
+|Mar 10, 2020|Updated Time Log and project plan|1||
+
+
+
 
 
 
