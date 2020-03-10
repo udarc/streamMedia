@@ -23,6 +23,10 @@
         <mapping class="com.streammedia.entity.Genre"/>
         <mapping class="com.streammedia.entity.Film"/>
         <mapping class="com.streammedia.entity.Crew"/>
+        <mapping class="com.streammedia.entity.BkCategory"/>
+        <mapping class="com.streammedia.entity.Book"/>
+        <mapping class="com.streammedia.entity.Music"/>
+        <mapping class="com.streammedia.entity.ShortStory"/>
 
 
     </session-factory>

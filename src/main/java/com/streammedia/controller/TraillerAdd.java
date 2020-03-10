@@ -64,13 +64,13 @@ public class TraillerAdd extends HttpServlet {
 //        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
 
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-        trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
+        trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
-        trailer.setCreatedAt(LocalDate.now());
-        trailer.setUpdatedAt(LocalDate.now());
+//        trailer.setCreatedAt(LocalDate.now());
+//        trailer.setUpdatedAt(LocalDate.now());
         GenericDao userDao =  new GenericDao(User.class);
 //        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
         try {

@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
@@ -46,7 +47,7 @@ public class Trailer {
     private String cover;
 
     @Column(name= "pub_date", nullable = false)
-    private LocalDate publicationDate;
+    private LocalDateTime publicationDate;
 
     @Column(name = "links")
     private String link;
@@ -59,17 +60,17 @@ public class Trailer {
 
     @CreationTimestamp
     @Column(name = "created_at")
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
 
-    public Trailer(String title, String author, LocalTime duration, LocalDate publicationDate, String summary, LocalDate createdAt, LocalDate updatedAt, User user) {
+    public Trailer(String title, String author, LocalTime duration, LocalDateTime publicationDate, String summary, LocalDateTime createdAt, LocalDateTime updatedAt, User user) {
         this.title = title;
         this.author = author;
         this.duration = duration;

@@ -61,11 +61,11 @@ public class TrailerEdit extends HttpServlet {
             trailer.setAuthor(req.getParameter("author"));
             trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
             trailer.setCover(req.getParameter("cover"));
-            trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
+            trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
             trailer.setLink(req.getParameter("link"));
             trailer.setVideo(req.getParameter("video"));
             trailer.setSummary(req.getParameter("summary").trim());
-            trailer.setUpdatedAt(LocalDate.now());
+//            trailer.setUpdatedAt(LocalDate.now());
             log.debug("Updating Trailer: " + trailer.getTitle());
             genericDao.saveOrUpdate(trailer);
             String destination = "trailer-detail?uid=" + trailerId;

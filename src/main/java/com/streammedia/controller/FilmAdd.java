@@ -45,8 +45,8 @@ public class FilmAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Film newFilm = new Film();
-//        Set<Crew> crewList = new HashSet<>();
-//        Set<Genre> genreList = new HashSet<>();
+        Set<Crew> crewList = new HashSet<>();
+        Set<Genre> genreList = new HashSet<>();
 
         String[] genreIds = req.getParameterValues("genre");
         String[] crewIds = req.getParameterValues("crew");
@@ -65,14 +65,16 @@ public class FilmAdd extends HttpServlet {
             newFilm.setCover(req.getParameter("cover"));
             newFilm.setUser(user);
 
-//            for (String id: genreIds ) {
-//                newFilm.addGenre((Genre)genreDao.getById(Integer.parseInt(id)));
-//                log.debug("genres Ids " + id);
-//            }
-//            for (String id: crewIds ) {
-//                newFilm.addCrew((Crew)crewDao.getById(Integer.parseInt(id)));
-//                log.debug("genres Ids " + id);
-//            }
+            for (String id: genreIds ) {
+                genreList.add((Genre)genreDao.getById(Integer.parseInt(id)));
+                log.debug("genres Ids " + id);
+            }
+            for (String id: crewIds ) {
+                crewList.add((Crew)crewDao.getById(Integer.parseInt(id)));
+                log.debug("genres Ids " + id);
+            }
+            newFilm.setGenres(genreList);
+            newFilm.setCrews(crewList);
                 log.debug("Adding Film: ", newFilm.getTitle());
                 if(!newFilm.equals(null)){
                 filmDao.insert(newFilm);

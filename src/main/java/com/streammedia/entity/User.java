@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.ws.rs.core.FeatureContext;
 import java.io.Serializable;
 import java.time.*;
 import java.util.HashSet;
@@ -98,6 +99,8 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<FAQ> faqs = new HashSet<>();
 
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<ShortStory> shortStories =  new HashSet<>();
 
 
     /**
