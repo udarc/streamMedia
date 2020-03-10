@@ -1,12 +1,19 @@
 package com.streammedia.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.ejb.EJBs;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Table(name = "Book")
+@Entity(name = "Book")
+@Getter
+@Setter
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")

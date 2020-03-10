@@ -83,6 +83,7 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Trailer> trailers = new HashSet<>();
 
+    //Crews
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -99,9 +100,25 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<FAQ> faqs = new HashSet<>();
 
+    //Shortstories
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private  Set<ShortStory> shortStories =  new HashSet<>();
 
+
+    //books
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<Book> books =  new HashSet<>();
+
+
+    //Musics
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<Music> musics =  new HashSet<>();
 
     /**
      * Instantiates a new User.
