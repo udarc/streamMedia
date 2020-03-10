@@ -95,23 +95,23 @@ public class Film {
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 
-    public void addCrew(Crew crew) {
-        this.crews.add(crew);
-        crew.getFilms().add(this);
-    }
-
-    public void removeCrew(Crew crew) {
-        this.crews.remove(crew);
-        crew.getFilms().remove(this);
-    }
-    public void addGenre(Genre genre) {
-        this.genres.add(genre);
-        genre.getFilms().add(this);
-    }
-
-    public void removeGenre(Genre genre) {
-        this.genres.remove(genres);
-        genre.getFilms().remove(this);
-    }
+//    public void addCrew(Crew crew) {
+//        this.crews.add(crew);
+//        crew.getFilms().add(this);
+//    }
+//
+//    public void removeCrew(Crew crew) {
+//        this.crews.remove(crew);
+//        crew.getFilms().remove(this);
+//    }
+//    public void addGenre(Genre genre) {
+//        this.genres.add(genre);
+//        genre.getFilms().add(this);
+//    }
+//
+//    public void removeGenre(Genre genre) {
+//        this.genres.remove(genres);
+//        genre.getFilms().remove(this);
+//    }
 
 }
