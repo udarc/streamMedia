@@ -49,7 +49,7 @@ public class TrailerAdd extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.isUserInRole("admin")) {
-            String url = "/trailer/trailerAdd.jsp";
+            String url = "/trailer/trailerAddEdit.jsp";
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         } else {
@@ -59,30 +59,32 @@ public class TrailerAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Trailer trailer = new Trailer();
-        trailer.setTitle(req.getParameter("title"));
-        trailer.setAuthor(req.getParameter("author"));
+        trailer.setTitle(req.getParameter("title").trim());
+        trailer.setAuthor(req.getParameter("author").trim());
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-        if(req.getParameter("pub_date") != null) {
-            trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
+        String pubDate = req.getParameter("pub_date").trim();
+        if( pubDate == null || pubDate.length() <= 0 ) {
+            trailer.setPublicationDate(LocalDateTime.now());
+
         }
         else {
-            trailer.setPublicationDate(LocalDateTime.now());
+            trailer.setPublicationDate(LocalDateTime.parse(pubDate));
         }
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
-
+//
         try {
             User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
             log.debug("User In trailer Add." + user);
             if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
                 log.debug("Trailer Add: " + trailer);
-//                trailerDao.insert(trailer);
+                trailerDao.insert(trailer);
                 resp.sendRedirect("trailers");
             } else {
-                req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
+                req.getRequestDispatcher("/trailer/trailerAddEdit.jsp").forward(req, resp);
             }
         }catch (NullPointerException npe){
             log.error("User Does not Exists", npe);

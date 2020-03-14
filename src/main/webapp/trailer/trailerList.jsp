@@ -17,7 +17,7 @@
     </c:if>
     <div class="row">
         <c:choose>
-            <c:when test="${trailes ne null}">
+            <c:when test="${trailers ne null}">
                 <c:forEach var="trailer" items="${trailers}" >
 
                     <div class="col-sm-3">
@@ -34,7 +34,7 @@
                             </ul>
                             <div class="card-body">
                                 <a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a>
-                                <c:if test="${pageContext.request.isUserInRole('admin')}">
+                                <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=${trailer.trailerId}">Edit</a>
                                     <a class="card-link btn btn-outline-danger" href="remove-trailer?uid=${trailer.trailerId}">Remove</a>
                                 </c:if>
