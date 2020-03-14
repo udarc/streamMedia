@@ -40,12 +40,13 @@ import java.time.LocalDateTime;
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             FAQ newFAQ = new FAQ();
+            String username = request.getRemoteUser();
             String title = request.getParameter("title").trim();
             String category = request.getParameter("category").trim();
             String description = request.getParameter("description").trim();
             try {
-                User user = (User) userDao.getById(2);
-                if (!user.equals(null) && !title.equals(null) && !description.equals(null)) {
+                User user = (User) userDao.getByPropertyEqual("username",username).get(0);
+                if (request.isUserInRole("admin") && !user.equals(null) && !title.equals(null) && !description.equals(null)) {
                     newFAQ.setTitle(title);
                     newFAQ.setCategory(category);
                     newFAQ.setDescription(description);

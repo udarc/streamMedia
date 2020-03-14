@@ -26,12 +26,14 @@ import java.time.format.DateTimeFormatter;
         urlPatterns = {"/add-trailer"}
 )
 public class TraillerAdd extends HttpServlet {
-    private GenericDao genericDao;
+    private GenericDao trailerDao;
+    private  GenericDao userDao;
 
 
     public void init() {
 
-        genericDao = new GenericDao(Trailer.class);
+        trailerDao = new GenericDao(Trailer.class);
+        userDao =  new GenericDao(User.class);
 
 
     }
@@ -56,29 +58,20 @@ public class TraillerAdd extends HttpServlet {
         Trailer trailer = new Trailer();
         trailer.setTitle(req.getParameter("title"));
         trailer.setAuthor(req.getParameter("author"));
-        // create a LocalTime Objects
-//        LocalTime time
-//                = LocalTime.parse("23:59:59");
-//
-//        // create formatter Object for ISO_LOCAL_TIME
-//        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
-
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
         trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
-//        trailer.setCreatedAt(LocalDate.now());
-//        trailer.setUpdatedAt(LocalDate.now());
-        GenericDao userDao =  new GenericDao(User.class);
-//        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
+
+        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
         try {
-            User user = (User) userDao.getById(1);
-            if (!user.equals(null)) {
+            if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
                 log.debug("Adding Trailer: ", trailer);
-                genericDao.insert(trailer);
+                log.debug("Trailer Add: " + trailer);
+                trailerDao.insert(trailer);
 //                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
 //                dispatcher.forward(req, resp);
                 resp.sendRedirect("trailers");

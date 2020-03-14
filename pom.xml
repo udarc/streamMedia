@@ -69,7 +69,14 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>${mysql-version}</version>
       </dependency>
-
+      <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
+      <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+      <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-catalina</artifactId>
+        <version>8.5.3</version>
+        <scope>provided</scope>
+      </dependency>
 <!--      JSTL dependencies-->
       <dependency>
         <groupId>jstl</groupId>
