@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter;
         name = "trailerAdd",
         urlPatterns = {"/add-trailer"}
 )
-public class TraillerAdd extends HttpServlet {
+public class TrailerAdd extends HttpServlet {
     private GenericDao trailerDao;
     private  GenericDao userDao;
 
@@ -53,9 +53,8 @@ public class TraillerAdd extends HttpServlet {
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         } else {
-            return;
+            response.sendRedirect("login");
         }
-
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,7 +62,12 @@ public class TraillerAdd extends HttpServlet {
         trailer.setTitle(req.getParameter("title"));
         trailer.setAuthor(req.getParameter("author"));
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-        trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
+        if(req.getParameter("pub_date") != null) {
+            trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
+        }
+        else {
+            trailer.setPublicationDate(LocalDateTime.now());
+        }
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
@@ -74,9 +78,8 @@ public class TraillerAdd extends HttpServlet {
             log.debug("User In trailer Add." + user);
             if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
-                log.debug("Adding Trailer: ", trailer);
                 log.debug("Trailer Add: " + trailer);
-                trailerDao.insert(trailer);
+//                trailerDao.insert(trailer);
                 resp.sendRedirect("trailers");
             } else {
                 req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);

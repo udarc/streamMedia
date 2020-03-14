@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<main class="container">
+<main class="container wrapper">
     <div class="card-deck">
     <div
         <c:choose>
