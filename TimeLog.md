@@ -65,6 +65,9 @@
 |Mar 09, 2020|Created Book, Music, ShortStory, Category of books and BookCategory tables|1.5||
 |Mar 10, 2020|Created  Created Book, Music, ShortStory and Category entities amd mapped them in hibernate config file|2||
 |Mar 10, 2020|Updated Time Log and project plan|1||
+|Mar 14, 2020|Updated Servlet to use currently logged in user and allow admin to perform CRUD,Completed to update FAQs.|2||
+|Mar 14, 2020|Added a method to get full name and age and add a default dates when no  birth date provided|1.5||
+
 
 
 

@@ -48,9 +48,13 @@ public class TraillerAdd extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url ="/trailer/trailerAdd.jsp";
-        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request,response);
+        if (request.isUserInRole("admin")) {
+            String url = "/trailer/trailerAdd.jsp";
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        } else {
+            return;
+        }
 
     }
     @Override
@@ -65,15 +69,14 @@ public class TraillerAdd extends HttpServlet {
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
 
-        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
         try {
+            User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
+            log.debug("User In trailer Add." + user);
             if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
                 log.debug("Adding Trailer: ", trailer);
                 log.debug("Trailer Add: " + trailer);
                 trailerDao.insert(trailer);
-//                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
-//                dispatcher.forward(req, resp);
                 resp.sendRedirect("trailers");
             } else {
                 req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
