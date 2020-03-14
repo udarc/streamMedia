@@ -19,7 +19,7 @@
                     <img class="card-img-top " src="images/user.png" alt="Card image cap">
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title"> Name: ${user.firstName} ${user.lastName}</h1>
+                    <h1 class="card-title"> Name: ${user.fullName}</h1>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Role(s):
                             <c:forEach var="role" items="${user.roles}" >
@@ -27,7 +27,7 @@
                             </c:forEach>
                         </li>
                         <li class="list-group-item">Email: ${user.email}</li>
-
+                        <li class="list-group-item">Age: ${user.age}</li>
                         <li class="list-group-item">Bio: ${user.biography}</li>
 
                         <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">Edit</a>

@@ -7,7 +7,12 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+
+import org.apache.catalina.realm.MessageDigestCredentialHandler;
+import org.apache.catalina.CredentialHandler;
+
 
 /**
  * The type Register user.
@@ -46,15 +51,24 @@ public class UserRegister extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
+        MessageDigestCredentialHandler credentialHandler = new MessageDigestCredentialHandler();
+        try {
+            credentialHandler.setAlgorithm("sha-256");
+        } catch (NoSuchAlgorithmException e) {
+            log.error(e);
+        }
+        credentialHandler.setEncoding("UTF-8");
+        String password = req.getParameter("password");
         user.setUsername(req.getParameter("username"));
         user.setEmail(req.getParameter("email"));
         user.setFirstName(req.getParameter("firstname"));
         user.setLastName(req.getParameter("lastname"));
-        user.setPassword(req.getParameter("password"));
+
         String confirmPassword = req.getParameter("confirmPassword");
 
-        if(confirmPassword.equals(user.getPassword())){
-
+        if(confirmPassword.equals(password)){
+            String hashedPassword = credentialHandler.mutate(password);
+            user.setPassword(hashedPassword);
             log.debug("Adding User: " + user);
         Role role = new Role();
         role.setUser(user);

@@ -1,9 +1,10 @@
-#
 DELETE  FROM Role;
-DELETE FROM  `Trailer`;
+DELETE FROM Trailer;
 DELETE FROM faq;
-DELETE FROM  SM_Users;
+DELETE FROM Film;
 DELETE FROM Genre;
+DELETE FROM Crew;
+DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
 (2,'Fred','Hensen','fhensen','supersecret2','fhensen@streammedia.com','1988-05-08',NOW()),

@@ -28,9 +28,9 @@ import java.time.LocalDateTime;
 public class FAQ {
     @Id
     @Column(name = "faq_id")
-    @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
-    @GenericGenerator(name = "native",strategy = "native")
-    private  int faqId;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int faqId;
 
 
     @Column(name = "title")
@@ -42,14 +42,15 @@ public class FAQ {
     private String description;
 
 
-//    @EqualsAndHashCode.Exclude
+    //    @EqualsAndHashCode.Exclude
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
+    @EqualsAndHashCode.Exclude
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-//    @EqualsAndHashCode.Exclude
-    @Column(name = "updated_at",nullable = false)
+    @EqualsAndHashCode.Exclude
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     @ManyToOne
@@ -79,12 +80,4 @@ public class FAQ {
         this.createdAt = createdAt;
         this.user = user;
     }
-
-//    /**
-//     * Instantiates a new Faq.
-//     */
-//    public FAQ() {
-//        this.createdAt = LocalDate.now();
-//        this.updatedAt = LocalDate.now();
-//    }
 }

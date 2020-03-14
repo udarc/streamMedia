@@ -37,9 +37,11 @@ public class Genre {
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 

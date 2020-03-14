@@ -49,10 +49,12 @@ public class Crew {
 
     @Column(name = "created_at")
     @CreationTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
     @ManyToOne

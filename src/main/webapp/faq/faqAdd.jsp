@@ -54,7 +54,7 @@
             <div class="form-group row">
                 <div class="col-sm-9">
                     <button type="submit"
-                            name="createFAQ" class="btn btn-lg btn-success">Save EAQ</button>
+                            name="createFAQ" class="btn btn-lg btn-success">Save FAQ</button>
                 </div>
             </div>
         </form>

@@ -47,6 +47,7 @@ public class Trailer {
     private String cover;
 
     @Column(name= "pub_date", nullable = false)
+//    @EqualsAndHashCode.Exclude TODO add it back for testing
     private LocalDateTime publicationDate;
 
     @Column(name = "links")
@@ -60,10 +61,13 @@ public class Trailer {
 
     @CreationTimestamp
     @Column(name = "created_at")
+    @EqualsAndHashCode.Exclude
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
+
+    @EqualsAndHashCode.Exclude
     private LocalDateTime updatedAt;
 
     @ManyToOne

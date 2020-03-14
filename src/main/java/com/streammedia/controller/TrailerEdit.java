@@ -61,7 +61,11 @@ public class TrailerEdit extends HttpServlet {
             trailer.setAuthor(req.getParameter("author"));
             trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
             trailer.setCover(req.getParameter("cover"));
-            trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
+            if(req.getParameter("pub_date") != null) {
+                trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
+            }else {
+                trailer.setPublicationDate(LocalDateTime.now());
+            }
             trailer.setLink(req.getParameter("link"));
             trailer.setVideo(req.getParameter("video"));
             trailer.setSummary(req.getParameter("summary").trim());

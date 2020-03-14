@@ -35,7 +35,15 @@ import java.io.IOException;
                 throws ServletException, IOException {
             int id = Integer.parseInt(request.getParameter("uid"));
             log.debug("Delete FAQ");
-            faqDao.delete(faqDao.getById(id));
+            FAQ faq = (FAQ) faqDao.getById(id);
+            if (request.isUserInRole("admin")
+                    || request.getRemoteUser().equals(faq.getUser().getUsername())){
+                faqDao.delete(faq);
+            } else{
+                //TODO Add a message
+                return;
+            }
+
             response.sendRedirect("faqs");
 
         }
