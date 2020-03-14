@@ -3,3 +3,47 @@
 [DEBUG] 2020-03-14 12:05:23.688 [http-nio-8080-exec-3] TrailerList - Getting All Trailers servlet[]
 [DEBUG] 2020-03-14 12:07:13.523 [http-nio-8080-exec-1] GenericDao - The list of Entities []
 [DEBUG] 2020-03-14 12:07:13.528 [http-nio-8080-exec-1] TrailerList - Getting All Trailers servlet[]
+[INFO ] 2020-03-14 12:13:17.625 [http-nio-8080-exec-4] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 12:13:18.033 [http-nio-8080-exec-4] UserProfile - Remote User: admin
+[INFO ] 2020-03-14 12:13:24.405 [http-nio-8080-exec-6] GenericDao - Searching for entity with username = admin
+[INFO ] 2020-03-14 12:13:44.794 [http-nio-8080-exec-10] GenericDao - Searching for entity with username = admin
+[ERROR] 2020-03-14 12:13:44.829 [http-nio-8080-exec-10] UserEditProfile - Value of Get Parameter admin
+[DEBUG] 2020-03-14 12:13:44.830 [http-nio-8080-exec-10] UserEditProfile - Test for getting birth date 1999-04-13
+[DEBUG] 2020-03-14 12:13:44.831 [http-nio-8080-exec-10] UserEditProfile - Test for getting birth date 1999-04-13
+[DEBUG] 2020-03-14 12:13:44.833 [http-nio-8080-exec-10] UserEditProfile - Updating User: User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography)
+[DEBUG] 2020-03-14 12:13:44.833 [http-nio-8080-exec-10] GenericDao - Updating an Entity
+[DEBUG] 2020-03-14 12:13:44.975 [http-nio-8080-exec-10] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-03-14 12:13:44.976 [http-nio-8080-exec-10] UserList - Getting All Users servlet[User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=, gender=Male, biography=Some Bio.)]
+[INFO ] 2020-03-14 12:13:53.010 [http-nio-8080-exec-2] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 12:13:53.027 [http-nio-8080-exec-2] UserProfile - Remote User: admin
+[DEBUG] 2020-03-14 12:14:02.981 [http-nio-8080-exec-3] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 12:14:02.984 [http-nio-8080-exec-3] TrailerList - Getting All Trailers servlet[]
+[INFO ] 2020-03-14 12:21:07.533 [http-nio-8080-exec-5] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 12:21:08.001 [http-nio-8080-exec-5] UserProfile - Remote User: admin
+[DEBUG] 2020-03-14 12:21:30.795 [http-nio-8080-exec-10] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 12:21:30.797 [http-nio-8080-exec-10] TrailerList - Getting All Trailers servlet[]
+[INFO ] 2020-03-14 13:14:07.493 [http-nio-8080-exec-6] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 13:14:07.845 [http-nio-8080-exec-6] UserProfile - Remote User: admin
+[DEBUG] 2020-03-14 13:14:16.299 [http-nio-8080-exec-9] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:14:16.299 [http-nio-8080-exec-9] TrailerList - Getting All Trailers servlet[]
+[DEBUG] 2020-03-14 13:18:35.303 [http-nio-8080-exec-6] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:18:35.331 [http-nio-8080-exec-6] TrailerList - Getting All Trailers servlet[]
+[DEBUG] 2020-03-14 13:24:22.348 [http-nio-8080-exec-1] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:24:22.354 [http-nio-8080-exec-1] TrailerList - Getting All Trailers servlet[]
+[DEBUG] 2020-03-14 13:28:03.733 [http-nio-8080-exec-4] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:28:03.736 [http-nio-8080-exec-4] TrailerList - Getting All Trailers servlet[]
+[DEBUG] 2020-03-14 13:28:59.562 [http-nio-8080-exec-11] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:28:59.564 [http-nio-8080-exec-11] TrailerList - Getting All Trailers servlet[]
+[DEBUG] 2020-03-14 13:29:06.131 [http-nio-8080-exec-3] GenericDao - The list of Entities [FAQ(faqId=1, title=What is your best movie made?, category=Movies, description=The best movie made is what is life?, createdAt=2020-03-11T17:20:57, updatedAt=2020-03-11T17:21:05, user=User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography)), FAQ(faqId=3, title=Where to find new trailers, category=Trailers, description=The Trailers are located under media drop-down menu.New trailers will be at the top., createdAt=2020-03-14T11:50:02, updatedAt=2020-03-14T11:50:02, user=User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography))]
+[DEBUG] 2020-03-14 13:29:09.371 [http-nio-8080-exec-8] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-03-14 13:29:09.381 [http-nio-8080-exec-8] FAQDetails - Getting a Single FAQ FAQ(faqId=1, title=What is your best movie made?, category=Movies, description=The best movie made is what is life?, createdAt=2020-03-11T17:20:57, updatedAt=2020-03-11T17:21:05, user=User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=, gender=Other, biography=Biography))
+[DEBUG] 2020-03-14 13:29:17.658 [http-nio-8080-exec-4] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:29:17.658 [http-nio-8080-exec-4] TrailerList - Getting All Trailers servlet[]
+[INFO ] 2020-03-14 13:29:25.409 [http-nio-8080-exec-13] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 13:29:25.501 [http-nio-8080-exec-13] UserProfile - Remote User: admin
+[DEBUG] 2020-03-14 13:29:33.001 [http-nio-8080-exec-14] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:29:33.001 [http-nio-8080-exec-14] TrailerList - Getting All Trailers servlet[]
+[INFO ] 2020-03-14 13:30:53.239 [http-nio-8080-exec-4] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-03-14 13:30:53.742 [http-nio-8080-exec-4] UserProfile - Remote User: admin
+[DEBUG] 2020-03-14 13:30:57.548 [http-nio-8080-exec-5] GenericDao - The list of Entities []
+[DEBUG] 2020-03-14 13:30:57.549 [http-nio-8080-exec-5] TrailerList - Getting All Trailers servlet[]
