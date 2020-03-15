@@ -41,7 +41,7 @@ public class CrewEdit extends HttpServlet {
         updateCrew.setEmail(req.getParameter("email").trim());
         updateCrew.setProfession(req.getParameter("profession").trim());
         updateCrew.setBiography(req.getParameter("biography").trim());
-        if(updateCrew.getUser().getUserId() == 2) {
+        if(updateCrew.getUser().getUsername().equals(req.getRemoteUser()) && req.isUserInRole("admin")) {
             crewDao.saveOrUpdate(updateCrew);
             resp.sendRedirect("crews");
         } else {

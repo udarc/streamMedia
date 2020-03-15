@@ -74,7 +74,6 @@ public class TrailerAdd extends HttpServlet {
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
-//
         try {
             User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
             log.debug("User In trailer Add." + user);

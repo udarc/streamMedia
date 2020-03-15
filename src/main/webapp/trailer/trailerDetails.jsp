@@ -11,7 +11,7 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
-    <h1 class="text-center">List of Trailers</h1> <a href="add-trailer" class="btn btn-success ml-auto" >Add Trailer</a>
+    <h1 class="text-center">List of Trailers</h1>
     <div class="row">
         <c:choose>
             <c:when test="${trailer ne null}">
@@ -32,8 +32,10 @@
 
                         <div class="card-body">
                             <c:if test="${pageContext.request.isUserInRole('admin')}">
-                            <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">Edit</a>
-                            <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">Remove</a>
+                            <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">
+                                <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+                            <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">
+                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
                             </c:if>
 
                         </div>
