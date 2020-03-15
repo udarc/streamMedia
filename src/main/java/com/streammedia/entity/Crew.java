@@ -85,4 +85,8 @@ public class Crew {
         this.films.remove(film);
         film.getCrews().remove(this);
     }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
 }

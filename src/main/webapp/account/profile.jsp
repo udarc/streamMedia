@@ -30,8 +30,8 @@
                         <li class="list-group-item">Age: ${user.age}</li>
                         <li class="list-group-item">Bio: ${user.biography}</li>
 
-                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">Edit</a>
-                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">Delete</a></li>
+                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>"><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>"><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></li>
                     </ul>
                 </div>
             </c:when>
