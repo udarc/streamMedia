@@ -25,13 +25,15 @@ import java.time.format.DateTimeFormatter;
         name = "trailerAdd",
         urlPatterns = {"/add-trailer"}
 )
-public class TraillerAdd extends HttpServlet {
-    private GenericDao genericDao;
+public class TrailerAdd extends HttpServlet {
+    private GenericDao trailerDao;
+    private  GenericDao userDao;
 
 
     public void init() {
 
-        genericDao = new GenericDao(Trailer.class);
+        trailerDao = new GenericDao(Trailer.class);
+        userDao =  new GenericDao(User.class);
 
 
     }
@@ -46,44 +48,42 @@ public class TraillerAdd extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url ="/trailer/trailerAdd.jsp";
-        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request,response);
-
+        if (request.isUserInRole("admin")) {
+            String url = "/trailer/trailerAddEdit.jsp";
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("login");
+        }
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Trailer trailer = new Trailer();
-        trailer.setTitle(req.getParameter("title"));
-        trailer.setAuthor(req.getParameter("author"));
-        // create a LocalTime Objects
-//        LocalTime time
-//                = LocalTime.parse("23:59:59");
-//
-//        // create formatter Object for ISO_LOCAL_TIME
-//        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
-
+        trailer.setTitle(req.getParameter("title").trim());
+        trailer.setAuthor(req.getParameter("author").trim());
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-        trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
+        String pubDate = req.getParameter("pub_date").trim();
+        if( pubDate == null || pubDate.length() <= 0 ) {
+            trailer.setPublicationDate(LocalDateTime.now());
+
+        }
+        else {
+            trailer.setPublicationDate(LocalDateTime.parse(pubDate));
+        }
         trailer.setCover(req.getParameter("cover"));
         trailer.setLink(req.getParameter("link"));
         trailer.setVideo(req.getParameter("video"));
         trailer.setSummary(req.getParameter("summary"));
-        trailer.setCreatedAt(LocalDate.now());
-        trailer.setUpdatedAt(LocalDate.now());
-        GenericDao userDao =  new GenericDao(User.class);
-//        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
         try {
-            User user = (User) userDao.getById(1);
-            if (!user.equals(null)) {
+            User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
+            log.debug("User In trailer Add." + user);
+            if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
-                log.debug("Adding Trailer: ", trailer);
-                genericDao.insert(trailer);
-//                RequestDispatcher dispatcher = req.getRequestDispatcher("/trailer/trailerList.jsp");
-//                dispatcher.forward(req, resp);
+                log.debug("Trailer Add: " + trailer);
+                trailerDao.insert(trailer);
                 resp.sendRedirect("trailers");
             } else {
-                req.getRequestDispatcher("/trailer/trailerAdd.jsp").forward(req, resp);
+                req.getRequestDispatcher("/trailer/trailerAddEdit.jsp").forward(req, resp);
             }
         }catch (NullPointerException npe){
             log.error("User Does not Exists", npe);

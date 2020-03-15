@@ -16,6 +16,97 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `BKCategory`
+--
+
+DROP TABLE IF EXISTS `BKCategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `BKCategory` (
+  `bkCategory_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`bkCategory_id`),
+  UNIQUE KEY `title_UNIQUE` (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BKCategory`
+--
+
+LOCK TABLES `BKCategory` WRITE;
+/*!40000 ALTER TABLE `BKCategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BKCategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Book`
+--
+
+DROP TABLE IF EXISTS `Book`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Book` (
+  `book_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) NOT NULL,
+  `isbn` char(25) NOT NULL,
+  `author` varchar(200) NOT NULL,
+  `pub_date` timestamp NULL DEFAULT NULL,
+  `edition` char(20) DEFAULT NULL,
+  `cover` varchar(200) DEFAULT NULL,
+  `publisher` varchar(150) DEFAULT NULL,
+  `page_number` int DEFAULT NULL,
+  `summary` text NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`book_id`),
+  UNIQUE KEY `isbn_UNIQUE` (`isbn`),
+  UNIQUE KEY `title_isbn_UNIQUE` (`title`,`isbn`),
+  KEY `Book_SM_Users` (`user_id`),
+  CONSTRAINT `Book_SM_Users` FOREIGN KEY (`user_id`) REFERENCES `SM_Users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Book`
+--
+
+LOCK TABLES `Book` WRITE;
+/*!40000 ALTER TABLE `Book` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Book` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BookCategory`
+--
+
+DROP TABLE IF EXISTS `BookCategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `BookCategory` (
+  `book_id` int NOT NULL AUTO_INCREMENT,
+  `bkCategory_id` int NOT NULL,
+  PRIMARY KEY (`book_id`,`bkCategory_id`),
+  UNIQUE KEY `bkCategory_book_UNIQUE` (`bkCategory_id`,`book_id`),
+  CONSTRAINT `BookCategory_BKCategory` FOREIGN KEY (`bkCategory_id`) REFERENCES `BKCategory` (`bkCategory_id`),
+  CONSTRAINT `BookCategory_Book` FOREIGN KEY (`book_id`) REFERENCES `Book` (`book_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BookCategory`
+--
+
+LOCK TABLES `BookCategory` WRITE;
+/*!40000 ALTER TABLE `BookCategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BookCategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Crew`
 --
 
@@ -33,9 +124,10 @@ CREATE TABLE `Crew` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user` int NOT NULL,
   PRIMARY KEY (`crew_id`),
+  UNIQUE KEY `title_artist_UNIQUE` (`email`),
   KEY `Crew_User_user_id_fk` (`user`),
   CONSTRAINT `Crew_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +136,7 @@ CREATE TABLE `Crew` (
 
 LOCK TABLES `Crew` WRITE;
 /*!40000 ALTER TABLE `Crew` DISABLE KEYS */;
+INSERT INTO `Crew` VALUES (1,'Lisa','Larson','llarson@example.com','Sales','This is sales.','2020-03-15 05:00:00','2020-03-15 05:00:00',1);
 /*!40000 ALTER TABLE `Crew` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,8 +156,8 @@ CREATE TABLE `Film` (
   `episode` int DEFAULT NULL,
   `link` varchar(180) DEFAULT NULL,
   `video` varchar(200) DEFAULT NULL,
-  `cover` varchar(200) NOT NULL,
-  `created_at` int NOT NULL,
+  `cover` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NOT NULL,
   `summary` text NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user` int NOT NULL,
@@ -151,7 +244,7 @@ CREATE TABLE `Genre` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`genre_id`),
   UNIQUE KEY `title_UNIQUE` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +253,41 @@ CREATE TABLE `Genre` (
 
 LOCK TABLES `Genre` WRITE;
 /*!40000 ALTER TABLE `Genre` DISABLE KEYS */;
+INSERT INTO `Genre` VALUES (1,'Romance','Stages of \'falling in love\' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales.','2020-03-14 05:00:00','2020-03-14 05:00:00');
 /*!40000 ALTER TABLE `Genre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Music`
+--
+
+DROP TABLE IF EXISTS `Music`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Music` (
+  `music_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) NOT NULL,
+  `music_video` varchar(250) NOT NULL,
+  `music_cover` varchar(250) DEFAULT NULL,
+  `artist` varchar(80) DEFAULT NULL,
+  `duration` time NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`music_id`),
+  UNIQUE KEY `title_artist_UNIQUE` (`title`,`artist`),
+  KEY `Music_SM_Users` (`user_id`),
+  CONSTRAINT `Music_SM_Users` FOREIGN KEY (`user_id`) REFERENCES `SM_Users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Music`
+--
+
+LOCK TABLES `Music` WRITE;
+/*!40000 ALTER TABLE `Music` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Music` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -179,7 +306,7 @@ CREATE TABLE `Role` (
   PRIMARY KEY (`role_id`),
   KEY `Role_User_username_fk` (`username`),
   CONSTRAINT `Role_User_username_fk` FOREIGN KEY (`username`) REFERENCES `SM_Users` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +315,7 @@ CREATE TABLE `Role` (
 
 LOCK TABLES `Role` WRITE;
 /*!40000 ALTER TABLE `Role` DISABLE KEYS */;
-INSERT INTO `Role` VALUES (1,'user','2020-02-16 06:00:00','ian','2020-03-02 06:00:00'),(2,'admin','2020-02-16 06:00:00','admin','2020-02-18 06:00:00'),(7,'user','2020-02-27 06:00:00','atorrence','2020-02-27 06:00:00');
+INSERT INTO `Role` VALUES (1,'admin','2020-03-10 05:00:00','admin','2020-03-14 05:00:00'),(2,'user','2020-03-11 05:00:00','mary','2020-03-14 05:00:00'),(3,'user','2020-03-12 05:00:00','ian','2020-03-14 05:00:00');
 /*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +341,7 @@ CREATE TABLE `SM_Users` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,8 +350,39 @@ CREATE TABLE `SM_Users` (
 
 LOCK TABLES `SM_Users` WRITE;
 /*!40000 ALTER TABLE `SM_Users` DISABLE KEYS */;
-INSERT INTO `SM_Users` VALUES (1,'ian','ian@madisoncollege.edu','12345','Ian','Declan','1995-06-12','Male','','This is a Test.TestMore and More and more','2020-02-17 04:03:49','2020-03-02 06:00:00'),(2,'admin','admin@streammedia.com','12345','Jane','Doe','2005-07-27','Female','','This is an admin.','2020-02-17 04:03:49','2020-02-18 06:00:00'),(7,'atorrence','atorrance@streammedia.com','12345','Aria','Torrence',NULL,NULL,NULL,NULL,'2020-02-27 06:00:00','2020-02-27 06:00:00');
+INSERT INTO `SM_Users` VALUES (1,'admin','admin@streammedia.com','466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78','Jeanne','Uwimana','1999-04-13','Other','','Biography','2020-03-10 05:00:00','2020-03-14 05:00:00'),(2,'mary','mary@streammedia.com','55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f','Mary','Anne','2003-02-10','Female','','Biography More.','2020-03-11 05:00:00','2020-03-14 05:00:00'),(3,'ian','ian@madisoncollege.edu','c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d','Ian','Torrence','2020-03-14','Male','','Some Bio.','2020-03-12 05:00:00','2020-03-14 05:00:00');
 /*!40000 ALTER TABLE `SM_Users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ShortStory`
+--
+
+DROP TABLE IF EXISTS `ShortStory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ShortStory` (
+  `short_story_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) NOT NULL,
+  `author` varchar(200) NOT NULL,
+  `cover` varchar(250) DEFAULT NULL,
+  `publication_date` timestamp NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`short_story_id`),
+  UNIQUE KEY `title_author_UNIQUE` (`title`,`author`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ShortStory`
+--
+
+LOCK TABLES `ShortStory` WRITE;
+/*!40000 ALTER TABLE `ShortStory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ShortStory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -251,7 +409,7 @@ CREATE TABLE `Trailer` (
   UNIQUE KEY `title_UNIQUE` (`title`,`author`),
   KEY `tariler_User_user_id_fk` (`user`),
   CONSTRAINT `tariler_User_user_id_fk` FOREIGN KEY (`user`) REFERENCES `SM_Users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +418,7 @@ CREATE TABLE `Trailer` (
 
 LOCK TABLES `Trailer` WRITE;
 /*!40000 ALTER TABLE `Trailer` DISABLE KEYS */;
-INSERT INTO `Trailer` VALUES (1,'TomorrowHome','Jeanne','00:01:20','','2020-02-06 06:00:00','','','This is a working Example of Editing a trailer.Is this Working?','2020-02-20 06:00:00','2020-02-27 06:00:00',1),(37,'Moon Landing','Mary','00:30:03','','2020-02-27 06:00:00','','','Test add Trailer.Mote Test Over and Over','2020-02-27 06:00:00','2020-02-27 06:00:00',1);
+INSERT INTO `Trailer` VALUES (1,'Hope of Tomorrow','Jeanne','01:01:21','','2020-03-13 19:40:41','','','Some summary to test add trailer.This Work!','2020-03-14 19:01:41','2020-03-14 19:40:37',1),(2,'Tomorrow\'s Home','Mary','01:01:30','','2020-03-14 19:45:05','','','Some Data. More','2020-03-14 19:45:05','2020-03-14 19:46:10',1);
 /*!40000 ALTER TABLE `Trailer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +450,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'how movies are created.','Movies','This is FAQ Creates Test. More and more. Very Happy it works!!!yes','2020-02-28 06:00:00','2020-03-04 17:06:15',2);
+INSERT INTO `faq` VALUES (1,'What is your best movie made?','Movies','The best movie made is what is life?','2020-03-11 22:20:57','2020-03-11 22:21:05',1),(3,'Where to find new trailers','Trailers','The Trailers are located under media drop-down menu.New trailers will be at the top.','2020-03-14 16:50:02','2020-03-14 16:50:02',1);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -305,4 +463,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-04 11:15:37
+-- Dump completed on 2020-03-15 13:47:39

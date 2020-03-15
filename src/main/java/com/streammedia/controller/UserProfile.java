@@ -16,7 +16,7 @@ import java.io.IOException;
  * @since 2020-03-03
  */
 @WebServlet(
-        name = "profile",
+        name = "userProfile",
         urlPatterns = {"/user-profile"}
 )
 @Log4j2

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -36,16 +37,18 @@ public class Genre {
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "genres")
+    @ManyToMany(mappedBy = "genres")
     private Set<Film> films = new HashSet<>();
 
     /**

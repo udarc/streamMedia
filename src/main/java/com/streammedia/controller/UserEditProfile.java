@@ -25,7 +25,7 @@ import java.util.Enumeration;
         urlPatterns = {"/profile-edit"}
 )
 public class UserEditProfile extends HttpServlet {
-    private GenericDao genericDao;
+    private GenericDao  genericDao;
 
     public void init() {
         genericDao = new GenericDao(User.class);
@@ -67,32 +67,52 @@ public class UserEditProfile extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
+
 //        Enumeration<String> testUsersEdit = req.getParameterNames();
 
-        int userId = Integer.valueOf(req.getParameter("id"));
-        user = (User)genericDao.getById(userId);
+//        int userId = Integer.valueOf(req.getParameter("id"));
+
+        String username = req.getParameter("user");
+        User user = (User) genericDao.getByPropertyEqual("username", username).get(0);
+        if((req.isUserInRole("admin") || req.isUserInRole("user"))
+                && username.equals(user.getUsername())) {
+
 //        int userId = 1;
 //        int userId = user.getUserId();
-        log.error("Value of Get Parameter"+ userId);
+            log.error("Value of Get Parameter " + username);
 //        user = (User) genericDao.getById(Integer.valueOf(req.getParameter("id")));
 
-        user.setEmail(req.getParameter("email"));
-        user.setUsername(req.getParameter("username"));
-        user.setFirstName(req.getParameter("firstName"));
-        user.setLastName(req.getParameter("lastName"));
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String birthdate = req.getParameter("birthday");
-        log.debug("Test for getting birth date" +  birthdate);
-        user.setBirthdate(LocalDate.parse(birthdate,formatter));
-        user.setGender(req.getParameter("gender"));
-        user.setPicture(req.getParameter("profilePicture"));
-        user.setBiography(req.getParameter("biography"));
-        user.setUpdateAt(LocalDate.now());
-        log.debug("Updating User: " + user);
-        genericDao.saveOrUpdate(user);
+            user.setEmail(req.getParameter("email"));
+            user.setUsername(username);
+            user.setFirstName(req.getParameter("firstName"));
+            user.setLastName(req.getParameter("lastName"));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String birthdate = req.getParameter("birthday");
+            log.debug("Test for getting birth date " + birthdate);
+            if(birthdate==null || birthdate == ""){
+                user.setBirthdate(LocalDate.now());
+                log.debug("Test for getting birth date " + birthdate);
+
+            } else{
+                log.debug("Test for getting birth date " + birthdate);
+                user.setBirthdate(LocalDate.parse(birthdate, formatter));
+            }
+
+
+            user.setGender(req.getParameter("gender"));
+            user.setPicture(req.getParameter("profilePicture"));
+            user.setBiography(req.getParameter("biography"));
+            user.setUpdateAt(LocalDate.now());
+            log.debug("Updating User: " + user);
+            genericDao.saveOrUpdate(user);
+            if(req.isUserInRole("admin")){
+                resp.sendRedirect("users");
+            }
 //        RequestDispatcher dispatcher = req.getRequestDispatcher("/account/listUser.jsp");
 //        dispatcher.forward(req, resp);
-        resp.sendRedirect("users");
+            else {
+                resp.sendRedirect("user-profile");
+            }
+        }
     }
 }

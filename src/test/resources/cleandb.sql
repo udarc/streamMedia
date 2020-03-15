@@ -1,9 +1,10 @@
-#
 DELETE  FROM Role;
-DELETE FROM  `Trailer`;
+DELETE FROM Trailer;
 DELETE FROM faq;
-DELETE FROM  SM_Users;
+DELETE FROM Film;
 DELETE FROM Genre;
+DELETE FROM Crew;
+DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
 (2,'Fred','Hensen','fhensen','supersecret2','fhensen@streammedia.com','1988-05-08',NOW()),
@@ -46,3 +47,10 @@ INSERT INTO Crew(crew_id,first_name,last_name ,email,biography,profession,create
 (3,'Calvin','Huff', 'chuff@gmail.com','Some Bio for you','Teacher',Now(),2),
 (4,'Gustavo','Diaz','gdiaz@example.com','Some Bio for you','Doctor',Now(),2),
 (5,'Gertrude','Norman','gnorman@some.com','Some Bio for you','filmmaker',Now(),2);
+
+
+INSERT INTO Film(film_id, title,duration,director,pub_date,summary,created_at,user, cover)
+VALUES
+(1,'Happy Day','01:39:02','Raymond Dawson','1986-07-08','Some Summary for Test',Now(),2,'some.png'),
+(2,'Once upon time','01:39:02','Elizabeth Ingram','1986-07-08','Some Summary for Test',NOW(),2,'some.png'),
+(3,'Calvin','01:39:02', 'Roberta Barnes','1986-07-08','Some Summary for Test',Now(),2,'some.png');

@@ -6,11 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" type="text/css" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<div class="container">
+<div class="container wrapper">
     <div class="form row">
         <form method="post" action="j_security_check" class="card col-sm-10 offset-sm-1">
             <div class="form-group row">

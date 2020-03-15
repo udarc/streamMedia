@@ -35,16 +35,17 @@ public class CrewAdd extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User) userDao.getById(2);
         Crew newCrew =  new Crew();
+        User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
         newCrew.setUser(user);
+        log.debug("Username: " + user.getUsername());
         newCrew.setFirstName(req.getParameter("firstname").trim());
         newCrew.setLastName(req.getParameter("lastname").trim());
         newCrew.setEmail(req.getParameter("email").trim());
         newCrew.setProfession(req.getParameter("profession").trim());
         newCrew.setBiography(req.getParameter("biography").trim());
-        log.debug("Crew" + newCrew.getUser());
-        if(!newCrew.equals(null)){
+        log.debug("Crew adding: " + newCrew.getUser());
+        if(!newCrew.equals(null) && req.getRemoteUser().equals(newCrew.getUser().getUsername())){
             crewDao.insert(newCrew);
             resp.sendRedirect("crews");
         } else {

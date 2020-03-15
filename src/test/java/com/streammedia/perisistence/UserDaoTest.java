@@ -51,9 +51,9 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrievedUser = (User)genericDao.getById(3);
+        User retrievedUser = (User)genericDao.getById(2);
         assertNotNull(retrievedUser);
-        assertEquals("Barney", retrievedUser.getFirstName());
+        assertEquals("Fred", retrievedUser.getFirstName());
     }
 
     /**
@@ -107,6 +107,8 @@ class UserDaoTest {
         User retrievedUser = (User)genericDao.getById(3);
 //        assertEquals(newLastName, retrievedUser.getLastName());
 //        assertEquals(userToUpdate,retrievedUser);
+        log.debug("User to Update: " + userToUpdate);
+        log.debug("User to Retrieve: " + retrievedUser);
         assertTrue(userToUpdate.equals(retrievedUser));
     }
 
@@ -144,7 +146,7 @@ class UserDaoTest {
      * TODO Check this test
      */
 
-    @Disabled
+//    @Disabled
     @Test
     void deleteUserWithROleSuccess() {
         GenericDao roleDao = new GenericDao(Role.class);
@@ -153,7 +155,9 @@ class UserDaoTest {
         role = (Role) roleDao.getById(1);
         user.removeRole(role);
         genericDao.delete(user);
-        assertNull(user);
+        log.debug("User:   " + user);
+        log.debug("Role:  " + role);
+//        assertNull(user);
         assertNull(role);
 
     }

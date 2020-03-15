@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Crew delete.
+ */
 @WebServlet(
         urlPatterns = {"/crew-delete"}
 )
@@ -25,12 +28,13 @@ public class CrewDelete extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User)userDao.getById(2);
+        User user = (User)userDao.getByPropertyEqual("username",req.getRemoteUser());
         int id = Integer.parseInt(req.getParameter("uid"));
         Crew crew = (Crew) crewDao.getById(id);
         if(crew.getUser().getUserId() == user.getUserId()){
             crewDao.delete(crew);
             resp.sendRedirect("crews");
         }
+        //TODO add else message
     }
 }

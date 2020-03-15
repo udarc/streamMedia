@@ -35,7 +35,7 @@ public class FAQEdit extends HttpServlet {
             throws ServletException, IOException {
 
         request.setAttribute("faq",faqDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/adminOnly/faqAdd.jsp";
+        String url ="/faq/faqAdd.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
@@ -49,8 +49,13 @@ public class FAQEdit extends HttpServlet {
         faq.setTitle(request.getParameter("title").trim());
         faq.setCategory(request.getParameter("category").trim());
         faq.setDescription(request.getParameter("description").trim());
-        faq.setUpdatedAt(LocalDateTime.now());
-        faqDao.saveOrUpdate(faq);
+//        faq.setUpdatedAt(LocalDateTime.now());
+        if(request.getRemoteUser().equals(faq.getUser().getUsername())
+                || request.isUserInRole("admin")){
+            faqDao.saveOrUpdate(faq);
+//            response.sendRedirect("faqs");
+        }
+        //TODO set failure message
         response.sendRedirect("faqs");
     }
 

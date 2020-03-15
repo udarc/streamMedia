@@ -22,10 +22,6 @@ public class SingInAction extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info("The logged in user: " + req.getRemoteUser() + " has a role of admin: " + req.isUserInRole("admin"));
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("/account/signin.jsp");
-//        dispatcher.forward(req, resp);
         resp.sendRedirect("user-profile");
-
     }
 }
