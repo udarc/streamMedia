@@ -6,13 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
     <h1>Crew Details</h1>
-    <a href="crew-new" class="btn btn-success ml-auto" >Add Crew</a>
     <div class="row">
         <c:choose>
             <c:when test="${crew ne null}">
@@ -28,14 +27,16 @@
                             </ul>
                         </div>
                         <div class="card-body">
-                            <span class="btn-group ml-auto " role="group" aria-label="Edit and Delete Crew">
-                        <a href="crew-edit?uid=<c:out value="${crew.crewId}"/>" class="btn btn-primary" >
-                            <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit Crew</a>
-                    <a href="crew-delete?uid=<c:out value="${crew.crewId}"/>" class="btn btn-danger" >
-                        <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete Crew</a>
-                        </span>
+                        <c:if test="${pageContext.request.isUserInRole('admin')}">
+                            <span class="btn-group ml-auto" role="group" aria-label="Edit and Delete Crew">
+                                <a href="crew-edit?uid=<c:out value="${crew.crewId}"/>" class="btn btn-primary">
+                                    <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit Crew</a>
+                                <a href="crew-delete?uid=<c:out value="${crew.crewId}"/>" class="btn btn-danger" >
+                                    <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete Crew</a>
+                            </span>
+                        </c:if>
+                            <a href="crews" class="btn btn-outline-link"><i class="fas fa-list" ></i> Crew List</a>
                         </div>
-                        <a href="crews" class="btn btn-link" >Crew List</a>
                     </div>
                 </div>
             </c:when>

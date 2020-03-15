@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<div class="container">
+<div class="container wrapper">
     <div class="form row">
         <form class="card col-sm-10 offset-sm-1"
         method="post" action="profile-edit">

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "Crew")
 @Table(name = "Crew")
+//@Proxy(lazy=false)
 public class Crew {
     @Id
     @Column(name = "crew_id")
@@ -47,10 +49,12 @@ public class Crew {
 
     @Column(name = "created_at")
     @CreationTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
     @ManyToOne
@@ -59,7 +63,7 @@ public class Crew {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "crews")
+    @ManyToMany(mappedBy = "crews")
     private Set<Film> films = new HashSet<>();
 
     /**
@@ -80,5 +84,9 @@ public class Crew {
     public void removeFilm(Film film) {
         this.films.remove(film);
         film.getCrews().remove(this);
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
 }

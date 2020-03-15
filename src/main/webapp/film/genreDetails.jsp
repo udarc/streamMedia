@@ -7,13 +7,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
    <h1>Genre Details</h1>
-    <a href="genre-new" class="btn btn-success ml-auto" >Add Genre</a>
       <div class="row">
          <c:choose>
             <c:when test="${genre ne null}">
@@ -26,15 +25,15 @@
                            <li class="list-group-item">${genre.description}</li>
                         </ul>
                      </div>
-                     <div class="card-body">
+                     <c:if test="${pageContext.request.isUserInRole('admin')}">
                             <span class="btn-group ml-auto " role="group" aria-label="Edit and Delete Genre">
                         <a href="genre-edit?uid=<c:out value="${genre.genreId}"/>" class="btn btn-primary" >
                             <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit Genre</a>
                     <a href="genre-delete?uid=<c:out value="${genre.genreId}"/>" class="btn btn-danger" >
                         <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete Genre</a>
                         </span>
-                     </div>
-                     <a href="genres" class="btn btn-link" >Genre List</a>
+                     </c:if>
+                     <a href="genres" class="btn btn-link" ><i class="fas fa-list"></i> Genre List</a>
                   </div>
                </div>
             </c:when>

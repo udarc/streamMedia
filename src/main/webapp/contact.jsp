@@ -11,7 +11,7 @@
 <body>
 <%@include file="navbar.jsp"%>
 
-<div class="container">
+<div class="container wrapper">
     <main class="form row">
         <h1>Contact Us</h1>
         <form class="card col-sm-10 offset-sm-1" action="contact-us" method="post">

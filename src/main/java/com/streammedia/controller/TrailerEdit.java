@@ -39,7 +39,7 @@ public class TrailerEdit extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("trailer",genericDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/trailer/trailerEdit.jsp";
+        String url ="/trailer/trailerAddEdit.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
@@ -54,20 +54,23 @@ public class TrailerEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int trailerId = Integer.valueOf(req.getParameter("uid"));
-//        int trailerId = Integer.valueOf(String.valueOf(req.getParameterValues("uid")));
         Trailer trailer = (Trailer)genericDao.getById(trailerId);
         if (!trailer.equals(null)) {
             trailer.setTitle(req.getParameter("title"));
             trailer.setAuthor(req.getParameter("author"));
             trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
             trailer.setCover(req.getParameter("cover"));
-            trailer.setPublicationDate(LocalDate.parse(req.getParameter("pub_date")));
+            trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
             trailer.setLink(req.getParameter("link"));
             trailer.setVideo(req.getParameter("video"));
             trailer.setSummary(req.getParameter("summary").trim());
-            trailer.setUpdatedAt(LocalDate.now());
             log.debug("Updating Trailer: " + trailer.getTitle());
-            genericDao.saveOrUpdate(trailer);
+            if(req.isUserInRole("admin")){
+                genericDao.saveOrUpdate(trailer);
+            } else {
+                return; //TODO add a message
+            }
+
             String destination = "trailer-detail?uid=" + trailerId;
             resp.sendRedirect(destination);
         }

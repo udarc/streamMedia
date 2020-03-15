@@ -10,10 +10,11 @@
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<main class="container">
+<main class="container wrapper">
     <div class="alert alert-danger row">
 <h1 class="">Login failed...Please try again</h1>
-        <a class="btn btn-primary" href="">Login</a>
+        <p>Already have an account? <a class="btn btn-primary" href="login">SignIn</a></p>
+        <p>No account yet ? <a class="btn btn-primary" href="register">SignUp</a></p>
     </div>
 
 </main>

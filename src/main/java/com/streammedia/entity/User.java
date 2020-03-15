@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.ws.rs.core.FeatureContext;
 import java.io.Serializable;
 import java.time.*;
 import java.util.HashSet;
@@ -50,6 +51,7 @@ public class User implements Serializable {
     private String lastName;
 
     @Column(name = "birthdate")
+//    @EqualsAndHashCode.Exclude //todo only make the test pass
     private LocalDate birthdate;
 
     @Column(name = "picture")
@@ -62,12 +64,14 @@ public class User implements Serializable {
     private String biography;
 
     @Column(name = "created_at")
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @CreationTimestamp
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
@@ -82,6 +86,7 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Trailer> trailers = new HashSet<>();
 
+    //Crews
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -98,7 +103,25 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<FAQ> faqs = new HashSet<>();
 
+    //Shortstories
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<ShortStory> shortStories =  new HashSet<>();
 
+
+    //books
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<Book> books =  new HashSet<>();
+
+
+    //Musics
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private  Set<Music> musics =  new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -125,9 +148,33 @@ public class User implements Serializable {
      */
     public void addRole(Role role) {
         roles.add(role);
+
     }
     public void removeRole(Role role){
         roles.remove(role);
+        role.setUser(null);
     }
     //https://www.baeldung.com/hibernate-one-to-many
+
+
+
+    /**
+     * https://howtodoinjava.com/java/calculate-age-from-date-of-birth/
+     * https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+     * Calculate age based on Today's date and birth date.
+     * @return age
+     */
+    public int getAge(){
+        int years = 0;
+        LocalDate now = LocalDate.now();                        //Today's date
+        if( this.getBirthdate() != null) {
+            Period age = Period.between(this.getBirthdate(), now); //difference between the dates is calculated
+            years = age.getYears();
+        }
+    return years;
+    }
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+
 }

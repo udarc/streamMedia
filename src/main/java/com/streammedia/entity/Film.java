@@ -6,16 +6,18 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * The type Film.
- *
+ *https://thoughts-on-java.org/ultimate-guide-association-mappings-jpa-hibernate/
  * @author Jeanne  https://www.baeldung.com/hibernate-many-to-many
  */
 @Getter
@@ -30,23 +32,19 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
     private  int filmId;
-    
-//    @Column(name = "title", nullable = false)
+
     private String title;
 
-//    @Column(name = "director")
     private String director;
 
-//    @Column(name = "duration")
-    private String duration;
 
-//    @Column(name = "cover")
+    private LocalDateTime duration;
+
     private String cover;
 
-    @Column(name= "pub_date", nullable = false)
+    @Column(name= "pub_date")
     private LocalDate publicationDate;
 
-//    @Column(name = "link")
     private String link;
 
     @Column(name = "video")
@@ -65,23 +63,27 @@ public class Film {
     /**
      * The Genres.
      */
-    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
+    @ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmGenre",
-            joinColumns = { @JoinColumn(name = "film_id",nullable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "genre_id", nullable = false) }
+            joinColumns = { @JoinColumn(name = "film_id") },
+            inverseJoinColumns = { @JoinColumn(name = "genre_id") }
     )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     Set<Genre> genres = new HashSet<>();
 
     /**
      * The Crews.
      */
-    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmCrew",
-            joinColumns = { @JoinColumn(name = "film_id", nullable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "crew_id",nullable = false) }
+            joinColumns = { @JoinColumn(name = "film_id") },
+            inverseJoinColumns = { @JoinColumn(name = "crew_id") }
     )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     Set<Crew> crews = new HashSet<>();
     
     
@@ -92,5 +94,24 @@ public class Film {
     @UpdateTimestamp
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
+
+//    public void addCrew(Crew crew) {
+//        this.crews.add(crew);
+//        crew.getFilms().add(this);
+//    }
+//
+//    public void removeCrew(Crew crew) {
+//        this.crews.remove(crew);
+//        crew.getFilms().remove(this);
+//    }
+//    public void addGenre(Genre genre) {
+//        this.genres.add(genre);
+//        genre.getFilms().add(this);
+//    }
+//
+//    public void removeGenre(Genre genre) {
+//        this.genres.remove(genres);
+//        genre.getFilms().remove(this);
+//    }
 
 }
