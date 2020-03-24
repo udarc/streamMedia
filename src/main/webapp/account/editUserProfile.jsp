@@ -13,7 +13,7 @@
 <div class="container wrapper">
     <div class="form row">
         <form class="card col-sm-10 offset-sm-1"
-        method="post" action="profile-edit">
+        method="post" action="profile-edit" enctype="multipart/form-data">
             <input type="hidden" id="id"
                    name="user"
                    value="${user.username}">
