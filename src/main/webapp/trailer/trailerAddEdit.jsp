@@ -14,11 +14,13 @@
     <div class="form row">
         <c:choose>
         <c:when test="${trailer ne null}">
-            <form class="card col-sm-10 offset-sm-1" action="trailer-edit" method="post">
+            <form class="card col-sm-10 offset-sm-1" action="trailer-edit" method="post"
+                  enctype="multipart/form-data">
                 <input type="hidden" id="id" name="uid"  value="${trailer.trailerId}">
             </c:when>
             <c:otherwise>
-            <form action="add-trailer" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="add-trailer" method="post" class="card col-sm-10 offset-sm-1 was-validated"
+                  enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
                     <div class="form-group row">
@@ -66,7 +68,7 @@
                     <div class="form-group row">
                         <label for="link" class="col-sm-3 col-form-label">Link To Video</label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control"
+                            <input type="text" class="form-control"
                                    name="link" id="link" value="${trailer.link}" placeholder="Link">
                         </div>
                     </div>

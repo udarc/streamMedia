@@ -21,3 +21,8 @@ form.card {
     float: right;
     clear: both;
 }
+.img-resize {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+}
