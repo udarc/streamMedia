@@ -13,7 +13,11 @@
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center">List of Films</h1> <a href="filmList.jsp" class="btn btn-success ml-auto" >Add Film</a>
     <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-sm-2">
+            <h2>Genres</h2>
+            <%@include file="restAPIGenres.jsp"%>
+        </div>
+        <div class="col-sm-7">
             <div class="card">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
 
@@ -32,6 +36,15 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-2">
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a class="btn btn-link" href="now-playing-movies">Now Playing Movies</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="#">Popular</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>
+            </ul>
+        </div>
+
 
     </div>
 </main>

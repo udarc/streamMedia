@@ -16,7 +16,6 @@ public class GenreRESTAPIDaoTest {
     public void getGenresSuccess(){
 
         GenreRESTAPIDao restapiDao =  new GenreRESTAPIDao();
-        List<String> expected = new ArrayList<>();
         assertEquals(19,restapiDao.getGenres().getGenres().size());
         assertTrue("Adventure".equals(restapiDao.getGenres().getGenres().get(1).getName()));
     }

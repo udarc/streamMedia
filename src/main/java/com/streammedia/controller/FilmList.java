@@ -1,6 +1,7 @@
 package com.streammedia.controller;
 
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.perisistence.GenreRESTAPIDao;
 import lombok.extern.log4j.Log4j2;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,15 +42,9 @@ import java.io.IOException;
                 throws ServletException, IOException {
             String action = request.getServletPath();
 
-                switch (action) {
-                    default:
-                        listFilm(request,response);
-                }
-            }
-
-
-        private void listFilm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            GenreRESTAPIDao genresDao =  new GenreRESTAPIDao();
+            request.setAttribute("restGenres", genresDao.getGenres().getGenres());
             RequestDispatcher dispatcher = request.getRequestDispatcher("/film/filmList.jsp");
             dispatcher.forward(request, response);
-        }
+            }
 }
