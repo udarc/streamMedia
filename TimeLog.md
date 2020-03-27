@@ -67,6 +67,10 @@
 |Mar 10, 2020|Updated Time Log and project plan|1||
 |Mar 14, 2020|Updated Servlet to use currently logged in user and allow admin to perform CRUD,Completed to update FAQs.|2||
 |Mar 14, 2020|Added a method to get full name and age and add a default dates when no  birth date provided|1.5||
+|Mar 22, 2020|Research for REST API to use in the project|3.5||
+|Mar 23, 2020|Implemented consuming a REST API of [Movies](https://developers.themoviedb.org/3/genres/get-movie-list)|5.5||
+|Mar 26, 2020| Added get by Id and Insert Test of Film with a genre(s) and Crew(s)|4.5||
+|Mar 27, 2020|Implemented add film with and save in join table of FilmGenre and FilmCrew in join table and List|3.25||
 
 
 
