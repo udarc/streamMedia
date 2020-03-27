@@ -71,16 +71,15 @@
 - [ ] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented.
 
 ### Week 9
-- [ ] Weekly journal entry
+- [x] Weekly journal entry
 - [ ] Build the trailer search jsp
 - [ ] Add Trailer search entities and DAO
-- [ ] Integration with api/ Web services
-- [ ] Review and incorporate feedback from Checkpoint 3.
+- [x] Integration with api/ Web services
+- [x] Review and incorporate feedback from Checkpoint 3.
 - [ ] Carefully review code for standards and best practices - use a code quality tool?
 ### Week 10
 - [ ] Weekly journal entry
 - [ ] Unit test all api integrations
-- [ ] Weekly journal entry
 - [ ] Add password reset , Password change, send Password Link  and User Profile Update functionality
 - [ ] Start Team project
 
