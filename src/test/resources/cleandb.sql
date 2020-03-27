@@ -1,6 +1,8 @@
 DELETE  FROM Role;
 DELETE FROM Trailer;
 DELETE FROM faq;
+DELETE  FROM FilmGenre;
+DELETE FROM FilmCrew;
 DELETE FROM Film;
 DELETE FROM Genre;
 DELETE FROM Crew;
@@ -38,8 +40,8 @@ INSERT INTO faq(faq_id,title,category,description ,created_at, user) VALUES
 INSERT INTO Genre(genre_id,title,description ,created_at) VALUES
 (1,'Romance','Love Related Movies',Now()),
 (2,'Horror','Scary movies not recommend for children under 12 years old',NOW()),
-(3,'Comedy','Funny Movies',Now());
-
+(3,'Comedy','Funny Movies',Now()),
+(4,'Adventure','Movies',Now());
 
 INSERT INTO Crew(crew_id,first_name,last_name ,email,biography,profession,created_at,user) VALUES
 (1,'Maureen','Patton',' mpatton@gmail.com','Some Bio for you','Student',Now(),2),
@@ -48,9 +50,12 @@ INSERT INTO Crew(crew_id,first_name,last_name ,email,biography,profession,create
 (4,'Gustavo','Diaz','gdiaz@example.com','Some Bio for you','Doctor',Now(),2),
 (5,'Gertrude','Norman','gnorman@some.com','Some Bio for you','filmmaker',Now(),2);
 
-
 INSERT INTO Film(film_id, title,duration,director,pub_date,summary,created_at,user, cover)
 VALUES
 (1,'Happy Day','01:39:02','Raymond Dawson','1986-07-08','Some Summary for Test',Now(),2,'some.png'),
 (2,'Once upon time','01:39:02','Elizabeth Ingram','1986-07-08','Some Summary for Test',NOW(),2,'some.png'),
 (3,'Calvin','01:39:02', 'Roberta Barnes','1986-07-08','Some Summary for Test',Now(),2,'some.png');
+INSERT INTO FilmGenre(film_id,genre_id)
+VALUES(1,2);
+INSERT INTO FilmCrew(film_id,crew_id)
+VALUES(1,5);

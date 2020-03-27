@@ -12,6 +12,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,13 +38,12 @@ public class Film {
 
     private String director;
 
-
-    private LocalDateTime duration;
+    private LocalTime duration;
 
     private String cover;
 
     @Column(name= "pub_date")
-    private LocalDate publicationDate;
+    private LocalDateTime publicationDate;
 
     private String link;
 
@@ -71,7 +71,7 @@ public class Film {
     )
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    Set<Genre> genres = new HashSet<>();
+    private Set<Genre> genres = new HashSet<>();
 
     /**
      * The Crews.
@@ -84,7 +84,7 @@ public class Film {
     )
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    Set<Crew> crews = new HashSet<>();
+    private Set<Crew> crews = new HashSet<>();
     
     
     @CreationTimestamp
@@ -104,10 +104,10 @@ public class Film {
 //        this.crews.remove(crew);
 //        crew.getFilms().remove(this);
 //    }
-//    public void addGenre(Genre genre) {
-//        this.genres.add(genre);
+    public void addGenre(Genre genre) {
+        this.genres.add(genre);
 //        genre.getFilms().add(this);
-//    }
+    }
 //
 //    public void removeGenre(Genre genre) {
 //        this.genres.remove(genres);
