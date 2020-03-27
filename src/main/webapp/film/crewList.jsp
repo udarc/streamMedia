@@ -33,7 +33,7 @@
                 </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <ul list-group >
+                        <ul class="ist-group">
                             <li class="list-group-item ">No Crew Data found!</li>
                         </ul>
                     </c:otherwise>
