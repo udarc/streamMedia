@@ -10,6 +10,10 @@ import javax.ejb.EJBs;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * The type Book.
+ * https://howtoprogramwithjava.com/hibernate-manytomany-unidirectional-bidirectional/
+ */
 @Table(name = "Book")
 @Entity(name = "Book")
 @Getter
