@@ -6,6 +6,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Table(name="BKCategory")
@@ -13,9 +15,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class BkCategory {
+@XmlRootElement
+public class BkCategory implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")

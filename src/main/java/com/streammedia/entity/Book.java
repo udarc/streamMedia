@@ -8,6 +8,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.ejb.EJBs;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -18,7 +20,8 @@ import java.time.LocalDateTime;
 @Entity(name = "Book")
 @Getter
 @Setter
-public class Book {
+@XmlRootElement
+public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
