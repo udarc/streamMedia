@@ -19,7 +19,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Terms and Conditions</a>
             </li>
-            </li>
         </ul>
 
         <ul class=" navbar-nav col-md-4">

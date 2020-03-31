@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.ws.rs.core.FeatureContext;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.time.*;
 import java.util.HashSet;
@@ -26,6 +27,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "User")
 @Table(name = "SM_Users")
+@XmlRootElement
 public class User implements Serializable {
 
 

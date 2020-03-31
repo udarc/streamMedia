@@ -162,6 +162,11 @@
         <artifactId>jersey-client</artifactId>
         <version>${jersey-version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>${jersey-version}</version>
+      </dependency>
 
       <dependency>
         <groupId>org.glassfish.jersey.inject</groupId>
@@ -174,7 +179,6 @@
         <artifactId>jackson-core</artifactId>
         <version>${jackson-version}</version>
       </dependency>
-
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
@@ -187,6 +191,11 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>${jackson-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20190722</version>
       </dependency>
     </dependencies>
     <build>
