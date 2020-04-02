@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 
 import lombok.extern.log4j.Log4j2;
@@ -33,6 +33,7 @@ import java.util.*;
 @Path("/users")
 public class UserResource {
     private GenericDao userDao = new GenericDao(User.class);
+    private GenericDao roleDao = new GenericDao(Role.class);
     ObjectMapper mapper;
         @GET
         @Produces({MediaType.APPLICATION_JSON})
@@ -46,7 +47,19 @@ public class UserResource {
 
             return Response.status(200).entity(users).build();
         }
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("/roles")
+    public Response getAllRoless() throws IOException {
+        List<Role> roleList = roleDao.getAll();
+        log.debug("REST API Data");
+        mapper =  new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        //GenericEntity<List<User>> list =  new GenericEntity<List<User>>(userList) {};
+        String roles = mapper.writeValueAsString(roleList);
 
+        return Response.status(200).entity(roles).build();
+    }
     @GET
     @Path("/username/{username}")
     @Produces(MediaType.APPLICATION_JSON)
