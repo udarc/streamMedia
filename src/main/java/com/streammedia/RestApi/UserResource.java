@@ -1,15 +1,9 @@
 package com.streammedia.RestApi;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonEncoding;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.streammedia.entity.Genre;
 import com.streammedia.entity.User;
 import com.streammedia.perisistence.GenericDao;
 
@@ -20,17 +14,14 @@ import javax.ws.rs.Path;
 
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
+
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.StringWriter;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 /**
  * https://www.connect2java.com/webservices/jax-rs-applicationpath-annotationno-web-xml-example-in-jersey/
