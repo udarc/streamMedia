@@ -9,5 +9,11 @@ import java.util.*;
 
 @ApplicationPath("/api")
 public class ApplicationServices extends Application {
-
+    @Override
+    public Set<Class<?>> getClasses() {
+        HashSet classes = new HashSet<Class<?>>();
+        classes.add(UserResource.class);
+        classes.add(GenreResource.class);
+        return classes;
+    }
 }

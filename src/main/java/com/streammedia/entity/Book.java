@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
 @Entity(name = "Book")
 @Getter
 @Setter
-@XmlRootElement
+@EqualsAndHashCode
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")

@@ -1,5 +1,266 @@
-[DEBUG] 2020-03-31 17:10:31.685 [http-nio-8080-exec-4] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
-[DEBUG] 2020-03-31 17:10:33.485 [http-nio-8080-exec-7] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
-[DEBUG] 2020-03-31 17:56:09.611 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
-[INFO ] 2020-03-31 17:58:05.625 [http-nio-8080-exec-5] GenericDao - Searching for entity with username = admin
-[DEBUG] 2020-03-31 17:58:05.681 [http-nio-8080-exec-5] UserResource - User Resource: admin
+[INFO ] 2020-04-01 19:34:00.118 [http-nio-8080-exec-4] GenericDao - Searching for entity with username = mary
+[INFO ] 2020-04-01 19:34:07.975 [http-nio-8080-exec-5] GenericDao - Searching for entity with username = mary
+[INFO ] 2020-04-01 19:36:03.600 [http-nio-8080-exec-6] GenericDao - Searching for entity with username = admin
+[DEBUG] 2020-04-01 19:45:34.104 [http-nio-8080-exec-10] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:46:36.679 [http-nio-8080-exec-1] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:48:24.614 [http-nio-8080-exec-1] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:50:20.120 [http-nio-8080-exec-2] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:51:21.939 [http-nio-8080-exec-2] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:55:10.245 [http-nio-8080-exec-5] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:55:58.827 [http-nio-8080-exec-2] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 19:57:31.253 [http-nio-8080-exec-1] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[DEBUG] 2020-04-01 20:03:49.233 [http-nio-8080-exec-2] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[ERROR] 2020-04-01 20:03:49.478 [http-nio-8080-exec-2] GenreResource - [ {
+  "genreId" : 1,
+  "title" : "Romance",
+  "description" : "Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales.",
+  "createdAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 14,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SATURDAY",
+    "leapYear" : true,
+    "dayOfYear" : 74,
+    "era" : "CE"
+  },
+  "updatedAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 27,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "FRIDAY",
+    "leapYear" : true,
+    "dayOfYear" : 87,
+    "era" : "CE"
+  }
+} ]
+[DEBUG] 2020-04-01 20:04:45.209 [http-nio-8080-exec-9] GenericDao - The list of Entities [Genre(genreId=1, title=Romance, description=Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales., createdAt=2020-03-14, updatedAt=2020-03-27)]
+[ERROR] 2020-04-01 20:04:45.427 [http-nio-8080-exec-9] GenreResource - [ {
+  "genreId" : 1,
+  "title" : "Romance",
+  "description" : "Stages of 'falling in love' and the subsequent break-up and reconciliation, forbidden love, true love, fairy tales.",
+  "createdAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 14,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SATURDAY",
+    "leapYear" : true,
+    "dayOfYear" : 74,
+    "era" : "CE"
+  },
+  "updatedAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 27,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "FRIDAY",
+    "leapYear" : true,
+    "dayOfYear" : 87,
+    "era" : "CE"
+  }
+} ]
+[DEBUG] 2020-04-01 20:22:11.836 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:22:11.840 [http-nio-8080-exec-2] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:26:14.436 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:26:14.437 [http-nio-8080-exec-2] UserResource - REST API Data
+[ERROR] 2020-04-01 20:26:14.679 [http-nio-8080-exec-2] UserResource - [ {
+  "userId" : 1,
+  "username" : "admin",
+  "email" : "admin@streammedia.com",
+  "password" : "466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78",
+  "firstName" : "Jeanne",
+  "lastName" : "Uwimana",
+  "birthdate" : {
+    "year" : 1999,
+    "month" : "APRIL",
+    "monthValue" : 4,
+    "dayOfMonth" : 13,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "TUESDAY",
+    "leapYear" : false,
+    "dayOfYear" : 103,
+    "era" : "CE"
+  },
+  "picture" : "images/admin/avataaars4.png",
+  "gender" : "Female",
+  "biography" : "Biography",
+  "createdAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 10,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "TUESDAY",
+    "leapYear" : true,
+    "dayOfYear" : 70,
+    "era" : "CE"
+  },
+  "updateAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 16,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "MONDAY",
+    "leapYear" : true,
+    "dayOfYear" : 76,
+    "era" : "CE"
+  },
+  "fullName" : "Jeanne Uwimana",
+  "age" : 20
+}, {
+  "userId" : 2,
+  "username" : "mary",
+  "email" : "mary@streammedia.com",
+  "password" : "55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f",
+  "firstName" : "Mary",
+  "lastName" : "Anne",
+  "birthdate" : {
+    "year" : 2003,
+    "month" : "FEBRUARY",
+    "monthValue" : 2,
+    "dayOfMonth" : 9,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SUNDAY",
+    "leapYear" : false,
+    "dayOfYear" : 40,
+    "era" : "CE"
+  },
+  "picture" : "",
+  "gender" : "Female",
+  "biography" : "Biography More.",
+  "createdAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 11,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "WEDNESDAY",
+    "leapYear" : true,
+    "dayOfYear" : 71,
+    "era" : "CE"
+  },
+  "updateAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 14,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SATURDAY",
+    "leapYear" : true,
+    "dayOfYear" : 74,
+    "era" : "CE"
+  },
+  "fullName" : "Mary Anne",
+  "age" : 17
+}, {
+  "userId" : 3,
+  "username" : "ian",
+  "email" : "ian@madisoncollege.edu",
+  "password" : "c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d",
+  "firstName" : "Ian",
+  "lastName" : "Torrence",
+  "birthdate" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 14,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SATURDAY",
+    "leapYear" : true,
+    "dayOfYear" : 74,
+    "era" : "CE"
+  },
+  "picture" : "images/ian/avataaars3.png",
+  "gender" : "Male",
+  "biography" : "Some Bio.",
+  "createdAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 12,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "THURSDAY",
+    "leapYear" : true,
+    "dayOfYear" : 72,
+    "era" : "CE"
+  },
+  "updateAt" : {
+    "year" : 2020,
+    "month" : "MARCH",
+    "monthValue" : 3,
+    "dayOfMonth" : 15,
+    "chronology" : {
+      "calendarType" : "iso8601",
+      "id" : "ISO"
+    },
+    "dayOfWeek" : "SUNDAY",
+    "leapYear" : true,
+    "dayOfYear" : 75,
+    "era" : "CE"
+  },
+  "fullName" : "Ian Torrence",
+  "age" : 0
+} ]
+[DEBUG] 2020-04-01 20:30:12.294 [http-nio-8080-exec-1] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:30:12.296 [http-nio-8080-exec-1] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:32:08.763 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:32:08.767 [http-nio-8080-exec-2] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:35:39.825 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:35:39.826 [http-nio-8080-exec-2] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:35:39.839 [http-nio-8080-exec-3] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:35:39.844 [http-nio-8080-exec-3] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:42:06.844 [http-nio-8080-exec-2] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:42:06.845 [http-nio-8080-exec-2] UserResource - REST API Data
+[INFO ] 2020-04-01 20:42:25.661 [http-nio-8080-exec-4] GenericDao - Searching for entity with username = mary
+[INFO ] 2020-04-01 20:49:29.372 [http-nio-8080-exec-2] GenericDao - Searching for entity with username = mary
+[DEBUG] 2020-04-01 20:49:35.904 [http-nio-8080-exec-5] GenericDao - Getting Entity by Id 2
+[DEBUG] 2020-04-01 20:49:49.736 [http-nio-8080-exec-6] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-04-01 20:51:58.629 [http-nio-8080-exec-9] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:51:58.629 [http-nio-8080-exec-9] UserResource - REST API Data
+[DEBUG] 2020-04-01 20:52:05.896 [http-nio-8080-exec-3] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-04-01 20:53:42.231 [http-nio-8080-exec-4] GenericDao - Getting Entity by Id 1
+[DEBUG] 2020-04-01 20:53:52.780 [http-nio-8080-exec-5] GenericDao - The list of Entities [User(userId=1, username=admin, email=admin@streammedia.com, password=466881cdec1517cb3f64f996221c406f4052cc8a2f7f1b55f4ff384cba64746b$1$7f8e02e89785d422ea2d90d30722781003ccc4eb0ba7e44bfdf7cf76f195cd78, firstName=Jeanne, lastName=Uwimana, birthdate=1999-04-13, picture=images/admin/avataaars4.png, gender=Female, biography=Biography), User(userId=2, username=mary, email=mary@streammedia.com, password=55358220852e9d54551cfdcf4a042b603373f92637884ac737623554aa2855f4$1$200385ea76e66dd711740d26930a7898c82902c7cc9bdc6b32c66ae56eba4b1f, firstName=Mary, lastName=Anne, birthdate=2003-02-09, picture=, gender=Female, biography=Biography More.), User(userId=3, username=ian, email=ian@madisoncollege.edu, password=c719840bc92e023d8d62531ab305d69dd545f7a255541cd8173ba9d59cd9b41c$1$bb9c048130cd46f2288ae27399c5bb241dc5b7bb2a6a30250ce85688d5ee658d, firstName=Ian, lastName=Torrence, birthdate=2020-03-14, picture=images/ian/avataaars3.png, gender=Male, biography=Some Bio.)]
+[DEBUG] 2020-04-01 20:53:52.781 [http-nio-8080-exec-5] UserResource - REST API Data

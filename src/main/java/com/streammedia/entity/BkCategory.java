@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@XmlRootElement
 public class BkCategory implements Serializable {
 
     @Id

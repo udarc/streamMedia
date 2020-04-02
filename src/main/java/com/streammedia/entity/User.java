@@ -1,4 +1,8 @@
 package com.streammedia.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -27,7 +31,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "User")
 @Table(name = "SM_Users")
-@XmlRootElement
+@JsonIgnoreProperties({"films","roles","trailers","faqs","crews","books","musics","shortStories"})
 public class User implements Serializable {
 
 
@@ -43,6 +47,7 @@ public class User implements Serializable {
     @Column(name = "email",nullable = false)
     private String email;
 
+    @JsonIgnore
     @Column(name = "password",nullable = false)
     private String password;
 
@@ -77,9 +82,10 @@ public class User implements Serializable {
     @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonBackReference
     private Set<Role> roles = new HashSet<Role>();
 
     //Trailers

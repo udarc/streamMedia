@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -31,7 +32,10 @@ public class Role {
     @Column(name = "name")
     private String name;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne
+
     @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
     private User user;
 
