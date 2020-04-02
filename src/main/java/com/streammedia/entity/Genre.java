@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +28,8 @@ import java.util.Set;
 @Table(name = "Genre")
 @EqualsAndHashCode
 @ToString
-public class Genre {
+@JsonIgnoreProperties({"films"})
+public class Genre implements Serializable {
     @Id
     @Column(name = "genre_id")
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
