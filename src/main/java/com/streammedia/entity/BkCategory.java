@@ -23,15 +23,20 @@ public class BkCategory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
+    @Column(name = "bkCategory_id")
     private int bkCategoryId;
 
     private String title;
     private String description;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @Column(name = "created_at")
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;

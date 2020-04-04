@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,6 +22,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "Role")
 @Table(name = "Role")
+@JsonIgnoreProperties({"user"})
 public class Role {
     @Id
     @Column(name = "role_id")
@@ -35,7 +37,6 @@ public class Role {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToOne
-
     @JoinColumn(name = "username",referencedColumnName = "username",nullable = false)
     private User user;
 
