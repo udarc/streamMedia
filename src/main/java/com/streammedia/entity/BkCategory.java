@@ -9,6 +9,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name="BKCategory")
 @Entity(name = "BKCategory")
@@ -40,4 +42,9 @@ public class BkCategory implements Serializable {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "categories")
+    private Set<Book> Books = new HashSet<>();
 }
