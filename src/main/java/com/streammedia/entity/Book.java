@@ -1,23 +1,35 @@
 package com.streammedia.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.ejb.EJBs;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * The type Book.
+ * https://howtoprogramwithjava.com/hibernate-manytomany-unidirectional-bidirectional/
+ */
 @Table(name = "Book")
 @Entity(name = "Book")
 @Getter
 @Setter
-public class Book {
+@EqualsAndHashCode
+public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
+    @Column(name = "book_id")
     private int bookId;
     private  String title;
     @Column(name = "isbn")
@@ -41,8 +53,18 @@ public class Book {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
 
+    @ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "BookCategory",
+            joinColumns = { @JoinColumn(name = "book_id") },
+            inverseJoinColumns = { @JoinColumn(name = "category_id") }
+    )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<BkCategory> categories = new HashSet<>();
 }

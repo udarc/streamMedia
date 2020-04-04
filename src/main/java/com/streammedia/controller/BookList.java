@@ -37,16 +37,6 @@ import java.io.IOException;
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             String action = request.getServletPath();
-
-
-                switch (action) {
-                    default:
-                        listBook(request,response);
-                }
-            }
-
-
-        private void listBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/book/bookList.jsp");
             dispatcher.forward(request, response);
         }

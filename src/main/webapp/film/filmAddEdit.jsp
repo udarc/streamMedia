@@ -36,10 +36,18 @@
                 <div class="col-sm-7">
                 <select name="genre" class="form-control" id="genre" multiple>
                     <option value="select a Genre">Select</option>
-                    <c:forEach var="genre" items="${genres}">
-                        <option value="${genre.genreId}">${genre.title}</option>
-                    </c:forEach>
-
+                    <c:choose>
+                        <c:when test="${film.genres ne null}">
+                            <c:forEach var="genre" items="${film.genres}">
+                                <option value="${genre.genreId}">${genre.title}</option>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach var="genre" items="${genres}">
+                                <option value="${genre.genreId}">${genre.title}</option>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                 </select>
                 </div>
                 <div class="col-sm-2"><a class="btn btn-secondary" href="genre-new">Add Genre</a></div>
@@ -91,12 +99,19 @@
                 <div class="col-sm-7">
                 <select name="crew" class="form-control" id="crew" multiple>
                     <option value="select crew members">Select Crew</option>
-
-                    <c:forEach var="crew" items="${crews}">
-                        <option value="${crew.crewId}">${crew.firstName} ${crew.lastName}</option>
-                    </c:forEach>
-
-                </select>
+                    <c:choose>
+                        <c:when test="${film.crews ne null}">
+                            <c:forEach var="crew" items="${film.crews}">
+                                <option value="${crew.crewId}">${crew.firstName} ${crew.lastName}</option>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach var="crew" items="${crews}">
+                                <option value="${crew.crewId}">${crew.firstName} ${crew.lastName}</option>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+                 </select>
 
                 </div>
                 <div class="col-sm-2"><a class="btn btn-secondary" href="crew-new">Add Crew</a></div>
