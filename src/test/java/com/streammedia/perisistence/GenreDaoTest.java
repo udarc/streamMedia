@@ -2,13 +2,14 @@ package com.streammedia.perisistence;
 
 import com.streammedia.entity.*;
 import com.streammedia.test.utility.Database;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@Log4j2
 public class GenreDaoTest {
     GenericDao genericDao;
 
@@ -58,14 +59,14 @@ public class GenreDaoTest {
     void updateGenreSuccess() {
         String newTitle = "Horror";
         Genre genreToUpdate = (Genre)genericDao.getById(2);
-        assertNotNull(genreToUpdate);
-        System.out.println(genreToUpdate);
         genreToUpdate.setTitle(newTitle);
         genericDao.saveOrUpdate(genreToUpdate);
         Genre retrievedGenre = (Genre)genericDao.getById(2);
-        System.out.println(retrievedGenre);
+        log.debug("Retrieve" + retrievedGenre);
+        log.debug("To Update" + genreToUpdate);
        assertNotNull(retrievedGenre);
         assertTrue(genreToUpdate.equals(retrievedGenre));
+
     }
     /**
      * Verify successful get by property (equal match)

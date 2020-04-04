@@ -54,38 +54,37 @@
 
 ### Week 7
 
-- [ ] Weekly journal entry
-- [ ] Set up authentication locally
-- [ ] Set up authentication on AWS
+- [x] Weekly journal entry
+- [x] Set up authentication locally
+- [x] Set up authentication on AWS
 - [x] Create Contact jsp pages and set it up to send the message to an email
 - [x] Create film, genre, Trailer, Crew and FAQ entities
-- [ ] Review and incorporate any feedback from Checkpoint 2.
+- [x] Review and incorporate any feedback from Checkpoint 2.
 
 ### Week 8
 
 - [ ] Weekly journal entry
-- [ ] Create Music, Book and Book Category tables (test, dev and prod dbs)
-- [ ] Add Music, Book and Book Category entities
+- [x] Create Music, Short Story, Book and Book Category tables (test, dev and prod dbs)
+- [x] Add Music,Short Story, Book and Book Category entities
 - [ ] Create Music, Book and Book Category dao
 - [ ] Create the Music, Book and Book Category unit tests
 - [ ] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented.
 
 ### Week 9
-- [ ] Weekly journal entry
+- [x] Weekly journal entry
 - [ ] Build the trailer search jsp
 - [ ] Add Trailer search entities and DAO
-- [ ] Integration with api/ Web services
-- [ ] Review and incorporate feedback from Checkpoint 3.
+- [x] Integration with api/ Web services
+- [x] Review and incorporate feedback from Checkpoint 3.
 - [ ] Carefully review code for standards and best practices - use a code quality tool?
 ### Week 10
 - [ ] Weekly journal entry
 - [ ] Unit test all api integrations
-- [ ] Weekly journal entry
 - [ ] Add password reset , Password change, send Password Link  and User Profile Update functionality
 - [ ] Start Team project
 
 ### Week 11
-- [ ]  Team project work week
+- [ ] Team project work week
 - [ ] Weekly journal entry
 
 ### Week 12 - Team project due

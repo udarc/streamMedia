@@ -53,7 +53,8 @@ public class Book implements Serializable {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;

@@ -28,7 +28,7 @@
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="title"
-                           id="title" placeholder="Film Title">
+                           id="title" placeholder="Film Title" value="${film.title}">
                 </div>
             </div>
             <div class="form-group row">
@@ -56,44 +56,54 @@
                 <label for="episode" class="col-sm-3 col-form-label">Episode</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="episode" id="episode" placeholder="Episode">
+                           name="episode" id="episode" placeholder="Episode" value="${film.episode}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="director" class="col-sm-3 col-form-label">Director</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="director" id="director" placeholder="Director">
+                           name="director" id="director" placeholder="Director"
+                    value="${film.director}">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="duration" class="col-sm-3 col-form-label">Duration</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control"
-                           name="duration" id="duration" placeholder="Duration">
+                <div class="form-group row">
+                    <label for="duration" class="col-sm-3 col-form-label">Duration</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control"
+                               name="duration" id="duration"  placeholder="Duration"
+                        value="${film.duration}">
+                    </div>
                 </div>
-            </div>
             <div class="form-group row">
                 <label for="cover" class="col-sm-3 col-form-label">Cover</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="cover" id="cover" placeholder="Cover">
+                           name="cover" id="cover" placeholder="Cover" value="${film.cover}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="pub_date" class="col-sm-3 col-form-label">Publication Date</label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control"
-                           name="pub_date" id="pub_date" placeholder="Publication Date">
+                    <input type="datetime-local" class="form-control"
+                           name="pub_date" id="pub_date" placeholder="Publication Date"
+                    value="${film.publicationDate}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="video" class="col-sm-3 col-form-label">Video</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="video" id="video" placeholder="Video">
+                           name="video" id="video" placeholder="Video" value="${film.video}">
                 </div>
             </div>
+                <div class="form-group row">
+                    <label for="link" class="col-sm-3 col-form-label">Link</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control"
+                               name="episode" id="link" placeholder="Link" value="${film.link}">
+                    </div>
+                </div>
             <div class="form-group row">
                 <label for="genre" class="col-sm-3 col-form-label">Crew(s)</label>
                 <div class="col-sm-7">
@@ -119,7 +129,7 @@
             <div class="form-group row">
                 <label for="summary" class="col-sm-3 col-form-label" >Summary</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="summary" id="Summary" rows="6"></textarea>
+                    <textarea class="form-control"name="summary" id="Summary" rows="6">${film.summary}</textarea>
                 </div>
             </div>
             <div class="form-group row">
