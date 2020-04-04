@@ -37,7 +37,7 @@
                 <select name="category" class="form-control" id="category" multiple>
                     <option value="select a Category">Select</option>
                     <c:forEach var="category" items="${categories}">
-                        <option value="${category.categoryId}">${category.title}</option>
+                        <option value="${category.bkCategoryId}">${category.title}</option>
                     </c:forEach>
 
                 </select>
