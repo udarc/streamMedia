@@ -63,7 +63,7 @@ public class Film {
     /**
      * The Genres.
      */
-    @ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
+    @ManyToMany(fetch=FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmGenre",
             joinColumns = { @JoinColumn(name = "film_id") },
@@ -76,7 +76,7 @@ public class Film {
     /**
      * The Crews.
      */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinTable(
             name = "FilmCrew",
             joinColumns = { @JoinColumn(name = "film_id") },

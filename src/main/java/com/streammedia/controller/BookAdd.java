@@ -41,6 +41,7 @@ public class BookAdd extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<BkCategory> categoryList = catDao.getAll();
         req.setAttribute("categories",categoryList );
+        log.debug(categoryList);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/book/bookAddEdit.jsp");
         dispatcher.forward(req,resp);
     }
