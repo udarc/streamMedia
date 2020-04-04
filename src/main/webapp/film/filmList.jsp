@@ -41,6 +41,13 @@
                                         <li class="list-group-item">Time: ${film.duration}</li>
                                         <li class="list-group-item">Directed by: ${film.director}</li>
                                         <li class="list-group-item">Publication Date: ${film.publicationDate}</li>
+                                        <c:forEach var="genre" items="${film.genres}">
+                                            <li class="list-group-item">${genre.title}</li>
+                                        </c:forEach>
+                                        <c:forEach var="genre" items="${film.crews}">
+                                            <li class="list-group-item">${genre.fullName}</li>
+                                        </c:forEach>
+                                        <li class="list-group-item">Publication Date: ${film.publicationDate}</li>
                                         <li class="list-group-item">${film.summary}</li>
                                     </ul>
                                 </div>

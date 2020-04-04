@@ -175,7 +175,7 @@ public class FilmDaoTest {
     @Test
     void  updateFilmWIthExistingCrewAndGenreSuccess(){
 
-        String newTitle = "Home Sweet Home";
+        String newTitle = "Home Sweet";
         Film filmToUpdate = (Film) genericDao.getById(2);
         filmToUpdate.setTitle(newTitle);
         Genre newGenre = (Genre)genreDao.getById(3);
@@ -183,10 +183,10 @@ public class FilmDaoTest {
         System.out.println(genres.size());
 //        genres.clear();
         genres.add(newGenre);
-//        genericDao.saveOrUpdate(filmToUpdate);
+        genericDao.saveOrUpdate(filmToUpdate);
         Film retrieveHFilm = (Film) genericDao.getById(2);
         System.out.println(filmToUpdate.getTitle());
-//        assertTrue(filmToUpdate.equals(retrieveHFilm));
+        assertTrue(filmToUpdate.equals(retrieveHFilm));
 
     }
 }
