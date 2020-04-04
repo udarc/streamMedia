@@ -26,6 +26,7 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
+    @Column(name = "book_id")
     private int bookId;
     private  String title;
     @Column(name = "isbn")

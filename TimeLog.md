@@ -71,6 +71,7 @@
 |Mar 23, 2020|Implemented consuming a REST API of [Movies](https://developers.themoviedb.org/3/genres/get-movie-list)|5.5||
 |Mar 26, 2020| Added get by Id and Insert Test of Film with a genre(s) and Crew(s)|4.5||
 |Mar 27, 2020|Implemented add film with and save in join table of FilmGenre and FilmCrew in join table and List|3.25||
+|Apr 4, 2020| Created BkCategory Tests,and Added JSPs and Servlets for Category CRUD operations and updated Time Log|4.75||
 
 
 

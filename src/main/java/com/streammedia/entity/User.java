@@ -31,7 +31,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "User")
 @Table(name = "SM_Users")
-@JsonIgnoreProperties({"films","roles","trailers","faqs","crews","books","musics","shortStories"})
+@JsonIgnoreProperties({"films","trailers","faqs","crews","books","musics","shortStories"})
 public class User implements Serializable {
 
 
