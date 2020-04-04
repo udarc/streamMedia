@@ -72,7 +72,6 @@ class TrailerDaoTest {
         assertNotEquals(0,id);
         Trailer insertedTrailer = (Trailer)genericDao.getById(id);
         assertEquals(newTrailer,insertedTrailer);
-        assertTrue(newTrailer.equals(insertedTrailer));
 
     }
     /**

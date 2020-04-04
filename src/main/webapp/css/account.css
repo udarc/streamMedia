@@ -14,3 +14,15 @@ form.card {
 .card-img{
     width: 20em;
 }
+
+/*Push button to right*/
+.btn-media-right {
+    display: inline-block;
+    float: right;
+    clear: both;
+}
+.img-resize {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+}

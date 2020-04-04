@@ -49,10 +49,12 @@ public class Crew {
 
     @Column(name = "created_at")
     @CreationTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
 
     @ManyToOne
@@ -82,5 +84,9 @@ public class Crew {
     public void removeFilm(Film film) {
         this.films.remove(film);
         film.getCrews().remove(this);
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
 }

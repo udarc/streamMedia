@@ -10,16 +10,25 @@
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<main class="container">
+<main class="container wrapper">
     <div class="card-deck">
     <div
         <c:choose>
             <c:when test="${user ne null}">
-                <div class="img-responsive">
-                    <img class="card-img-top " src="images/user.png" alt="Card image cap">
+                <div class="img-resize">
+                    <c:choose>
+                        <c:when test="${user.picture ne null}">
+                            <img class="rounded-circle img-fluid" src="${user.picture}" alt="user profile">
+                        </c:when>
+                        <c:otherwise>
+                            <img class="card-img-top " src="images/user.png" alt="Card image cap">
+                        </c:otherwise>
+                    </c:choose>
+                    <c:if test="${user.picture ne null}"></c:if>
+
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title"> Name: ${user.firstName} ${user.lastName}</h1>
+                    <h1 class="card-title"> Name: ${user.fullName}</h1>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Role(s):
                             <c:forEach var="role" items="${user.roles}" >
@@ -27,11 +36,14 @@
                             </c:forEach>
                         </li>
                         <li class="list-group-item">Email: ${user.email}</li>
-
+                        <li class="list-group-item">Age: ${user.age}</li>
                         <li class="list-group-item">Bio: ${user.biography}</li>
 
-                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">Edit</a>
-                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">Delete</a></li>
+                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out 
+                        value="${user.username}"/>">
+                            <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">
+                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></li>
                     </ul>
                 </div>
             </c:when>
