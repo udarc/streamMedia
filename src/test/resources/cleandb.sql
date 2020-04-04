@@ -6,6 +6,7 @@ DELETE FROM FilmCrew;
 DELETE FROM Film;
 DELETE FROM Genre;
 DELETE FROM Crew;
+DELETE FROM BKCategory;
 DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
@@ -59,3 +60,12 @@ INSERT INTO FilmGenre(film_id,genre_id)
 VALUES(1,2);
 INSERT INTO FilmCrew(film_id,crew_id)
 VALUES(1,5);
+
+
+INSERT INTO BKCategory(bkCategory_id,title,description ,created_at) VALUES
+(1,'Comic Book or Graphic Novel','The stories in comic books and graphic novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that''s either presented in a specific design or the traditional panel layout you find in comics.',Now()),
+(2,'Detective and Mystery','The plot always revolves around a crime of sorts that must be solved—or foiled—by the protagonists.',NOW()),
+(3,'Fantasy','While usually set in a fictional imagined world—in opposition, Ta-Nehisi''s Coates''s The Water Dancer takes place in the very real world of American slavery—fantasy books include prominent elements of magic, mythology, or the supernatural.',Now()),
+(4,'Historical Fiction','These books are based in a time period set in the past decades, often against the backdrop of significant (real) historical events.',Now()),
+(5,'Horror','Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.',Now()),
+(6,'Literary Fiction','Though it can be seen as a broad genre that encompasses many others, literary fiction refers to the perceived artistic writing style of the author. Their prose is meant to evoke deep thought through stories that offer personal or social commentary on a particular theme.',Now());
