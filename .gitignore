@@ -57,6 +57,5 @@ fabric.properties
 /notes/SearchUser.java
 /src/main/resources/*
 /src/test/resources/*
-/logs/
+/logs/*
 /profiles/
-
