@@ -72,7 +72,8 @@
 |Mar 26, 2020| Added get by Id and Insert Test of Film with a genre(s) and Crew(s)|4.5||
 |Mar 27, 2020|Implemented add film with and save in join table of FilmGenre and FilmCrew in join table and List|3.25||
 |Apr 4, 2020| Created BkCategory Tests,and Added JSPs and Servlets for Category CRUD operations and updated Time Log|4.75||
-|Apr 16, 2020|||
+|Apr 16, 2020|Updated the User edit to allow update with changing picture and replace old but new image |3|
+
 
 
 
