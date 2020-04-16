@@ -1,5 +1,6 @@
 package com.streammedia.controller;
 //TODO https://www.javatpoint.com/crud-in-servlet
+
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import com.streammedia.utility.JavaHelperMethods;
@@ -22,6 +23,7 @@ import java.util.Enumeration;
  * The type Edit user profile.
  * Responsible for getting form data to update User's record
  * upload an image https://www.youtube.com/watch?v=WtZm1bB6T-8
+ *
  * @author Jeanne
  * @version 1.0
  */
@@ -30,11 +32,11 @@ import java.util.Enumeration;
         name = "userEdit",
         urlPatterns = {"/profile-edit"}
 )
-@MultipartConfig(fileSizeThreshold=1024*1024*1, // 1MB
-        maxFileSize=1024*1024*2,      // 3MB
-        maxRequestSize=1024*1024*50)   // 50MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1MB
+        maxFileSize = 1024 * 1024 * 2,      // 3MB
+        maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class UserEditProfile extends HttpServlet {
-    private GenericDao  genericDao;
+    private GenericDao genericDao;
     /**
      * Name of the directory where uploaded files will be saved, relative to
      * the web application directory.
@@ -42,11 +44,12 @@ public class UserEditProfile extends HttpServlet {
     private static final String SAVE_DIR = "images";
     private String appPath;
     private String rootPath;
+
     public void init() {
         // gets absolute path of the web application
         appPath = getServletContext().getRealPath("") + File.separator + SAVE_DIR;
         // constructs path of the directory to save uploaded file
-        File file = new File("/home/student/IdeaProjects/streamMedia/src/main/webapp" );
+        File file = new File("/home/student/IdeaProjects/streamMedia/src/main/webapp");
         rootPath = file.getAbsolutePath() + File.separator + SAVE_DIR;
         genericDao = new GenericDao(User.class);
     }
@@ -66,7 +69,7 @@ public class UserEditProfile extends HttpServlet {
         HttpSession session = request.getSession();
 
         String username = request.getParameter("user");
-        request.setAttribute("user", genericDao.getByPropertyEqual("username",username).get(0));
+        request.setAttribute("user", genericDao.getByPropertyEqual("username", username).get(0));
         String url = "/account/editUserProfile.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
@@ -86,13 +89,14 @@ public class UserEditProfile extends HttpServlet {
         log.debug("Root Project Path: " + rootPath);
 
         String username = req.getParameter("user");
+        log.debug(" User EDIt Username Value : " + username);
         User user = (User) genericDao.getByPropertyEqual("username", username).get(0);
-        if((req.isUserInRole("admin") || req.isUserInRole("user"))
+        if ((req.isUserInRole("admin") || req.isUserInRole("user"))
                 && username.equals(user.getUsername())) {
-            String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//","/");
-            String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//","/");
+            String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//", "/");
+            String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//", "/");
 
-            log.error("Value of Get Parameter " + username);
+            log.error("Value of Get Parameter " + username + " " + saveImage);
 
             user.setEmail(req.getParameter("email"));
             user.setUsername(username);
@@ -100,28 +104,30 @@ public class UserEditProfile extends HttpServlet {
             user.setLastName(req.getParameter("lastName"));
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String birthdate = req.getParameter("birthday");
-            log.debug("Test for getting birth date " + birthdate);
-            if(birthdate==null || birthdate == ""){
-                user.setBirthdate(LocalDate.now());
-                log.debug("Test for getting birth date " + birthdate);
+            if (birthdate == null || birthdate == "") {
+                birthdate = LocalDate.now().toString();
+                user.setBirthdate(LocalDate.parse(birthdate));
 
-            } else{
-                log.debug("Test for getting birth date " + birthdate);
+            } else {
+
                 user.setBirthdate(LocalDate.parse(birthdate, formatter));
             }
             user.setGender(req.getParameter("gender"));
-            Part part =  req.getPart("profilePicture");
-            String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
-            String projectPath = JavaHelperMethods.saveFileName (saveImage,part);
-            user.setPicture(projectPath.substring(55,projectPath.length()));
+            Part part = req.getPart("profilePicture");
+            log.debug("Test an emapty Part: " + part.getSubmittedFileName());
+            if (part.getSubmittedFileName().length() > 0) {
+//                String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
+                String projectPath = JavaHelperMethods.saveFileName(saveImage, part);
+                user.setPicture(projectPath.substring(55, projectPath.length()));
+            }
+
             user.setBiography(req.getParameter("biography"));
-            user.setUpdateAt(LocalDate.now());
+            log.error(user);
             log.debug("Updating User: " + user);
             genericDao.saveOrUpdate(user);
-            if(req.isUserInRole("admin")){
+            if (req.isUserInRole("admin")) {
                 resp.sendRedirect("users");
-            }
-            else {
+            } else {
                 resp.sendRedirect("user-profile");
             }
         }
