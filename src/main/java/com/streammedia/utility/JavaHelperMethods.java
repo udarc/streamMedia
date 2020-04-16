@@ -80,10 +80,11 @@ public class JavaHelperMethods {
     }
     public static String saveFileName(String saveImagePath, Part part) throws IOException {
         String fileName = JavaHelperMethods.extractFileName(part);
-        fileName = new File(fileName).getName();
-        saveImagePath = saveImagePath + File.separator+ fileName;
-        part.write(saveImagePath);
-        return saveImagePath;
+        log.debug("File Exists: " + fileName.length() );
+            fileName = new File(fileName).getName();
+            saveImagePath = saveImagePath + File.separator + fileName;
+            part.write(saveImagePath);
+            return saveImagePath;
     }
 
 }

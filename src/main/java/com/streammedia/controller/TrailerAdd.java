@@ -19,6 +19,7 @@ import java.time.*;
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  * The type Add trailer.
  * Responsible for getting form data for new trailer
+ *
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-25
@@ -29,44 +30,46 @@ import java.time.*;
         name = "trailerAdd",
         urlPatterns = {"/add-trailer"}
 )
-@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
-        maxFileSize=1024*1024*1000,      // 1GB
-        maxRequestSize=1024*1024*50)   // 50MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 1000,      // 1GB
+        maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class TrailerAdd extends HttpServlet {
     private GenericDao trailerDao;
-    private  GenericDao userDao;
+    private GenericDao userDao;
     private final static String UPLOAD_DIR = "media";
     private String appPath;
-    private  String webPath;
+    private String webPath;
     private Trailer trailer;
-    private  String className;
+    private String className;
+
     public void init() {
         trailer = new Trailer();
         //Extract the name of the class
         className = JavaHelperMethods.retrieveClassName(trailer);
 
         trailerDao = new GenericDao(Trailer.class);
-        userDao =  new GenericDao(User.class);
+        userDao = new GenericDao(User.class);
         //Create Path to directories
         // constructs path of the directory to save uploaded file
         appPath = getServletContext().getRealPath(File.separator) + File.separator + UPLOAD_DIR;
         // constructs path of the directory to save uploaded file
-        File file = new File(appPath.substring(0,39) + "src/main/webapp" );
+        File file = new File(appPath.substring(0, 39) + "src/main/webapp");
         webPath = file.getAbsolutePath() + File.separator + UPLOAD_DIR;
 
     }
+
     /**
-     *  Handles HTTP GET requests.
+     * Handles HTTP GET requests.
      *
-     *@param  request               Description of the Parameter
-     *@param  response              Description of the Parameter
-     *@exception ServletException  if there is a Servlet failure
-     *@exception IOException       if there is an IO failure
+     * @param request  Description of the Parameter
+     * @param response Description of the Parameter
+     * @throws ServletException if there is a Servlet failure
+     * @throws IOException      if there is an IO failure
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           if (request.isUserInRole("admin")) {
+        if (request.isUserInRole("admin")) {
             String url = "/trailer/trailerAddEdit.jsp";
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
@@ -74,29 +77,29 @@ public class TrailerAdd extends HttpServlet {
             response.sendRedirect("login");
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException{
+            throws ServletException, IOException {
         //Create fullPath
         trailer.setTitle(req.getParameter("title").trim());
         trailer.setAuthor(req.getParameter("author").trim());
         trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
         log.debug("After Duration: " + trailer);
         String pubDate = req.getParameter("pub_date").trim();
-        if( pubDate == null || pubDate.length() <= 0 ) {
+        if (pubDate == null || pubDate.length() <= 0) {
             trailer.setPublicationDate(LocalDateTime.now());
-        }
-        else {
+        } else {
             trailer.setPublicationDate(LocalDateTime.parse(pubDate));
         }
-       trailer.setLink(req.getParameter("link"));
+        trailer.setLink(req.getParameter("link"));
 
-       String saveAtTarget = JavaHelperMethods.createUserImagePath(appPath, className).replace("//","/");
-       String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//","/");
+        String saveAtTarget = JavaHelperMethods.createUserImagePath(appPath, className).replace("//", "/");
+        String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//", "/");
         log.debug("Paths: " + saveAtWebApp);
-        Part part =  req.getPart("cover");
-        Part videoPart =  req.getPart("video");
-       if(!part.equals(null) || !videoPart.equals(null)) {
+        Part part = req.getPart("cover");
+        Part videoPart = req.getPart("video");
+        if (!part.equals(null) || !videoPart.equals(null)) {
 //
             String targetPathC = JavaHelperMethods.saveFileName(saveAtTarget, part);
 //            String projectPathC = JavaHelperMethods.saveFileName (saveAtWebApp,part);
@@ -124,7 +127,7 @@ public class TrailerAdd extends HttpServlet {
             } else {
                 req.getRequestDispatcher("/trailer/trailerAddEdit.jsp").forward(req, resp);
             }
-        }catch (NullPointerException npe){
+        } catch (NullPointerException npe) {
             log.error("User Does not Exists", npe);
         }
     }

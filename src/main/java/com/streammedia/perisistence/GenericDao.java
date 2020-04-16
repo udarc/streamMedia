@@ -82,7 +82,7 @@ public class GenericDao <T> {
     }
 
     /**
-     * update Entity
+     * Create Entity
      *
      * @param entity Entity to be inserted or updated
      * @return the int
@@ -95,7 +95,7 @@ public class GenericDao <T> {
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
-        log.debug("A new user was Added with an Id" + id);
+        log.debug("A new Enitity was Added with an Id" + id);
         return id;
     }
 
