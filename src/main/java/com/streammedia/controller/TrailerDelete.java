@@ -1,7 +1,6 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Trailer;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -14,13 +13,14 @@ import java.io.IOException;
 
 /**
  * The type Trailer delete.
+ *The servlet to delete Trailer and redirect to a specified url
  * @author Jeanne
+ * @version 1.0
+ * @since 2020-02-21
  */
 @WebServlet(
             urlPatterns = {"/remove-trailer"}
     )
-
-
     public class TrailerDelete extends HttpServlet {
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -28,9 +28,6 @@ import java.io.IOException;
             genericDao.delete(genericDao.getById(Integer.parseInt(req.getParameter("uid"))));
             resp.sendRedirect("trailers");
         }
-
-
-
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             doPost(req, resp);

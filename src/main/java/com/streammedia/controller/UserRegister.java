@@ -1,25 +1,28 @@
 package com.streammedia.controller;
-import com.streammedia.entity.Role;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+
+import org.apache.catalina.realm.MessageDigestCredentialHandler;
+import org.apache.catalina.CredentialHandler;
+
 
 /**
  * The type Register user.
+ * Simple servlet to get form data
  * @author Jeanne
+ * @version 1.0
  */
 @Log4j2
 @WebServlet(
-        name = "signup",
+        name = "signUp",
         urlPatterns = {"/register"}
 )
 public class UserRegister extends HttpServlet {
@@ -48,17 +51,24 @@ public class UserRegister extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
+        MessageDigestCredentialHandler credentialHandler = new MessageDigestCredentialHandler();
+        try {
+            credentialHandler.setAlgorithm("sha-256");
+        } catch (NoSuchAlgorithmException e) {
+            log.error(e);
+        }
+        credentialHandler.setEncoding("UTF-8");
+        String password = req.getParameter("password");
         user.setUsername(req.getParameter("username"));
         user.setEmail(req.getParameter("email"));
         user.setFirstName(req.getParameter("firstname"));
         user.setLastName(req.getParameter("lastname"));
-        user.setPassword(req.getParameter("password"));
+
         String confirmPassword = req.getParameter("confirmPassword");
-        user.setCreatedAt(LocalDate.now());
-        user.setUpdateAt(LocalDate.now());
 
-        if(confirmPassword.equals(user.getPassword())){
-
+        if(confirmPassword.equals(password)){
+            String hashedPassword = credentialHandler.mutate(password);
+            user.setPassword(hashedPassword);
             log.debug("Adding User: " + user);
         Role role = new Role();
         role.setUser(user);

@@ -2,5 +2,80 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Stream Media</display-name>
+
+  <!-- Tell the server to use form-based authentication. -->
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/account/signin.jsp</form-login-page>
+      <form-error-page>/account/signinError.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <!-- Protect the user search page. -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>AdminRoleRequired</web-resource-name>
+      <url-pattern>/search.jsp</url-pattern>
+<!--      Users-->
+      <url-pattern>/users</url-pattern>
+      <url-pattern>/account/listUser.jsp</url-pattern>
+      <!--      Trailer-->
+      <url-pattern>/add-trailer</url-pattern>
+      <url-pattern>/trailer-edit</url-pattern>
+      <url-pattern>/remove-trailer</url-pattern>
+      <url-pattern>/trailer/trailerEdit.jsp</url-pattern>
+      <url-pattern>/trailer/trailerAdd.jsp</url-pattern>
+<!--      FAQ-->
+      <url-pattern>/faq-new</url-pattern>
+      <url-pattern>/faq-delete</url-pattern>
+      <url-pattern>/faq-edit</url-pattern>
+      <url-pattern>/faq/faqAdd.jsp</url-pattern>
+<!--      Genre / Film/ Crew-->
+      <url-pattern>/crew-new</url-pattern>
+      <url-pattern>/crew-delete</url-pattern>
+      <url-pattern>/crew-edit</url-pattern>
+      <url-pattern>/genre-new</url-pattern>
+      <url-pattern>/genre-delete</url-pattern>
+      <url-pattern>/genre-edit</url-pattern>
+      <url-pattern>/film/crewAddEdit.jsp</url-pattern>
+      <url-pattern>/film/genreAddEdit.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- Protect everything in the adminOnly directory -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>AdminUserRoleRequired</web-resource-name>
+      <url-pattern>/user-profile</url-pattern>
+      <url-pattern>/profile-edit</url-pattern>
+      <url-pattern>/user-profile</url-pattern>
+      <url-pattern>/logout</url-pattern>
+      <url-pattern>/account/profile.jsp</url-pattern>
+      <url-pattern>/account/editUserProfile.jsp</url-pattern>
+      <url-pattern>/account/logout.jsp</url-pattern>
+      <url-pattern>/account/logout.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404Error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500Error.jsp</location>
+  </error-page>
 </web-app>

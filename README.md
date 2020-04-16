@@ -70,4 +70,5 @@ IDE: IntelliJ IDEA
 * [Screen Design](projectDesigns/Screens.md)
 * [Application Flow](projectDesigns/applicationFlow.md)
 * [Database Design](projectDesigns/DatabaseDiagram.png)
+* [UML Design](projectDesigns/SCHEMA:streamMedia.uml)
 * [High  Level Navigation](projectDesigns/image.png)

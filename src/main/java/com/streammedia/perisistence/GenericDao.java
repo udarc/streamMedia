@@ -1,8 +1,7 @@
 package com.streammedia.perisistence;
 
-import com.streammedia.entity.User;
 import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.*;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -83,7 +82,7 @@ public class GenericDao <T> {
     }
 
     /**
-     * update Entity
+     * Create Entity
      *
      * @param entity Entity to be inserted or updated
      * @return the int
@@ -96,7 +95,7 @@ public class GenericDao <T> {
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
-        log.debug("A new user was Added with an Id" + id);
+        log.debug("A new Enitity was Added with an Id" + id);
         return id;
     }
 
@@ -158,5 +157,4 @@ public class GenericDao <T> {
         session.close();
         return list;
     }
-
 }

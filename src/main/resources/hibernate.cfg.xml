@@ -6,7 +6,6 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/streamMedia</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <property name="connection.username">root</property>
         <property name="connection.password">student</property>
@@ -19,9 +18,13 @@
         <mapping class="com.streammedia.entity.User"/>
         <mapping class="com.streammedia.entity.Role"/>
         <mapping class="com.streammedia.entity.Trailer"/>
+        <mapping class="com.streammedia.entity.FAQ"/>
         <mapping class="com.streammedia.entity.Genre"/>
         <mapping class="com.streammedia.entity.Film"/>
-        <mapping class="com.streammedia.entity.FAQ"/>
         <mapping class="com.streammedia.entity.Crew"/>
+        <mapping class="com.streammedia.entity.BkCategory"/>
+        <mapping class="com.streammedia.entity.Book"/>
+        <mapping class="com.streammedia.entity.Music"/>
+        <mapping class="com.streammedia.entity.ShortStory"/>
     </session-factory>
 </hibernate-configuration>

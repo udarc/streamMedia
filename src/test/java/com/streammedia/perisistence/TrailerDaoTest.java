@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -65,13 +66,12 @@ class TrailerDaoTest {
     @Test
     void insertSuccess() {
         User user = (User)userDao.getById(2);
-        Trailer newTrailer = new Trailer("Test","Author", LocalTime.parse("00:01:20"),LocalDate.now(),"Sme Data for Test",LocalDate.now(),LocalDate.now(),user);
+        Trailer newTrailer = new Trailer("Test","Author", LocalTime.parse("00:01:20"), LocalDateTime.now(),"Sme Data for Test",LocalDateTime.now(),LocalDateTime.now(),user);
         log.debug(newTrailer);
         int id = genericDao.insert(newTrailer);
         assertNotEquals(0,id);
         Trailer insertedTrailer = (Trailer)genericDao.getById(id);
         assertEquals(newTrailer,insertedTrailer);
-        assertTrue(newTrailer.equals(insertedTrailer));
 
     }
     /**
