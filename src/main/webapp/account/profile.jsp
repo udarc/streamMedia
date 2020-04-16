@@ -5,35 +5,54 @@
   Time: 7:19 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css">
+</head>
 <body>
 <%@include file="../navbar.jsp"%>
-<div class="container">
-    <main>
+<main class="container wrapper">
     <div class="card-deck">
-    <div class="card">
-        <div class="card-img">
-            <img class="card-img-top" src="../images/user.png" alt="Card image cap">
-        </div>
+    <div
+        <c:choose>
+            <c:when test="${user ne null}">
+                <div class="img-resize">
+                    <c:choose>
+                        <c:when test="${user.picture ne null}">
+                            <img class="rounded-circle img-fluid" src="${user.picture}" alt="user profile">
+                        </c:when>
+                        <c:otherwise>
+                            <img class="card-img-top " src="images/user.png" alt="Card image cap">
+                        </c:otherwise>
+                    </c:choose>
+                    <c:if test="${user.picture ne null}"></c:if>
 
-        <div class="card-body">
-            <h5 class="card-title">Name</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-            <p>Bio</p>
-        </div>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title"> Name: ${user.fullName}</h1>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Role(s):
+                            <c:forEach var="role" items="${user.roles}" >
+                                ${role.name}
+                            </c:forEach>
+                        </li>
+                        <li class="list-group-item">Email: ${user.email}</li>
+                        <li class="list-group-item">Age: ${user.age}</li>
+                        <li class="list-group-item">Bio: ${user.biography}</li>
+
+                        <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out 
+                        value="${user.username}"/>">
+                            <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+                            <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">
+                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></li>
+                    </ul>
+                </div>
+            </c:when>
+            <c:otherwise></c:otherwise>
+        </c:choose>
+
     </div>
     </div>
-</div>
+</main>
 
-</div>
 <%@include file="../footer.jsp"%>
 <%@include file="../afterFooter.jsp"%>

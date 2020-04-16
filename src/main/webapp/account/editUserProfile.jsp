@@ -5,20 +5,18 @@
   Time: 1:18 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="../css/account.css">
+</head>
 <body>
 <%@include file="../navbar.jsp"%>
-<div class="container">
+<div class="container wrapper">
     <div class="form row">
         <form class="card col-sm-10 offset-sm-1"
-        method="post" action="profile-edit">
+        method="post" action="profile-edit" enctype="multipart/form-data">
             <input type="hidden" id="id"
-                   name="id"
-                   value="${user.userId}">
+                   name="user"
+                   value="${user.username}">
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
@@ -85,7 +83,7 @@
                 <div class="col-sm-9">
                     <input type="file" class="form-control-file"
                            name="profilePicture" id="profilePicture"
-                    ${user.picture}>
+                   value="${user.picture}">
                 </div>
             </div>
 

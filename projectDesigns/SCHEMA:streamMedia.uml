@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>971ee40d-765e-43a3-aa8a-259ce655d07a.SCHEMA:streamMedia</OriginalElement>
+  <nodes>
+    <node x="648.5" y="0.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users</node>
+    <node x="1074.5" y="493.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Role</node>
+    <node x="5.5" y="493.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Genre</node>
+    <node x="350.34722222222234" y="818.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmCrew</node>
+    <node x="431.5" y="445.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Crew</node>
+    <node x="648.5" y="409.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Trailer</node>
+    <node x="88.09722222222229" y="818.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmGenre</node>
+    <node x="861.5" y="469.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.faq</node>
+    <node x="218.5" y="397.0">971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Film</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmGenre" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Film">
+      <point x="48.25" y="-89.5" />
+      <point x="232.84722222222229" y="793.0" />
+      <point x="266.75" y="793.0" />
+      <point x="-48.25" y="185.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Trailer" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users">
+      <point x="0.0" y="-173.5" />
+      <point x="0.0" y="173.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Role" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users">
+      <point x="0.0" y="-89.5" />
+      <point x="1171.0" y="367.0" />
+      <point x="822.1999999999999" y="367.0" />
+      <point x="77.19999999999993" y="173.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmCrew" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Film">
+      <point x="-48.25000000000006" y="-89.5" />
+      <point x="398.5972222222223" y="793.0" />
+      <point x="363.25" y="793.0" />
+      <point x="48.25" y="185.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.faq" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users">
+      <point x="0.0" y="-113.5" />
+      <point x="958.0" y="377.0" />
+      <point x="783.5999999999999" y="377.0" />
+      <point x="38.59999999999991" y="173.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Film" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users">
+      <point x="0.0" y="-185.5" />
+      <point x="315.0" y="367.0" />
+      <point x="667.8" y="367.0" />
+      <point x="-77.19999999999999" y="173.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmGenre" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Genre">
+      <point x="-48.25" y="-89.5" />
+      <point x="136.34722222222229" y="793.0" />
+      <point x="102.0" y="793.0" />
+      <point x="0.0" y="89.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Crew" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.SM_Users">
+      <point x="0.0" y="-137.5" />
+      <point x="530.0" y="377.0" />
+      <point x="706.4" y="377.0" />
+      <point x="-38.60000000000002" y="173.5" />
+    </edge>
+    <edge source="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.FilmCrew" target="971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.Crew">
+      <point x="48.24999999999994" y="-89.5" />
+      <point x="495.0972222222223" y="793.0" />
+      <point x="530.0" y="793.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5830875122910522" x="634.0" y="498.49999999999994" />
+  <SelectedNodes>
+    <node>971ee40d-765e-43a3-aa8a-259ce655d07a.TABLE:streamMedia.faq</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

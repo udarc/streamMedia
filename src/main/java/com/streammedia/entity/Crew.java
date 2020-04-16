@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Set;
 
 /**
  * The type Role.
+ *
  * @author Jeanne
  */
 @Getter
@@ -23,6 +25,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity(name = "Crew")
 @Table(name = "Crew")
+//@Proxy(lazy=false)
 public class Crew {
     @Id
     @Column(name = "crew_id")
@@ -44,14 +47,46 @@ public class Crew {
     @Column(name = "biography")
     private String biography;
 
-    @Column(name = "created_at",nullable = false, updatable = false)
+    @Column(name = "created_at")
+    @CreationTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate createdAt;
 
-    @Column(name = "updated_at",nullable = false)
+    @Column(name = "updated_at")
+    @UpdateTimestamp
+    @EqualsAndHashCode.Exclude
     private LocalDate updateAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToMany(mappedBy = "crews")
     private Set<Film> films = new HashSet<>();
+
+    /**
+     * Add film.
+     *
+     * @param film the film
+     */
+    public void addFilm(Film film) {
+        this.films.add(film);
+        film.getCrews().add(this);
+    }
+
+    /**
+     * Remove film.
+     *
+     * @param film the film
+     */
+    public void removeFilm(Film film) {
+        this.films.remove(film);
+        film.getCrews().remove(this);
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
 }

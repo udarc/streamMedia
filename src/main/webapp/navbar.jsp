@@ -1,18 +1,41 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <header>
-    <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000;">
-            <ul id="utility" class="nav ml-auto">
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a class="nav-link"  href="users">Users</a>
-                </li>
-                    <a class="nav-link"  href="register">Register</a>
-                </li>
-                </li>
-                <a class="nav-link"  href="profile-edit?id=1">Edit Porfile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  href="./account/signin.jsp">Login</a>
-                </li>
+    <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000!important;">
+            <ul id="utility" class="nav  ml-auto">
+                <c:if test="${request.getRemoteUser()}">
+                    <p class="alert alert-success">${request.getRemoteUser()}</p>
+                </c:if>
+
+                <c:choose>
+                    <c:when test="${(pageContext.request.isUserInRole('admin')) ||
+                                    (pageContext.request.isUserInRole('user')) }">
+                        <c:if test="${(pageContext.request.isUserInRole('admin'))}">
+                            <li class="nav-item">
+                                <a class="nav-link"  href="users">Users</a>
+                            </li>
+                        </c:if>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="profile-edit?user=<%= request.getRemoteUser()%>">Edit Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="user-profile">Profile ${user.username}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="logout">Logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="login">Login</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+
             </ul>
     </nav>
 
@@ -32,17 +55,26 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="streammedia" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Media</a>
-                    <div class="dropdown-menu" aria-labelledby="streammedia">
-                        <a class="dropdown-item" href="#">Film</a>
+                    <div class="dropdown-menu" aria-labelledby="/streammedia">
+                        <a class="dropdown-item" href="books">Books</a>
+                        <a class="dropdown-item" href="films">Films</a>
+                        <a class="dropdown-item" href="short-stories">Short Stories</a>
                         <a class="dropdown-item" href="trailers">Trailers</a>
-                        <a class="dropdown-item" href="#">Short Stories</a>
+
+
                     </div>
                 </li>
             </ul>
         </div>
-        <form action="searchUser" method="get" class="form-inline">
+        <form action="#" method="get" class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="faqs">FAQ</a>
+        </li>
+        </ul>
     </nav>
 </header>
+

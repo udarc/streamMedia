@@ -5,14 +5,14 @@
   Time: 3:25 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
 <%@include file="head.jsp"%>
-<link rel="stylesheet" href="css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css"/>
+</head>
 <body>
 <%@include file="navbar.jsp"%>
-<div class="container">
-    <div class="form row">
+
+<div class="container wrapper">
+    <main class="form row">
         <h1>Contact Us</h1>
         <form class="card col-sm-10 offset-sm-1" action="contact-us" method="post">
             <div class="form-group row">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </main>
 
 </div>
 <%@include file="footer.jsp"%>
