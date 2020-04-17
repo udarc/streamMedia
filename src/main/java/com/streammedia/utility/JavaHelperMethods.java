@@ -74,17 +74,28 @@ public class JavaHelperMethods {
         String saveImagePath = appPath  + File.separator + fieldName;
         File imageSaveDir = new File(saveImagePath);
         if (!imageSaveDir.exists()) {
-            imageSaveDir.mkdir();
+            imageSaveDir.mkdirs();
         }
         return saveImagePath;
     }
-    public static String saveFileName(String saveImagePath, Part part) throws IOException {
+
+    private static String saveMedia(String saveImagePath, Part part) throws IOException {
         String fileName = JavaHelperMethods.extractFileName(part);
         log.debug("File Exists: " + fileName.length() );
-            fileName = new File(fileName).getName();
-            saveImagePath = saveImagePath + File.separator + fileName;
-            part.write(saveImagePath);
-            return saveImagePath;
+        log.debug("Submit: " + part.getSubmittedFileName());
+        fileName = new File(fileName).getName();
+        saveImagePath = saveImagePath + File.separator + fileName;
+        part.write(saveImagePath);
+        return saveImagePath;
+    }
+
+    public static String saveVideo(String saveImagePath, Part part) throws IOException {
+        saveImagePath = saveMedia(saveImagePath, part);
+        return saveImagePath;
+    }
+    public static String saveFileName(String saveImagePath, Part part) throws IOException {
+        saveImagePath = saveMedia(saveImagePath, part);
+        return saveImagePath;
     }
 
 }

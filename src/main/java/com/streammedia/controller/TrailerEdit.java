@@ -55,7 +55,8 @@ public class TrailerEdit extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int trailerId = Integer.valueOf(req.getParameter("uid"));
         Trailer trailer = (Trailer)genericDao.getById(trailerId);
-        if (!trailer.equals(null)) {
+        if (trailer.getUser().getUsername().equals(req.getRemoteUser())
+                || req.isUserInRole("admin")) {
             trailer.setTitle(req.getParameter("title"));
             trailer.setAuthor(req.getParameter("author"));
             trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
@@ -65,14 +66,8 @@ public class TrailerEdit extends HttpServlet {
             trailer.setVideo(req.getParameter("video"));
             trailer.setSummary(req.getParameter("summary").trim());
             log.debug("Updating Trailer: " + trailer.getTitle());
-            if(req.isUserInRole("admin")){
                 genericDao.saveOrUpdate(trailer);
-            } else {
-                return; //TODO add a message
-            }
-
-            String destination = "trailer-detail?uid=" + trailerId;
-            resp.sendRedirect(destination);
+            resp.sendRedirect("trailer-detail?uid=" + trailer.getTrailerId());
         }
     }
 }
