@@ -32,10 +32,10 @@
 
                         <div class="card-body">
                             <c:if test="${pageContext.request.isUserInRole('admin')}">
-                            <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">
-                                <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
-                            <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">
-                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
+                                <a class="card-link btn btn-primary" href="trailer-edit?uid=<c:out value="${trailer.trailerId}"/>">
+                                    <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+                                <a  class="card-link btn btn-danger" href="remove-trailer?uid=<c:out value="${trailer.trailerId}"/>">
+                                    <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
                             </c:if>
 
                         </div>

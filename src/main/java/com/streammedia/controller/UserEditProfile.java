@@ -36,12 +36,12 @@ import java.util.Enumeration;
         maxFileSize = 1024 * 1024 * 2,      // 3MB
         maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class UserEditProfile extends HttpServlet {
-    private GenericDao genericDao;
     /**
      * Name of the directory where uploaded files will be saved, relative to
      * the web application directory.
      */
     private static final String SAVE_DIR = "images";
+    private GenericDao genericDao;
     private String appPath;
     private String rootPath;
 
@@ -93,12 +93,7 @@ public class UserEditProfile extends HttpServlet {
         User user = (User) genericDao.getByPropertyEqual("username", username).get(0);
         if ((req.isUserInRole("admin") || req.isUserInRole("user"))
                 && username.equals(user.getUsername())) {
-            String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//", "/");
-            String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//", "/");
-
-            log.error("Value of Get Parameter " + username + " " + saveImage);
-
-            user.setEmail(req.getParameter("email"));
+                       user.setEmail(req.getParameter("email"));
             user.setUsername(username);
             user.setFirstName(req.getParameter("firstName"));
             user.setLastName(req.getParameter("lastName"));
@@ -116,6 +111,8 @@ public class UserEditProfile extends HttpServlet {
             Part part = req.getPart("profilePicture");
             log.debug("Test an emapty Part: " + part.getSubmittedFileName());
             if (part.getSubmittedFileName().length() > 0) {
+                String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//", "/");
+                String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//", "/");
 //                String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
                 String projectPath = JavaHelperMethods.saveFileName(saveImage, part);
                 user.setPicture(projectPath.substring(55, projectPath.length()));
