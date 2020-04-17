@@ -37,7 +37,7 @@ public class TrailerList extends HttpServlet {
         List<Trailer> listTrailer= genericDao.getAll();
         log.debug("Getting All Trailers servlet" + listTrailer);
         request.setAttribute("trailers", listTrailer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailer/trailerList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailers/trailerList.jsp");
         dispatcher.forward(request, response);
     }
 }

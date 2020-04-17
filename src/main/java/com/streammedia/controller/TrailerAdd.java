@@ -32,7 +32,7 @@ import java.time.*;
 )
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 1000,      // 1GB
-        maxRequestSize = 1024 * 1024 * 50)   // 50MB
+        maxRequestSize = 1024 * 1024 * 100)   // 100MB
 public class TrailerAdd extends HttpServlet {
     private GenericDao trailerDao;
     private GenericDao userDao;
@@ -73,7 +73,7 @@ public class TrailerAdd extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.isUserInRole("admin")) {
-            String url = "/trailer/trailerAddEdit.jsp";
+            String url = "/trailers/trailerAddEdit.jsp";
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
         } else {
@@ -96,20 +96,17 @@ public class TrailerAdd extends HttpServlet {
         } else {
             trailer.setPublicationDate(LocalDateTime.parse(pubDate));
         }
-
         trailer.setLink(req.getParameter("link"));
         log.debug("After Link " + pubDate);
-        Part part = req.getPart("cover");
-        log.debug(part.getSubmittedFileName());
-        Part videoPart = req.getPart("video");
-        log.debug(videoPart.getSubmittedFileName());
+         Part part = req.getPart("cover");
         if (part.getSubmittedFileName().isEmpty()){
-            trailer.setCover("media/trailerc.jpg");
+            trailer.setCover("media/trailer1.jpg");
         } else {
 
+            log.debug("Parts Data: ");
 //           TODO String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//", "/");
             String saveAppCover = JavaHelperMethods.createUserImagePath(webPath, coverPath).replace("//", "/");
-            String saveAtTargetCover = JavaHelperMethods.createUserImagePath(appPath, videoPath).replace("//", "/");
+            String saveAtTargetCover = JavaHelperMethods.createUserImagePath(appPath, coverPath).replace("//", "/");
             log.debug("App Path: " + saveAppCover);
             log.debug("web Path: " + saveAtTargetCover);
             String targetPathC = JavaHelperMethods.saveFileName(saveAppCover, part);
@@ -117,21 +114,8 @@ public class TrailerAdd extends HttpServlet {
             String projectPathC = JavaHelperMethods.saveFileName(saveAtTargetCover, part);
             trailer.setCover(projectPathC.substring(58, projectPathC.length()));
         }
-        if(videoPart.getSubmittedFileName().isEmpty()) {
-           //Video TODO Implement upload a video
-          //https://cloudinary.com/documentation/video_transformation_reference
-            trailer.setVideo("media/trailerv.mp4");
-        } else {
 
-            String saveAtTargetVideo = JavaHelperMethods.createUserImagePath(appPath, "videos").replace("//", "/");
-            String saveAtAppPathVideo = JavaHelperMethods.createUserImagePath(appPath, "videos").replace("//", "/");
-            String projectPathC = JavaHelperMethods.saveVideo(saveAtTargetVideo, videoPart);
-            String appPathC = JavaHelperMethods.saveVideo(saveAtAppPathVideo, videoPart);
-//            String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//", "/");
-            trailer.setVideo(projectPathC.substring(58,projectPathC.length()));
-            log.debug(projectPathC);
-           log.debug("After Video: " + trailer.getVideo());
-        }
+
         trailer.setSummary(req.getParameter("summary"));
         log.debug("After Summary: " + trailer);
         log.error("After Summary: " + trailer);
@@ -141,9 +125,10 @@ public class TrailerAdd extends HttpServlet {
             if (!user.equals(null) && req.isUserInRole("admin")) {
                 trailer.setUser(user);
                 trailerDao.insert(trailer);
+                log.debug(trailer.getCover());
                 resp.sendRedirect("trailers");
             } else {
-                req.getRequestDispatcher("/trailer/trailerAddEdit.jsp").forward(req, resp);
+                req.getRequestDispatcher("/trailers/trailerAddEdit.jsp").forward(req, resp);
             }
         } catch (NullPointerException npe) {
             log.error("User Does not Exists", npe);

@@ -82,6 +82,7 @@ public class JavaHelperMethods {
     private static String saveMedia(String saveImagePath, Part part) throws IOException {
         String fileName = JavaHelperMethods.extractFileName(part);
         log.debug("File Exists: " + fileName.length() );
+        log.debug("File Exists: " + part.getSize() );
         log.debug("Submit: " + part.getSubmittedFileName());
         fileName = new File(fileName).getName();
         saveImagePath = saveImagePath + File.separator + fileName;
@@ -89,10 +90,10 @@ public class JavaHelperMethods {
         return saveImagePath;
     }
 
-    public static String saveVideo(String saveImagePath, Part part) throws IOException {
-        saveImagePath = saveMedia(saveImagePath, part);
-        return saveImagePath;
-    }
+//    public static String saveVideo(String saveImagePath, Part part) throws IOException {
+//        saveImagePath = saveMedia(saveImagePath, part);
+//        return saveImagePath;
+//    }
     public static String saveFileName(String saveImagePath, Part part) throws IOException {
         saveImagePath = saveMedia(saveImagePath, part);
         return saveImagePath;

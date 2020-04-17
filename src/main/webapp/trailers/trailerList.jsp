@@ -22,10 +22,32 @@
 
                     <div class="col-sm-3">
                         <div class="card">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap"
-                                 preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#868e96"/>
-                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+
+                            <c:choose>
+
+                                <c:when test="${ not empty trailer.video}">
+
+                                    <video width="320" height="240" controls>
+                                        <source src="${trailer.video}" type="video/mp4">
+                                            <%--                                    <source src="movie.ogg" type="video/ogg">--%>
+                                            ${trailer.video}
+                                    </video>
+
+                                </c:when>
+                                <c:otherwise>
+                                    <video width="320" height="240" controls>
+                                        <source class="rounded mx-auto d-block img-fluid" src="images/trailerv.mp4" type="video/mp4" alt="trailer video">
+                                    </video>
+                                </c:otherwise>
+                            </c:choose>
+<%--                                <c:choose>--%>
+<%--                                    <c:when test="${ not empty trailer.cover}">--%>
+<%--                                        <img class="rounded mx-auto d-block img-fluid" src="${trailer.cover}" alt="trailer cover">--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:otherwise>--%>
+<%--                                        <img class="rounded mx-auto d-block img-fluid" src="images/trailerc.jpg" alt="trailer cover">--%>
+<%--                                    </c:otherwise>--%>
+<%--                                </c:choose>--%>
 
                             <div class="card-body">
                                 <h2 class="card-title"><a class="btn btn-outline-primary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">${trailer.title}</a></h2>
@@ -44,11 +66,6 @@
                                 </c:if>
                             </span>
                             </div>
-                            <c:if test="${pageContext.request.isUserInRole('admin')}">
-                            <span class="btn-media-right"> <a href="add-trailer" class="btn btn-success ml-auto">
-                                <i class="fas fa-plus-square fa-1x"></i>Add Trailer</a>
-                            </span>
-                            </c:if>
                         </div>
                     </div>
                 </c:forEach>
