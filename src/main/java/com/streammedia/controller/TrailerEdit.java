@@ -39,7 +39,7 @@ public class TrailerEdit extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("trailer",genericDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/trailer/trailerAddEdit.jsp";
+        String url ="/trailers/trailerAddEdit.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
