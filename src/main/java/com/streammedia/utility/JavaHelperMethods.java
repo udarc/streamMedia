@@ -39,6 +39,7 @@ public class JavaHelperMethods {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
+                log.debug("Files: " + s.substring(s.indexOf("=") + 2, s.length()-1));
                 return s.substring(s.indexOf("=") + 2, s.length()-1);
             }
         }
@@ -90,12 +91,9 @@ public class JavaHelperMethods {
         return saveImagePath;
     }
 
-//    public static String saveVideo(String saveImagePath, Part part) throws IOException {
-//        saveImagePath = saveMedia(saveImagePath, part);
-//        return saveImagePath;
-//    }
     public static String saveFileName(String saveImagePath, Part part) throws IOException {
         saveImagePath = saveMedia(saveImagePath, part);
+        log.debug("Path " + saveImagePath);
         return saveImagePath;
     }
 
