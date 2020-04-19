@@ -27,7 +27,7 @@
 
                                 <c:when test="${ not empty trailer.video}">
 
-                                    <video width="320" height="240" controls>
+                                    <video width="320" height="240" controls poster="${traiver.cover}">
                                         <source src="${trailer.video}" type="video/mp4">
                                             <%--                                    <source src="movie.ogg" type="video/ogg">--%>
                                             ${trailer.video}
