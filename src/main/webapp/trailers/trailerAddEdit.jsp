@@ -14,7 +14,7 @@
     <div class="form row">
         <c:choose>
         <c:when test="${trailer ne null}">
-        <form class="card col-sm-10 offset-sm-1" action="trailer-edit" method="post"
+        <form class="card col-sm-10 offset-sm-1 was-validated" action="trailer-edit" method="post"
               enctype="multipart/form-data">
             <input type="hidden" id="id" name="uid"  value="${trailer.trailerId}">
             </c:when>
