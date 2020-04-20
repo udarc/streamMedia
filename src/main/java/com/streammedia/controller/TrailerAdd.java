@@ -131,8 +131,8 @@ public class TrailerAdd extends HttpServlet {
 
             //log.debug("Parts Data: " + partVideo.getSize());
             //TODO String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//", "/");
-            String saveWebAppVideo = JavaHelperMethods.createUserImagePath(webPath, videoPath).replace("//", "/");;
-            String saveAppTargetVideo = JavaHelperMethods.createUserImagePath(appPath, videoPath).replace("//", "/");;
+            String saveWebAppVideo = JavaHelperMethods.createUserImagePath(webPath, videoPath).replace("//", "/");
+            String saveAppTargetVideo = JavaHelperMethods.createUserImagePath(appPath, videoPath).replace("//", "/");
             //TODO Throws FileNotFound Error
             //String targetPathV = JavaHelperMethods.saveFileName(saveAppTargetVideo, partVideo);
             //TODO name Files by Id.
