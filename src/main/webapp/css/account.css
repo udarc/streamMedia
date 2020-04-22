@@ -26,3 +26,8 @@ form.card {
     width: 10em;
     border-radius: 50%;
 }
+
+video {
+    width: 100%;
+    height: auto;
+}
