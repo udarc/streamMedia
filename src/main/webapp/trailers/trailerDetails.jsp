@@ -21,7 +21,7 @@
 
                             <c:when test="${ not empty trailer.video}">
 
-                                <video width="320" height="240" controls>
+                                <video width="400" controls poster="${trailer.cover}">
                                     <source src="${trailer.video}" type="video/mp4">
 <%--                                    <source src="movie.ogg" type="video/ogg">--%>
                                         ${trailer.video}
@@ -29,9 +29,8 @@
 
                             </c:when>
                             <c:otherwise>
-                            <video width="320" height="240" controls>
-                                <source class="rounded mx-auto d-block img-fluid" src="images/trailerc.jpg" type="video/mp4" alt="trailer video">
-                            </video>
+                            <video width="320" height="240" controls poster="images/trailer1.jpp">
+                                <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4">
                             </c:otherwise>
                         </c:choose>
                         <div class="card-body">
