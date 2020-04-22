@@ -27,16 +27,14 @@
 
                                 <c:when test="${ not empty trailer.video}">
 
-                                    <video width="320" height="240" controls poster="${traiver.cover}">
+                                    <video width="400" controls poster="${trailer.cover}">
                                         <source src="${trailer.video}" type="video/mp4">
-                                            <%--                                    <source src="movie.ogg" type="video/ogg">--%>
-                                            ${trailer.video}
                                     </video>
 
                                 </c:when>
                                 <c:otherwise>
-                                    <video width="320" height="240" controls>
-                                        <source class="rounded mx-auto d-block img-fluid" src="images/trailerv.mp4" type="video/mp4" alt="trailer video">
+                                    <video width="320" height="240" controls poster="media/trailer1.jpg">
+                                        <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4" type="video/mp4" alt="trailer video">
                                     </video>
                                 </c:otherwise>
                             </c:choose>
@@ -58,8 +56,8 @@
                                 <li class="list-group-item">Published by ${trailer.author} on ${trailer.publicationDate}</li>
                             </ul>
                             <div class="card-body">
+                                <p><a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a></p>
                                 <span class="btn-media-right">
-                                <a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a>
                                 <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=${trailer.trailerId}">Edit</a>
                                     <a class="card-link btn btn-outline-danger" href="remove-trailer?uid=${trailer.trailerId}">Remove</a>
@@ -78,6 +76,19 @@
         </c:choose>
 
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </main>
 <%@include file="../footer.jsp"%>
 <%@include file="../afterFooter.jsp"%>
