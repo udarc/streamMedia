@@ -1,6 +1,7 @@
 package com.streammedia.controller;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.utility.JavaHelperMethods;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -37,9 +38,18 @@ public class UserList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<User> listUser = genericDao.getAll();
-        log.debug("Getting All Users servlet" + listUser);
-        request.setAttribute("users", listUser);
+            List<User> listUser;
+//        if (request.getParameter("search".trim()).equals("Search".trim())){
+//            String  searchTerm = request.getParameter("searchTerm" );
+//            String  searchType = request.getParameter("searchType" );
+//            listUser = genericDao.getByPropertyLike(searchType, searchTerm);
+//            log.debug("Getting All Users servlet" + listUser);
+//            request.setAttribute("users",  listUser);
+//            } else{
+            listUser = genericDao.getAll();
+            request.setAttribute("users",  listUser);
+//        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/account/listUser.jsp");
         dispatcher.forward(request, response);
     }

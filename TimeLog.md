@@ -72,6 +72,11 @@
 |Mar 26, 2020| Added get by Id and Insert Test of Film with a genre(s) and Crew(s)|4.5||
 |Mar 27, 2020|Implemented add film with and save in join table of FilmGenre and FilmCrew in join table and List|3.25||
 |Apr 4, 2020| Created BkCategory Tests,and Added JSPs and Servlets for Category CRUD operations and updated Time Log|4.75||
+|Apr 16, 2020|Updated the User edit to allow update with changing picture and replace old but new image |3|
+|Apr 17, 2020|Research on upload and save in target directory for Trailers [Copy file](https://howtodoinjava.com/java/io/4-ways-to-copy-files-in-java/) |5|
+|Apr 18, 2020|Research to increase the maximum file size in tomcat [Source](https://tecadmin.net/increase-tomcat-upload-file-size-limit/), Upload and display Image |3|
+|Apr 19, 2020|Upload and display Trailer video and updated time log|6.5|
+
 
 
 

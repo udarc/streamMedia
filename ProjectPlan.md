@@ -78,18 +78,18 @@
 - [x] Review and incorporate feedback from Checkpoint 3.
 - [ ] Carefully review code for standards and best practices - use a code quality tool?
 ### Week 10
-- [ ] Weekly journal entry
+- [x] Weekly journal entry
 - [ ] Unit test all api integrations
 - [ ] Add password reset , Password change, send Password Link  and User Profile Update functionality
-- [ ] Start Team project
+- [x] Start Team project
 
 ### Week 11
-- [ ] Team project work week
-- [ ] Weekly journal entry
+- [x] Team project work week
+- [x] Weekly journal entry
 
 ### Week 12 - Team project due
-- [ ] Weekly journal entry
-- [ ] Review individual project and create list of todos
+- [x] Weekly journal entry
+- [x] Review individual project and create list of todos
 - [ ] Create Book, Category, Music and Story add/update/delete and view JSPs
 
 ### Week 13
