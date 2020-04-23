@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -41,11 +42,13 @@ public class Genre implements Serializable {
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
     @EqualsAndHashCode.Exclude
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
 
     @UpdateTimestamp
     @EqualsAndHashCode.Exclude
     @Column(name = "updated_at",nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate updatedAt;
 
 
