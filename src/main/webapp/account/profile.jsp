@@ -17,14 +17,13 @@
             <c:when test="${user ne null}">
                 <div class="img-resize">
                     <c:choose>
-                        <c:when test="${user.picture ne null}">
+                        <c:when test="${ not empty user.picture}">
                             <img class="rounded-circle img-fluid" src="${user.picture}" alt="user profile">
                         </c:when>
                         <c:otherwise>
-                            <img class="card-img-top " src="images/user.png" alt="Card image cap">
+                            <img class="rounded-circle img-fluid" src="images/user.png" alt="Card image cap">
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${user.picture ne null}"></c:if>
 
                 </div>
                 <div class="card-body">
@@ -43,11 +42,18 @@
                         value="${user.username}"/>">
                             <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
                             <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">
-                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></li>
+                                <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
+                    <c:if test="${pageContext.request.isUserInRole('admin')}" >
+                        <a class="btn btn-primary"  href="users">
+                            <i class="fas fa-user-cog fa-3x" aria-hidden="true"></i> Admim Dashboard</a></li>
+                    </c:if>
+
                     </ul>
                 </div>
             </c:when>
-            <c:otherwise></c:otherwise>
+            <c:otherwise>
+                <p>User not found!</p>
+            </c:otherwise>
         </c:choose>
 
     </div>

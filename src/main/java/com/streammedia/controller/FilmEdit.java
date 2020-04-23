@@ -60,17 +60,26 @@ public class FilmEdit extends HttpServlet {
         filmToEdit.setEpisode(req.getParameter("episode"));
         filmToEdit.setLink(req.getParameter("link"));
         filmToEdit.setSummary(req.getParameter("summary"));
-//        Genre newGenre = (Genre)genreDao.getById(3);
-//        Set<Genre> genres =  filmToEdit.getGenres();
-//        System.out.println(genres.size());
-////        genres.clear();
-//        genres.add(newGenre);
+        filmToEdit.setGenres(filmToEdit.getGenres());
+        filmToEdit.setCrews(filmToEdit.getCrews());
         if (req.isUserInRole("admin")){
+            log.error(filmToEdit);
             filmDao.saveOrUpdate(filmToEdit);
             resp.sendRedirect("films");
         }
+        log.error(filmToEdit);
         req.getRequestDispatcher("/film/filmAddEdit.jsp").forward(req,resp);
 
     }
+    private void retrieveGenres(Set<Genre> genreList, String[] genreIds) {
+        for (String id: genreIds ) {
+            genreList.add((Genre)genreDao.getById(Integer.parseInt(id)));
+        }
+    }
 
+    private void retrieveCrews(Set<Crew> crewList, String[] crewIds) {
+        for (String id: crewIds ) {
+            crewList.add((Crew)crewDao.getById(Integer.parseInt(id)));
+        }
+    }
 }

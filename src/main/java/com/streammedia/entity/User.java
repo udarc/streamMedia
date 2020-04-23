@@ -1,8 +1,5 @@
 package com.streammedia.entity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -59,6 +56,7 @@ public class User implements Serializable {
 
     @Column(name = "birthdate")
 //    @EqualsAndHashCode.Exclude //todo only make the test pass
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
 
     @Column(name = "picture")
@@ -74,12 +72,14 @@ public class User implements Serializable {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @CreationTimestamp
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate updateAt;
 
     @ToString.Exclude
