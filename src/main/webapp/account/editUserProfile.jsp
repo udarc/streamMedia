@@ -83,7 +83,7 @@
                 <div class="col-sm-9">
                     <input type="file" class="form-control-file"
                            name="profilePicture" id="profilePicture"
-                    ${user.picture}>
+                   value="${user.picture}">
                 </div>
             </div>
 

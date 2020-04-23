@@ -39,6 +39,7 @@ public class JavaHelperMethods {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
+                log.debug("Files: " + s.substring(s.indexOf("=") + 2, s.length()-1));
                 return s.substring(s.indexOf("=") + 2, s.length()-1);
             }
         }
@@ -74,16 +75,40 @@ public class JavaHelperMethods {
         String saveImagePath = appPath  + File.separator + fieldName;
         File imageSaveDir = new File(saveImagePath);
         if (!imageSaveDir.exists()) {
-            imageSaveDir.mkdir();
+            imageSaveDir.mkdirs();
         }
         return saveImagePath;
     }
-    public static String saveFileName(String saveImagePath, Part part) throws IOException {
+
+    private static String saveMedia(String saveImagePath, Part part) throws IOException {
         String fileName = JavaHelperMethods.extractFileName(part);
+        log.debug("File Exists: " + fileName.length() );
+        log.debug("File Exists: " + part.getSize() );
+        log.debug("Submit: " + part.getSubmittedFileName());
         fileName = new File(fileName).getName();
-        saveImagePath = saveImagePath + File.separator+ fileName;
+        saveImagePath = saveImagePath + File.separator + fileName;
         part.write(saveImagePath);
         return saveImagePath;
     }
 
+    public static String saveFileName(String saveImagePath, Part part) throws IOException {
+        saveImagePath = saveMedia(saveImagePath, part);
+        log.debug("Path " + saveImagePath);
+        return saveImagePath;
+    }
+//    https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/
+    public static boolean isNumeric(final String str) {
+        // null or empty
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+
+    }
 }

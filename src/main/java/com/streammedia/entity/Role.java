@@ -1,5 +1,6 @@
 package com.streammedia.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
@@ -43,10 +44,12 @@ public class Role {
 //    @EqualsAndHashCode.Exclude
     @CreationTimestamp
     @Column(name = "created_at")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
 
     @UpdateTimestamp
 //    @EqualsAndHashCode.Exclude
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
