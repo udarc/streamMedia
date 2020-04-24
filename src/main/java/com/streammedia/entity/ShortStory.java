@@ -26,7 +26,6 @@ public class ShortStory {
     private String title;
     private String author;
     private String cover;
-
     @Column(name = "publication_date")
     private LocalDateTime publicationDate;
     private String description;

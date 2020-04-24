@@ -1,5 +1,7 @@
 package com.streammedia.controller;
 
+import com.streammedia.entity.*;
+import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
@@ -9,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.util.List;
 
 
 /**
@@ -24,10 +26,12 @@ import java.io.IOException;
 @Log4j2
 @WebServlet("/short-stories")
 public class ShortStoryList extends HttpServlet {
-
+    GenericDao storyDao;
+    GenericDao userDao;
 
     public void init() {
-
+        userDao =  new GenericDao(User.class);
+        storyDao =  new GenericDao(ShortStory.class);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -37,18 +41,12 @@ public class ShortStoryList extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getServletPath();
-
-
-            switch (action) {
-                default:
-                    listShortStory(request,response);
-        }
-    }
-
-    private void listShortStory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String action = request.getServletPath();
+//        List<ShortStory> stories =  storyDao.getAll();
+//        request.setAttribute("stories",stories);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/stories/storyList.jsp");
         dispatcher.forward(request, response);
+
     }
 }
 
