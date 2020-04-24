@@ -45,7 +45,7 @@ public class ShortStoryAdd extends HttpServlet {
     private String appPathCover;
     public void init() {
         //Extract the name of the class
-        String className = ShortStory.class.getName();
+        String className = ShortStory.class.getSimpleName().toLowerCase();
         storyDao = new GenericDao(ShortStory.class);
         userDao = new GenericDao(User.class);
         //Create Path to directories
