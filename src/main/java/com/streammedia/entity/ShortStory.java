@@ -38,6 +38,6 @@ public class ShortStory {
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private  User user;
 }
