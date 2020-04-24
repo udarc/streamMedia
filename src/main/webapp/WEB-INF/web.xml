@@ -24,8 +24,24 @@
       <url-pattern>/add-trailer</url-pattern>
       <url-pattern>/trailer-edit</url-pattern>
       <url-pattern>/remove-trailer</url-pattern>
-      <url-pattern>/trailer/trailerEdit.jsp</url-pattern>
-      <url-pattern>/trailer/trailerAdd.jsp</url-pattern>
+      <url-pattern>/trailers/trailerAddEdit.jsp</url-pattern>
+      <!--      Short Story-->
+      <url-pattern>/add-story</url-pattern>
+      <url-pattern>/story-edit</url-pattern>
+      <url-pattern>/story-delete</url-pattern>
+      <url-pattern>/stories/storyAddEdit.jsp</url-pattern>
+
+      <!--     Books-->
+      <url-pattern>/book-new</url-pattern>
+      <url-pattern>/book-edit</url-pattern>
+      <url-pattern>/book-delete</url-pattern>
+      <url-pattern>/book/bookAddEdit.jsp</url-pattern>
+
+      <!--      BK Category -->
+      <url-pattern>/bkcategory-new</url-pattern>
+      <url-pattern>/bkcategory-edit</url-pattern>
+      <url-pattern>/bkcategory-delete</url-pattern>
+      <url-pattern>/book/bkCategoryAddEdit.jsp</url-pattern>
 <!--      FAQ-->
       <url-pattern>/faq-new</url-pattern>
       <url-pattern>/faq-delete</url-pattern>
@@ -52,7 +68,6 @@
       <web-resource-name>AdminUserRoleRequired</web-resource-name>
       <url-pattern>/user-profile</url-pattern>
       <url-pattern>/profile-edit</url-pattern>
-      <url-pattern>/user-profile</url-pattern>
       <url-pattern>/logout</url-pattern>
       <url-pattern>/account/profile.jsp</url-pattern>
       <url-pattern>/account/editUserProfile.jsp</url-pattern>
