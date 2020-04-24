@@ -34,10 +34,11 @@ public class TrailerList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Trailer> listTrailer= genericDao.getAll();
+        List<List<Trailer>> listTrailer = genericDao.getAllWithPagination();
+//        List<Trailer> listTrailer= genericDao.getAllWithPagination();
         log.debug("Getting All Trailers servlet" + listTrailer);
         request.setAttribute("trailers", listTrailer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailer/trailerList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailers/trailerList.jsp");
         dispatcher.forward(request, response);
     }
 }

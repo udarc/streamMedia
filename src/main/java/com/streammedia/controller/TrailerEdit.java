@@ -2,16 +2,25 @@ package com.streammedia.controller;
 
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.utility.JavaHelperMethods;
+import com.sun.xml.bind.v2.util.StackRecorder;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.*;
 
 /**
  * The type Trailer edit.
+ *
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-22
@@ -21,58 +30,125 @@ import java.time.*;
         name = "trailerEdit",
         urlPatterns = {"/trailer-edit"}
 )
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10 * 10 * 10,      // 1GB
+        maxRequestSize = 1024 * 1024 * 5 * 5 * 5   // 100MB
+)
 public class TrailerEdit extends HttpServlet {
-    private GenericDao genericDao;
+    private GenericDao trailerDao;
+    private GenericDao userDao;
+    private String projectTargetPathCover;
+    private String projectTargetPathVideo;
+    private String projectAppPathCover;
+    private String projectAppPathVideo;
 
     public void init() {
-        genericDao = new GenericDao(Trailer.class);
+        trailerDao = new GenericDao<>(Trailer.class);
+        userDao = new GenericDao<>(User.class);
+        createDirectory();
     }
+
+    private void createDirectory() {
+        Trailer trailer = new Trailer();
+        //Extract the name of the class
+        String className = JavaHelperMethods.retrieveClassName(trailer);
+        // constructs path of the directory to save uploaded file
+        projectTargetPathCover = (getServletContext().getRealPath(File.separator) + File.separator + "media"
+                + File.separator + className + File.separator + "covers").replace("//", "/");
+        projectTargetPathVideo = (getServletContext().getRealPath(File.separator) + File.separator + "media"
+                + File.separator + className + File.separator + "videos").replace("//", "/");
+        // constructs path of the directory to save uploaded file
+        File file = new File(projectTargetPathCover.substring(0, 39) + "src/main/webapp/media/" + className);
+        projectAppPathCover = (file.getAbsolutePath() + File.separator + "covers").replace("//", "/");
+        projectAppPathVideo = (file.getAbsolutePath() + File.separator + "videos").replace("//", "/");
+        log.debug(projectAppPathVideo);
+        log.debug(projectTargetPathCover);
+    }
+
     /**
-     *  Handles HTTP GET requests.
+     * Handles HTTP GET requests.
      *
-     *@param  request               Description of the Parameter
-     *@param  response              Description of the Parameter
-     *@exception ServletException  if there is a Servlet failure
-     *@exception IOException       if there is an IO failure
+     * @param request  Description of the Parameter
+     * @param response Description of the Parameter
+     * @throws ServletException if there is a Servlet failure
+     * @throws IOException      if there is an IO failure
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("trailer",genericDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/trailer/trailerAddEdit.jsp";
+        request.setAttribute("trailer", trailerDao.getById(Integer.valueOf(request.getParameter("uid"))));
+        String url = "/trailers/trailerAddEdit.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
 
     }
+
     /**
-     *  Handles HTTP POST requests.
-     *@param  req              Description of the Parameter
-     *@param  resp             Description of the Parameter
-     *@exception ServletException  if there is a Servlet failure
-     *@exception IOException       if there is an IO failure
+     * Handles HTTP POST requests.
+     *
+     * @param req  Description of the Parameter
+     * @param resp Description of the Parameter
+     * @throws ServletException if there is a Servlet failure
+     * @throws IOException      if there is an IO failure
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int trailerId = Integer.valueOf(req.getParameter("uid"));
-        Trailer trailer = (Trailer)genericDao.getById(trailerId);
-        if (!trailer.equals(null)) {
+        int trailerId = Integer.parseInt(req.getParameter("uid"));
+        log.debug(trailerId);
+        Trailer trailer = (Trailer) trailerDao.getById(trailerId);
+        log.debug(trailer.getTrailerId());
+        if (req.isUserInRole("admin")) {
             trailer.setTitle(req.getParameter("title"));
             trailer.setAuthor(req.getParameter("author"));
             trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-            trailer.setCover(req.getParameter("cover"));
             trailer.setPublicationDate(LocalDateTime.parse(req.getParameter("pub_date")));
             trailer.setLink(req.getParameter("link"));
-            trailer.setVideo(req.getParameter("video"));
-            trailer.setSummary(req.getParameter("summary").trim());
-            log.debug("Updating Trailer: " + trailer.getTitle());
-            if(req.isUserInRole("admin")){
-                genericDao.saveOrUpdate(trailer);
+            Part coverPart = req.getPart("cover");
+            log.debug(coverPart.getSubmittedFileName());
+            String fileNameCover = "";
+            String coverExt = "";
+            String fileNameVideo = "";
+            String videoExt = "";
+            String pathCover = trailer.getCover();
+            log.debug(" Cover Path: " + pathCover);
+            if (coverPart.getSubmittedFileName().isEmpty()) {
+                trailer.setCover(trailer.getCover());
             } else {
-                return; //TODO add a message
+                String coverPath = JavaHelperMethods.saveFileName(projectAppPathCover, coverPart);
+                Path source = Paths.get(coverPath);
+                String newName = "trailerCover_" + trailer.getTrailerId() + coverPath.substring(
+                        coverPath.lastIndexOf("."));
+                //https://www.geeksforgeeks.org/files-deleteifexists-method-in-java-with-examples/
+                Files.deleteIfExists(Paths.get(projectAppPathCover + File.separator + newName));
+                Files.move(source, source.resolveSibling(newName));
+                Path original = Paths.get(projectAppPathCover + File.separator + newName);
+                Path destination = Paths.get(projectTargetPathCover + File.separator + newName);
+                Files.copy(original, destination, StandardCopyOption.REPLACE_EXISTING);
+                trailer.setCover("media/trailer/covers/" + newName);
             }
 
-            String destination = "trailer-detail?uid=" + trailerId;
-            resp.sendRedirect(destination);
+            Part videoPart = req.getPart("video");
+            String pathVideo = trailer.getVideo();
+            log.debug(videoPart.getSubmittedFileName());
+            if (videoPart.getSubmittedFileName().isEmpty()) {
+                trailer.setVideo(trailer.getVideo());
+            } else {
+                String videoPath = JavaHelperMethods.saveFileName(projectAppPathVideo, videoPart);
+                Path source = Paths.get(videoPath);
+                String newName = "trailerVideo_" + trailer.getTrailerId() + videoPath.substring(
+                        videoPath.lastIndexOf("."));
+                Files.deleteIfExists(Paths.get(projectAppPathVideo + File.separator + newName));
+                Path original = Files.move(source, source.resolveSibling(newName));
+                Path destination = Paths.get(projectTargetPathVideo + File.separator + newName);
+                Files.copy(original, destination, StandardCopyOption.REPLACE_EXISTING);
+                trailer.setVideo("media/trailer/videos/" + newName);
+            }
+
+            trailer.setSummary(req.getParameter("summary").trim());
+            log.debug("Updating Trailer: " + trailer.getTitle());
+            trailerDao.saveOrUpdate(trailer);
+            resp.sendRedirect("trailer-detail?uid=" + trailer.getTrailerId());
+
         }
     }
 }
