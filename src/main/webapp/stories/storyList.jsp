@@ -57,9 +57,6 @@
             </c:when>
             <c:otherwise>
                 <div class="col-md-6 offset-3">
-                    <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
-                        <p class="ml-auto"><a href="add-story" class="btn btn-success" >Add Story</a></p>
-                    </c:if>
                     <p>No Story object created Yet!</p>
                 </div>
             </c:otherwise>
