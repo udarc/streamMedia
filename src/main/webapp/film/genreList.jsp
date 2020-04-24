@@ -43,7 +43,10 @@
                 </c:if>
             </ul>
         </div>
-
+        <div class="col-sm-2">
+            <h2>Rest API Genres</h2>
+            <%@include file="restAPIGenres.jsp"%>
+        </div>
 </div>
 </main>
 
