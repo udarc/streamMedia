@@ -7,15 +7,21 @@
 --%>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="../css/account.css">
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+
+</script>
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <div class="container-fluid wrapper">
     <div class="row">
         <div class="col-sm-8">
-            <h1>All Users</h1>
+            <h1 class="text-center">Users</h1>
 
-            <table class="table table-striped">
+            <table class="table table-striped display" id="table">
                 <thead class="thead-dark">
                 <tr>
                     <th>User Id</th>
@@ -45,26 +51,7 @@
         </div>
         <div class="col-sm-3">
             <a href="register">Add New User</a>
-            <main id="main">
-                <form action="#" method="get">
-                    <div class="form-group row">
-                        <label for="searchTerm" class="col-sm-4 col-form-label">
-                            Search Term</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control"
-                                   id="searchTerm"  name="searchTerm"
-                                   placeholder="Search By Last Name"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </div>
-                </form>
-            </main>
-
-        </div>
+         </div>
     </div>
 </div>
 

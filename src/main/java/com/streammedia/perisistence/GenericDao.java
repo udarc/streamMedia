@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
@@ -34,6 +35,23 @@ public class GenericDao <T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         List<T> list = session.createQuery(query).getResultList();
+        session.close();
+        log.debug("The list of Entities " + list);
+        return list;
+    }
+
+    public List<T> getAllWithPagination() {
+        Session session = getSession();
+        int pageNumber = 1;
+        int pageSize = 10;
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        CriteriaQuery<T> selectQuery = query.select(root);
+        TypedQuery<T> typedQuery = session.createQuery(selectQuery);
+        typedQuery.setFirstResult(0);
+        typedQuery.setMaxResults(pageSize);
+        List<T> list = typedQuery.getResultList();
         session.close();
         log.debug("The list of Entities " + list);
         return list;
