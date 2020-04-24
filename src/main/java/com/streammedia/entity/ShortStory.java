@@ -26,7 +26,6 @@ public class ShortStory {
     private String title;
     private String author;
     private String cover;
-
     @Column(name = "publication_date")
     private LocalDateTime publicationDate;
     private String description;
@@ -39,6 +38,6 @@ public class ShortStory {
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private  User user;
 }

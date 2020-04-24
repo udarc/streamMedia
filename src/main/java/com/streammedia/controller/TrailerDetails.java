@@ -33,7 +33,7 @@ public class TrailerDetails extends HttpServlet {
        Trailer trailer= (Trailer)genericDao.getById(Integer.parseInt(request.getParameter("uid")));
         log.debug("Getting a Single Trailer servlet" + trailer);
         request.setAttribute("trailer", trailer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailer/trailerDetails.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/trailers/trailerDetails.jsp");
         dispatcher.forward(request, response);
     }
 }
