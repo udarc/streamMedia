@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<main class="container-fluid" role="main">
+<main class="container-fluid wrapper" role="main">
    <h1>Genre Details</h1>
       <div class="row">
          <c:choose>
