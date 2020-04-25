@@ -35,9 +35,4 @@ video {
     display: block;
     height: 30em;
 }
-.rounded {
-    border-radius: 1rem!important;
-}
-img {
-    height: 100vh;
-}
+
