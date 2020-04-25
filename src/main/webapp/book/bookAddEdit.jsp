@@ -5,6 +5,14 @@
   Time: 11:49 PM
   To change this template use File | Settings | File Templates.
 --%>
+<c:choose>
+    <c:when test="${book ne null}">
+        <c:set var="title" value="Edit Book" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="title" value="Add Book" />
+    </c:otherwise>
+</c:choose>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css"/>
 </head>
@@ -93,7 +101,7 @@
                     <label for="page-number" class="col-sm-3 col-form-label">Page Number</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control"
-                               name="isbn" id="page-number" placeholder="Page Number" value="${book.pageNumber}">
+                               name="page_number" id="page-number" placeholder="Page Number" value="${book.pageNumber}">
                     </div>
                 </div>
             <div class="form-group row">
