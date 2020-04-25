@@ -1,10 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: Jeanne
   Date: 2/20/20
   Time: 2:24 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Trailer Details" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
