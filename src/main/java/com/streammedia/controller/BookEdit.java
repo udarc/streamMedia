@@ -19,10 +19,10 @@ public class BookEdit extends HttpServlet {
     private GenericDao userDao;
     private GenericDao catDao;
     @Override
-    public void init() throws ServletException {
-        bookDao = new GenericDao(Film.class);
+    public void init()  {
+        bookDao = new GenericDao(Book.class);
         userDao = new GenericDao(User.class);
-        catDao = new GenericDao(Crew.class);
+        catDao = new GenericDao(BkCategory.class);
     }
 
     @Override

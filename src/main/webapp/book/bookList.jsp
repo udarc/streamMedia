@@ -14,8 +14,12 @@
 <main class="container wrapper" >
     <div class="row">
             <div class="col-sm-8">
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
+                    <a href="book-new" class="btn btn-success ml-auto">
+                        <i class="fas fa-plus-square fa-3x"></i>Add Book</a>
+                </c:if>
                     <c:choose>
-                        <c:when test="${fn:length(books) gt 0}">
+                        <c:when test="${books ne null}">
                             <h1 class="text-center">Book List</h1>
 
                             <c:forEach var="book" items="${books}">
@@ -42,10 +46,6 @@
                             </ul>
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${pageContext.request.isUserInRole('admin')}">
-                        <a href="book-new" class="btn btn-success ml-auto">
-                            <i class="fas fa-plus-square fa-3x"></i>Add Book</a>
-                    </c:if>
 
             </div>
         <div class="col-sm-3">
