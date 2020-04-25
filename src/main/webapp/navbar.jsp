@@ -1,5 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <header>
     <nav class="navbar-nav navbar-light bg-light justify-content-between" style="background-color: #450000!important;">
             <ul id="utility" class="nav  ml-auto">
@@ -40,22 +39,21 @@
     </nav>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="/streamMedia">Stream Media</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/streamMedia"><img src="images/logos.png" class="img-fluid img-rounded" style="max-width: 4em; height: auto;" alt="logo">Stream Media</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/streamMedia">Home</a>
-                </li>
+<%--                <li class="nav-item active">--%>
+<%--                    <a class="nav-link" href="/streamMedia">Home</a>--%>
+<%--                </li>--%>
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us">Contact</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="streammedia" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Media</a>
-                    <div class="dropdown-menu" aria-labelledby="/streammedia">
+                    <div class="dropdown-menu" aria-labelledby="streammedia">
                         <a class="dropdown-item" href="books">Books</a>
                         <a class="dropdown-item" href="films">Films</a>
                         <a class="dropdown-item" href="short-stories">Short Stories</a>

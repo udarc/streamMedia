@@ -1,13 +1,50 @@
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Home" />
 <%@include file="head.jsp"%>
 </head>
 <body>
 <%@include file="navbar.jsp"%>
 <div class="container wrapper" >
     <main class="homepage">
-        <section id="home" class="jumbotron">
-            <h1>Welcome to Stream Media</h1>
-        </section>
 
+        <section id="carousel" class="jumbotron">
+            <h1 class="text-center">Welcome to Stream Media</h1>
+            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="rounded d-block w-100" src="images/homepage/moviebg.png" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="rounded d-block w-100" src="images/homepage/cinema.png" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class=" rounded d-block w-100" src="images/homepage/photo.png" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class=" rounded d-block w-100" src="images/homepage/Hnet.png" alt="Fourth slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="rounded d-block w-100" src="images/homepage/brisbanebg.jpg" alt="Fifth slide">
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
         <section class="container">
                 <!-- Example row of columns -->
                 <div class="row" style="margin: 3em 3em auto 3em;">
