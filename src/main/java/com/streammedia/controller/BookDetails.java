@@ -1,9 +1,6 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Crew;
-import com.streammedia.entity.Film;
-import com.streammedia.entity.Genre;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 
 import javax.servlet.ServletException;
@@ -18,17 +15,16 @@ import java.io.IOException;
 )
 public class BookDetails extends HttpServlet {
     private GenericDao bookDao;
-    private GenericDao userDao;
-    private GenericDao catDao;
     @Override
     public void init() throws ServletException {
-        bookDao = new GenericDao(Film.class);
-        userDao = new GenericDao(User.class);
-        catDao = new GenericDao(Crew.class);
+        bookDao = new GenericDao(Book.class);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        int id = Integer.parseInt(req.getParameter("uid"));
+        Book book = (Book)bookDao.getById(id);
+        req.setAttribute("book",book);
+        req.getRequestDispatcher("/book/bookDetails.jsp").forward(req,resp);
     }
 }
