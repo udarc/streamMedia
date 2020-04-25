@@ -5,6 +5,14 @@
   Time: 11:43 PM
   To change this template use File | Settings | File Templates.
 --%>
+<c:choose>
+    <c:when test="${faq ne null}">
+        <c:set var="title" value="Edit Faq" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="title" value="Add Faq" />
+    </c:otherwise>
+</c:choose>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>

@@ -66,6 +66,7 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
     width: 100%;
     color: white;
     font-size: medium;
+    margin-top: 3em;
 }
 .footer-upper{
     background-color: #2d0101;

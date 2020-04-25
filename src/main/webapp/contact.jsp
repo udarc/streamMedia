@@ -1,10 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: Jeanne
   Date: 2/8/20
   Time: 3:25 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Contact Us" />
 <%@include file="head.jsp"%>
 <link rel="stylesheet" type="text/css" href="css/account.css"/>
 </head>

@@ -5,6 +5,8 @@
   Time: 2:10 PMM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Film Details" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
