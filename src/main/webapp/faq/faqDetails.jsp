@@ -5,12 +5,14 @@
   Time: 11:04 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="FAQ Details" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
-<main class="container-fluid" role="main">
+<main class="container-fluid wrapper" role="main">
     <h1 class="text-center">FAQ Details</h1>
     <div class="row">
         <c:choose>
