@@ -5,6 +5,7 @@
   Time: 11:49 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
 <c:choose>
     <c:when test="${book ne null}">
         <c:set var="title" value="Edit Book" />
