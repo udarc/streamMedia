@@ -39,7 +39,7 @@
     </nav>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="streamMedia"><img src="images/logos.png" class="img-fluid img-rounded" style="max-width: 4em; height: auto;" alt="logo">Stream Media</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/streamMedia"><img src="images/logos.png" class="img-fluid img-rounded" style="max-width: 4em; height: auto;" alt="logo">Stream Media</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
