@@ -77,13 +77,13 @@
         <div class="col-sm-3">
             <ul class="list-group list-group-flush">
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <li class="list-group-item"><a class="btn btn-link" href="crews">Movie Crews</a></li>
+                    <li class="list-group-item"><a class="btn btn-link" href="crews">All Crews</a></li>
                 </c:if>
-                <li class="list-group-item"><a class="btn btn-link" href="genres">Movie Genres</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="genres">All Movie Genres</a></li>
                     <li class="list-group-item"><a class="btn btn-link" href="now-playing-movies">Now Playing Movies</a></li>
-                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>
-                <li class="list-group-item"><a class="btn btn-link" href="#">Popular</a></li>
-                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>
+<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>--%>
+<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Popular</a></li>--%>
+<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>--%>
             </ul>
         </div>
     </div>
