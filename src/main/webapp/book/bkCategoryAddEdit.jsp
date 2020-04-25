@@ -5,6 +5,7 @@
   Time: 2:15 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
 <c:choose>
     <c:when test="${bkCategory ne null}">
         <c:set var="title" value="Edit BkCategory" />
