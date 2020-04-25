@@ -5,6 +5,8 @@
   Time: 11:01 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="FAQ List" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>

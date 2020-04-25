@@ -5,6 +5,8 @@
   Time: 10:41 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Book List" />
 <%@include file="../head.jsp"%>
 </head>
 <body>
@@ -12,10 +14,12 @@
 <main class="container wrapper" >
     <div class="row">
             <div class="col-sm-8">
-
-
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
+                    <a href="book-new" class="btn btn-success ml-auto">
+                        <i class="fas fa-plus-square fa-3x"></i>Add Book</a>
+                </c:if>
                     <c:choose>
-                        <c:when test="${fn:length(books) gt 0}">
+                        <c:when test="${books ne null}">
                             <h1 class="text-center">Book List</h1>
 
                             <c:forEach var="book" items="${books}">
@@ -42,15 +46,19 @@
                             </ul>
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${pageContext.request.isUserInRole('admin')}">
-                        <a href="book-new" class="btn btn-success ml-auto">
-                            <i class="fas fa-plus-square fa-3x"></i>Add Book</a>
-                    </c:if>
 
             </div>
-
+        <div class="col-sm-3">
+            <ul class="list-group list-group-flush">
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
+                    <li class="list-group-item"><a class="btn btn-primary" href="bkcategory-new"> Add Book Category</a></li>
+                </c:if>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a class="btn btn-link" href="bk-categories">Book Category Genres</a></li>
+                </ul>
+            </ul>
         </div>
-
+    </div>
 </main>
 <%@include file="../footer.jsp"%>
 <%@include file="../afterFooter.jsp"%>

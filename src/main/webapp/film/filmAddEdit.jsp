@@ -5,6 +5,15 @@
   Time: 11:49 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:choose>
+    <c:when test="${story ne null}">
+        <c:set var="title" value="Edit Story" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="title" value="Add Story" />
+    </c:otherwise>
+</c:choose>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
