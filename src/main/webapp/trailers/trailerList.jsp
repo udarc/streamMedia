@@ -5,6 +5,8 @@
   Time: 4:07 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Trailer List" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>

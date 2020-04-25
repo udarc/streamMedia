@@ -1,6 +1,7 @@
 package com.streammedia.controller;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.perisistence.GenreRESTAPIDao;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -32,16 +33,18 @@ public class GenreList extends HttpServlet {
     //        private static final long serialVersionUID = 1L;
     private GenericDao genreDao;
     private GenericDao userDao;
-
+    private GenreRESTAPIDao genresDao;
     public void init() {
         genreDao = new GenericDao(Genre.class);
         userDao = new GenericDao(User.class);
+        genresDao =  new GenreRESTAPIDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Genre> genreList = genreDao.getAll();
+        request.setAttribute("restGenres", genresDao.getGenres().getGenres());
         request.setAttribute("genres", genreList);
         log.info(genreList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/film/genreList.jsp");
