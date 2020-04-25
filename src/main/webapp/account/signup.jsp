@@ -5,6 +5,8 @@
   Time: 10:27 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Register" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" type="text/css" href="css/account.css">
 </head>

@@ -31,10 +31,9 @@ import java.util.List;
             private GenericDao userDao;
             private GenericDao crewDao;
             private GenericDao genericDao;
-            private GenreRESTAPIDao genresDao;
+
     public void init() {
             filmDao =  new GenericDao(Film.class);
-            genresDao =  new GenreRESTAPIDao();
             crewDao =  new GenericDao(Crew.class);
             userDao =  new GenericDao(User.class);
         }
@@ -42,7 +41,6 @@ import java.util.List;
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             List<Film> filmList = filmDao.getAll();
-            request.setAttribute("restGenres", genresDao.getGenres().getGenres());
             request.setAttribute("films",filmList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/film/filmList.jsp");
             dispatcher.forward(request, response);

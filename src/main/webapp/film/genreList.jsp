@@ -5,6 +5,8 @@
   Time: 2:01 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Genre List" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
@@ -43,7 +45,10 @@
                 </c:if>
             </ul>
         </div>
-
+        <div class="col-sm-2">
+            <h2>Rest API Genres</h2>
+            <%@include file="restAPIGenres.jsp"%>
+        </div>
 </div>
 </main>
 
