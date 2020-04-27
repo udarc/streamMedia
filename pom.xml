@@ -213,7 +213,13 @@
             <version>5.11.5.Final</version>
             <type>pom</type>
         </dependency>
-
+<!--        Test endpoints-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>streamMedia</finalName>
