@@ -43,3 +43,4 @@
 </main>
 
 <%@include file="../footer.jsp"%>
+<%@include file="../afterFooter.jsp"%>
