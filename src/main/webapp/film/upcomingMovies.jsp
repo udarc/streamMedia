@@ -14,7 +14,7 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper">
-    <h1 class="alert alert-info text-center">Upcoming Movies</h1>
+    <h1 class="alert alert-info text-center"><span onclick="goBack()"><i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span>Upcoming Movies</h1>
     <%@include file="../includes/apiMoviesDB.jsp"%>
 </main>
 
