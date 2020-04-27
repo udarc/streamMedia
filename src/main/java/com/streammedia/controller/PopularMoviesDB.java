@@ -25,12 +25,12 @@ public class PopularMoviesDB extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for (PopularMovies item: popularMovies.getPopularMovies()) {
+        for (APIMoviesDB item: popularMovies.getPopularMovies()) {
             for (ResultsItem movie: item.getResults()) {
                 items.add(movie);
             }
         }
-        req.setAttribute("popularMovies", items);
+        req.setAttribute("movies", items);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/film/popularMovies.jsp");
         dispatcher.forward(req,resp);
     }
