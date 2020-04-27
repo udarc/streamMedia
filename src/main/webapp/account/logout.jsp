@@ -5,7 +5,8 @@
   Time: 9:18 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Logout" />
 <%
     session.invalidate();
     response.sendRedirect("streamMedia");
