@@ -23,7 +23,6 @@
         <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
         <lombok-verion>1.18.10</lombok-verion>
         <hibernate-verion>5.4.4.Final</hibernate-verion>
-<!--        <hibernate-version>5.11.5.Final</hibernate-version>-->
         <servlet-version>4.0.1</servlet-version>
         <javamail-version>1.6.2</javamail-version>
         <fileupload-version>1.4</fileupload-version>
@@ -198,6 +197,13 @@
             <artifactId>json</artifactId>
             <version>20190722</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.11.766</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
@@ -207,7 +213,13 @@
             <version>5.11.5.Final</version>
             <type>pom</type>
         </dependency>
-
+<!--        Test endpoints-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>streamMedia</finalName>
