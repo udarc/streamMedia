@@ -14,12 +14,12 @@
     <h1 class="text-center">List of Films</h1>
     <div class="row">
         <div class="col-sm-9">
-            <c:if test="${pageContext.request.isUserInRole('admin')}">
+            <div     class="row">
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
                             <span class="btn-media-right"> <a href="film-new" class="btn btn-success ml-auto">
                                 <i class="fas fa-plus-square fa-1x"></i>Add Film</a>
                             </span>
-            </c:if>
-            <div     class="row">
+                </c:if>
             <c:choose>
                 <c:when test="${films ne null}">
                     <c:forEach var="film" items="${films}" >
@@ -81,9 +81,9 @@
                 </c:if>
                 <li class="list-group-item"><a class="btn btn-link" href="genres">All Movie Genres</a></li>
                     <li class="list-group-item"><a class="btn btn-link" href="now-playing-movies">Now Playing Movies</a></li>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>--%>
+                <li class="list-group-item"><a class="btn btn-link" href="top-rated-movies">Top Rated</a></li>
                 <li class="list-group-item"><a class="btn btn-link" href="popular-movies">Popular</a></li>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>--%>
+                <li class="list-group-item"><a class="btn btn-link" href="upcoming-movies">Up Coming</a></li>
             </ul>
         </div>
     </div>
