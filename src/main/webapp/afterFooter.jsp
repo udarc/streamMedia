@@ -5,6 +5,11 @@
   Time: 4:10 PM
   To change this template use File | Settings | File Templates.
 --%>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
