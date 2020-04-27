@@ -45,7 +45,7 @@
                 </c:if>
             </ul>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <h2>Rest API Genres</h2>
             <%@include file="restAPIGenres.jsp"%>
         </div>

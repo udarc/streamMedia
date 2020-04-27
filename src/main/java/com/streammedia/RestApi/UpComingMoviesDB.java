@@ -1,21 +1,24 @@
 package com.streammedia.RestApi;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PopularMovies{
-
-	@JsonProperty("page")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class UpComingMoviesDB{
+	private Dates dates;
 	private int page;
-
-	@JsonProperty("total_pages")
 	private int totalPages;
-
-	@JsonProperty("results")
 	private List<ResultsItem> results;
-
-	@JsonProperty("total_results")
 	private int totalResults;
+
+	public void setDates(Dates dates){
+		this.dates = dates;
+	}
+
+	public Dates getDates(){
+		return dates;
+	}
 
 	public void setPage(int page){
 		this.page = page;
@@ -52,8 +55,9 @@ public class PopularMovies{
 	@Override
  	public String toString(){
 		return 
-			"PopularMovies{" + 
-			"page = '" + page + '\'' + 
+			"UpComingMoviesDB{" + 
+			"dates = '" + dates + '\'' + 
+			",page = '" + page + '\'' + 
 			",total_pages = '" + totalPages + '\'' + 
 			",results = '" + results + '\'' + 
 			",total_results = '" + totalResults + '\'' + 
