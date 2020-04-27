@@ -61,4 +61,47 @@ public class APIMovieDao implements PropertiesLoader {
         }
         return items;
     }
+
+    public List<PopularMovies> getTopRatedMovies(){
+        Client client = ClientBuilder.newClient();
+        PopularMovies movies =  null;
+        List<PopularMovies> items =  new ArrayList<>();
+        try {
+            Properties restAPi = loadProperties("/restapi.properties");
+            ObjectMapper mapper = new ObjectMapper();
+            for (int i = 1; i <=2; i++) {
+                String URL = restAPi.getProperty("top.rated.movies") + "&page=" + i;
+                WebTarget webTarget =  client.target(URL);
+                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
+                movies = mapper.readValue(response,PopularMovies.class);
+                items.add(movies);
+            }
+        }catch (JsonProcessingException e) {
+            log.error(e);
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return items;
+    }
+    public List<PopularMovies> getUpcomingMovies(){
+        Client client = ClientBuilder.newClient();
+        PopularMovies movies =  null;
+        List<PopularMovies> items =  new ArrayList<>();
+        try {
+            Properties restAPi = loadProperties("/restapi.properties");
+            ObjectMapper mapper = new ObjectMapper();
+            for (int i = 1; i <=2; i++) {
+                String URL = restAPi.getProperty("upcoming.movies") + "&page=" + i;
+                WebTarget webTarget =  client.target(URL);
+                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
+                movies = mapper.readValue(response,PopularMovies.class);
+                items.add(movies);
+            }
+        }catch (JsonProcessingException e) {
+            log.error(e);
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return items;
+    }
 }
