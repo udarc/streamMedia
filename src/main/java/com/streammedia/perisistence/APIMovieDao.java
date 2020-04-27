@@ -2,9 +2,7 @@ package com.streammedia.perisistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.streammedia.RestApi.PlayingMovies;
-import com.streammedia.RestApi.PopularMovies;
-import com.streammedia.RestApi.ResultsItem;
+import com.streammedia.RestApi.APIMoviesDB;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 
@@ -18,21 +16,34 @@ import java.util.Properties;
 
 @Log4j2
 public class APIMovieDao implements PropertiesLoader {
-    public List<PlayingMovies> getPlayingMovies(){
+    public List<APIMoviesDB> getPlayingMovies(){
+        String url = "playing.movies";
+        return getApiMoviesDBS(url);
+    }
+    public List<APIMoviesDB> getPopularMovies(){
+        String url = "popular.movies";
+        return getApiMoviesDBS(url);
+    }
+
+    public List<APIMoviesDB> getTopRatedMovies(){
+        String url = "top.rated.movies";
+        return getApiMoviesDBS(url);
+    }
+
+    public List<APIMoviesDB> getUpcomingMovies(){
+        String url = "upcoming.movies";
+        return getApiMoviesDBS(url );
+    }
+
+
+    private List<APIMoviesDB> getApiMoviesDBS(String url) {
         Client client = ClientBuilder.newClient();
-        PlayingMovies movies =  null;
-        List<PlayingMovies> items =  new ArrayList<>();
+        APIMoviesDB movies = null;
+        List<APIMoviesDB> items = new ArrayList<>();
         try {
             Properties restAPi = loadProperties("/restapi.properties");
-            ObjectMapper mapper = new ObjectMapper();
-            for (int i = 1; i <=2; i++) {
-                String URL = restAPi.getProperty("playing.movies") + "&page=" + i;
-                WebTarget webTarget =  client.target(URL);
-                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
-                movies = mapper.readValue(response,PlayingMovies.class);
-                items.add(movies);
-            }
-        }catch (JsonProcessingException e) {
+            getMovieList(url, client, items, restAPi);
+        } catch (JsonProcessingException e) {
             log.error(e);
         } catch (Exception e) {
             log.error(e);
@@ -40,68 +51,16 @@ public class APIMovieDao implements PropertiesLoader {
         return items;
     }
 
-    public List<PopularMovies> getPopularMovies(){
-        Client client = ClientBuilder.newClient();
-        PopularMovies movies =  null;
-        List<PopularMovies> items =  new ArrayList<>();
-        try {
-            Properties restAPi = loadProperties("/restapi.properties");
-            ObjectMapper mapper = new ObjectMapper();
-            for (int i = 1; i <=2; i++) {
-                String URL = restAPi.getProperty("popular.movies") + "&page=" + i;
-                WebTarget webTarget =  client.target(URL);
-                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
-                movies = mapper.readValue(response,PopularMovies.class);
-                items.add(movies);
-            }
-        }catch (JsonProcessingException e) {
-            log.error(e);
-        } catch (Exception e) {
-            log.error(e);
+    private void getMovieList(String url, Client client, List<APIMoviesDB> items, Properties restAPi) throws JsonProcessingException {
+        APIMoviesDB movies;
+        ObjectMapper mapper = new ObjectMapper();
+        for (int i = 1; i <= 2; i++) {
+            String URL = restAPi.getProperty(url) + "&page=" + i;
+            WebTarget webTarget = client.target(URL);
+            String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
+            movies = mapper.readValue(response, APIMoviesDB.class);
+            items.add(movies);
         }
-        return items;
     }
 
-    public List<PopularMovies> getTopRatedMovies(){
-        Client client = ClientBuilder.newClient();
-        PopularMovies movies =  null;
-        List<PopularMovies> items =  new ArrayList<>();
-        try {
-            Properties restAPi = loadProperties("/restapi.properties");
-            ObjectMapper mapper = new ObjectMapper();
-            for (int i = 1; i <=2; i++) {
-                String URL = restAPi.getProperty("top.rated.movies") + "&page=" + i;
-                WebTarget webTarget =  client.target(URL);
-                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
-                movies = mapper.readValue(response,PopularMovies.class);
-                items.add(movies);
-            }
-        }catch (JsonProcessingException e) {
-            log.error(e);
-        } catch (Exception e) {
-            log.error(e);
-        }
-        return items;
-    }
-    public List<PopularMovies> getUpcomingMovies(){
-        Client client = ClientBuilder.newClient();
-        PopularMovies movies =  null;
-        List<PopularMovies> items =  new ArrayList<>();
-        try {
-            Properties restAPi = loadProperties("/restapi.properties");
-            ObjectMapper mapper = new ObjectMapper();
-            for (int i = 1; i <=2; i++) {
-                String URL = restAPi.getProperty("upcoming.movies") + "&page=" + i;
-                WebTarget webTarget =  client.target(URL);
-                String response = webTarget.request(MediaType.APPLICATION_JSON).get(String.class);
-                movies = mapper.readValue(response,PopularMovies.class);
-                items.add(movies);
-            }
-        }catch (JsonProcessingException e) {
-            log.error(e);
-        } catch (Exception e) {
-            log.error(e);
-        }
-        return items;
-    }
 }
