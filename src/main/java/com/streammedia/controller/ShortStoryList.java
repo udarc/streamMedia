@@ -42,8 +42,8 @@ public class ShortStoryList extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        String action = request.getServletPath();
-//        List<ShortStory> stories =  storyDao.getAll();
-//        request.setAttribute("stories",stories);
+        List<ShortStory> stories =  storyDao.getAll();
+        request.setAttribute("stories",stories);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/stories/storyList.jsp");
         dispatcher.forward(request, response);
 

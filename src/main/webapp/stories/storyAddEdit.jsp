@@ -1,10 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: Jeanne
   Date: 4/23/20
   Time: 11:21 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:choose>
+    <c:when test="${story ne null}">
+        <c:set var="title" value="Edit Story" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="title" value="Add Story" />
+    </c:otherwise>
+</c:choose>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
@@ -14,11 +23,13 @@
     <div class="form row">
         <c:choose>
         <c:when test="${story ne null}">
-        <form class="card col-sm-10 offset-sm-1 was-validated" action="story-edit" method="post">
-            <input type="hidden" id="id" name="uid"  value="${story.storyId}">
+        <form class="card col-sm-10 offset-sm-1 was-validated" action="story-edit" method="post"
+              enctype="multipart/form-data">
+            <input type="hidden" id="id" name="uid"  value="${story.shortStoryId}">
             </c:when>
             <c:otherwise>
-            <form action="add-story" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="add-story" method="post" class="card col-sm-10 offset-sm-1 was-validated"
+                  enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
                 <div class="form-group row">
@@ -50,9 +61,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="summary" class="col-sm-3 col-form-label" >Description</label>
+                    <label for="description" class="col-sm-3 col-form-label" >Description</label>
                     <div class="col-sm-9">
-                    <textarea class="form-control"name="summary" id="Summary"
+                    <textarea class="form-control"name="description" id="description"
                               rows="6">${story.description}</textarea>
                     </div>
                 </div>

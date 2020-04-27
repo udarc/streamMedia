@@ -76,6 +76,10 @@
 |Apr 17, 2020|Research on upload and save in target directory for Trailers [Copy file](https://howtodoinjava.com/java/io/4-ways-to-copy-files-in-java/) |5|
 |Apr 18, 2020|Research to increase the maximum file size in tomcat [Source](https://tecadmin.net/increase-tomcat-upload-file-size-limit/), Upload and display Image |3|
 |Apr 19, 2020|Upload and display Trailer video and updated time log|6.5|
+|Apr 23, 2020|Created Short Story JSPs and Add Short story JSP |2.5|
+|Apr 24, 2020|Updated all JSPs to dynamically change page tile, added Delete Display and updated Short story and add book Servlet|6.5|
+|Apr 24, 2020|Created and added Carousel to home page, logo in Navbar and favicon and Updated Time Log|5|
+|Apr 24, 2020| Resize Carousel Image and implement Add Book, display details|2.5| A wrong  import java.awt.print.Book and took a while to find out.|
 
 
 

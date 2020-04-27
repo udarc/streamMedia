@@ -109,11 +109,15 @@ public class UserEditProfile extends HttpServlet {
             }
             user.setGender(req.getParameter("gender"));
             Part part = req.getPart("profilePicture");
-            log.debug("Test an emapty Part: " + part.getSubmittedFileName());
-            if (part.getSubmittedFileName().length() > 0) {
+            log.debug("Test Part: " + part.getSubmittedFileName());
+            if (part.getSubmittedFileName().isEmpty() && user.getPicture().isEmpty()) {
+                user.setPicture("images/profile.png");
+            } else if(part.getSubmittedFileName().isEmpty() && !user.getPicture().isEmpty()){
+                user.setPicture(user.getPicture());
+            } else {
                 String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//", "/");
                 String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//", "/");
-//                String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
+                String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
                 String projectPath = JavaHelperMethods.saveFileName(saveImage, part);
                 user.setPicture(projectPath.substring(55, projectPath.length()));
             }
