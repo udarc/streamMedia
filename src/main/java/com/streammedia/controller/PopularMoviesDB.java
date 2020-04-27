@@ -13,26 +13,25 @@ import java.io.IOException;
 import java.util.*;
 
 @WebServlet(
-        urlPatterns = {"/now-playing-movies"}
+        urlPatterns = {"/popular-movies"}
 )
-public class NowPlayingMovies extends HttpServlet {
-    private APIMovieDao playingMovies;
+public class PopularMoviesDB extends HttpServlet {
+    private APIMovieDao popularMovies;
     @Override
     public void init() throws ServletException {
-        playingMovies =  new APIMovieDao();
+        popularMovies =  new APIMovieDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for ( PlayingMovies item: playingMovies.getPlayingMovies()) {
+        for (PopularMovies item: popularMovies.getPopularMovies()) {
             for (ResultsItem movie: item.getResults()) {
                 items.add(movie);
             }
         }
-        req.setAttribute("playingMovies", items);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/film/nowPlayingMovies.jsp");
+        req.setAttribute("popularMovies", items);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/film/popularMovies.jsp");
         dispatcher.forward(req,resp);
     }
 }
-
