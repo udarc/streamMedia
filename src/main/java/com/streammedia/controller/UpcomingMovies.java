@@ -15,22 +15,22 @@ import java.util.*;
         urlPatterns = {"/upcoming-movies"}
 )
 public class UpcomingMovies extends HttpServlet {
-    private APIMovieDao popularMovies;
+    private APIMovieDao upcomingMovies;
 
     @Override
     public void init() throws ServletException {
-        popularMovies = new APIMovieDao();
+        upcomingMovies = new APIMovieDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for (PopularMovies item : popularMovies.getUpcomingMovies()) {
+        for (APIMoviesDB item : upcomingMovies.getPlayingMovies()) {
             for (ResultsItem movie : item.getResults()) {
                 items.add(movie);
             }
         }
-        req.setAttribute("upcomingMovies", items);
+        req.setAttribute("movies", items);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/film/upcomingMovies.jsp");
         dispatcher.forward(req, resp);
     }
