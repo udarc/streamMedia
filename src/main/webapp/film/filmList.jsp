@@ -82,7 +82,7 @@
                 <li class="list-group-item"><a class="btn btn-link" href="genres">All Movie Genres</a></li>
                     <li class="list-group-item"><a class="btn btn-link" href="now-playing-movies">Now Playing Movies</a></li>
 <%--                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>--%>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Popular</a></li>--%>
+                <li class="list-group-item"><a class="btn btn-link" href="popular-movies">Popular</a></li>
 <%--                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>--%>
             </ul>
         </div>
