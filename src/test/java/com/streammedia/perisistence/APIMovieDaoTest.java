@@ -29,5 +29,23 @@ public class APIMovieDaoTest  implements PropertiesLoader {
             assertNotNull(item.getResults());
         }
     }
+    @Test
+    public void getTopRatedMoviesSuccess(){
+        APIMovieDao popularMovies =  new APIMovieDao();
+        for ( PopularMovies item: popularMovies.getTopRatedMovies()) {
+//            assertTrue(item.getTotalPages() == 58);
+            assertTrue(item.getResults().size() == 20);
+            assertNotNull(item.getResults());
+        }
+    }
+    @Test
+    public void getUpcomingMoviesSuccess(){
+        APIMovieDao popularMovies =  new APIMovieDao();
+        for ( PopularMovies item: popularMovies.getUpcomingMovies()) {
+//            assertTrue(item.getTotalPages() == 58);
+            assertTrue(item.getResults().size() == 20);
+            assertNotNull(item.getResults());
+        }
+    }
 
 }

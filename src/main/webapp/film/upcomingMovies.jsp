@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: student
   Date: 4/26/20
-  Time: 11:17 PM
+  Time: 11:50 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../taglib.jsp"%>
@@ -13,11 +13,11 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper">
-    <h1 class="alert alert-info text-center">Popular Movies</h1>
+    <h1 class="alert alert-info text-center">Upcoming Movies</h1>
     <div class="row">
         <c:choose>
-            <c:when test="${popularMovies ne null}">
-                <c:forEach var="movie" items="${popularMovies}" >
+            <c:when test="${upcomingMovies ne null}">
+                <c:forEach var="movie" items="${upcomingMovies}" >
                     <div class="col-sm-3">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item "><h2>Title: ${movie.title}</h2></li>
@@ -35,7 +35,7 @@
             </c:when>
             <c:otherwise>
                 <ul list-group >
-                    <li class="list-group-item ">Popular Movies Not found!</li>
+                    <li class="list-group-item ">Upcoming Movies Not found!</li>
                 </ul>
             </c:otherwise>
         </c:choose>
