@@ -16,21 +16,21 @@ import java.util.*;
         urlPatterns = {"/now-playing-movies"}
 )
 public class NowPlayingMovies extends HttpServlet {
-    private APIMovieDao playingMovies;
+    private APIMovieDao apiMovieDao;
     @Override
     public void init() throws ServletException {
-        playingMovies =  new APIMovieDao();
+        apiMovieDao =  new APIMovieDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for ( PlayingMovies item: playingMovies.getPlayingMovies()) {
+        for ( APIMoviesDB item: apiMovieDao.getPlayingMovies()) {
             for (ResultsItem movie: item.getResults()) {
                 items.add(movie);
             }
         }
-        req.setAttribute("playingMovies", items);
+        req.setAttribute("movies", items);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/film/nowPlayingMovies.jsp");
         dispatcher.forward(req,resp);
     }

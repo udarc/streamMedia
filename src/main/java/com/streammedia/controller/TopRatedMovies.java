@@ -25,12 +25,12 @@ public class TopRatedMovies extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for (PopularMovies item : popularMovies.getTopRatedMovies()) {
+        for (APIMoviesDB item : popularMovies.getTopRatedMovies()) {
             for (ResultsItem movie : item.getResults()) {
                 items.add(movie);
             }
         }
-        req.setAttribute("topRatedMovies", items);
+        req.setAttribute("movies", items);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/film/topRatedMovies.jsp");
         dispatcher.forward(req, resp);
     }
