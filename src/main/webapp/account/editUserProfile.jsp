@@ -98,7 +98,7 @@
             <div class="form-group row">
                 <div class="col-sm-9">
                     <button type="submit"
-                            name="editPorfile" class="btn btn-lg btn-success">Edit Profile</button>
+                            name="editProfile" class="btn btn-lg btn-success">Edit Profile</button>
                 </div>
             </div>
         </form>

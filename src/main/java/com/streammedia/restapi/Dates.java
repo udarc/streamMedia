@@ -1,4 +1,4 @@
-package com.streammedia.RestApi;
+package com.streammedia.restapi;
 
 public class Dates{
 	private String maximum;

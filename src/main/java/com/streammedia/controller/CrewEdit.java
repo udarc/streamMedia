@@ -16,12 +16,12 @@ import java.io.IOException;
 )
 public class CrewEdit extends HttpServlet {
     private GenericDao crewDao;
-    private  GenericDao userDao;
+//    private  GenericDao userDao;
 
     @Override
     public void init() throws ServletException {
         crewDao =  new GenericDao(Crew.class);
-        userDao =  new GenericDao(User.class);
+//        userDao =  new GenericDao(User.class);
     }
 
     @Override
