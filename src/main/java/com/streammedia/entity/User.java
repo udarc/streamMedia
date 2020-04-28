@@ -4,6 +4,8 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 import javax.ws.rs.core.FeatureContext;
@@ -18,6 +20,8 @@ import java.util.Set;
 /**
  * The type User.
  * https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html
+ * Add Hibernate Search:
+ * https://thoughts-on-java.org/add-full-text-search-application-hibernate-search/
  * @author Jeanne
  */
 @Getter
@@ -26,6 +30,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Indexed
 @Entity(name = "User")
 @Table(name = "SM_Users")
 @JsonIgnoreProperties({"films","trailers","faqs","crews","books","musics","shortStories"})
@@ -38,9 +43,11 @@ public class User implements Serializable {
     @GenericGenerator(name = "native", strategy = "native")
     private int userId;
 
+    @Field
     @Column(name = "username",nullable = false,unique = true)
     private String username;
 
+    @Field
     @Column(name = "email",nullable = false)
     private String email;
 
@@ -48,11 +55,14 @@ public class User implements Serializable {
     @Column(name = "password",nullable = false)
     private String password;
 
+    @Field
     @Column(name = "first_name")
     private String firstName;
 
+    @Field
     @Column(name = "last_name")
     private String lastName;
+
 
     @Column(name = "birthdate")
 //    @EqualsAndHashCode.Exclude //todo only make the test pass
