@@ -1,4 +1,4 @@
-package com.streammedia.RestApi;
+package com.streammedia.restapi;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;

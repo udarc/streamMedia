@@ -1,4 +1,4 @@
-package com.streammedia.RestApi;
+package com.streammedia.restapi;
 
 import com.streammedia.entity.BkCategory;
 import com.streammedia.perisistence.GenericDao;
@@ -12,11 +12,11 @@ import java.util.List;
 
 @Path("bk-categories")
 public class BKCategoryResource implements Serializable {
-    private GenericDao bkCatgegoryDao = new GenericDao(BkCategory.class);
+    private GenericDao bkCategoryDao = new GenericDao(BkCategory.class);
     @GET
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response getAllBKCategories(){
-        List<BkCategory> categoryList = bkCatgegoryDao.getAll();
+        List<BkCategory> categoryList = bkCategoryDao.getAll();
         GenericEntity<List<BkCategory>> allCategories =  new GenericEntity<List<BkCategory>>(categoryList) {};
         return Response.ok(allCategories).build();
 
@@ -25,13 +25,13 @@ public class BKCategoryResource implements Serializable {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response saveBkCategory(BkCategory category){
-        return Response.ok(bkCatgegoryDao.insert(category)).build();
+        return Response.ok(bkCategoryDao.insert(category)).build();
     }
 
     @GET
     @Path("{bkCategoryId}")
     public Response getBkCategoryById(@PathParam("bkCategoryId") int id){
-        BkCategory cat = (BkCategory)bkCatgegoryDao.getById(id);
+        BkCategory cat = (BkCategory)bkCategoryDao.getById(id);
         if(!cat.equals(null)){
             return Response.ok(cat).build();
         }

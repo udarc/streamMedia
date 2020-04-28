@@ -22,11 +22,11 @@ import javax.servlet.http.*;
 public class FAQDetails extends HttpServlet {
 
     private GenericDao faqDao;
-    private GenericDao userDao;
+//    private GenericDao userDao;
 
     public void init() {
         faqDao = new GenericDao(FAQ.class);
-        userDao = new GenericDao(User.class);
+//        userDao = new GenericDao(User.class);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

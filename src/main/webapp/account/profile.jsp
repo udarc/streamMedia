@@ -47,7 +47,7 @@
                                 <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
                     <c:if test="${pageContext.request.isUserInRole('admin')}" >
                         <a class="btn btn-primary"  href="users">
-                            <i class="fas fa-user-cog fa-3x" aria-hidden="true"></i> Admim Dashboard</a></li>
+                            <i class="fas fa-user-cog fa-3x" aria-hidden="true"></i> Admin Dashboard</a></li>
                     </c:if>
 
                     </ul>

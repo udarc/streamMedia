@@ -1,11 +1,7 @@
 package com.streammedia.perisistence;
 
-import com.streammedia.RestApi.GenresItem;
 import lombok.extern.log4j.Log4j2;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
