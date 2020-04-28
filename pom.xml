@@ -209,9 +209,8 @@
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-search</artifactId>
-            <version>5.11.5.Final</version>
-            <type>pom</type>
+            <artifactId>hibernate-search-orm</artifactId>
+            <version>5.6.0.Final</version>
         </dependency>
 <!--        Test endpoints-->
         <dependency>
