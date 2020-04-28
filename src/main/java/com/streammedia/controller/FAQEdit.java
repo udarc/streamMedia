@@ -24,18 +24,18 @@ import java.time.LocalDateTime;
 
 public class FAQEdit extends HttpServlet {
     private GenericDao faqDao;
-    private GenericDao userDao;
+//    private GenericDao userDao;
 
     public void init() {
         faqDao = new GenericDao(FAQ.class);
-        userDao = new GenericDao(User.class);
+//        userDao = new GenericDao(User.class);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setAttribute("faq",faqDao.getById(Integer.valueOf(request.getParameter("uid"))));
-        String url ="/faq/faqAdd.jsp";
+        String url ="/faq/faqAddEdit.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request,response);
 
