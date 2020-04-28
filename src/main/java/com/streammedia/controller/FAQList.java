@@ -34,11 +34,11 @@ public class FAQList extends HttpServlet {
 
     //        private static final long serialVersionUID = 1L;
     private GenericDao faqDao;
-    private GenericDao userDao;
+//    private GenericDao userDao;
 
     public void init() {
         faqDao = new GenericDao(FAQ.class);
-        userDao = new GenericDao(User.class);
+//        userDao = new GenericDao(User.class);
     }
 
     @Override

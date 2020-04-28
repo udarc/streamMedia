@@ -2,7 +2,7 @@ package com.streammedia.perisistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.streammedia.RestApi.APIMoviesDB;
+import com.streammedia.restapi.APIMoviesDB;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 
@@ -41,7 +41,7 @@ public class APIMovieDao implements PropertiesLoader {
         APIMoviesDB movies = null;
         List<APIMoviesDB> items = new ArrayList<>();
         try {
-            Properties restAPi = loadProperties("/restapi.properties");
+            Properties restAPi = loadProperties("/rest-api.properties");
             getMovieList(url, client, items, restAPi);
         } catch (JsonProcessingException e) {
             log.error(e);

@@ -1,9 +1,17 @@
 package com.streammedia.controller;
 //TODO https://www.javatpoint.com/crud-in-servlet
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import com.streammedia.utility.JavaHelperMethods;
+import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -12,12 +20,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * The type Edit user profile.
@@ -35,7 +45,7 @@ import java.util.Enumeration;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1MB
         maxFileSize = 1024 * 1024 * 2,      // 3MB
         maxRequestSize = 1024 * 1024 * 50)   // 50MB
-public class UserEditProfile extends HttpServlet {
+public class UserEditProfile extends HttpServlet implements PropertiesLoader {
     /**
      * Name of the directory where uploaded files will be saved, relative to
      * the web application directory.
@@ -44,6 +54,7 @@ public class UserEditProfile extends HttpServlet {
     private GenericDao genericDao;
     private String appPath;
     private String rootPath;
+    private Properties properties;
 
     public void init() {
         // gets absolute path of the web application
@@ -87,7 +98,11 @@ public class UserEditProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Root Project Path: " + rootPath);
-
+        try {
+            properties = loadProperties("aws-properties");
+        } catch (Exception e) {
+            log.error(e);
+        }
         String username = req.getParameter("user");
         log.debug(" User EDIt Username Value : " + username);
         User user = (User) genericDao.getByPropertyEqual("username", username).get(0);
@@ -109,6 +124,7 @@ public class UserEditProfile extends HttpServlet {
             }
             user.setGender(req.getParameter("gender"));
             Part part = req.getPart("profilePicture");
+            /*//Upload to Load directory
             log.debug("Test Part: " + part.getSubmittedFileName());
             if (part.getSubmittedFileName().isEmpty() && user.getPicture().isEmpty()) {
                 user.setPicture("images/profile.png");
@@ -120,8 +136,40 @@ public class UserEditProfile extends HttpServlet {
                 String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
                 String projectPath = JavaHelperMethods.saveFileName(saveImage, part);
                 user.setPicture(projectPath.substring(55, projectPath.length()));
-            }
+            }*/
+            //Upload to S3
 
+            String fileName =  part.getSubmittedFileName().toLowerCase();
+            if(fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith("jpeg")){
+                InputStream fileInputStream = part.getInputStream();
+                log.debug(fileInputStream);
+                String accessKeyId =properties.getProperty("aws.secret.access.key");
+                String secretAccessKey = properties.getProperty("aws.access.key.id");
+                String region = properties.getProperty("aws.region");
+                String bucketName = properties.getProperty("aws.bucket.name");
+                String subdirectory = "images/"+ username + "/";
+                //AWS Access Key ID and Secret Access Key
+                BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+
+                //This class connects to AWS S3 for us
+                AmazonS3 s3client = AmazonS3ClientBuilder.standard().withRegion(region)
+                        .withCredentials(new AWSStaticCredentialsProvider(awsCreds)).build();
+
+                //Specify the file's size
+                ObjectMetadata metadata = new ObjectMetadata();
+                metadata.setContentLength(part.getSize());
+                //Create the upload request, giving it a bucket name, subdirectory, filename, input stream, and metadata
+                PutObjectRequest uploadRequest = new PutObjectRequest(bucketName, subdirectory + fileName, fileInputStream, metadata);
+                //Make it public so we can use it as a public URL on the internet
+                uploadRequest.setCannedAcl(CannedAccessControlList.PublicRead);
+
+                //Upload the file. This can take a while for big files!
+                s3client.putObject(uploadRequest);
+                //Create a URL using the bucket, subdirectory, and file name
+                String fileUrl = "http://s3.amazonaws.com/" + bucketName + "/" + subdirectory + "/" + fileName;
+            } else {
+                resp.getOutputStream().println("<p>Please only upload JPG or PNG files.</p>");
+            }
             user.setBiography(req.getParameter("biography"));
             log.error(user);
             log.debug("Updating User: " + user);

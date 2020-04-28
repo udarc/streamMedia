@@ -2,7 +2,7 @@ package com.streammedia.perisistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.streammedia.RestApi.*;
+import com.streammedia.restapi.*;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 import javax.ws.rs.client.Client;
@@ -17,7 +17,7 @@ public class GenreRESTAPIDao implements PropertiesLoader {
         Client client = ClientBuilder.newClient();
         Genres genres= null;
         try {
-            Properties restAPis = loadProperties("/restapi.properties");
+            Properties restAPis = loadProperties("/rest-api.properties");
             WebTarget target =
                     client.target(restAPis.getProperty("genres.url"));
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);

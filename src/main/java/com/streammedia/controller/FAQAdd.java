@@ -1,6 +1,7 @@
 package com.streammedia.controller;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.utility.AWSS3UploadUtil;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
         private GenericDao faqDao;
         private GenericDao userDao;
 
+
         public void init(){
             faqDao =  new GenericDao(FAQ.class);
             userDao =  new GenericDao(User.class);
@@ -32,7 +34,7 @@ import java.time.LocalDateTime;
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAdd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/faq/faqAddEdit.jsp");
             dispatcher.forward(request, response);
 
         }
@@ -54,10 +56,13 @@ import java.time.LocalDateTime;
                     newFAQ.setUpdatedAt(LocalDateTime.now());
                     newFAQ.setUser(user);
                     log.debug("Adding FAQ: ", newFAQ.getTitle());
+//                    AWSS3UploadUtil awss3UploadUtil = new AWSS3UploadUtil();
                     faqDao.insert(newFAQ);
+//                    log.error(awss3UploadUtil.getS3Bucket("cloud-for-developers"));
+//                    awss3UploadUtil.createS3Bucket("ju-stream-media");
                     response.sendRedirect("faqs");
                 } else {
-                    request.getRequestDispatcher("/faq/faqAdd.jsp").forward(request, response);
+                    request.getRequestDispatcher("/faq/faqAddEdit.jsp").forward(request, response);
                 }
             } catch (NullPointerException npe) {
                 log.error("User Does not Exists" + npe);
