@@ -30,7 +30,6 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Indexed
 @Entity(name = "User")
 @Table(name = "SM_Users")
 @JsonIgnoreProperties({"films","trailers","faqs","crews","books","musics","shortStories"})
