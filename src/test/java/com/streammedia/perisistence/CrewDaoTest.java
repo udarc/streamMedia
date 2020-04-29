@@ -13,11 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CrewDaoTest {
     GenericDao genericDao;
     GenericDao userDao;
+    GenericDao filmDao;
 
     @BeforeEach
     void setUp(){
         genericDao =  new GenericDao(Crew.class);
         userDao = new GenericDao(User.class);
+        filmDao = new GenericDao(Film.class);
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
     }
@@ -85,7 +87,10 @@ public class CrewDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(5));
+        Crew  crew = (Crew)genericDao.getById(5);
+        Film film = (Film) filmDao.getById(1);
+        crew.removeFilm(film);
+        genericDao.delete(crew);
         assertNull(genericDao.getById(5));
     }
 }

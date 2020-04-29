@@ -46,7 +46,7 @@ public class Trailer {
     private String cover;
 
     @Column(name= "pub_date", nullable = false)
-//    @EqualsAndHashCode.Exclude TODO add it back for testing
+    @EqualsAndHashCode.Exclude
     private LocalDateTime publicationDate;
 
     @Column(name = "links")
