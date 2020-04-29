@@ -41,7 +41,7 @@ public class APIMovieDao implements PropertiesLoader {
         APIMoviesDB movies = null;
         List<APIMoviesDB> items = new ArrayList<>();
         try {
-            Properties restAPi = loadProperties("/restapi.properties");
+            Properties restAPi = loadProperties("/rest-api.properties");
             getMovieList(url, client, items, restAPi);
         } catch (JsonProcessingException e) {
             log.error(e);
