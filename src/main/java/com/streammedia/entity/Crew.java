@@ -63,7 +63,7 @@ public class Crew {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy = "crews")
+    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "crews")
     private Set<Film> films = new HashSet<>();
 
     /**

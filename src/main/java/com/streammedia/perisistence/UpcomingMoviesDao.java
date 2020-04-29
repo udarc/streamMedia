@@ -22,7 +22,7 @@ public class UpcomingMoviesDao implements PropertiesLoader {
 //        UpComingMoviesDB movies =  null;
 //        List<UpComingMoviesDB> items =  new ArrayList<>();
 //        try {
-//            Properties restAPi = loadProperties("/restapi.properties");
+//            Properties restAPi = loadProperties("/rest-api.properties");
 //            ObjectMapper mapper = new ObjectMapper();
 //            for (int i = 1; i <=2; i++) {
 //                String URL = restAPi.getProperty("upcoming.movies") + "&page=" + i;
