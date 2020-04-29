@@ -17,7 +17,7 @@ public class GenreRESTAPIDao implements PropertiesLoader {
         Client client = ClientBuilder.newClient();
         Genres genres= null;
         try {
-            Properties restAPis = loadProperties("/restapi.properties");
+            Properties restAPis = loadProperties("/rest-api.properties");
             WebTarget target =
                     client.target(restAPis.getProperty("genres.url"));
             String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
