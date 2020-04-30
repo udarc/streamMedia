@@ -148,7 +148,7 @@ class UserDaoTest {
 
     @Disabled
     @Test
-    void deleteUserWithROleSuccess() {
+    public void testDeleteUserWithRoleSuccess() {
         GenericDao roleDao = new GenericDao(Role.class);
         User user = (User)genericDao.getById(1);
         Role role = (Role) roleDao.getById(1);
