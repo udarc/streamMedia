@@ -197,12 +197,6 @@ public class FilmDaoTest {
         Set<Genre> genreList = film.getGenres();
         crewList.clear();
         genreList.clear();
-//        for (Genre genre: genreList) {
-//            film.removeGenre(genre);
-//        }
-//        for (Crew crew: crewList) {
-//            film.removeCrew(crew);
-//        }
         genericDao.delete(film);
         assertNull(genericDao.getById(2));
     }
