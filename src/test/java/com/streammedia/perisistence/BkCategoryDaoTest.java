@@ -1,6 +1,8 @@
 package com.streammedia.perisistence;
 
 import com.streammedia.entity.BkCategory;
+import com.streammedia.entity.Crew;
+import com.streammedia.entity.Book;
 import com.streammedia.test.utility.Database;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Log4j2
 public class BkCategoryDaoTest {
     GenericDao bkCategoryDao;
+    GenericDao bookDao;
 
     /**
      * Creating the dao.
@@ -21,6 +24,7 @@ public class BkCategoryDaoTest {
     void setUp() {
 
         bkCategoryDao = new GenericDao(BkCategory.class);
+        bookDao = new GenericDao(Book.class);
 
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
@@ -94,7 +98,10 @@ public class BkCategoryDaoTest {
 //    @Disabled
     @Test
     void deleteSuccess() {
-        bkCategoryDao.delete(bkCategoryDao.getById(2));
-        assertNull(bkCategoryDao.getById(2));
+        BkCategory bkCategory = (BkCategory) bkCategoryDao.getById(3);
+        Book book = (Book) bookDao.getById(1);
+        bkCategory.removeBook(book);
+        bkCategoryDao.delete(bkCategory);
+        assertNull(bkCategoryDao.getById(3));
     }
 }
