@@ -79,29 +79,28 @@ public class BookDaoTest {
     }
 
 
-//    @Test
-//    public void  testUpdateBookWithCategorySuccess(){
-//
-//        String newTitle = "Home Sweet";
-//        Book bookToUpdate = (Book) bookDao.getById(2);
-//        bookToUpdate.setTitle(newTitle);
-//        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
-//        Set<BkCategory> categories =  bookToUpdate.getCategories();
-//        log.debug(categories.size());
-//        categories.clear();
-//        categories.add(newCategory);
-//        bookDao.saveOrUpdate(bookToUpdate);
-//        Book retrieveHBook = (Book) bookDao.getById(2);
-//        System.out.println(bookToUpdate.getTitle());
-//        assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
-//
-//    }
-//    /**
-//     * Verify successful delete of books and detach them from category
-//     */
-//    @Disabled
     @Test
-    public void deleteSuccess() {
+    public void  testUpdateBookWithCategorySuccess(){
+
+        String newTitle = "Home Sweet";
+        Book bookToUpdate = (Book) bookDao.getById(2);
+        bookToUpdate.setTitle(newTitle);
+        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
+        Set<BkCategory> categories =  bookToUpdate.getCategories();
+        log.debug(categories.size());
+        categories.clear();
+        categories.add(newCategory);
+        bookDao.saveOrUpdate(bookToUpdate);
+        Book retrieveHBook = (Book) bookDao.getById(2);
+        System.out.println(bookToUpdate.getTitle());
+        assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
+
+    }
+    /**
+     * Verify successful delete of books and detach them from category
+     */
+    @Test
+    public void testDeleteSuccess() {
         BkCategory  bkCategory = (BkCategory)categoryDao.getById(5);
         Book book = (Book) bookDao.getById(2);
         book.removeCategory(bkCategory);
