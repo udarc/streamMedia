@@ -54,8 +54,12 @@
       <url-pattern>/genre-new</url-pattern>
       <url-pattern>/genre-delete</url-pattern>
       <url-pattern>/genre-edit</url-pattern>
+      <url-pattern>/film-new</url-pattern>
+      <url-pattern>/film-delete</url-pattern>
+      <url-pattern>/film-edit</url-pattern>
       <url-pattern>/film/crewAddEdit.jsp</url-pattern>
       <url-pattern>/film/genreAddEdit.jsp</url-pattern>
+      <url-pattern>/film/filmAddEdit.jsp</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>admin</role-name>

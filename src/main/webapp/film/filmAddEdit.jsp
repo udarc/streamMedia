@@ -7,11 +7,11 @@
 --%>
 <%@include file="../taglib.jsp"%>
 <c:choose>
-    <c:when test="${story ne null}">
-        <c:set var="title" value="Edit Story" />
+    <c:when test="${film ne null}">
+        <c:set var="title" value="Edit Film" />
     </c:when>
     <c:otherwise>
-        <c:set var="title" value="Add Story" />
+        <c:set var="title" value="Add Film" />
     </c:otherwise>
 </c:choose>
 <%@include file="../head.jsp"%>
