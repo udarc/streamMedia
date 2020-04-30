@@ -59,9 +59,17 @@ VALUES
 (2,'Once upon time','01:39:02','Elizabeth Ingram','1986-07-08','Some Summary for Test',NOW(),2,'some.png'),
 (3,'Calvin','01:39:02', 'Roberta Barnes','1986-07-08','Some Summary for Test',Now(),2,'some.png');
 INSERT INTO FilmGenre(film_id,genre_id)
-VALUES(1,2);
+VALUES(1,2),
+      (3,2),
+      (2,4),
+      (1,1),
+      (2,1);
 INSERT INTO FilmCrew(film_id,crew_id)
-VALUES(1,5);
+VALUES(1,5),
+      (1,3),
+      (1,2),
+      (2,5),
+      (3,5);
 
 
 INSERT INTO BKCategory(bkCategory_id,title,description ,created_at) VALUES

@@ -18,14 +18,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Log4j2
 public class BookDaoTest {
-    GenericDao genericDao;
+    GenericDao bookDao;
     GenericDao userDao;
     GenericDao categoryDao;
   
 
     @BeforeEach
     void setUp(){
-        genericDao =  new GenericDao(Book.class);
+        bookDao =  new GenericDao(Book.class);
         userDao = new GenericDao(User.class);
         categoryDao =  new GenericDao(BkCategory.class);
         Database database = Database.getInstance();
@@ -33,21 +33,21 @@ public class BookDaoTest {
     }
 
     /**
-     * Verify that all Crews are retrieved from db
+     * Verify that all books are retrieved from db
      */
     @Test
     public void testGetAllBooksSuccess(){
-        List<Book> books = genericDao.getAll();
+        List<Book> books = bookDao.getAll();
         assertEquals(4,books.size());
     }
     @Test
-    void testGetByIdSuccess() {
-        Book retrievedBook = (Book)genericDao.getById(4);
+    public void testGetByIdSuccess() {
+        Book retrievedBook = (Book)bookDao.getById(4);
         assertNotNull(retrievedBook);
         assertEquals("Nadia Calm", retrievedBook.getAuthor());
     }
     @Test
-    void  testInsertBookWithExistingCategoriesSuccess(){
+    public void  testInsertBookWithExistingCategoriesSuccess(){
         User user = (User) userDao.getById(2);
         BkCategory newCategory = (BkCategory) categoryDao.getById(4);
         BkCategory categoryTwo = (BkCategory)categoryDao.getById(6);
@@ -72,28 +72,40 @@ public class BookDaoTest {
             log.debug("Loop Book One " + bookOne.getAuthor());
 
         }
-        int id = genericDao.insert(bookOne);
+        int id = bookDao.insert(bookOne);
         assertTrue(id > 0);
-        Book  insertbook = (Book)genericDao.getById(id);
+        Book  insertbook = (Book)bookDao.getById(id);
         assertTrue(insertbook.getTitle().equals(bookOne.getTitle()));
     }
 
 
+//    @Test
+//    public void  testUpdateBookWithCategorySuccess(){
+//
+//        String newTitle = "Home Sweet";
+//        Book bookToUpdate = (Book) bookDao.getById(2);
+//        bookToUpdate.setTitle(newTitle);
+//        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
+//        Set<BkCategory> categories =  bookToUpdate.getCategories();
+//        log.debug(categories.size());
+//        categories.clear();
+//        categories.add(newCategory);
+//        bookDao.saveOrUpdate(bookToUpdate);
+//        Book retrieveHBook = (Book) bookDao.getById(2);
+//        System.out.println(bookToUpdate.getTitle());
+//        assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
+//
+//    }
+//    /**
+//     * Verify successful delete of books and detach them from category
+//     */
+//    @Disabled
     @Test
-    void  testUpdateBookWithCategorySuccess(){
-
-        String newTitle = "Home Sweet";
-        Book bookToUpdate = (Book) genericDao.getById(2);
-        bookToUpdate.setTitle(newTitle);
-        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
-        Set<BkCategory> categories =  bookToUpdate.getCategories();
-        log.debug(categories.size());
-        categories.clear();
-        categories.add(newCategory);
-        genericDao.saveOrUpdate(bookToUpdate);
-        Book retrieveHBook = (Book) genericDao.getById(2);
-        System.out.println(bookToUpdate.getTitle());
-        assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
-
+    public void deleteSuccess() {
+        BkCategory  bkCategory = (BkCategory)categoryDao.getById(5);
+        Book book = (Book) bookDao.getById(2);
+        book.removeCategory(bkCategory);
+        bookDao.delete(book);
+        assertNull(bookDao.getById(5));
     }
 }
