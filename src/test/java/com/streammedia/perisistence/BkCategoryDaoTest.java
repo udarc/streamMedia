@@ -61,7 +61,7 @@ public class BkCategoryDaoTest {
      * Verify successful update of bkCategory
      */
     @Test
-    void updateBkCategoriesuccess() {
+    void testupdateBkCategoriesSuccess() {
         String newTitle = "Horrors";
         BkCategory bkCategoryToUpdate = (BkCategory)bkCategoryDao.getById(5);
         bkCategoryToUpdate.setTitle(newTitle);
