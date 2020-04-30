@@ -47,8 +47,8 @@
                     <option value="select a Category">Select</option>
                     <c:forEach var="category" items="${categories}">
                         <option value="${category.bkCategoryId}">${category.title}</option>
-                    </c:forEach>
 
+                    </c:forEach>
                 </select>
                 </div>
                 <div class="col-sm-2"><a class="btn btn-secondary" href="bkcategory-new">Add Category</a></div>
