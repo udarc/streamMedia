@@ -175,7 +175,7 @@ public class FilmDaoTest {
     @Test
     void  updateFilmWIthExistingCrewAndGenreSuccess(){
 
-        String newTitle = "Home Sweet";
+        String newTitle = "Home Sweets";
         Film filmToUpdate = (Film) genericDao.getById(2);
         filmToUpdate.setTitle(newTitle);
         Genre newGenre = (Genre)genreDao.getById(3);

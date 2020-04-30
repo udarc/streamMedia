@@ -20,14 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookDaoTest {
     GenericDao genericDao;
     GenericDao userDao;
-    GenericDao catDao;
+    GenericDao categoryDao;
   
 
     @BeforeEach
     void setUp(){
         genericDao =  new GenericDao(Book.class);
         userDao = new GenericDao(User.class);
-        catDao =  new GenericDao(BkCategory.class);
+        categoryDao =  new GenericDao(BkCategory.class);
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
     }
@@ -36,21 +36,21 @@ public class BookDaoTest {
      * Verify that all Crews are retrieved from db
      */
     @Test
-    public void getAllBooksSuccess(){
+    public void testGetAllBooksSuccess(){
         List<Book> books = genericDao.getAll();
         assertEquals(4,books.size());
     }
     @Test
-    void getByIdSuccess() {
+    void testGetByIdSuccess() {
         Book retrievedBook = (Book)genericDao.getById(4);
         assertNotNull(retrievedBook);
         assertEquals("Nadia Calm", retrievedBook.getAuthor());
     }
     @Test
-    void  insertBookWithExistingCategoriesSuccess(){
+    void  testInsertBookWithExistingCategoriesSuccess(){
         User user = (User) userDao.getById(2);
-        BkCategory newCategory = (BkCategory) catDao.getById(4);
-        BkCategory categoryTwo = (BkCategory)catDao.getById(6);
+        BkCategory newCategory = (BkCategory) categoryDao.getById(4);
+        BkCategory categoryTwo = (BkCategory)categoryDao.getById(6);
         Set<BkCategory> categories = new HashSet<>();
         categories.add(newCategory);
         categories.add(categoryTwo);
@@ -78,22 +78,22 @@ public class BookDaoTest {
         assertTrue(insertbook.getTitle().equals(bookOne.getTitle()));
     }
 
-//
-//    @Test
-//    void  updateBookWIthExistingCrewAndCategoriesuccess(){
-//
-//        String newTitle = "Home Sweet";
-//        Book bookToUpdate = (Book) genericDao.getById(2);
-//        bookToUpdate.setTitle(newTitle);
-//        Category newCategory = (Category)categoryDao.getById(3);
-//        Set<Category> categories =  bookToUpdate.getCategories();
-//        System.out.println(categories.size());
-////        categories.clear();
-//        categories.add(newCategory);
-//        genericDao.saveOrUpdate(bookToUpdate);
-//        Book retrieveHBook = (Book) genericDao.getById(2);
-//        System.out.println(bookToUpdate.getTitle());
-//        assertTrue(bookToUpdate.equals(retrieveHBook));
-//
-//    }
+
+    @Test
+    void  testUpdateBookWithCategorySuccess(){
+
+        String newTitle = "Home Sweet";
+        Book bookToUpdate = (Book) genericDao.getById(2);
+        bookToUpdate.setTitle(newTitle);
+        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
+        Set<BkCategory> categories =  bookToUpdate.getCategories();
+        log.debug(categories.size());
+        categories.clear();
+        categories.add(newCategory);
+        genericDao.saveOrUpdate(bookToUpdate);
+        Book retrieveHBook = (Book) genericDao.getById(2);
+        System.out.println(bookToUpdate.getTitle());
+        assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
+
+    }
 }
