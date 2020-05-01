@@ -66,7 +66,6 @@ public class BookEdit extends HttpServlet {
                 bookToEdit.addCategory(cat);
             }
         }
-
         if (req.isUserInRole("admin")){
             log.debug(bookToEdit);
             bookDao.saveOrUpdate(bookToEdit);
