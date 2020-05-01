@@ -45,6 +45,26 @@ public class BkCategory implements Serializable {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy = "categories")
-    private Set<Book> Books = new HashSet<>();
+    @ManyToMany(mappedBy = "categories",fetch = FetchType.EAGER)
+    private Set<Book> books = new HashSet<>();
+
+    /**
+     * Add book.
+     *
+     * @param book the book
+     */
+    public void addBook(Book book) {
+        this.books.add(book);
+        book.getCategories().add(this);
+    }
+
+    /**
+     * Remove book.
+     *
+     * @param book the book
+     */
+    public void removeBook(Book book) {
+        this.books.remove(book);
+        book.getCategories().remove(this);
+    }
 }
