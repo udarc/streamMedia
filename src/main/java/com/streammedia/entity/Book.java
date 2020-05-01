@@ -60,7 +60,11 @@ public class Book implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH})
     @JoinTable(
             name = "BookCategory",
             joinColumns = {@JoinColumn(name = "book_id")},
