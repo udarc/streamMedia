@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
 
 
 @WebServlet(
@@ -16,17 +17,29 @@ import java.io.IOException;
 )
 public class BookDelete extends HttpServlet {
     private GenericDao bookDao;
-    private GenericDao userDao;
-    private GenericDao catDao;
+
     @Override
     public void init() throws ServletException {
-        bookDao = new GenericDao(Film.class);
-        userDao = new GenericDao(User.class);
-        catDao = new GenericDao(Crew.class);
+        bookDao = new GenericDao(Book.class);
+//
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Book book = (Book) bookDao.getById(Integer.parseInt(req.getParameter("uid")));
+        if (req.isUserInRole("admin")) {
+            Set<BkCategory> categoryList = book.getCategories();
+            categoryList.clear();
+            bookDao.delete(book);
+            resp.sendRedirect("books");
+        } else {
+            resp.sendRedirect("book-details?uid=" + book.getBookId());
+
+        }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        doPost(req, resp);
     }
 }
+
