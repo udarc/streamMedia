@@ -29,7 +29,7 @@
                                     <li class="list-group-item list-group-item-info">${category.title}</li>
                                 </c:forEach>
                                 <li class="list-group-item">${book.ISBN}</li>
-                                <c:if test="${book.edition ne empty}">
+                                <c:if test="${ not empty book.edition}">
                                 <li class="list-group-item">${book.edition}</li>
                                 </c:if>
                                 <li class="list-group-item">${book.author}</li>
