@@ -92,7 +92,7 @@ public class BookDaoTest {
         categories.add(newCategory);
         bookDao.saveOrUpdate(bookToUpdate);
         Book retrieveHBook = (Book) bookDao.getById(2);
-        System.out.println(bookToUpdate.getTitle());
+        log.debug(bookToUpdate.getTitle());
         assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
 
     }
