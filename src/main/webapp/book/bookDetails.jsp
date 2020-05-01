@@ -25,10 +25,16 @@
 
                             <h2 class="card-title"><a href=""></a>${book.title}</h2>
                             <ul class="list-group list-group-flush">
+                                <c:forEach var="category" items="${book.categories}">
+                                    <li class="list-group-item list-group-item-info">${category.title}</li>
+                                </c:forEach>
                                 <li class="list-group-item">${book.ISBN}</li>
+                                <c:if test="${ not empty book.edition}">
                                 <li class="list-group-item">${book.edition}</li>
+                                </c:if>
                                 <li class="list-group-item">${book.author}</li>
                                 <li class="list-group-item">${book.pageNumber}</li>
+
                             </ul>
                             <p class="card-text">${book.summary}</p>
                             <p>Published ${book.publicationDate}</p>
