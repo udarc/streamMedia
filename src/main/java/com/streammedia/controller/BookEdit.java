@@ -67,14 +67,6 @@ public class BookEdit extends HttpServlet {
             }
         }
 
-//        bookToEdit.setCategories(bookToEdit.getCategories());
-
-//        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
-//        Set<BkCategory> categories =  bookToUpdate.getCategories();
-//        log.debug(categories.size());
-//        categories.clear();
-//        categories.add(newCategory);
-
         if (req.isUserInRole("admin")){
             log.debug(bookToEdit);
             bookDao.saveOrUpdate(bookToEdit);
