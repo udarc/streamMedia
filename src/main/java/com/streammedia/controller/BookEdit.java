@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -45,7 +46,7 @@ public class BookEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User)userDao.getByPropertyEqual("username",req.getRemoteUser()).get(0);
-        Book bookToEdit = (Book) bookDao.getById(Integer.parseInt(req.getParameter("uuid")));
+        Book bookToEdit = (Book) bookDao.getById(Integer.parseInt(req.getParameter("uid")));
         bookToEdit.setTitle(req.getParameter("title"));
         bookToEdit.setPublisher(req.getParameter("publisher"));
         bookToEdit.setCover(req.getParameter("cover"));
@@ -55,19 +56,39 @@ public class BookEdit extends HttpServlet {
         bookToEdit.setEdition(req.getParameter("edition"));
         bookToEdit.setPageNumber(Integer.parseInt(req.getParameter("page_number")));
         bookToEdit.setSummary(req.getParameter("summary"));
-        bookToEdit.setCategories(bookToEdit.getCategories());
-        if (req.isUserInRole("admin")){
-            log.error(bookToEdit);
-            bookDao.saveOrUpdate(bookToEdit);
-            resp.sendRedirect("books");
+        Set<BkCategory> categoryList = bookToEdit.getCategories();
+        String[] categoryIds = req.getParameterValues("category");
+        if(categoryIds != null ){
+            categoryList.clear();
+            retrieveCategories(categoryList, categoryIds);
+        } else{
+            for (BkCategory cat: bookToEdit.getCategories()) {
+                bookToEdit.addCategory(cat);
+            }
         }
-        log.error(bookToEdit);
-        req.getRequestDispatcher("/book/bookAddEdit.jsp").forward(req,resp);
+
+//        bookToEdit.setCategories(bookToEdit.getCategories());
+
+//        BkCategory newCategory = (BkCategory)categoryDao.getById(1);
+//        Set<BkCategory> categories =  bookToUpdate.getCategories();
+//        log.debug(categories.size());
+//        categories.clear();
+//        categories.add(newCategory);
+
+        if (req.isUserInRole("admin")){
+            log.debug(bookToEdit);
+            bookDao.saveOrUpdate(bookToEdit);
+            resp.sendRedirect("book-details?uid=" + bookToEdit.getBookId());
+        } else {
+            req.getRequestDispatcher("/book/bookAddEdit.jsp").forward(req, resp);
+        }
 
     }
     private void retrieveCategories(Set<BkCategory> categoryList, String[] categoryIds) {
         for (String id: categoryIds ) {
+            log.debug(id);
             categoryList.add((BkCategory)catDao.getById(Integer.parseInt(id)));
+
         }
     }
 }
