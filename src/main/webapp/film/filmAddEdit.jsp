@@ -47,7 +47,7 @@
                     <option value="select a Genre">Select</option>
                     <c:choose>
                         <c:when test="${film.genres ne null}">
-                            <c:forEach var="genre" items="${film.genres}">
+                            <c:forEach var="genre" items="${genres}">
                                 <option value="${genre.genreId}">${genre.title}</option>
                             </c:forEach>
                         </c:when>
@@ -120,7 +120,7 @@
                     <option value="select crew members">Select Crew</option>
                     <c:choose>
                         <c:when test="${film.crews ne null}">
-                            <c:forEach var="crew" items="${film.crews}">
+                            <c:forEach var="crew" items="${crews}">
                                 <option value="${crew.crewId}">${crew.firstName} ${crew.lastName}</option>
                             </c:forEach>
                         </c:when>
