@@ -1,5 +1,4 @@
 package com.streammedia.controller;
-
 import com.streammedia.RestApi.*;
 import com.streammedia.perisistence.APIMovieDao;
 
@@ -13,26 +12,26 @@ import java.io.IOException;
 import java.util.*;
 
 @WebServlet(
-        urlPatterns = {"/now-playing-movies"}
+        urlPatterns = {"/upcoming-movies"}
 )
-public class NowPlayingMovies extends HttpServlet {
-    private APIMovieDao apiMovieDao;
+public class UpcomingMovies extends HttpServlet {
+    private APIMovieDao upcomingMovies;
+
     @Override
     public void init() throws ServletException {
-        apiMovieDao =  new APIMovieDao();
+        upcomingMovies = new APIMovieDao();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();
-        for ( APIMoviesDB item: apiMovieDao.getPlayingMovies()) {
-            for (ResultsItem movie: item.getResults()) {
+        for (APIMoviesDB item : upcomingMovies.getPlayingMovies()) {
+            for (ResultsItem movie : item.getResults()) {
                 items.add(movie);
             }
         }
         req.setAttribute("movies", items);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/film/nowPlayingMovies.jsp");
-        dispatcher.forward(req,resp);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/film/upcomingMovies.jsp");
+        dispatcher.forward(req, resp);
     }
 }
-

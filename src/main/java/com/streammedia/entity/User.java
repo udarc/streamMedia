@@ -82,6 +82,7 @@ public class User implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate updateAt;
 
+    //Roles
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
@@ -160,7 +161,6 @@ public class User implements Serializable {
     }
     public void removeRole(Role role){
         roles.remove(role);
-        role.setUser(null);
     }
     //https://www.baeldung.com/hibernate-one-to-many
 

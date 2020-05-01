@@ -24,17 +24,18 @@ import java.util.Set;
 @Entity(name = "Book")
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode
 public class Book implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "book_id")
     private int bookId;
-    private  String title;
+    private String title;
     @Column(name = "isbn")
-    private  String ISBN;
-    private  String author;
+    private String ISBN;
+    private String author;
 
     @Column(name = "pub_date")
     private LocalDateTime publicationDate;
@@ -56,16 +57,30 @@ public class Book implements Serializable {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH})
     @JoinTable(
             name = "BookCategory",
-            joinColumns = { @JoinColumn(name = "book_id") },
-            inverseJoinColumns = { @JoinColumn(name = "category_id") }
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "bkCategory_id")}
     )
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<BkCategory> categories = new HashSet<>();
+
+    public void addCategory(BkCategory category) {
+        this.categories.add(category);
+        category.getBooks().add(this);
+    }
+
+    public void removeCategory(BkCategory category) {
+        this.categories.remove(category);
+        category.getBooks().remove(this);
+    }
 }
