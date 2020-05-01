@@ -28,7 +28,7 @@
                 <c:when test="${films ne null}">
                     <c:forEach var="film" items="${films}" >
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="180"
                                      xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap"
@@ -58,11 +58,11 @@
                                 </div>
                                 <div class="card-body">
                                 <span class="btn-media-right">
-<%--                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>--%>
-<%--                                <c:if test="${pageContext.request.isUserInRole(\"admin\")}">--%>
-<%--                                    <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>--%>
-<%--                                    <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}}">Delete</a>--%>
-<%--                                </c:if>--%>
+                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>
+                                <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
+                                    <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>
+                                    <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}">Delete</a>
+                                </c:if>
                             </span>
                                 </div>
 

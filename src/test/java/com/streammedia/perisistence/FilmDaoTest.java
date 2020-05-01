@@ -37,19 +37,19 @@ public class FilmDaoTest {
      * Verify that all Crews are retrieved from db
      */
     @Test
-    public void getAllFilmsSuccess(){
+    public void testGetAllFilmsSuccess(){
         List<Film> films = genericDao.getAll();
         assertEquals(3,films.size());
     }
     @Test
-    void getByIdSuccess() {
+    public void  testGetByIdSuccess() {
         Film retrievedFilm = (Film)genericDao.getById(3);
         assertNotNull(retrievedFilm);
         assertEquals("Calvin", retrievedFilm.getTitle());
     }
 
     @Test
-    void  insertInMiddleTableWithNewGenreSuccess(){
+    public void  testInsertInMiddleTableWithNewGenreSuccess(){
         User user = (User) userDao.getById(2);
         Genre newGenre = new Genre();
         newGenre.setTitle("Scifi");
@@ -75,7 +75,7 @@ public class FilmDaoTest {
         genericDao.insert(filmOne);
     }
     @Test
-    void  insertMiddleTableWIthExistingGenreSuccess(){
+    public void  testInsertMiddleTableWIthExistingGenreSuccess(){
         User user = (User) userDao.getById(2);
         Genre newGenre = (Genre)genreDao.getById(36);
         Genre genreTwo = (Genre) genreDao.getById(37);
@@ -105,7 +105,7 @@ public class FilmDaoTest {
         assertTrue(insertfilm.getTitle().equals(filmOne.getTitle()));
     }
     @Test
-    void  insertMiddleTableWIthExistingCrewAndGenreSuccess(){
+    public void  testInsertMiddleTableWIthExistingCrewAndGenreSuccess(){
         User user = (User) userDao.getById(2);
         Crew newCrew = (Crew)crewDao.getById(3);
         Crew crewTwo = (Crew)crewDao.getById(4);
@@ -144,7 +144,7 @@ public class FilmDaoTest {
         assertTrue(id>0);
     }
     @Test
-    void  insertMiddleTableWIthExistingCrewSuccess(){
+    public void  testInsertMiddleTableWIthExistingCrewSuccess(){
         User user = (User) userDao.getById(2);
         Crew newCrew = (Crew)crewDao.getById(1);
         Crew crewTwo = (Crew)crewDao.getById(2);;
@@ -173,9 +173,9 @@ public class FilmDaoTest {
     }
 
     @Test
-    void  updateFilmWIthExistingCrewAndGenreSuccess(){
+    public void  testUpdateFilmWIthExistingCrewAndGenreSuccess(){
 
-        String newTitle = "Home Sweet";
+        String newTitle = "Home Sweets";
         Film filmToUpdate = (Film) genericDao.getById(2);
         filmToUpdate.setTitle(newTitle);
         Genre newGenre = (Genre)genreDao.getById(3);
@@ -188,5 +188,16 @@ public class FilmDaoTest {
         System.out.println(filmToUpdate.getTitle());
         assertTrue(filmToUpdate.equals(retrieveHFilm));
 
+    }
+    @Test
+    public void testDeleteSuccess() {
+
+        Film film = (Film) genericDao.getById(2);
+        Set<Crew>  crewList = film.getCrews();
+        Set<Genre> genreList = film.getGenres();
+        crewList.clear();
+        genreList.clear();
+        genericDao.delete(film);
+        assertNull(genericDao.getById(2));
     }
 }
