@@ -46,9 +46,15 @@
                 <select name="category" class="form-control" id="category" multiple>
                     <option value="select a Category">Select</option>
                     <c:forEach var="category" items="${categories}">
-                        <option value="${category.bkCategoryId}">${category.title}</option>
-                    </c:forEach>
 
+<%--                        TODO CREATE TAB LIB  https://stackoverflow.com/questions/1490139/evaluate-list-contains-string-in-jstl--%>
+<%--                        <c:if test = "${fn:contains(${book.categories}, ${category})}">--%>
+<%--                            <option value="${category.bkCategoryId}" selected>${category.title}</option>--%>
+<%--                        </c:if>--%>
+                        <option value="${category.bkCategoryId}">${category.title}</option>
+
+                    </c:forEach>
+<%--                    <option value="">${book.categories}</option>--%>
                 </select>
                 </div>
                 <div class="col-sm-2"><a class="btn btn-secondary" href="bkcategory-new">Add Category</a></div>
