@@ -5,26 +5,30 @@
   Time: 4:56 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="../taglib.jsp"%>
+<c:set var="title" value="Film List" />
+<%@include file="../head.jsp"%>
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-    <h1 class="text-center">List of Films</h1>
     <div class="row">
         <div class="col-sm-9">
+            <h1 class="text-center">List of Films</h1>
             <c:if test="${pageContext.request.isUserInRole('admin')}">
-                            <span class="btn-media-right"> <a href="film-new" class="btn btn-success ml-auto">
+                            <span> <a href="film-new" class="btn btn-success ml-auto">
                                 <i class="fas fa-plus-square fa-1x"></i>Add Film</a>
                             </span>
             </c:if>
             <div     class="row">
+
             <c:choose>
                 <c:when test="${films ne null}">
                     <c:forEach var="film" items="${films}" >
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="180"
                                      xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap"
@@ -54,11 +58,11 @@
                                 </div>
                                 <div class="card-body">
                                 <span class="btn-media-right">
-<%--                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>--%>
-<%--                                <c:if test="${pageContext.request.isUserInRole(\"admin\")}">--%>
-<%--                                    <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>--%>
-<%--                                    <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}}">Delete</a>--%>
-<%--                                </c:if>--%>
+                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>
+                                <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
+                                    <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>
+                                    <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}}">Delete</a>
+                                </c:if>
                             </span>
                                 </div>
 
@@ -76,14 +80,22 @@
         </div>
         <div class="col-sm-3">
             <ul class="list-group list-group-flush">
+                <h2>Internal Data</h2>
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
                     <li class="list-group-item"><a class="btn btn-link" href="crews">All Crews</a></li>
                 </c:if>
                 <li class="list-group-item"><a class="btn btn-link" href="genres">All Movie Genres</a></li>
+            </ul>
+            <ul class="list-group list-group-flush">
+                <h2>External Data</h2>
+                <li class="list-group-item list-group-item-primary"><h3>
+                    <a class="btn btn-primary" target="_blank"
+                       href="https://developers.themoviedb.org/3/movies/get-movie-details">From Movies Database API</a>
+                </h3></li>
                     <li class="list-group-item"><a class="btn btn-link" href="now-playing-movies">Now Playing Movies</a></li>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Top Rated</a></li>--%>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Popular</a></li>--%>
-<%--                <li class="list-group-item"><a class="btn btn-link" href="#">Up Coming</a></li>--%>
+                <li class="list-group-item"><a class="btn btn-link" href="top-rated-movies">Top Rated</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="popular-movies">Popular</a></li>
+                <li class="list-group-item"><a class="btn btn-link" href="upcoming-movies">Up Coming</a></li>
             </ul>
         </div>
     </div>

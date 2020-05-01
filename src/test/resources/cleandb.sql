@@ -6,7 +6,9 @@ DELETE FROM FilmCrew;
 DELETE FROM Film;
 DELETE FROM Genre;
 DELETE FROM Crew;
+DELETE FROM BookCategory;
 DELETE FROM BKCategory;
+DELETE FROM Book;
 DELETE FROM  SM_Users;
 INSERT INTO SM_Users(user_id,first_name, last_name, username, password,email,birthdate,created_at)
 VALUES (1,'Joe','Coyne','jcoyne','supersecret1','jcoyne@streammedia.com','1964-04-01',NOW()),
@@ -57,9 +59,17 @@ VALUES
 (2,'Once upon time','01:39:02','Elizabeth Ingram','1986-07-08','Some Summary for Test',NOW(),2,'some.png'),
 (3,'Calvin','01:39:02', 'Roberta Barnes','1986-07-08','Some Summary for Test',Now(),2,'some.png');
 INSERT INTO FilmGenre(film_id,genre_id)
-VALUES(1,2);
+VALUES(1,2),
+      (3,2),
+      (2,4),
+      (1,1),
+      (2,1);
 INSERT INTO FilmCrew(film_id,crew_id)
-VALUES(1,5);
+VALUES(1,5),
+      (1,3),
+      (1,2),
+      (2,5),
+      (3,5);
 
 
 INSERT INTO BKCategory(bkCategory_id,title,description ,created_at) VALUES
@@ -69,3 +79,18 @@ INSERT INTO BKCategory(bkCategory_id,title,description ,created_at) VALUES
 (4,'Historical Fiction','These books are based in a time period set in the past decades, often against the backdrop of significant (real) historical events.',Now()),
 (5,'Horror','Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.',Now()),
 (6,'Literary Fiction','Though it can be seen as a broad genre that encompasses many others, literary fiction refers to the perceived artistic writing style of the author. Their prose is meant to evoke deep thought through stories that offer personal or social commentary on a particular theme.',Now());
+
+
+
+INSERT INTO Book(book_id,title,isbn,author ,publisher, pub_date, summary, page_number, created_at, user_id) VALUES
+(1,'A Christimas to remember','142532415261', 'Jane Doe', ' Hope',NOW(),'The  novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that''s either presented in a specific design or the traditional panel of Christimas.',435, NOW(),1),
+(2,' The Mystery','24233115267','Fabien Jolie', 'Remy Happy',NOW(),'A crime of sorts that must be solved—or foiled—by the protagonists.',763, NOW(),2),
+(3,'This is the day','5366252526','Becker James','Noella Newman',NOW(),'Second  Summary',1342, NOW(),1),
+(4,'Asia History','9873772772', 'Nadia Calm','ISP Publisher',NOW(),'These books are based on Asia war.',416, NOW(),3);
+
+
+INSERT INTO BookCategory(book_id,bkCategory_id)
+VALUES(1,3),
+       (2,5),
+      (2,2),
+       (4,2);
