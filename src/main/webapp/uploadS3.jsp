@@ -5,12 +5,20 @@
   Time: 10:40 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>$Title$</title>
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Upload S3" />
+<%@include file="head.jsp"%>
 </head>
 <body>
-$END$
-</body>
-</html>
+<%@include file="navbar.jsp"%>
+<div class="container wrapper" >
+
+    <form action="aws-s3" method="post" enctype="multipart/form-data">
+        <input class="form-control"  name="file" type="file">
+        <input class="btn btn-success" type="submit" value="Upload">
+    </form>
+
+</div>
+<%@include file="footer.jsp"%>
+<%@include file="afterFooter.jsp"%>
+
