@@ -39,8 +39,9 @@ public class JavaHelperMethods {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
-                log.debug("Files: " + s.substring(s.indexOf("=") + 2, s.length()-1));
-                return s.substring(s.indexOf("=") + 2, s.length()-1);
+                String fileName = s.substring(s.indexOf("=") + 2, s.length()-1);
+                log.debug("Files: " + fileName);
+                return fileName;
             }
         }
         return "";
