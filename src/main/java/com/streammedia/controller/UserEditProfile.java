@@ -54,7 +54,6 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
     private GenericDao genericDao;
     private String appPath;
     private String rootPath;
-    private Properties properties;
 
     public void init() {
         // gets absolute path of the web application
@@ -98,10 +97,11 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Root Project Path: " + rootPath);
+        Properties properties = null;
         try {
-            properties = loadProperties("aws-properties");
+            properties = loadProperties("/aws.properties");
         } catch (Exception e) {
-            log.error(e);
+            e.printStackTrace();
         }
         String username = req.getParameter("user");
         log.debug(" User EDIt Username Value : " + username);
@@ -140,33 +140,43 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
             //Upload to S3
 
             String fileName =  part.getSubmittedFileName().toLowerCase();
+            log.info(fileName);
             if(fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith("jpeg")){
-                InputStream fileInputStream = part.getInputStream();
-                log.debug(fileInputStream);
+
                 String accessKeyId =properties.getProperty("aws.secret.access.key");
                 String secretAccessKey = properties.getProperty("aws.access.key.id");
                 String region = properties.getProperty("aws.region");
                 String bucketName = properties.getProperty("aws.bucket.name");
                 String subdirectory = "images/"+ username + "/";
+                log.info(subdirectory);
+
+//                todo https://docs.aws.amazon.com/AmazonS3/latest/dev/llJavaUploadFile.html
                 //AWS Access Key ID and Secret Access Key
-                BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+                BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
 
                 //This class connects to AWS S3 for us
-                AmazonS3 s3client = AmazonS3ClientBuilder.standard().withRegion(region)
-                        .withCredentials(new AWSStaticCredentialsProvider(awsCreds)).build();
 
+                AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withRegion(region)
+                        .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+                boolean isBucketExist =s3Client.doesBucketExist(bucketName);
+                if(!isBucketExist) {
+                    s3Client.createBucket(bucketName);
+                }
                 //Specify the file's size
                 ObjectMetadata metadata = new ObjectMetadata();
                 metadata.setContentLength(part.getSize());
+                String filePartName  = JavaHelperMethods.extractFileName(part);
                 //Create the upload request, giving it a bucket name, subdirectory, filename, input stream, and metadata
-                PutObjectRequest uploadRequest = new PutObjectRequest(bucketName, subdirectory + fileName, fileInputStream, metadata);
+                PutObjectRequest uploadRequest = new PutObjectRequest(bucketName, subdirectory, new File(filePartName));
+                //Set Metadata
+                uploadRequest.setMetadata(metadata);
                 //Make it public so we can use it as a public URL on the internet
                 uploadRequest.setCannedAcl(CannedAccessControlList.PublicRead);
 
                 //Upload the file. This can take a while for big files!
-                s3client.putObject(uploadRequest);
+                s3Client.putObject(uploadRequest);
                 //Create a URL using the bucket, subdirectory, and file name
-                String fileUrl = "http://s3.amazonaws.com/" + bucketName + "/" + subdirectory + "/" + fileName;
+                String fileUrl = "https://" + bucketName + ".s3." + region + ".amazonaws.com/" + subdirectory + "/" + filePartName;
             } else {
                 resp.getOutputStream().println("<p>Please only upload JPG or PNG files.</p>");
             }
