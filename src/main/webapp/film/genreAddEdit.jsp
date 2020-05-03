@@ -39,15 +39,20 @@
                     <input type="text" class="form-control"
                            name="title" id="title" placeholder="Title"
                            value="${genre.title}" required>
+                    <c:if test='${not empty errors.title}'>
+                        <div class="alert alert-danger">${errors.title}</div>
+                    </c:if>
                 </div>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Title is required.</div>
             </div>
             <div class="form-group row">
                 <label for="description" class="col-sm-3 col-form-label" >Description</label>
                 <div class="col-sm-9">
                     <textarea class="form-control"name="description"
                               id="description" rows="6">${genre.description}</textarea>
+                    <c:if test='${not empty errors.description}'>
+                        <div class="alert alert-danger">${errors.description}</div>
+                    </c:if>
                 </div>
             </div>
             <div class="form-group row">
