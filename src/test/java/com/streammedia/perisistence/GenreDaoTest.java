@@ -30,7 +30,7 @@ public class GenreDaoTest {
     @Test
     void getAllGenresSuccess(){
         List<Genre> genres = genericDao.getAll();
-        assertEquals(3,genres.size());
+        assertEquals(4,genres.size());
     }
     /**
      * Verifies a genre is returned correctly based on id search
