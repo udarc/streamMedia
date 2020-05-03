@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Log4j2
 public class GenreDaoTest {
     GenericDao genericDao;
+    GenericDao filmDao;
 
     /**
      * Creating the dao.
@@ -20,6 +21,7 @@ public class GenreDaoTest {
     void setUp() {
 
         genericDao = new GenericDao(Genre.class);
+        filmDao = new GenericDao(Film.class);
 
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
@@ -90,10 +92,13 @@ public class GenreDaoTest {
     /**
      * Verify successful delete of genre
      */
-//    @Disabled
+
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(2));
+        Genre  genre = (Genre)genericDao.getById(2);
+        Film film = (Film) filmDao.getById(1);
+        genre.removeFilm(film);
+        genericDao.delete(genre);
         assertNull(genericDao.getById(2));
     }
 }
