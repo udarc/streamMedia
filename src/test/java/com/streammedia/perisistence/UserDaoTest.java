@@ -151,11 +151,10 @@ class UserDaoTest {
 
     @Disabled
     @Test
-    void deleteUserWithROleSuccess() {
+    public void testDeleteUserWithRoleSuccess() {
         GenericDao roleDao = new GenericDao(Role.class);
-        Role role = new Role();
-        User user = new User();
-        role = (Role) roleDao.getById(1);
+        User user = (User)genericDao.getById(1);
+        Role role = (Role) roleDao.getById(1);
         user.removeRole(role);
         genericDao.delete(user);
         log.debug("User:   " + user);

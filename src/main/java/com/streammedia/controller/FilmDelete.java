@@ -1,24 +1,44 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Crew;
-import com.streammedia.entity.Film;
-import com.streammedia.entity.Genre;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Set;
 
+@WebServlet(
+    name = "filmDelete",
+        urlPatterns = {"/film-delete"}
+            )
 public class FilmDelete extends HttpServlet {
     private GenericDao filmDao;
-    private GenericDao userDao;
-    private GenericDao crewDao;
-    private GenericDao genreDao;
+
     @Override
     public void init() throws ServletException {
         filmDao = new GenericDao(Film.class);
-        userDao = new GenericDao(User.class);
-        crewDao = new GenericDao(Crew.class);
-        genreDao = new GenericDao(Genre.class);
+    }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Film film = (Film) filmDao.getById(Integer.parseInt(req.getParameter("uid")));
+        if (req.isUserInRole("admin")) {
+            Set<Genre> genreList = film.getGenres();
+            Set<Crew> crewList = film.getCrews();
+            crewList.clear();
+            genreList.clear();
+            filmDao.delete(film);
+            resp.sendRedirect("films");
+        } else {
+            resp.sendRedirect("film-details?uid=" + film.getFilmId());
+
+        }
+    }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

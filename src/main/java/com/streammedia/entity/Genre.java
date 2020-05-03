@@ -62,7 +62,7 @@ public class Genre implements Serializable {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "genres")
     private Set<Film> films = new HashSet<>();
 
     /**
@@ -74,14 +74,14 @@ public class Genre implements Serializable {
         this.films.add(film);
         film.getGenres().add(this);
     }
-//
-//    /**
-//     * Remove film.
-//     *
-//     * @param film the film
-//     */
-//    public void removeFilm(Film film) {
-//        this.films.remove(film);
-//        film.getGenres().remove(this);
-//    }
+
+    /**
+     * Remove film.
+     *
+     * @param film the film
+     */
+    public void removeFilm(Film film) {
+        this.films.remove(film);
+        film.getGenres().remove(this);
+    }
 }
