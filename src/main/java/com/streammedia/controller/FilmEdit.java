@@ -1,9 +1,6 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Crew;
-import com.streammedia.entity.Film;
-import com.streammedia.entity.Genre;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
@@ -16,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Set;
 
 @WebServlet(
@@ -41,6 +39,10 @@ public class FilmEdit extends HttpServlet {
         if (req.isUserInRole("admin")) {
             int id = Integer.parseInt(req.getParameter("uid"));
             Film film = (Film)filmDao.getById(id);
+            List<Genre> genreList = genreDao.getAll();
+            List<Genre> crewList = crewDao.getAll();
+            req.setAttribute("genres", genreList);
+            req.setAttribute("crews", crewList);
             req.setAttribute("film",film);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/film/filmAddEdit.jsp");
             dispatcher.forward(req,resp);
@@ -50,7 +52,7 @@ public class FilmEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User)userDao.getByPropertyEqual("username",req.getRemoteUser()).get(0);
-        Film filmToEdit = (Film) filmDao.getById(Integer.parseInt(req.getParameter("uuid")));
+        Film filmToEdit = (Film) filmDao.getById(Integer.parseInt(req.getParameter("uid")));
         filmToEdit.setTitle(req.getParameter("title"));
         filmToEdit.setDirector(req.getParameter("director"));
         filmToEdit.setDuration(LocalTime.parse(req.getParameter("duration")));
@@ -60,15 +62,45 @@ public class FilmEdit extends HttpServlet {
         filmToEdit.setEpisode(req.getParameter("episode"));
         filmToEdit.setLink(req.getParameter("link"));
         filmToEdit.setSummary(req.getParameter("summary"));
-        filmToEdit.setGenres(filmToEdit.getGenres());
-        filmToEdit.setCrews(filmToEdit.getCrews());
+        Set<Genre> genreList = filmToEdit.getGenres();
+        Set<Crew> crewList = filmToEdit.getCrews();
+        String[] genreIds = req.getParameterValues("genre");
+        String[] crewIds = req.getParameterValues("crew");
+        if(genreIds != null && crewIds != null ){
+            genreList.clear();
+            crewList.clear();
+            retrieveCrews(crewList, crewIds);
+            retrieveGenres(genreList,genreIds);
+        } else if(genreIds == null && crewIds != null){
+            crewList.clear();
+            retrieveCrews(crewList, crewIds);
+            for (Genre genre: genreList) {
+                filmToEdit.addGenre(genre);
+            }
+        } else if(genreIds != null && crewIds == null){
+            genreList.clear();
+            retrieveGenres(genreList, genreIds);
+            for (Crew crew: crewList) {
+                filmToEdit.addCrew(crew);
+            }
+        } else {
+            for (Crew crew: crewList) {
+                filmToEdit.addCrew(crew);
+            }
+            for (Genre genre: genreList) {
+                filmToEdit.addGenre(genre);
+            }
+        }
+//        filmToEdit.setGenres(filmToEdit.getGenres());
+//        filmToEdit.setCrews(filmToEdit.getCrews());
         if (req.isUserInRole("admin")){
             log.error(filmToEdit);
             filmDao.saveOrUpdate(filmToEdit);
             resp.sendRedirect("films");
-        }
+        } else{
         log.error(filmToEdit);
         req.getRequestDispatcher("/film/filmAddEdit.jsp").forward(req,resp);
+        }
 
     }
     private void retrieveGenres(Set<Genre> genreList, String[] genreIds) {

@@ -1,15 +1,7 @@
 package com.streammedia.RestApi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.annotation.Generated;
-
-@Generated("com.robohorse.robopojogenerator")
 public class Dates{
-
-	@JsonProperty("maximum")
 	private String maximum;
-
-	@JsonProperty("minimum")
 	private String minimum;
 
 	public void setMaximum(String maximum){

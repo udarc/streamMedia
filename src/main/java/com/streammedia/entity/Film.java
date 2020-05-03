@@ -76,7 +76,10 @@ public class Film {
     /**
      * The Crews.
      */
-    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH })
     @JoinTable(
             name = "FilmCrew",
             joinColumns = { @JoinColumn(name = "film_id") },
