@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//TODO http://zetcode.com/java/hibernatevalidator/
 @WebServlet(
         urlPatterns = {"/bkcategory-new"}
 )

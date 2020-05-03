@@ -60,3 +60,4 @@ fabric.properties
 /src/test/resources/hibernate.cfg.xml
 /logs/*
 /profiles/
+streamMedia.iml
