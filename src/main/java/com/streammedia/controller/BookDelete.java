@@ -12,6 +12,13 @@ import java.io.IOException;
 import java.util.Set;
 
 
+/**
+ * The type Book delete.
+ * Get form data of selected object and calls dao method to remove it.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/book-delete"}
 )
