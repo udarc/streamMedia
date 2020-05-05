@@ -95,8 +95,11 @@ public class FilmAdd extends HttpServlet {
             log.debug("Servlet Film " + newFilm.getDuration());
             if(!newFilm.equals(null)){
                 filmDao.insert(newFilm);
+                String successMessage = "Successfully added " + Film.class.getSimpleName() ;
+                req.getSession().setAttribute("filmAddSuccessMessage",successMessage);
                 resp.sendRedirect("films");
             } else {
+                req.getSession().setAttribute("filmErrorMessage","Failed to add " + Film.class.getSimpleName());
                 req.getRequestDispatcher("/film/filmAddEdit.jsp").forward(req, resp);
             }
         } catch (NullPointerException npe) {

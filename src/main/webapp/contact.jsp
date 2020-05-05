@@ -15,41 +15,45 @@
 
 <div class="container wrapper">
     <main class="form row">
-        <h1>Contact Us</h1>
-        <form class="card col-sm-10 offset-sm-1" action="contact-us" method="post">
+        <h1 class="text-center">Contact Us</h1>
+        <c:if test="${not empty contactError}">
+            <h2 id="flash" class="alert alert-danger">${contactError}</h2>
+            <c:remove var="contactError"/>
+        </c:if>
+        <form action="contact-us" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="firstName"p
-                           id="inputFirstName" placeholder="First Name">
+                    <input type="text" class="form-control" name="firstName"
+                           id="inputFirstName" placeholder="First Name" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputLastName" class="col-sm-3 col-form-label">Last Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="lastName" id="inputLastName" placeholder="Last Name">
+                           name="lastName" id="inputLastName" placeholder="Last Name" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control"
-                           name="email" id="inputEmail" placeholder="Email">
+                           name="email" id="inputEmail" placeholder="Email" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="subject" class="col-sm-3 col-form-label">Subject</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control"
-                           name="subject" id="subject" placeholder="Subject">
+                           name="subject" id="subject" placeholder="Subject" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="message" class="col-sm-3 col-form-label" >Message</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control"name="message" id="message" rows="6"></textarea>
+                    <textarea class="form-control"name="message" id="message" rows="6" required></textarea>
                 </div>
             </div>
             <div class="form-group row">

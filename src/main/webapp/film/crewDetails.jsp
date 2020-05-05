@@ -13,7 +13,12 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-    <h1>Crew Details</h1>
+    <h1 class="text-center"> <span onclick="goBack()">
+        <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Crew Details</h1>
+    <c:if test="${not empty crewEditSuccessMessage}">
+        <h2 id="flash" class="alert alert-success">${crewEditSuccessMessage}</h2>
+        <c:remove var="crewEditSuccessMessage"/>
+    </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${crew ne null}">

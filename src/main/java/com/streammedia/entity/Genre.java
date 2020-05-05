@@ -12,6 +12,9 @@ import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -36,7 +39,12 @@ public class Genre implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
     private  int genreId;
+    @NotBlank(message = "Title is required!")
+    @Size(min = 3, max = 100 ,message = "Title minlength 3, maxlength 100." )
     private String title;
+
+    @NotNull(message = "Description is required!")
+    @Size(min = 4, max = 2000, message = "Description minlength 4, maxlength 2000." )
     private String description;
 
     @CreationTimestamp
