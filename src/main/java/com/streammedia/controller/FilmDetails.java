@@ -1,25 +1,41 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.Crew;
-import com.streammedia.entity.Film;
-import com.streammedia.entity.Genre;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
+@WebServlet(
+        urlPatterns = {"/film-details"}
+)
+@Log4j2
 public class FilmDetails extends HttpServlet {
     private GenericDao filmDao;
-    private GenericDao userDao;
-    private GenericDao crewDao;
-    private GenericDao genreDao;
     @Override
     public void init() throws ServletException {
         filmDao = new GenericDao(Film.class);
-        userDao = new GenericDao(User.class);
-        crewDao = new GenericDao(Crew.class);
-        genreDao = new GenericDao(Genre.class);
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            int id = Integer.parseInt(req.getParameter("uid"));
+            Film film = (Film)filmDao.getById(id);
+            req.setAttribute("film",film);
+            req.getRequestDispatcher("/film/filmDetails.jsp").forward(req,resp);
+        } catch (NumberFormatException nfe){
+            log.error(nfe);
+        } catch (NullPointerException npe){
+            log.error(npe);
+        } catch (Exception exception){
+            log.error(exception);
+        }
+
+    }
 }
