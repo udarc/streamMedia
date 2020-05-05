@@ -14,7 +14,8 @@ import java.io.IOException;
 
 /**
  * The type Short story details.
-* Gets a single TShort story from and sets it as an attribute to be accessible in JSP
+ * Responsible for handling all
+ * requests from the user to display Short Story Details.
 * @author Jeanne
 * @version 1.0
 * @since 2020-04-24
