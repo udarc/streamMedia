@@ -1,7 +1,5 @@
 package com.streammedia.perisistence;
-import com.streammedia.RestApi.APIMoviesDB;
-import com.streammedia.RestApi.ResultsItem;
-import com.streammedia.RestApi.UpComingMoviesDB;
+import com.streammedia.restapi.APIMoviesDB;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;

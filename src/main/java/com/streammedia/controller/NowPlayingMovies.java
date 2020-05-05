@@ -1,6 +1,6 @@
 package com.streammedia.controller;
 
-import com.streammedia.RestApi.*;
+import com.streammedia.restapi.*;
 import com.streammedia.perisistence.APIMovieDao;
 
 import javax.servlet.RequestDispatcher;

@@ -1,6 +1,4 @@
-package com.streammedia.RestApi;
-
-import lombok.Getter;
+package com.streammedia.restapi;
 
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
