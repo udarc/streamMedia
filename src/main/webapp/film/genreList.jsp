@@ -15,9 +15,9 @@
 <main class="container-fluid wrapper">
     <div class="row">
         <div class="col-sm-8">
-            <c:if test="${not empty successMessage}">
-                <h3 id="flash" class="alert alert-success">${successMessage}</h3>
-                <c:remove var="successMessage"/>
+            <c:if test="${not empty filmAddSuccessMessage}">
+                <h3 id="flash" class="alert alert-success">${filmAddSuccessMessage}</h3>
+                <c:remove var="filmAddSuccessMessage"/>
             </c:if>
 
             <ul class="list-group list-group-info list-group-flush">

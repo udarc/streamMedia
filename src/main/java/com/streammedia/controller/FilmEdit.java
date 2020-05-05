@@ -105,7 +105,7 @@ public class FilmEdit extends HttpServlet {
             filmDao.saveOrUpdate(filmToEdit);
             String successMessage = "Successfully updated " + Film.class.getSimpleName() ;
             req.getSession().setAttribute("filmEditSuccessMessage",successMessage);
-            resp.sendRedirect("films");
+            resp.sendRedirect("film-details?uid=" + filmToEdit.getFilmId());
         } else{
         log.error(filmToEdit);
         req.getSession().setAttribute("filmErrorMessage","Failed to update " + Film.class.getSimpleName());

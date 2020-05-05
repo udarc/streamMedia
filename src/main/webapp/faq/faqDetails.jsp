@@ -13,7 +13,8 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-    <h1 class="text-center">FAQ Details</h1>
+    <h1 class="text-center"> <span onclick="goBack()">
+        <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> FAQ Details</h1>
     <div class="row">
         <c:choose>
             <c:when test="${faq ne null}">
