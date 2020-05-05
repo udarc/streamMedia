@@ -29,10 +29,14 @@
             </c:when>
             <c:otherwise>
             <h1>Add BkCategory</h1>
+            <h1 class="text-center">Register</h1>
             <form action="bkcategory-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
                 </c:otherwise>
                 </c:choose>
-
+                    <c:if test="${not empty bookCategorySuccessError}">
+                        <h2 id="flash" class="alert alert-danger">${bookCategorySuccessError}</h2>
+                        <c:remove var="errorMessage"/>
+                    </c:if>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 col-form-label">Title</label>
                     <div class="col-sm-9">
