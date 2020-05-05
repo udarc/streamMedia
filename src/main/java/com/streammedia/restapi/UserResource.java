@@ -68,7 +68,7 @@ public class UserResource {
         mapper = new ObjectMapper();
         if(!user.equals(null)){
             String objUser = mapper.writer().writeValueAsString(user);
-            System.out.println(objUser);
+            log.debug(objUser);
             return Response.status(200).entity(objUser).build();
         }
         return Response.noContent().build();
