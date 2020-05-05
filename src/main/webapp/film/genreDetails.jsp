@@ -20,7 +20,10 @@
             <c:when test="${genre ne null}">
                <div class="col-sm-6 offset-sm-3">
                   <div class="card">
-
+                      <c:if test="${not empty successMessage}">
+                          <h3 id="flash" class="alert alert-success">${successMessage}</h3>
+                          <c:remove var="successMessage"/>
+                      </c:if>
                      <div class="card-body">
                         <h2 class="card-title">${genre.title}</h2>
                         <ul class="list-group list-group-flush">
