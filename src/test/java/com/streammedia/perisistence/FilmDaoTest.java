@@ -180,12 +180,12 @@ public class FilmDaoTest {
         filmToUpdate.setTitle(newTitle);
         Genre newGenre = (Genre)genreDao.getById(3);
         Set<Genre> genres =  filmToUpdate.getGenres();
-        System.out.println(genres.size());
+        log.debug(genres.size());
 //        genres.clear();
         genres.add(newGenre);
         genericDao.saveOrUpdate(filmToUpdate);
         Film retrieveHFilm = (Film) genericDao.getById(2);
-        System.out.println(filmToUpdate.getTitle());
+        log.debug(filmToUpdate.getTitle());
         assertTrue(filmToUpdate.equals(retrieveHFilm));
 
     }

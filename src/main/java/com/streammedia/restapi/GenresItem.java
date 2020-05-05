@@ -1,4 +1,4 @@
-package com.streammedia.RestApi;
+package com.streammedia.restapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;

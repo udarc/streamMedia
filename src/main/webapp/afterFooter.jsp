@@ -45,5 +45,12 @@
     // https://stackoverflow.com/questions/683363/jquery-autohide-element-after-5-seconds/47167421
     $('#flash').fadeIn('fast').delay(5000).fadeOut('slow');
 </script>
+
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
+
 </body>
 </html>

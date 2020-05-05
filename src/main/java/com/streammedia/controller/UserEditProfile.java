@@ -1,9 +1,18 @@
 package com.streammedia.controller;
 //TODO https://www.javatpoint.com/crud-in-servlet
 
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.*;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import com.streammedia.utility.JavaHelperMethods;
+import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -12,12 +21,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * The type Edit user profile.
@@ -35,7 +46,7 @@ import java.util.Enumeration;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1MB
         maxFileSize = 1024 * 1024 * 2,      // 3MB
         maxRequestSize = 1024 * 1024 * 50)   // 50MB
-public class UserEditProfile extends HttpServlet {
+public class UserEditProfile extends HttpServlet implements PropertiesLoader {
     /**
      * Name of the directory where uploaded files will be saved, relative to
      * the web application directory.
@@ -87,7 +98,12 @@ public class UserEditProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Root Project Path: " + rootPath);
-
+        Properties properties = null;
+        try {
+            properties = loadProperties("/aws.properties");
+        } catch (Exception e) {
+            log.error(e);
+        }
         String username = req.getParameter("user");
         log.debug(" User EDIt Username Value : " + username);
         User user = (User) genericDao.getByPropertyEqual("username", username).get(0);
@@ -109,23 +125,92 @@ public class UserEditProfile extends HttpServlet {
             }
             user.setGender(req.getParameter("gender"));
             Part part = req.getPart("profilePicture");
-            log.debug("Test Part: " + part.getSubmittedFileName());
-            if (part.getSubmittedFileName().isEmpty() && user.getPicture().isEmpty()) {
-                user.setPicture("images/profile.png");
-            } else if(part.getSubmittedFileName().isEmpty() && !user.getPicture().isEmpty()){
-                user.setPicture(user.getPicture());
-            } else {
-                String saveImagePath = JavaHelperMethods.createUserImagePath(appPath, username).replace("//", "/");
-                String saveImage = JavaHelperMethods.deleteAndCreateFilePath(rootPath, username).replace("//", "/");
-                String targetPath = JavaHelperMethods.saveFileName(saveImagePath, part);
-                String projectPath = JavaHelperMethods.saveFileName(saveImage, part);
-                user.setPicture(projectPath.substring(55, projectPath.length()));
-            }
 
+            String fileName =  part.getSubmittedFileName().toLowerCase();
+            log.info(fileName);
+            if(fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith("jpeg")){
+                String accessKeyId = properties.getProperty("aws.access.key.id");
+                String secretAccessKey = properties.getProperty("aws.secret.access.key");
+                String region = properties.getProperty("aws.region");
+                String bucketName = properties.getProperty("aws.bucket.name");
+                String subdirectory = "images/" + username;
+                String fileObjKeyName = subdirectory + "/userProfile" + fileName.substring(
+                        fileName.lastIndexOf("."));
+                log.info(System.getProperty("java.io.tmpdir"));
+                String fileToUpload = JavaHelperMethods.saveFileName(System.getProperty("java.io.tmpdir"),part);
+//                String fileToUpload = JavaHelperMethods.saveFileName(rootPath,part);
+//                //to do https://docs.aws.amazon.com/AmazonS3/latest/dev/llJavaUploadFile.html
+//
+//                //This class connects to AWS S3 for us
+//
+//                AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withRegion(region)
+//                        .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+//                boolean isBucketExist =s3Client.doesBucketExist(bucketName);
+//                if(!isBucketExist) {
+//                    s3Client.createBucket(bucketName);
+//                }
+//                //Specify the file's size
+//                ObjectMetadata metadata = new ObjectMetadata();
+//                metadata.setContentLength(part.getSize());
+//                metadata.setContentType(part.getContentType());
+//                String filePartName  = JavaHelperMethods.extractFileName(part);
+//                //Create the upload request, giving it a bucket name, subdirectory, filename, input stream, and metadata
+//                PutObjectRequest uploadRequest = new PutObjectRequest(bucketName,filePartName, new File(filePartName));
+//                //Set Metadata
+//                uploadRequest.setMetadata(metadata);
+//                //Make it public so we can use it as a public URL on the internet
+//                uploadRequest.setCannedAcl(CannedAccessControlList.PublicRead);
+//
+//                //Upload the file. This can take a while for big files!
+//                s3Client.putObject(uploadRequest);
+
+                try {
+                    BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+
+                    AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withRegion(region)
+                            .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+
+//                    https://stackoverflow.com/questions/21487066/get-urllink-of-a-public-s3-object-programmatically
+//                   https://stackoverflow.com/questions/54610830/how-come-doesobjectexist-and-listobjects-do-not-agree-on-s3s-java-api
+                    if(s3Client.doesObjectExist(bucketName,fileObjKeyName)){
+//                        https://stackoverflow.com/questions/7763239/delete-files-directories-and-buckets-in-amazon-s3-java
+                        s3Client.deleteObject(new DeleteObjectRequest(bucketName, fileObjKeyName));
+
+                   }
+                    PutObjectRequest request = new PutObjectRequest(bucketName, fileObjKeyName, new File(fileToUpload));
+                    ObjectMetadata metadata = new ObjectMetadata();
+                    metadata.setContentType(part.getContentType());
+                    request.setMetadata(metadata);
+//                    s3Client.putObject(request);/
+
+                    //Make it public so we can use it as a public URL on the internet
+                    request.setCannedAcl(CannedAccessControlList.PublicRead);
+
+                    //Upload the file. This can take a while for big files!
+                    PutObjectResult result = s3Client.putObject(request);
+                    log.debug("S3 Result: " + result.getContentMd5());
+                    //Create a URL using the bucket, subdirectory, and file name
+                    String fileUrl = "https://" + bucketName + ".s3." + Regions.US_EAST_2.getName() + ".amazonaws.com/" + fileObjKeyName;
+                    user.setPicture(fileUrl);
+                    Files.deleteIfExists(Paths.get(fileToUpload ));
+                } catch (AmazonServiceException e) {
+                    // The call was transmitted successfully, but Amazon S3 couldn't process
+                    // it, so it returned an error response.
+                    e.printStackTrace();
+                } catch (SdkClientException e) {
+                    // Amazon S3 couldn't be contacted for a response, or the client
+                    // couldn't parse the response from Amazon S3.
+                    e.printStackTrace();
+                }
+            } else {
+                resp.getOutputStream().println("<p>Please only upload JPG or PNG files.</p>");
+            }
             user.setBiography(req.getParameter("biography"));
             log.error(user);
             log.debug("Updating User: " + user);
             genericDao.saveOrUpdate(user);
+            String successMessage = "Successfully updated " + username + "!";
+            req.getSession().setAttribute("userEditSuccess",successMessage);
             if (req.isUserInRole("admin")) {
                 resp.sendRedirect("users");
             } else {
