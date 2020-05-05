@@ -136,7 +136,9 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
                 String subdirectory = "images/" + username;
                 String fileObjKeyName = subdirectory + "/userProfile" + fileName.substring(
                         fileName.lastIndexOf("."));
-                String fileToUpload = JavaHelperMethods.saveFileName(rootPath,part);
+                log.info(System.getProperty("java.io.tmpdir"));
+                String fileToUpload = JavaHelperMethods.saveFileName(System.getProperty("java.io.tmpdir"),part);
+//                String fileToUpload = JavaHelperMethods.saveFileName(rootPath,part);
 //                //to do https://docs.aws.amazon.com/AmazonS3/latest/dev/llJavaUploadFile.html
 //
 //                //This class connects to AWS S3 for us
