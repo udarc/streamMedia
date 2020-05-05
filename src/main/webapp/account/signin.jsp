@@ -14,7 +14,12 @@
 <%@include file="../navbar.jsp"%>
 <div class="container wrapper">
     <div class="form row">
-        <form method="post" action="j_security_check" class="card col-sm-10 offset-sm-1 needs-validation" novalidate>
+        <h1 class="text-center">Login </h1>
+        <c:if test="${not empty registerSuccess}">
+            <h2 id="flash" class="alert alert-success">${registerSuccess}</h2>
+            <c:remove var="registerSuccess"/>
+        </c:if>
+        <form method="post" action="j_security_check" class="card col-sm-10 offset-sm-1 need-validation" novalidate>
             <div class="form-group row">
                 <label for="username" class="col-sm-3 col-form-label">Username</label>
                 <div class="col-sm-9">
