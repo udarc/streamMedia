@@ -13,11 +13,12 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container wrapper">
+    <c:if test="${(not empty loginSuccess) || not empty userEditSuccess}">
+        <h2 id="flash" class="alert alert-success">${loginSuccess} ${userEditSuccess}</h2>
+        <c:remove var="loginSuccess"/>
+        <c:remove var="userEditSuccess"/>
+    </c:if>
     <div class="card-deck">
-        <c:if test="${not empty loginSuccess}">
-            <h2 id="flash" class="alert alert-success">${loginSuccess}</h2>
-            <c:remove var="loginSuccess"/>
-        </c:if>
     <div
         <c:choose>
             <c:when test="${user ne null}">
