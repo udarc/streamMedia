@@ -31,10 +31,11 @@ public class GenreAdd extends HttpServlet {
     private GenericDao genreDao;
     private GenericDao userDao;
 
-    public void init(){
-        genreDao =  new GenericDao(Genre.class);
-        userDao =  new GenericDao(User.class);
+    public void init() {
+        genreDao = new GenericDao(Genre.class);
+        userDao = new GenericDao(User.class);
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,6 +43,7 @@ public class GenreAdd extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,17 +61,21 @@ public class GenreAdd extends HttpServlet {
                 if (!constraintViolations.isEmpty()) {
                     Map<String, String> errors = new HashMap<>();
                     for (ConstraintViolation<Genre> constraintViolation : constraintViolations) {
-                            errors.put(constraintViolation.getPropertyPath().toString(),constraintViolation.getMessage());
+                        errors.put(constraintViolation.getPropertyPath().toString(), constraintViolation.getMessage());
 
                     }
                     log.debug("Adding Genre: ", newGenre.getTitle());
-                    request.setAttribute("errors",errors);
-                   request.getRequestDispatcher("/film/genreAddEdit.jsp").forward(request, response);
+                    request.setAttribute("errors", errors);
+                    request.getRequestDispatcher("/film/genreAddEdit.jsp").forward(request, response);
                 } else {
                     genreDao.insert(newGenre);
+                    String successMessage = "Successfully added " + newGenre.getTitle() + " "
+                            + Genre.class.getSimpleName();
+                    request.getSession().setAttribute("successMessage",successMessage);
                     response.sendRedirect("genres");
                 }
-            }else {
+            } else {
+                request.getSession().setAttribute("errorMessage","Failure to add  " + Genre.class.getSimpleName());
                 request.getRequestDispatcher("/film/genreAddEdit.jsp").forward(request, response);
             }
         } catch (NullPointerException npe) {

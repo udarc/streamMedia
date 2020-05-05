@@ -30,6 +30,7 @@ public class GenreDelete extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Genre genre = (Genre) genreDao.getById(Integer.parseInt(req.getParameter("uid")));
         genreDao.delete(genre);
+
         resp.sendRedirect("genres");
     }
 }
