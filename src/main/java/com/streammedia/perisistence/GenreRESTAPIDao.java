@@ -2,7 +2,7 @@ package com.streammedia.perisistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.streammedia.RestApi.*;
+import com.streammedia.restapi.*;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 import javax.ws.rs.client.Client;
