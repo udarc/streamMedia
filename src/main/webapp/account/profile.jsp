@@ -14,6 +14,10 @@
 <%@include file="../navbar.jsp"%>
 <main class="container wrapper">
     <div class="card-deck">
+        <c:if test="${not empty loginSuccess}">
+            <h2 id="flash" class="alert alert-success">${loginSuccess}</h2>
+            <c:remove var="loginSuccess"/>
+        </c:if>
     <div
         <c:choose>
             <c:when test="${user ne null}">
