@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="card-body">
                                 <span class="btn-media-right">
-                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>
+                                <a  class="card-link btn btn-secondary" href="film-details?uid=<c:out value="${film.filmId}"/>">Film Details</a>
                                 <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>
                                     <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}">Delete</a>
