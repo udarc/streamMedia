@@ -32,7 +32,7 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
     private  String sendEmail;
     private String authPass;
     private JavaMailUtility contactUtility= new JavaMailUtility();
-//TODO Message not getting in email
+//TO DO Message not getting in email
 
     /**
      *  Handles HTTP GET requests.

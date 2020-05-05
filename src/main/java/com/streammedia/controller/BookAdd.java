@@ -21,6 +21,10 @@ import java.util.Set;
  * The type Book add.
  * https://dzone.com/tutorials/java/hibernate/hibernate-example/hibernate-mapping-many-to-many-using-annotations-1.html
  * http://websystique.com/hibernate/hibernate-many-to-many-bidirectional-annotation-example/
+ * Gets form data and send them to dao for persisting them
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
  */
 @WebServlet(
         urlPatterns = {"/book-new"}

@@ -12,6 +12,10 @@ import java.io.IOException;
 
 /**
  * The type Category of book delete.
+ * Remove Book Category
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
  */
 @WebServlet(
         urlPatterns = {"/bkcategory-delete"}

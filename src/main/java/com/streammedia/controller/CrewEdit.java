@@ -13,7 +13,10 @@ import java.io.IOException;
 
 /**
  * The type Crew edit.
- * Gets form data and sends them to dao to be saved.
+ *Responsible for getting form data to update User's recor
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
  */
 @WebServlet(
         urlPatterns = {"/crew-edit"}
