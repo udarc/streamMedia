@@ -12,6 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Bk category details.
+ * Responsible for getting a single Trailer from and setting it as an attribute to be accessible in JSP
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/bkcategory-details"}
 )
