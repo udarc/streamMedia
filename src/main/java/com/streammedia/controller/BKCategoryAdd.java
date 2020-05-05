@@ -12,6 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Bk(Stands for book) category add.
+ * Gets form data and set them to be saved to database.
+ *  @author Jeanne
+ *  @version 1.0
+ * @since 05-05-2020
+ */
+//TODO http://zetcode.com/java/hibernatevalidator/
 @WebServlet(
         urlPatterns = {"/bkcategory-new"}
 )
@@ -47,10 +55,12 @@ public class BKCategoryAdd extends HttpServlet {
         if(!newBkCategory.equals(null) && req.isUserInRole("admin")){
             log.debug("BK Category: " + newBkCategory.getTitle());
             bkCategoryDao.insert(newBkCategory);
+            String successMessage = "Successfully added book Category!";
+            req.getSession().setAttribute("addBookCategorySuccess",successMessage);
             resp.sendRedirect("bk-categories");
         } else {
+            req.getSession().setAttribute("bookCategorySuccessError",newBkCategory.getTitle() + " was not created!");
             req.getRequestDispatcher("/book/bkCategoryAddEdit.jsp").forward(req,resp);
         }
-
     }
 }

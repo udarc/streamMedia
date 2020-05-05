@@ -7,9 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
+
 /**
  * The type Trailer details.
- * Gets a single Trailer from and sets it as an attribute to be accessible in JSP
+ * Responsible for getting a single Trailer from and setting it as an attribute to be accessible in JSP
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-21
