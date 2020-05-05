@@ -12,6 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Crew add.
+ * Gets form data and calls dao to add data to database
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/crew-new"}
 )
@@ -47,8 +54,11 @@ public class CrewAdd extends HttpServlet {
         log.debug("Crew adding: " + newCrew.getUser());
         if(!newCrew.equals(null) && req.getRemoteUser().equals(newCrew.getUser().getUsername())){
             crewDao.insert(newCrew);
+            String successMessage = "Successfully added " + Crew.class.getSimpleName() ;
+            req.getSession().setAttribute("crewAddSuccessMessage",successMessage);
             resp.sendRedirect("crews");
         } else {
+            req.getSession().setAttribute("crewErrorMessage","Failed to add " + Crew.class.getSimpleName());
             log.debug("Error " + newCrew.getBiography());
             req.getRequestDispatcher("/film/crewAddEdit.jsp").forward(req,resp);
         }

@@ -23,9 +23,9 @@ import java.util.Enumeration;
  * The type Edit user profile.
  * Responsible for getting form data to update User's record
  * upload an image https://www.youtube.com/watch?v=WtZm1bB6T-8
- *
  * @author Jeanne
  * @version 1.0
+ * @since 05-05-2020
  */
 @Log4j2
 @WebServlet(

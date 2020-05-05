@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Crew edit.
+ *Responsible for getting form data to update User's recor
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/crew-edit"}
 )
@@ -43,8 +50,11 @@ public class CrewEdit extends HttpServlet {
         updateCrew.setBiography(req.getParameter("biography").trim());
         if(updateCrew.getUser().getUsername().equals(req.getRemoteUser()) && req.isUserInRole("admin")) {
             crewDao.saveOrUpdate(updateCrew);
-            resp.sendRedirect("crews");
+            String successMessage = "Successfully updated " + Crew.class.getSimpleName() ;
+            req.getSession().setAttribute("crewEditSuccessMessage",successMessage);
+            resp.sendRedirect("crew-details?uid=" + updateCrew.getCrewId());
         } else {
+            req.getSession().setAttribute("crewErrorMessage","Failed to Updated " + Crew.class.getSimpleName());
             req.getRequestDispatcher("/film/crewAddEdit.jsp").forward(req,resp);
         }
     }

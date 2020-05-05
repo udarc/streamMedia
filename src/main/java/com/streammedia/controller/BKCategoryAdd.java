@@ -15,6 +15,9 @@ import java.io.IOException;
 /**
  * The type Bk(Stands for book) category add.
  * Gets form data and set them to be saved to database.
+ *  @author Jeanne
+ *  @version 1.0
+ * @since 05-05-2020
  */
 //TODO http://zetcode.com/java/hibernatevalidator/
 @WebServlet(
