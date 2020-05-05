@@ -9,8 +9,8 @@ import javax.servlet.http.*;
 
 /**
  * FAQController.java
- * This servlet acts as a page controller for the application, handling all
- * requests from the user to display FAQ Details.
+ * Responsible for handling all
+ * requests from the user to display Genre Details.
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
  *
  * @author Jeanne
