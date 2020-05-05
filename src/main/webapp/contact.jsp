@@ -20,11 +20,11 @@
             <h2 id="flash" class="alert alert-danger">${contactError}</h2>
             <c:remove var="contactError"/>
         </c:if>
-        <form action="contact-us" method="post" class="card col-sm-10 offset-sm-1 needs-validated" novalidate>
+        <form action="contact-us" method="post" class="card col-sm-10 offset-sm-1 was-validated">
             <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="firstName"p
+                    <input type="text" class="form-control" name="firstName"
                            id="inputFirstName" placeholder="First Name" required>
                 </div>
             </div>

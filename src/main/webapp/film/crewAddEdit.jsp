@@ -22,7 +22,6 @@
 <div class="container">
     <div class="form row">
 
-<%--TODO Add to Servlet --%>
         <c:choose>
             <c:when test="${crew ne null}">
     <h1 class="text-center">Edit Crew</h1>
@@ -34,6 +33,10 @@
                 <form action="crew-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
                 </c:otherwise>
         </c:choose>
+                    <c:if test="${not empty crewErrorMessage}">
+                    <h2 id="flash" class="alert alert-success">${crewErrorMessage}</h2>
+                        <c:remove var="crewErrorMessage"/>
+                    </c:if>
      <form action="crew-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
          <div class="form-group row">
              <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
