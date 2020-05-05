@@ -98,6 +98,9 @@ class UserDaoTest {
     /**
      * Verify successful update of user
      */
+    /**
+     * Verify successful update of user
+     */
     @Test
     void updateSuccess() {
         String newLastName = "Davis";
@@ -156,7 +159,7 @@ class UserDaoTest {
         genericDao.delete(user);
         log.debug("User:   " + user);
         log.debug("Role:  " + role);
-//        assertNull(user);
+        assertNull(user);
         assertNull(role);
 
     }

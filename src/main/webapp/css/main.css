@@ -97,3 +97,6 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
     padding: 2rem;
     margin: 2rem auto;
 }
+#flash{
+    display: none;
+}

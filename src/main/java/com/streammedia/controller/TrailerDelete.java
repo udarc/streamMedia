@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * The type Trailer delete.
- *The servlet to delete Trailer and redirect to a specified url
+ * Responsible for getting and  deleting Trailer Object.
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-21

@@ -49,7 +49,6 @@ public class Trailer {
     @EqualsAndHashCode.Exclude
     private LocalDateTime publicationDate;
 
-    @Column(name = "links")
     private String link;
 
     @Column(name = "video")

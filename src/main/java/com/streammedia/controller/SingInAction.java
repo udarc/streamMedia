@@ -22,6 +22,10 @@ public class SingInAction extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("user-profile");
+        if(resp.getStatus() == 200) {
+            String successMessage = "You are logged in successfully!" ;
+            req.getSession().setAttribute("loginSuccess",successMessage);
+            resp.sendRedirect("user-profile");
+        }
     }
 }
