@@ -40,7 +40,7 @@ public class UploadS3 extends HttpServlet implements PropertiesLoader {
         try {
             properties = loadProperties("/aws.properties");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
         Part part = req.getPart("file");
         String fileName =  part.getSubmittedFileName().toLowerCase();

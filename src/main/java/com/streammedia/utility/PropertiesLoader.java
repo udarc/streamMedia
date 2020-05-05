@@ -1,4 +1,7 @@
 package com.streammedia.utility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.*;
 import java.util.*;
 
@@ -7,17 +10,18 @@ import java.util.*;
  * @author Jeanne
  *
  */
-public interface PropertiesLoader {
 
+public interface PropertiesLoader {
+     final Logger logger = LogManager.getLogger("PropertiesLoader");
     default Properties loadProperties(String propertiesFilePath) throws Exception {
         Properties properties = new Properties();
         try {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException ioException) {
-            ioException.printStackTrace();
+            logger.error(ioException);
             throw ioException;
         } catch (Exception exception) {
-            exception.printStackTrace();
+            logger.error(exception);
             throw exception;
         }
         return properties;
