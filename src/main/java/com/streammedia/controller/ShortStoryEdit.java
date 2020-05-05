@@ -20,6 +20,7 @@ import java.time.*;
 
 /**
  * The type Short story edit.
+ * Responsible for getting form data to update User's recor
  * @author Jeanne
  * @version 1.0
  *  @since 2020-02-22

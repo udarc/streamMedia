@@ -15,6 +15,9 @@ import java.io.IOException;
 /**
  * The type Crew add.
  * Gets form data and calls dao to add data to database
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
  */
 @WebServlet(
         urlPatterns = {"/crew-new"}
