@@ -1,4 +1,4 @@
-package com.streammedia.RestApi;
+package com.streammedia.restapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -50,7 +50,7 @@ public class UserResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("/roles")
-    public Response getAllRoless() throws IOException {
+    public Response getAllRoles() throws IOException {
         List<Role> roleList = roleDao.getAll();
         log.debug("REST API Data");
         mapper =  new ObjectMapper();
@@ -68,7 +68,7 @@ public class UserResource {
         mapper = new ObjectMapper();
         if(!user.equals(null)){
             String objUser = mapper.writer().writeValueAsString(user);
-            System.out.println(objUser);
+            log.debug(objUser);
             return Response.status(200).entity(objUser).build();
         }
         return Response.noContent().build();

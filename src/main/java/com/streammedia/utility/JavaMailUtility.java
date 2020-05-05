@@ -19,7 +19,7 @@ public  class JavaMailUtility implements PropertiesLoader {
             try {
                 props = loadProperties("/contact.properties");
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error(e);
             }
         }
 

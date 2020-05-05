@@ -1,5 +1,6 @@
 package com.streammedia.test.utility;
 import com.streammedia.utility.PropertiesLoader;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +20,7 @@ import java.util.Properties;
  * @author Alex M - Fall 2019 - added multi-line sql capability
  */
 
+@Log4j2
 public class Database implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -33,7 +35,7 @@ public class Database implements PropertiesLoader {
         try {
             properties = loadProperties("/database.properties");
         } catch (Exception e) {
-            logger.error(e);
+            log.error(e);
         }
 
     }
@@ -67,7 +69,7 @@ public class Database implements PropertiesLoader {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Cannot close connection" + e);
+                log.info("Cannot close connection" + e);
             }
         }
 
@@ -103,9 +105,9 @@ public class Database implements PropertiesLoader {
             }
 
         } catch (SQLException se) {
-            logger.error(se);
+            log.error(se);
         } catch (Exception e) {
-            logger.error(e);
+            log.error(e);
         } finally {
             disconnect();
         }
