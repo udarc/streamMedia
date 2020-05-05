@@ -25,6 +25,7 @@ public class logout extends HttpServlet{
         // Redirect the user to the secure web page.
         // Since the user is now logged out the
         // authentication form will be shown
+        request.getSession().setAttribute("successMessage","Successfully logged out!");
         response.sendRedirect(request.getContextPath());
 
     }

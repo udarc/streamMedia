@@ -14,6 +14,10 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center">Book Details</h1>
+    <c:if test="${not empty editBookCategorySuccess}">
+        <h2 id="flash" class="alert alert-success">${editBookCategorySuccess}</h2>
+        <c:remove var="editBookCategorySuccess"/>
+    </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${book ne null}">
