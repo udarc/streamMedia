@@ -19,7 +19,7 @@
             <h2 id="flash" class="alert alert-danger">${errorMessage}</h2>
             <c:remove var="errorMessage"/>
         </c:if>
-     <form action="register" method="post" class="card col-sm-10 offset-sm-1 was-validated" novalidate>
+     <form action="register" method="post" class="card col-sm-10 offset-sm-1 was-validated">
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
