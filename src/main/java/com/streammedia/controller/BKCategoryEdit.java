@@ -1,12 +1,9 @@
 package com.streammedia.controller;
 
-import com.streammedia.entity.BkCategory;
-import com.streammedia.entity.Crew;
-import com.streammedia.entity.User;
+import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
 import lombok.extern.log4j.Log4j2;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,8 +48,11 @@ public class BKCategoryEdit extends HttpServlet {
         if(!category.equals(null) && req.isUserInRole("admin")){
             log.debug("BK Category: " + category.getTitle());
             bkCategoryDao.saveOrUpdate(category);
-            resp.sendRedirect("bk-categories");
+            String successMessage = "Successfully added book Category!";
+            req.getSession().setAttribute("editBookCategorySuccess",successMessage);
+            resp.sendRedirect("bkcategory-details?uid=" + category.getBkCategoryId());
         } else {
+            req.getSession().setAttribute("bookCategorySuccessError",category.getTitle() + " was not updated!");
             req.getRequestDispatcher("/book/bkCategoryAddEdit.jsp").forward(req,resp);
         }
 
