@@ -16,7 +16,7 @@ import org.apache.catalina.CredentialHandler;
 
 /**
  * The type Register user.
- * Simple servlet to get form data
+ * Simple servlet to get form data nad call dao method to save changes.
  * @author Jeanne
  * @version 1.0
  */
@@ -75,9 +75,13 @@ public class UserRegister extends HttpServlet {
         role.setName("user");
         user.addRole(role);
             genericDao.insert(user);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
+            String successMessage = "Successfully registered with " + user.getUsername()
+                    + "username!Please Login!";
+            req.getSession().setAttribute("registerSuccess",successMessage);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("login");
             dispatcher.forward(req, resp);
         } else {
+            req.getSession().setAttribute("errorMessage", "Failed to create an account.Try again!");
             req.getRequestDispatcher("/account/signup.jsp").forward(req,resp);
         }
     }
