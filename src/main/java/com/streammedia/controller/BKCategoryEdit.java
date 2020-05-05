@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Bk category edit.
+ * Responsible for getting form data to update User's recor
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/bkcategory-edit"}
 )
