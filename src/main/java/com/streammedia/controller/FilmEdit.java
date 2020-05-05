@@ -16,6 +16,13 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Film edit.
+ * Responsible for getting form data to update Film's record.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/film-edit"}
 )
@@ -96,9 +103,12 @@ public class FilmEdit extends HttpServlet {
         if (req.isUserInRole("admin")){
             log.error(filmToEdit);
             filmDao.saveOrUpdate(filmToEdit);
-            resp.sendRedirect("films");
+            String successMessage = "Successfully updated " + Film.class.getSimpleName() ;
+            req.getSession().setAttribute("filmEditSuccessMessage",successMessage);
+            resp.sendRedirect("film-details?uid=" + filmToEdit.getFilmId());
         } else{
         log.error(filmToEdit);
+        req.getSession().setAttribute("filmErrorMessage","Failed to update " + Film.class.getSimpleName());
         req.getRequestDispatcher("/film/filmAddEdit.jsp").forward(req,resp);
         }
 

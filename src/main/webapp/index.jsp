@@ -9,6 +9,10 @@
 
         <section id="carousel" class="jumbotron">
             <h1 class="text-center">Welcome to Stream Media</h1>
+            <c:if test="${not empty successMessage}">
+                <h2 id="flash" class="alert alert-success">${successMessage}</h2>
+                <c:remove var="successMessage"/>
+            </c:if>
             <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
