@@ -9,12 +9,7 @@
 <c:set var="title" value="User List" />
 <%@include file="../head.jsp"%>
 <link rel="stylesheet" href="../css/account.css">
-<script type="text/javascript" class="init">
-    $(document).ready( function () {
-        $('#table').DataTable();
-    } );
 
-</script>
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
@@ -22,10 +17,11 @@
     <div class="row">
         <div class="col-sm-8">
             <h1 class="text-center">Users</h1>
-            <c:if test="${not empty loginSuccess}">
-                <h2 id="flash" class="alert alert-success">${loginSuccess}</h2>
-                <c:remove var="loginSuccess"/>
-            </c:if>
+            <c:if test="${(not empty loginSuccess) || not empty userEditSuccess}">
+            <h2 id="flash" class="alert alert-success">${loginSuccess} ${userEditSuccess}</h2>
+            <c:remove var="loginSuccess"/>
+                <c:remove var="userEditSuccess"/>
+        </c:if>
             <table class="table table-striped display" id="table">
                 <thead class="thead-dark">
                 <tr>
