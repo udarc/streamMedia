@@ -14,6 +14,10 @@ import java.util.List;
 
 /**
  * The type category of Book list.
+ * Responsible for getting all the users and make them available to the JSP.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
  */
 @WebServlet(
         urlPatterns = {"/bk-categories"}

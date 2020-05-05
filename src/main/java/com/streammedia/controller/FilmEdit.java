@@ -16,6 +16,13 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Film edit.
+ * Responsible for getting form data to update Film's record.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-05-2020
+ */
 @WebServlet(
         urlPatterns = {"/film-edit"}
 )
