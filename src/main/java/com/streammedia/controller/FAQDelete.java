@@ -23,11 +23,11 @@ import java.io.IOException;
     public class FAQDelete extends HttpServlet {
 
         private GenericDao faqDao;
-        private GenericDao userDao;
+//        private GenericDao userDao;
 
         public void init() {
             faqDao = new GenericDao(FAQ.class);
-            userDao = new GenericDao(User.class);
+//            userDao = new GenericDao(User.class);
         }
 
         @Override

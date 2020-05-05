@@ -42,7 +42,6 @@ public class GenericDao <T> {
 
     public List<T> getAllWithPagination() {
         Session session = getSession();
-        int pageNumber = 1;
         int pageSize = 10;
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
@@ -113,7 +112,7 @@ public class GenericDao <T> {
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
-        log.debug("A new Enitity was Added with an Id" + id);
+        log.debug("A new Entity was Added with an Id" + id);
         return id;
     }
 
@@ -132,7 +131,7 @@ public class GenericDao <T> {
 
     /**
      * Get user by property (exact match)
-     * sample usage: getByPropertyEqual("lastname", "Curry")
+     * sample usage: getByPropertyEqual("lastName", "Curry")
      *
      * @param propertyName the property name
      * @param value        the value
@@ -154,7 +153,7 @@ public class GenericDao <T> {
 
     /**
      * Get user by property (like)
-     * sample usage: getByPropertyLike("lastname", "C")
+     * sample usage: getByPropertyLike("lastName", "C")
      *
      * @param propertyName the property name
      * @param value        the value

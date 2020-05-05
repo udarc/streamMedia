@@ -36,7 +36,7 @@
                        name="username" id="username" placeholder="Username" required>
             </div>
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Useraname is required.</div>
+            <div class="invalid-feedback">Username is required.</div>
         </div>
          <div class="form-group row">
              <label for="firstName" class="col-sm-3 col-form-label">First Name</label>

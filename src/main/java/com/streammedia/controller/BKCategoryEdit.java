@@ -25,7 +25,6 @@ import java.io.IOException;
 public class BKCategoryEdit extends HttpServlet {
 
     private GenericDao bkCategoryDao;
-    private  GenericDao userDao;
 
     @Override
     public void init() throws ServletException {

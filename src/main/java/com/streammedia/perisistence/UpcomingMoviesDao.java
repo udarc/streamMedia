@@ -1,18 +1,7 @@
 package com.streammedia.perisistence;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.streammedia.RestApi.UpComingMoviesDB;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
-
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
 
 @Log4j2
 public class UpcomingMoviesDao implements PropertiesLoader {

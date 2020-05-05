@@ -31,7 +31,7 @@ public class Crew {
     @Column(name = "crew_id")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private int crewId;;
+    private int crewId;
 
     @Column(name = "first_name")
     private String firstName;
