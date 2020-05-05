@@ -30,6 +30,7 @@
             <c:otherwise>
             <h1>Add Genre</h1>
             <form action="genre-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+                >
                 </c:otherwise>
                 </c:choose>
 
