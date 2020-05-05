@@ -15,7 +15,10 @@
 <main class="container-fluid wrapper">
     <div class="row">
         <div class="col-sm-8">
-
+            <c:if test="${not empty addBookCategorySuccess}">
+                <h2 id="flash" class="alert alert-success">${addBookCategorySuccess}</h2>
+                <c:remove var="addBookCategorySuccess"/>
+            </c:if>
             <ul class="list-group list-group-info list-group-flush">
                 <c:choose>
                     <c:when test="${fn:length(categories) gt 0}">
