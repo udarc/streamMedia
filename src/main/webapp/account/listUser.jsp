@@ -22,7 +22,10 @@
     <div class="row">
         <div class="col-sm-8">
             <h1 class="text-center">Users</h1>
-
+            <c:if test="${not empty loginSuccess}">
+                <h2 id="flash" class="alert alert-success">${loginSuccess}</h2>
+                <c:remove var="loginSuccess"/>
+            </c:if>
             <table class="table table-striped display" id="table">
                 <thead class="thead-dark">
                 <tr>

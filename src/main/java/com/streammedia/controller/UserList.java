@@ -13,9 +13,9 @@ import java.util.List;
 /**
  * The type Users.
  * Responsible for getting all the users and make them available to the JSP.
- *
  * @author Jeanne
  * @version 1.0
+ * @since 05-05-2020
  */
 @Log4j2
 @WebServlet(

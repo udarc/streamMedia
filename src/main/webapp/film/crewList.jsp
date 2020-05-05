@@ -16,6 +16,10 @@
     <div class="row">
         <div class="col-sm-8">
             <h1 class="alert alert-info text-center">Crew List</h1>
+            <c:if test="${not empty crewAddSuccessMessage}">
+                <h2 id="flash" class="alert alert-success">${crewAddSuccessMessage}</h2>
+                <c:remove var="crewAddSuccessMessage"/>
+            </c:if>
             <c:choose>
             <c:when test="${crews ne null}">
             <c:forEach var="crew" items="${crews}" >

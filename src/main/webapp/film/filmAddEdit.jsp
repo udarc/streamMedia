@@ -32,7 +32,10 @@
             <form class="card col-sm-10 offset-sm-1" action="film-new" method="post">
             </c:otherwise>
         </c:choose>
-
+                <c:if test="${not empty filmErrorMessage}">
+                    <h2 id="flash" class="alert alert-success">${filmErrorMessage}</h2>
+                    <c:remove var="filmErrorMessage"/>
+                </c:if>
             <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">

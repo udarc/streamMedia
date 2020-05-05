@@ -17,6 +17,10 @@
     <div class="row">
         <div class="col-sm-9">
             <h1 class="text-center">List of Films</h1>
+            <c:if test="${not empty successMessage}">
+                <h3 id="flash" class="alert alert-success">${successMessage}</h3>
+                <c:remove var="successMessage"/>
+            </c:if>
             <c:if test="${pageContext.request.isUserInRole('admin')}">
                             <span> <a href="film-new" class="btn btn-success ml-auto">
                                 <i class="fas fa-plus-square fa-1x"></i>Add Film</a>
@@ -58,7 +62,7 @@
                                 </div>
                                 <div class="card-body">
                                 <span class="btn-media-right">
-                                <a  class="card-link btn btn-secondary" href="film-detail?uid=<c:out value="${film.filmId}"/>">Film Details</a>
+                                <a  class="card-link btn btn-secondary" href="film-details?uid=<c:out value="${film.filmId}"/>">Film Details</a>
                                 <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="film-edit?uid=${film.filmId}">Edit</a>
                                     <a class="card-link btn btn-outline-danger" href="film-delete?uid=${film.filmId}">Delete</a>

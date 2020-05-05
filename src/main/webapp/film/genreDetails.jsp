@@ -14,7 +14,7 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-   <h1>Genre Details</h1>
+   <h1 class="text-center"> <span onclick="goBack()"><i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Genre Details</h1>
       <div class="row">
          <c:choose>
             <c:when test="${genre ne null}">
