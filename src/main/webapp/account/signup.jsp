@@ -14,6 +14,11 @@
 <%@include file="../navbar.jsp"%>
 <div class="container wrapper">
     <div class="form row">
+        <h1 class="text-center">Register</h1>
+        <c:if test="${not empty errorMessage}">
+            <h2 id="flash" class="alert alert-danger">${errorMessage}</h2>
+            <c:remove var="errorMessage"/>
+        </c:if>
      <form action="register" method="post" class="card col-sm-10 offset-sm-1 was-validated">
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
@@ -78,24 +83,4 @@
 </div>
 
 <%@include file="../footer.jsp"%>
-<script>
-    // Disable form submissions if there are invalid fields
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
 <%@include file="../afterFooter.jsp"%>

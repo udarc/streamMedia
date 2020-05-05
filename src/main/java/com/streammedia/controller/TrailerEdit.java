@@ -20,7 +20,7 @@ import java.time.*;
 
 /**
  * The type Trailer edit.
- *
+ *Responsible for getting form data to update Trailer's record.
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-22

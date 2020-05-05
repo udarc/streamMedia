@@ -14,13 +14,16 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
-   <h1>Genre Details</h1>
+   <h1 class="text-center"> <span onclick="goBack()"><i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Genre Details</h1>
       <div class="row">
          <c:choose>
             <c:when test="${genre ne null}">
                <div class="col-sm-6 offset-sm-3">
                   <div class="card">
-
+                      <c:if test="${not empty successMessage}">
+                          <h3 id="flash" class="alert alert-success">${successMessage}</h3>
+                          <c:remove var="successMessage"/>
+                      </c:if>
                      <div class="card-body">
                         <h2 class="card-title">${genre.title}</h2>
                         <ul class="list-group list-group-flush">

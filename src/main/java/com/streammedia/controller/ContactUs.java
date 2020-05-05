@@ -17,7 +17,7 @@ import javax.mail.*;
 
 /**
  * The type Contact us.
- * Responsible for getting form data
+ * Responsible for getting form data to send to sender email address.
  * @author Jeanne
  * @version 1.0
  * @since 2020-02-12
@@ -32,7 +32,7 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
     private  String sendEmail;
     private String authPass;
     private JavaMailUtility contactUtility= new JavaMailUtility();
-//TODO Message not getting in email
+//TO DO Message not getting in email
 
     /**
      *  Handles HTTP GET requests.
@@ -76,12 +76,15 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
             }catch (Exception ex) {
             log.debug("Error loading properties" + ex);
         }
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
-            dispatcher.forward(req, resp);
+//            RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
+//            dispatcher.forward(req, resp);
+            String successMessage = "Thank you for contacting Stream Media. We will get back to within 24 hours!";
+            req.getSession().setAttribute("successMessage",successMessage);
+            resp.sendRedirect(req.getContextPath());
         }
 
          else {
-
+            req.getSession().setAttribute("contactError", "Failed to send your message! Try again");
             req.getRequestDispatcher("/contact.jsp").forward(req,resp);
         }
     }

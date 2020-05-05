@@ -13,7 +13,8 @@
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid" role="main">
-    <h1 class="text-center">List of Storys</h1>
+    <h1 class="text-center"> <span onclick="goBack()">
+        <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Short Story Details</h1>
     <div class="row">
         <c:choose>
             <c:when test="${story ne null}">
