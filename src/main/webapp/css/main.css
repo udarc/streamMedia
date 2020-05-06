@@ -39,7 +39,6 @@ navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hove
 #home {
     overflow: auto;
     background-size: cover;
-    /*background: url("./images/homepagebg.jpg") no-repeat;*/
     height: auto;
     border-radius: .5em;
     margin: 2em auto;
