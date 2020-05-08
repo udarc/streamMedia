@@ -28,7 +28,7 @@
                             <img class="rounded-circle img-fluid" src="${user.picture}" alt="user profile">
                         </c:when>
                         <c:otherwise>
-                            <img class="rounded-circle img-fluid" src="images/user.png" alt="Card image cap">
+                            <img class="rounded-circle img-fluid" src="images/profile.png" alt="Card image cap">
                         </c:otherwise>
                     </c:choose>
 

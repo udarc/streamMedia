@@ -8,6 +8,7 @@
 
                 <c:choose>
                     <c:when test="${(pageContext.request.isUserInRole('admin')) ||
+                                    (pageContext.request.isUserInRole('media creator')) ||
                                     (pageContext.request.isUserInRole('user')) }">
                         <c:if test="${(pageContext.request.isUserInRole('admin'))}">
                             <li class="nav-item">
@@ -18,7 +19,7 @@
                             <a class="nav-link"  href="profile-edit?user=<%= request.getRemoteUser()%>">Edit Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  href="user-profile">Profile ${user.username}</a>
+                            <a class="nav-link text-capitalize"  href="user-profile">Profile <%= request.getRemoteUser()%></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"  href="logout">Logout</a>
@@ -65,8 +66,8 @@
             </ul>
         </div>
         <form action="#" method="get" class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-md-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-danger my-2 my-md-0" type="submit">Search</button>
         </form>
         <ul class="navbar-nav mr-auto">
         <li class="nav-item">

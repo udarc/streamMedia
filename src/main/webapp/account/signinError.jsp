@@ -8,15 +8,18 @@
 <%@include file="../taglib.jsp"%>
 <c:set var="title" value="SignIn Error" />
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" type="text/css" href="../css/account.css">
+<link rel="stylesheet" type="text/css" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <main class="container wrapper">
-    <div class="alert alert-danger row">
-<h1 class="">Login failed...Please try again</h1>
-        <p>Already have an account? <a class="btn btn-primary" href="login">SignIn</a></p>
-        <p>No account yet ? <a class="btn btn-primary" href="register">SignUp</a></p>
+    <div class=" row">
+        <div class="alert alert-danger" role="alert">
+            <h1 class="alert-heading">Login failed...Please try again!</h1>
+            <p>Already have an account? <a class="btn btn-primary" href="login">SignIn</a></p>
+            <hr>
+            <p class="mb-0">No account yet ? <a class="btn btn-primary" href="register">SignUp</a></p>
+        </div>
     </div>
 
 </main>

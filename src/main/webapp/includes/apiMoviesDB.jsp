@@ -9,7 +9,7 @@
     <c:choose>
         <c:when test="${movies ne null}">
             <c:forEach var="movie" items="${movies}" >
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item "><h2>Title: ${movie.title}</h2></li>
                         <li class="list-group-item ">Original Title:
