@@ -30,27 +30,29 @@
         }, false);
     })();
 </script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-<script type="text/javascript" src="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/js/coreui.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<%--<script type="text/javascript" src="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/js/coreui.min.js"></script>--%>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" ></script>--%>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<%--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>--%>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 <script>
     // Hide messages after 5 seconds
     // https://stackoverflow.com/questions/683363/jquery-autohide-element-after-5-seconds/47167421
     $('#flash').fadeIn('fast').delay(5000).fadeOut('slow');
 </script>
-
-<script type="text/javascript" class="init">
-    $(document).ready( function () {
-        $('#table').DataTable();
-    } );
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.noConflict();
+        var table = $('#table').DataTable();
+    });
 </script>
-
+<script type="text/javascript" src="js/formValidator.js"></script>
 </body>
 </html>

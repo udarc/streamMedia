@@ -51,10 +51,10 @@ public class CrewEdit extends HttpServlet {
         if(updateCrew.getUser().getUsername().equals(req.getRemoteUser()) && req.isUserInRole("admin")) {
             crewDao.saveOrUpdate(updateCrew);
             String successMessage = "Successfully updated " + Crew.class.getSimpleName() ;
-            req.getSession().setAttribute("crewEditSuccessMessage",successMessage);
+            req.getSession().setAttribute("editCrewSuccessMessage",successMessage);
             resp.sendRedirect("crew-details?uid=" + updateCrew.getCrewId());
         } else {
-            req.getSession().setAttribute("crewErrorMessage","Failed to Updated " + Crew.class.getSimpleName());
+            req.getSession().setAttribute("crewErrorMessage","Failed to update " + Crew.class.getSimpleName());
             req.getRequestDispatcher("/film/crewAddEdit.jsp").forward(req,resp);
         }
     }

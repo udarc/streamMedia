@@ -15,10 +15,14 @@
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center"> <span onclick="goBack()">
         <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> FAQ Details</h1>
+    <c:if test="${not empty faqEditSuccessMessage}">
+        <h2 id="flash" class="alert alert-success">${faqEditSuccessMessage}</h2>
+        <c:remove var="faqEditSuccessMessage"/>
+    </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${faq ne null}">
-                <div class="col-sm-6 offset-sm-3">
+                <div class="col-md-6 offset-md-3">
                     <div class="card">
 
                         <div class="card-body">
