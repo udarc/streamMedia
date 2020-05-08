@@ -22,7 +22,7 @@
             <c:when test="${trailers ne null}">
                 <c:forEach var="trailer" items="${trailers}" >
 
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="card">
 
                             <c:choose>

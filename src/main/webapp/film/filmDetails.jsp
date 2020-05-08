@@ -22,7 +22,7 @@
     <div class="row">
         <c:choose>
         <c:when test="${film ne null}">
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-img-top">
                 <c:choose>
@@ -41,17 +41,20 @@
                     </c:choose>
                 </div>
                     <div class="card-body">
-                        <p>Test</p>
                         <h3 class="card-title">${film.title}</h3>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">${film.director}</li>
                             <li class="list-group-item">${film.duration}</li>
+                            <li class="list-group-item list-group-item-info">
                             <c:forEach var="genre" items="${film.genres}">
-                                <li class="list-group-item list-group-item-info">Genres: ${genre.title}</li>
+                                <span class="badge badge-light">Genres: ${genre.title}</span>
                             </c:forEach>
+                            </li>
+                            <li class="list-group-item list-group-item-info">
                             <c:forEach var="crew" items="${film.crews}">
-                                <li class="list-group-item list-group-item-info">Crews: ${crew.fullName}</li>
+                                <span  class="badge badge-light">Crews: ${crew.fullName}</span>
                             </c:forEach>
+                            </li>
                         </ul>
                         <p class="card-text">${film.summary}</p>
                         <p>Published ${film.publicationDate}</p>

@@ -23,19 +23,22 @@
     <div class="form row">
         <c:choose>
             <c:when test="${faq ne null}">
-            <form action="faq-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="faq-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
+                <h1 class="text-center">Edit FAQ</h1>
                 <input type="hidden" name="uid" value="${faq.faqId}">
             </c:when>
             <c:otherwise>
-            <form action="faq-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="faq-new" method="post" class="card col-md-10 offset-md-1 was-validated">
+                <h1 class="text-center">Add FAQ</h1>
             </c:otherwise>
         </c:choose>
-<%--                <c:if test="${faq != null}" >--%>
-<%--                    --%>
-<%--                </c:if>--%>
+                <c:if test="${not empty faqErrorMessage}">
+                    <h2 id="flash" class="alert alert-danger">${bookErrorMessage}</h2>
+                    <c:remove var="bookErrorMessage"/>
+                </c:if>
                 <div class="form-group row">
-                <label for="title" class="col-sm-3 col-form-label">Title</label>
-                <div class="col-sm-9">
+                <label for="title" class="col-md-3 col-form-label">Title</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="title" id="title" placeholder="Title"
                            required value="${faq.title}">
@@ -44,8 +47,8 @@
                 <div class="invalid-feedback">Title is required.</div>
             </div>
             <div class="form-group row">
-                <label for="category" class="col-sm-3 col-form-label">Category</label>
-                <div class="col-sm-9">
+                <label for="category" class="col-md-3 col-form-label">Category</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="category" id="category" placeholder="Category" required
                     value="${faq.category}">
@@ -54,14 +57,14 @@
                 <div class="invalid-feedback">Category is required.</div>
             </div>
             <div class="form-group row">
-                <label for="description" class="col-sm-3 col-form-label" >Description</label>
-                <div class="col-sm-9">
+                <label for="description" class="col-md-3 col-form-label" >Description</label>
+                <div class="col-md-9">
                     <textarea class="form-control"name="description" id="description"
                               rows="6">${faq.description}</textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-9">
+                <div class="col-md-9">
                     <button type="submit"
                             name="createFAQ" class="btn btn-lg btn-success">Save FAQ</button>
                 </div>

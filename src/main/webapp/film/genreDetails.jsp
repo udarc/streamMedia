@@ -18,7 +18,7 @@
       <div class="row">
          <c:choose>
             <c:when test="${genre ne null}">
-               <div class="col-sm-6 offset-sm-3">
+               <div class="col-md-6 offset-md-3">
                   <div class="card">
                       <c:if test="${not empty successMessage}">
                           <h3 id="flash" class="alert alert-success">${successMessage}</h3>

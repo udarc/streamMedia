@@ -15,14 +15,14 @@
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center"> <span onclick="goBack()">
         <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Book Details</h1>
-    <c:if test="${not empty editBookCategorySuccess}">
-        <h2 id="flash" class="alert alert-success">${editBookCategorySuccess}</h2>
-        <c:remove var="editBookCategorySuccess"/>
+    <c:if test="${not empty editBookSuccess}">
+        <h2 id="flash" class="alert alert-success">${editBookSuccess}</h2>
+        <c:remove var="editBookSuccess"/>
     </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${book ne null}">
-                <div class="col-sm-6 offset-sm-3">
+                <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
 
@@ -30,9 +30,11 @@
 
                             <h2 class="card-title"><a href=""></a>${book.title}</h2>
                             <ul class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-info">
                                 <c:forEach var="category" items="${book.categories}">
-                                    <li class="list-group-item list-group-item-info">${category.title}</li>
+                                    <span class="badge badge-light">${category.title}</span>
                                 </c:forEach>
+                                </li>
                                 <li class="list-group-item">${book.ISBN}</li>
                                 <c:if test="${ not empty book.edition}">
                                 <li class="list-group-item">${book.edition}</li>

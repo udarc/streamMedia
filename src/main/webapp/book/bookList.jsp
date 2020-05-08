@@ -13,15 +13,18 @@
 <%@include file="../navbar.jsp"%>
 <main class="container wrapper" >
     <div class="row">
-            <div class="col-sm-8">
+            <div class="col-md-8 col-lg-9">
+                <h1 class="text-center">Book List</h1>
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <a href="book-new" class="btn btn-success ml-auto">
-                        <i class="fas fa-plus-square fa-3x"></i>Add Book</a>
+                    <p class="ml-auto"><a href="book-new" class="btn btn-success">
+                        <i class="fas fa-plus-square fa-1x"></i>Add Book</a></p>
+                </c:if>
+                <c:if test="${not empty addBookSuccess}">
+                    <h2 id="flash" class="alert alert-success">${addBookSuccess}</h2>
+                    <c:remove var="addBookSuccess"/>
                 </c:if>
                     <c:choose>
                         <c:when test="${books ne null}">
-                            <h1 class="text-center">Book List</h1>
-
                             <c:forEach var="book" items="${books}">
                         <ul class="list-group list-group-info list-group-flush">
                             <li class="list-group-item "><a href="book-details?uid=${book.bookId}">${book.title}</a></li>
@@ -48,7 +51,7 @@
                     </c:choose>
 
             </div>
-        <div class="col-sm-3">
+        <div class="col-md-4 col-lg-3">
             <ul class="list-group list-group-flush">
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
                     <li class="list-group-item"><a class="btn btn-primary" href="bkcategory-new"> Add Book Category</a></li>
