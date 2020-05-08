@@ -14,6 +14,10 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center">List of Stories</h1>
+    <c:if test="${not empty storyAddSuccessMessage}">
+        <h2 id="flash" class="alert alert-danger">${storyAddSuccessMessage}</h2>
+        <c:remove var="storyAddSuccessMessage"/>
+    </c:if>
     <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
         <p class="ml-auto"><a href="add-story" class="btn btn-success" >Add Story</a></p>
     </c:if>
@@ -22,7 +26,7 @@
             <c:when test="${stories ne null}">
                 <c:forEach var="story" items="${stories}" >
 
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <div class="card">
 
                             <c:choose>

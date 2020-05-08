@@ -18,7 +18,7 @@
     <div class="row">
         <c:choose>
             <c:when test="${trailer ne null}">
-                <div class="col-sm-6 offset-sm-3">
+                <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <c:choose>
 

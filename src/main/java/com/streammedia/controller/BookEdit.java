@@ -76,9 +76,12 @@ public class BookEdit extends HttpServlet {
         if (req.isUserInRole("admin")){
             log.debug(bookToEdit);
             bookDao.saveOrUpdate(bookToEdit);
+            String successMessage = "Successfully added a book!";
+            req.getSession().setAttribute("editBookSuccess",successMessage);
             resp.sendRedirect("book-details?uid=" + bookToEdit.getBookId());
         } else {
             req.getRequestDispatcher("/book/bookAddEdit.jsp").forward(req, resp);
+            req.getSession().setAttribute("bookErrorMessage","Failed to add a book!");
         }
 
     }
