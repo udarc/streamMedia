@@ -21,33 +21,37 @@
 <%@include file="../navbar.jsp"%>
 <div class="container">
     <div class="form row">
+        <c:if test="${not empty bookErrorMessage}">
+            <h2 id="flash" class="alert alert-danger">${bookErrorMessage}</h2>
+            <c:remove var="bookErrorMessage"/>
+        </c:if>
         <c:choose>
             <c:when test="${book ne null}">
             <h1 class="text-center">Edit Book</h1>
-            <form class="card col-sm-10 offset-sm-1" action="book-edit" method="post">
+            <form class="card col-md-10 offset-md-1" action="book-edit" method="post">
                 <input type="hidden" name="uid" value="${book.bookId}">
             </c:when>
             <c:otherwise>
             <h1 class="text-center">Add Book</h1>
-            <form class="card col-sm-10 offset-sm-1" action="book-new" method="post">
+            <form class="card col-md-10 offset-md-1" action="book-new" method="post">
             </c:otherwise>
         </c:choose>
-
+            
             <div class="form-group row">
-                <label for="title" class="col-sm-3 col-form-label">Title</label>
-                <div class="col-sm-9">
+                <label for="title" class="col-md-3 col-form-label">Title</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control" name="title"
                            id="title" placeholder="Book Title" value="${book.title}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="category" class="col-sm-3 col-form-label">Category(s)</label>
-                <div class="col-sm-7">
+                <label for="category" class="col-md-3 col-form-label">Category(s)</label>
+                <div class="col-md-7">
                 <select name="category" class="form-control" id="category" multiple>
                     <option value="select a Category">Select</option>
                     <c:forEach var="category" items="${categories}">
 
-<%--                        TODO CREATE TAB LIB  https://stackoverflow.com/questions/1490139/evaluate-list-contains-string-in-jstl--%>
+<%--                        TO DO CREATE TAB LIB  https://stackoverflow.com/questions/1490139/evaluate-list-contains-string-in-jstl--%>
 <%--                        <c:if test = "${fn:contains(${book.categories}, ${category})}">--%>
 <%--                            <option value="${category.bkCategoryId}" selected>${category.title}</option>--%>
 <%--                        </c:if>--%>
@@ -57,68 +61,68 @@
 <%--                    <option value="">${book.categories}</option>--%>
                 </select>
                 </div>
-                <div class="col-sm-2"><a class="btn btn-secondary" href="bkcategory-new">Add Category</a></div>
+                <div class="col-md-2"><a class="btn btn-secondary" href="bkcategory-new">Add Category</a></div>
             </div>
             <div class="form-group row">
-                <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>
-                <div class="col-sm-9">
+                <label for="isbn" class="col-md-3 col-form-label">ISBN</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="isbn" id="isbn" placeholder="Isbn" value="${book.ISBN}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="author" class="col-sm-3 col-form-label">Author</label>
-                <div class="col-sm-9">
+                <label for="author" class="col-md-3 col-form-label">Author</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="author" id="author" placeholder="Author"
                     value="${book.author}">
                 </div>
             </div>
                 <div class="form-group row">
-                    <label for="edition" class="col-sm-3 col-form-label">Edition</label>
-                    <div class="col-sm-9">
+                    <label for="edition" class="col-md-3 col-form-label">Edition</label>
+                    <div class="col-md-9">
                         <input type="text" class="form-control"
                                name="edition" id="edition"  placeholder="Edition"
                         value="${book.edition}">
                     </div>
                 </div>
             <div class="form-group row">
-                <label for="cover" class="col-sm-3 col-form-label">Cover</label>
-                <div class="col-sm-9">
+                <label for="cover" class="col-md-3 col-form-label">Cover</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="cover" id="cover" placeholder="Cover" value="${book.cover}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="pub_date" class="col-sm-3 col-form-label">Publication Date</label>
-                <div class="col-sm-9">
+                <label for="pub_date" class="col-md-3 col-form-label">Publication Date</label>
+                <div class="col-md-9">
                     <input type="datetime-local" class="form-control"
                            name="pub_date" id="pub_date" placeholder="Publication Date"
                     value="${book.publicationDate}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="publisher" class="col-sm-3 col-form-label">Publisher</label>
-                <div class="col-sm-9">
+                <label for="publisher" class="col-md-3 col-form-label">Publisher</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="publisher" id="publisher" placeholder="Publisher" value="${book.publisher}">
                 </div>
             </div>
                 <div class="form-group row">
-                    <label for="page-number" class="col-sm-3 col-form-label">Page Number</label>
-                    <div class="col-sm-9">
+                    <label for="page-number" class="col-md-3 col-form-label">Page Number</label>
+                    <div class="col-md-9">
                         <input type="text" class="form-control"
                                name="page_number" id="page-number" placeholder="Page Number" value="${book.pageNumber}">
                     </div>
                 </div>
             <div class="form-group row">
-                <label for="summary" class="col-sm-3 col-form-label" >Summary</label>
-                <div class="col-sm-9">
+                <label for="summary" class="col-md-3 col-form-label" >Summary</label>
+                <div class="col-md-9">
                     <textarea class="form-control"name="summary" id="Summary" rows="6">${book.summary}</textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-9">
+                <div class="col-md-9">
                     <button type="submit"
                             name="sendMessage" class="btn btn-lg btn-success">Save Book</button>
                 </div>
