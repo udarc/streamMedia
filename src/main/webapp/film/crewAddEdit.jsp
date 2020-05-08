@@ -25,37 +25,37 @@
         <c:choose>
             <c:when test="${crew ne null}">
     <h1 class="text-center">Edit Crew</h1>
-    <form action="crew-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+    <form action="crew-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
         <input type="hidden" name="uid" value="${crew.crewId}">
             </c:when>
         <c:otherwise>
         <h1 class="text-center">Add Crew</h1>
-                <form action="crew-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+                <form action="crew-new" method="post" class="card col-md-10 offset-md-1 was-validated">
                 </c:otherwise>
         </c:choose>
                     <c:if test="${not empty crewErrorMessage}">
                     <h2 id="flash" class="alert alert-success">${crewErrorMessage}</h2>
                         <c:remove var="crewErrorMessage"/>
                     </c:if>
-     <form action="crew-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+     <form action="crew-new" method="post" class="card col-md-10 offset-md-1 was-validated">
          <div class="form-group row">
-             <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
-             <div class="col-sm-9">
+             <label for="firstName" class="col-md-3 col-form-label">First Name</label>
+             <div class="col-md-9">
                  <input type="text" class="form-control"
                         name="firstname" id="firstName" placeholder="First Name" required
                  value="${crew.firstName}">
              </div>
          </div>
          <div class="form-group row">
-             <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
-             <div class="col-sm-9">
+             <label for="lastName" class="col-md-3 col-form-label">Last Name</label>
+             <div class="col-md-9">
                  <input type="text" class="form-control"
                         name="lastname" id="lastName" placeholder="Last Name" required value="${crew.lastName}">
              </div>
          </div>
          <div class="form-group row">
-             <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-             <div class="col-sm-9">
+             <label for="inputEmail" class="col-md-3 col-form-label">Email</label>
+             <div class="col-md-9">
                  <input type="email" class="form-control"
                         name="email" id="inputEmail" placeholder="Email" required
                         value="${crew.email}">
@@ -64,8 +64,8 @@
              <div class="invalid-feedback">Email is required.</div>
          </div>
          <div class="form-group row">
-             <label for="profession" class="col-sm-3 col-form-label">Profession</label>
-             <div class="col-sm-9">
+             <label for="profession" class="col-md-3 col-form-label">Profession</label>
+             <div class="col-md-9">
                  <input type="text" class="form-control"
                         name="profession" id="profession" placeholder="Profession" required
                         value="${crew.profession}">
@@ -75,13 +75,13 @@
          </div>
 
     <div class="form-group row">
-        <label for="bio" class="col-sm-3 col-form-label" >Biography</label>
-        <div class="col-sm-9">
+        <label for="bio" class="col-md-3 col-form-label" >Biography</label>
+        <div class="col-md-9">
             <textarea class="form-control"name="biography" id="bio" rows="6">${crew.biography}</textarea>
         </div>
     </div>
         <div class="form-group row">
-            <div class="col-sm-9">
+            <div class="col-md-9">
                 <button type="submit"
                         name="saveCrew" class="btn btn-lg btn-success">Save Crew</button>
             </div>

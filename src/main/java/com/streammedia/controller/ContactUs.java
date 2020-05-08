@@ -76,8 +76,6 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
             }catch (Exception ex) {
             log.debug("Error loading properties" + ex);
         }
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("/account/userSuccess.jsp");
-//            dispatcher.forward(req, resp);
             String successMessage = "Thank you for contacting Stream Media. We will get back to within 24 hours!";
             req.getSession().setAttribute("successMessage",successMessage);
             resp.sendRedirect(req.getContextPath());
