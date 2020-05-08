@@ -72,14 +72,18 @@ public class UserRegister extends HttpServlet {
             log.debug("Adding User: " + user);
         Role role = new Role();
         role.setUser(user);
-        role.setName("user");
+        if(req.isUserInRole("admin")) {
+            String userRole = req.getParameter("userRole");
+            role.setName(userRole);
+        } else {
+            role.setName("user");
+        }
         user.addRole(role);
             genericDao.insert(user);
             String successMessage = "Successfully registered with " + user.getUsername()
                     + "username!Please Login!";
             req.getSession().setAttribute("registerSuccess",successMessage);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("login");
-            dispatcher.forward(req, resp);
+            resp.sendRedirect("login");
         } else {
             req.getSession().setAttribute("errorMessage", "Failed to create an account.Try again!");
             req.getRequestDispatcher("/account/signup.jsp").forward(req,resp);

@@ -81,6 +81,7 @@
     <auth-constraint>
       <role-name>admin</role-name>
       <role-name>user</role-name>
+      <role-name>media creator</role-name>
     </auth-constraint>
   </security-constraint>
   <security-role>
@@ -88,6 +89,9 @@
   </security-role>
   <security-role>
     <role-name>user</role-name>
+  </security-role>
+  <security-role>
+    <role-name>media creator</role-name>
   </security-role>
   <error-page>
     <error-code>404</error-code>
