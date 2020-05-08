@@ -20,49 +20,52 @@
             <h2 id="flash" class="alert alert-danger">${contactError}</h2>
             <c:remove var="contactError"/>
         </c:if>
-        <form action="contact-us" method="post" class="card col-sm-10 offset-sm-1 was-validated">
-            <div class="form-group row">
-                <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
-                <div class="col-sm-9">
+        <form action="contact-us" method="post" class="card col-md-10 offset-md-1 was-validated">
+            <div class="form-group row" id="contactForm">
+                <label for="inputFirstName" class="col-md-3 col-form-label">First Name</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control" name="firstName"
-                           id="inputFirstName" placeholder="First Name" required>
+                           id="inputFirstName" minlength="2"  maxlength="30" placeholder="First Name" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputLastName" class="col-sm-3 col-form-label">Last Name</label>
-                <div class="col-sm-9">
+                <label for="inputLastName" class="col-md-3 col-form-label">Last Name</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
-                           name="lastName" id="inputLastName" placeholder="Last Name" required>
+                           name="lastName" id="inputLastName" minlength="2"  maxlength="30"  placeholder="Last Name" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-9">
+                <label for="inputEmail" class="col-md-3 col-form-label">Email</label>
+                <div class="col-md-9">
                     <input type="email" class="form-control"
-                           name="email" id="inputEmail" placeholder="Email" required>
+                           name="email" id="inputEmail" minlength="10"  maxlength="100" placeholder="Email" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="subject" class="col-sm-3 col-form-label">Subject</label>
-                <div class="col-sm-9">
+                <label for="subject" class="col-md-3 col-form-label">Subject</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
-                           name="subject" id="subject" placeholder="Subject" required>
+                           name="subject" id="subject" minlength="5"  maxlength="50" placeholder="Subject" required>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="message" class="col-sm-3 col-form-label" >Message</label>
-                <div class="col-sm-9">
-                    <textarea class="form-control"name="message" id="message" rows="6" required></textarea>
+                <label for="message" class="col-md-3 col-form-label" >Message</label>
+                <div class="col-md-9">
+                    <textarea class="form-control"name="message" minlength="10"  maxlength="1500" id="message" rows="6" required></textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-9">
+                <div class="col-md-9">
                     <button type="submit"
                             name="sendMessage" class="btn btn-lg btn-success">Send Message</button>
                 </div>
             </div>
         </form>
+        <script>
+            $("contactForm").validate()
+        </script>
     </main>
 
 </div>

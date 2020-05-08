@@ -14,8 +14,12 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper">
     <div class="row">
-        <div class="col-sm-8">
-            <h1 class="alert alert-info text-center">Crew List</h1>
+        <div class="col-md-8">
+            <h1 class="text-center">Crew List</h1>
+            <c:if test="${pageContext.request.isUserInRole('admin')}">
+                <p class="ml-auto"><a href="crew-new" class="btn btn-success">
+                    <i class="fas fa-plus-square fa-1x"></i>Add Crew</a></p>
+            </c:if>
             <c:if test="${not empty crewAddSuccessMessage}">
                 <h2 id="flash" class="alert alert-success">${crewAddSuccessMessage}</h2>
                 <c:remove var="crewAddSuccessMessage"/>
@@ -44,10 +48,6 @@
                         </ul>
                     </c:otherwise>
                 </c:choose>
-<c:if test="${pageContext.request.isUserInRole('admin')}">
-    <a href="crew-new" class="btn btn-success ml-auto">
-        <i class="fas fa-plus-square fa-3x"></i>Add Crew</a>
-</c:if>
         </div>
 </div>
 </main>

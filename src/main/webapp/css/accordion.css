@@ -1,0 +1,54 @@
+/*Accordion CSS Start*/
+
+.accordion .card,
+.accordion .card-header {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 1.1em;
+}
+
+.accordion .card {
+    box-shadow: 0 .2em 1em 0 rgba(110, 130, 208, .18);
+}
+
+.accordion .card-header .btn-link {
+    width: 100%;
+    text-align: left;
+    color: #000 !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: .8em;
+}
+
+.accordion .card-body {
+    background: rgba(245, 35, 2, .05);
+}
+
+.accordion .card-header .btn-link:after {
+    content: '\2212';
+    width: 1.5em;
+    font-size: 1.3em;
+    text-align: center;
+    border-radius: .1em;
+    background-color: rgba(245, 35, 2, .05);
+    position: absolute;
+    right: 1em;
+}
+
+.accordion .card-header .btn-link.collapsed:after {
+    content: '\002B';
+}
+
+.accordion .card-header .btn-link:before {
+    content: '';
+    height: 1.2em;
+    width: 1.2em;
+    position: absolute;
+    background:  #f6eded;
+    transform: rotate(45deg);
+    left: 1.6em;
+    top: 2.7em;
+    z-index: 1;
+}
+/*Accordion CSS End*/

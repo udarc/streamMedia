@@ -24,19 +24,19 @@
         <c:choose>
         <c:when test="${genre ne null}">
             <h1>Edit Genre</h1>
-        <form action="genre-edit" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+        <form action="genre-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
             <input type="hidden" name="uid" value="${genre.genreId}">
             </c:when>
             <c:otherwise>
             <h1>Add Genre</h1>
-            <form action="genre-new" method="post" class="card col-sm-10 offset-sm-1 was-validated">
+            <form action="genre-new" method="post" class="card col-md-10 offset-md-1 was-validated">
                 >
                 </c:otherwise>
                 </c:choose>
 
             <div class="form-group row">
-                <label for="title" class="col-sm-3 col-form-label">Title</label>
-                <div class="col-sm-9">
+                <label for="title" class="col-md-3 col-form-label">Title</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="title" id="title" placeholder="Title"
                            value="${genre.title}" required>
@@ -47,8 +47,8 @@
                 <div class="valid-feedback">Valid.</div>
             </div>
             <div class="form-group row">
-                <label for="description" class="col-sm-3 col-form-label" >Description</label>
-                <div class="col-sm-9">
+                <label for="description" class="col-md-3 col-form-label" >Description</label>
+                <div class="col-md-9">
                     <textarea class="form-control"name="description"
                               id="description" rows="6">${genre.description}</textarea>
                     <c:if test='${not empty errors.description}'>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-9">
+                <div class="col-md-9">
                     <button type="submit"
                             name="createFAQ" class="btn btn-lg btn-success">Save Genre</button>
                 </div>
