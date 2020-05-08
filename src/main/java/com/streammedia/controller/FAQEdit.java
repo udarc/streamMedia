@@ -53,10 +53,14 @@ public class FAQEdit extends HttpServlet {
         if(request.getRemoteUser().equals(faq.getUser().getUsername())
                 || request.isUserInRole("admin")){
             faqDao.saveOrUpdate(faq);
-//            response.sendRedirect("faqs");
+            String successMessage = "Successfully updated FAQ ";
+            request.getSession().setAttribute("faqEditSuccessMessage",successMessage);
+            response.sendRedirect("faq-details?uid=" + faq.getFaqId());
+        } else {
+            request.getSession().setAttribute("faqErrorMessage", "Failed to update FAQ!");
+            request.getRequestDispatcher("/faq/faqAddEdit.jsp").forward(request, response);
         }
-        //TODO set failure message
-        response.sendRedirect("faqs");
+
     }
 
 

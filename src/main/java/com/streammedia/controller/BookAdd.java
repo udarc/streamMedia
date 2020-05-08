@@ -86,8 +86,11 @@ public class BookAdd extends HttpServlet {
             books.add(newBook);
             if(!newBook.equals(null)){
                 bookDao.insert(newBook);
+                String successMessage = "Successfully added a book!";
+                req.getSession().setAttribute("addBookSuccess",successMessage);
                 resp.sendRedirect("books");
             } else {
+                req.getSession().setAttribute("bookErrorMessage","Failed to add a book!");
                 req.getRequestDispatcher("/book/bookAddEdit.jsp").forward(req, resp);
             }
         } catch (NullPointerException npe) {

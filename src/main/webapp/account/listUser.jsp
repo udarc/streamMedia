@@ -8,14 +8,16 @@
 <%@include file="../taglib.jsp"%>
 <c:set var="title" value="User List" />
 <%@include file="../head.jsp"%>
-<link rel="stylesheet" href="../css/account.css">
+<%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">--%>
+<%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>--%>
 
+<link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <%@include file="../navbar.jsp"%>
 <div class="container-fluid wrapper">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-md-8">
             <h1 class="text-center">Users</h1>
             <c:if test="${(not empty loginSuccess) || not empty userEditSuccess}">
             <h2 id="flash" class="alert alert-success">${loginSuccess} ${userEditSuccess}</h2>
@@ -50,7 +52,7 @@
                 </c:forEach>
             </table>
         </div>
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <a href="register">Add New User</a>
          </div>
     </div>

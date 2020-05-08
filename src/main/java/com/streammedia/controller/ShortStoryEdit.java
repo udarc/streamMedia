@@ -121,8 +121,9 @@ public class ShortStoryEdit extends HttpServlet {
             story.setDescription(req.getParameter("description").trim());
             log.debug("Updating Story: " + story.getTitle());
             storyDao.saveOrUpdate(story);
+            String successMessage = "Successfully Updated Short Story!";
+            req.getSession().setAttribute("storyEditSuccessMessage",successMessage);
             resp.sendRedirect("story-details?uid=" + story.getShortStoryId());
-
         }
     }
 }

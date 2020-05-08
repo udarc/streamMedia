@@ -14,7 +14,12 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-md-8">
+            <h1 class="text-center"><h1>Genre List</h1></h1>
+            <c:if test="${pageContext.request.isUserInRole('admin')}">
+                <p class="ml-auto"><a href="genre-new" class="btn btn-success">
+                    <i class="fas fa-plus-square fa-3x"></i>Add Genre</a></p>
+            </c:if>
             <c:if test="${not empty filmAddSuccessMessage}">
                 <h3 id="flash" class="alert alert-success">${filmAddSuccessMessage}</h3>
                 <c:remove var="filmAddSuccessMessage"/>
@@ -23,8 +28,6 @@
             <ul class="list-group list-group-info list-group-flush">
                 <c:choose>
                     <c:when test="${fn:length(genres) gt 0}">
-                        <li class="list-group-item list-group-item-primary"><h1>Genre List</h1></li>
-
                         <c:forEach var="genre" items="${genres}">
 
                             <li class="list-group-item "><a href="genre-details?uid=${genre.genreId}">${genre.title}</a>
@@ -34,13 +37,6 @@
                                         <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
                                    <a class="btn btn-danger" href="genre-delete?uid=${genre.genreId}" Onclick="return confirmDeletion();">
                                     <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
-<%--                                    <button class="btn btn-danger" data-id="${genre.genreId}" data-toggle="modal"--%>
-<%--                                            data-target="#deleteModal">Delete</button>--%>
-<%--                                    <c:set var="objectId" value="${genre.genreId}"/>--%>
-<%--                                        <a class="btn btn-danger delete" href="#deleteModal" data-toggle="modal"--%>
-<%--                                           data-id="${genre.genreId}">--%>
-<%--                                            <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>--%>
-<%--                                    <input type="hidden" name="uid" id="uid" value="${genre.genreId}">--%>
                                 </span>
                                 </c:if>
                             </li>
@@ -50,13 +46,10 @@
                         <li class="list-group-item ">No Genre found!</li>
                     </c:otherwise>
                 </c:choose>
-                <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <a href="genre-new" class="btn btn-success ml-auto">
-                        <i class="fas fa-plus-square fa-3x"></i>Add Genre</a>
-                </c:if>
+
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <h2>Rest API Genres</h2>
             <%@include file="restAPIGenres.jsp"%>
         </div>

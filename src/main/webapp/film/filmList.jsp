@@ -15,7 +15,7 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper" role="main">
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-md-8 col-lg-9">
             <h1 class="text-center">List of Films</h1>
             <c:if test="${not empty successMessage}">
                 <h3 id="flash" class="alert alert-success">${successMessage}</h3>
@@ -32,7 +32,7 @@
                 <c:when test="${films ne null}">
                     <c:forEach var="film" items="${films}" >
 
-                        <div class="col-sm-4">
+                        <div class="col-md-6 col-lg-4">
                             <div class="card">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="180"
                                      xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap"
@@ -82,7 +82,7 @@
             </c:choose>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-md-4 col-lg-3">
             <ul class="list-group list-group-flush">
                 <h2>Internal Data</h2>
                 <c:if test="${pageContext.request.isUserInRole('admin')}">

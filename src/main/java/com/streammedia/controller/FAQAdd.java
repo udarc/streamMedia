@@ -56,12 +56,12 @@ import java.time.LocalDateTime;
                     newFAQ.setUpdatedAt(LocalDateTime.now());
                     newFAQ.setUser(user);
                     log.debug("Adding FAQ: ", newFAQ.getTitle());
-//                    AWSS3UploadUtil awss3UploadUtil = new AWSS3UploadUtil();
                     faqDao.insert(newFAQ);
-//                    log.error(awss3UploadUtil.getS3Bucket("cloud-for-developers"));
-//                    awss3UploadUtil.createS3Bucket("ju-stream-media");
+                    String successMessage = "Successfully added FAQ ";
+                    request.getSession().setAttribute("faqAddSuccessMessage",successMessage);
                     response.sendRedirect("faqs");
                 } else {
+                    request.getSession().setAttribute("faqErrorMessage","Failed to add FAQ!");
                     request.getRequestDispatcher("/faq/faqAddEdit.jsp").forward(request, response);
                 }
             } catch (NullPointerException npe) {
