@@ -104,8 +104,11 @@ public class ShortStoryAdd extends HttpServlet {
             if (!user.equals(null) && req.isUserInRole("admin")) {
                 story.setUser(user);
                 int storyId = storyDao.insert(story);
+                String successMessage = "Successfully added Short Story!";
+                req.getSession().setAttribute("storyAddSuccessMessage",successMessage);
                 resp.sendRedirect("short-stories");
             } else {
+                req.getSession().setAttribute("storyErrorMessage","Failed to add SHort Story!");
                 req.getRequestDispatcher("/story/storyAddEdit.jsp").forward(req, resp);
             }
         } catch (NullPointerException npe) {

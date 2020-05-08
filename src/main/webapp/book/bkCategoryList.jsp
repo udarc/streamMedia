@@ -14,7 +14,8 @@
 <%@include file="../navbar.jsp"%>
 <main class="container-fluid wrapper">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-md-8">
+            <h1 class="text-center">BkCategory List</h1>
             <c:if test="${not empty addBookCategorySuccess}">
                 <h2 id="flash" class="alert alert-success">${addBookCategorySuccess}</h2>
                 <c:remove var="addBookCategorySuccess"/>
@@ -22,7 +23,6 @@
             <ul class="list-group list-group-info list-group-flush">
                 <c:choose>
                     <c:when test="${fn:length(categories) gt 0}">
-                        <li class="list-group-item list-group-item-primary"><h1>BkCategory List</h1></li>
 
                         <c:forEach var="bkCategory" items="${categories}">
 
@@ -43,8 +43,8 @@
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <a href="bkcategory-new" class="btn btn-success ml-auto">
-                        <i class="fas fa-plus-square fa-3x"></i>Add BkCategory</a>
+                    <p class="ml-auto"><a href="bkcategory-new" class="btn btn-success">
+                        <i class="fas fa-plus-square fa-1x"></i>Add BkCategory</a></p>
                 </c:if>
             </ul>
         </div>
