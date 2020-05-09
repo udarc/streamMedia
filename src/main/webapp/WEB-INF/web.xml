@@ -17,6 +17,9 @@
     <web-resource-collection>
       <web-resource-name>AdminRoleRequired</web-resource-name>
       <url-pattern>/search.jsp</url-pattern>
+<!--      Admin Dashboard-->
+      <url-pattern>/dashboard</url-pattern>
+      <url-pattern>/dashboard/*</url-pattern>
 <!--      Users-->
       <url-pattern>/users</url-pattern>
       <url-pattern>/account/listUser.jsp</url-pattern>
@@ -69,7 +72,7 @@
   <!-- Protect everything in the adminOnly directory -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>AdminUserRoleRequired</web-resource-name>
+      <web-resource-name>AdminMediaCreatorUserRoleRequired</web-resource-name>
       <url-pattern>/user-profile</url-pattern>
       <url-pattern>/profile-edit</url-pattern>
       <url-pattern>/logout</url-pattern>
