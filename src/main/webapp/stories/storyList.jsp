@@ -19,7 +19,7 @@
         <c:remove var="storyAddSuccessMessage"/>
     </c:if>
     <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
-        <p class="ml-auto"><a href="add-story" class="btn btn-success" >Add Story</a></p>
+        <p class="ml-auto"><a href="story-new" class="btn btn-success" >Add Story</a></p>
     </c:if>
     <div class="row">
         <c:choose>

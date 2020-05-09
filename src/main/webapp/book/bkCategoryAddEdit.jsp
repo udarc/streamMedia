@@ -33,7 +33,7 @@
             </c:when>
             <c:otherwise>
             <h1>Add BkCategory</h1>
-            <form action="bkcategory-new" method="post" class="card col-md-10 offset-md-1 was-validated">
+            <form action="category-new" method="post" class="card col-md-10 offset-md-1 was-validated">
                 </c:otherwise>
                 </c:choose>
                 <div class="form-group row">
