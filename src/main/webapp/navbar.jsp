@@ -10,16 +10,19 @@
                     <c:when test="${(pageContext.request.isUserInRole('admin')) ||
                                     (pageContext.request.isUserInRole('media creator')) ||
                                     (pageContext.request.isUserInRole('user')) }">
+                        <li class="nav-item">
+                            <a class="nav-link text-capitalize"  href="user-profile">
+                                <span class="mr-2 d-none d-lg-inline"><%= request.getRemoteUser() %></span>
+                                <img class="img-profile rounded-circle" src="${profileImage}" style="height: 3.75em; width: 3.75em;"></a>
+                        </li>
                         <c:if test="${(pageContext.request.isUserInRole('admin'))}">
+
                             <li class="nav-item">
                                 <a class="nav-link"  href="users">Users</a>
                             </li>
                         </c:if>
                         <li class="nav-item">
                             <a class="nav-link"  href="profile-edit?user=<%= request.getRemoteUser()%>">Edit Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-capitalize"  href="user-profile">Profile <%= request.getRemoteUser()%></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"  href="logout">Logout</a>
@@ -65,15 +68,21 @@
                 </li>
             </ul>
         </div>
+        <ul class="navbar-nav mr-auto">
+            <c:if test="${pageContext.request.isUserInRole('admin')}">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard">Admin Dashboard</a>
+                </li>
+            </c:if>
+            <li class="nav-item">
+                <a class="nav-link" href="faqs">FAQ</a>
+            </li>
+        </ul>
         <form action="#" method="get" class="form-inline">
             <input class="form-control mr-md-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-danger my-2 my-md-0" type="submit">Search</button>
         </form>
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="faqs">FAQ</a>
-        </li>
-        </ul>
+
     </nav>
 </header>
 

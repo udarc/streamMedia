@@ -1,0 +1,14 @@
+#accordionSidebar {
+    background: darkred;
+    color: white;
+}
+.border-left-media {
+
+    border-left: .25rem solid #450000 !important;
+}
+.media-text{
+    color: #450000!important;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #230205;
+}
