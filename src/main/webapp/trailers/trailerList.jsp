@@ -15,7 +15,7 @@
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center">List of Trailers</h1>
     <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
-        <p class="ml-auto"><a href="add-trailer" class="btn btn-success" >Add Trailer</a></p>
+        <p class="ml-auto"><a href="trailer-new" class="btn btn-success" >Add Trailer</a></p>
     </c:if>
     <div class="row">
         <c:choose>

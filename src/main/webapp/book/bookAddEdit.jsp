@@ -61,7 +61,7 @@
 <%--                    <option value="">${book.categories}</option>--%>
                 </select>
                 </div>
-                <div class="col-md-2"><a class="btn btn-secondary" href="bkcategory-new">Add Category</a></div>
+                <div class="col-md-2"><a class="btn btn-secondary" href="category-new">Add Category</a></div>
             </div>
             <div class="form-group row">
                 <label for="isbn" class="col-md-3 col-form-label">ISBN</label>

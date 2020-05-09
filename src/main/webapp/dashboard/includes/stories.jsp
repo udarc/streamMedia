@@ -17,7 +17,6 @@
     <tr>
         <th>Title</th>
         <th>author</th>
-        <th>Publication Date</th>
         <th>Edit</th>
         <th>Delete</th>
 
@@ -27,9 +26,6 @@
         <tr>
             <td>${story.title}</td>
             <td> ${story.author}</td>
-            <td>
-                    ${story.publicationDate}
-            </td>
             <td><a class="btn btn-outline-primary" href="story-edit?uid=${story.shortStoryId}"><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a></td>
             <td><a class="btn btn-outline-danger"  href="story-delete?uid=${story.shortStoryId}"><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></td>
         </tr>
