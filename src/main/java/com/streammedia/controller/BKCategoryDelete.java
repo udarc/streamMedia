@@ -34,7 +34,7 @@ public class BKCategoryDelete extends HttpServlet {
         BkCategory bkCat = (BkCategory) bkCategory.getById(id);
         if(req.isUserInRole("admin")){
             bkCategory.delete(bkCat);
-            resp.sendRedirect("bk-categories");
+            resp.sendRedirect("categories");
         }
         //TODO add else message
     }

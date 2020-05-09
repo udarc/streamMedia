@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import java.io.Serializable;
 import java.util.List;
 
-@Path("bk-categories")
+@Path("categories")
 public class BKCategoryResource implements Serializable {
     private GenericDao bkCategoryDao = new GenericDao(BkCategory.class);
     @GET

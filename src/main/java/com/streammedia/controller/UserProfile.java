@@ -39,6 +39,7 @@ public class UserProfile extends HttpServlet {
 
         User user = (User) genericDao.getByPropertyEqual("username", request.getRemoteUser()).get(0);
         log.debug("Remote User: " +  request.getRemoteUser());
+        request.getSession().setAttribute("profileImage", user.getPicture());
         request.setAttribute("user",user);
         String url ="/account/profile.jsp";
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(url);
