@@ -65,15 +65,22 @@
                 </li>
             </ul>
         </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="faqs">FAQ</a>
+            </li>
+            <c:if test="${pageContext.request.isUserInRole('admin')}">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard">Admin</a>
+                </li>
+            </c:if>
+
+        </ul>
         <form action="#" method="get" class="form-inline">
             <input class="form-control mr-md-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-danger my-2 my-md-0" type="submit">Search</button>
         </form>
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="faqs">FAQ</a>
-        </li>
-        </ul>
+
     </nav>
 </header>
 
