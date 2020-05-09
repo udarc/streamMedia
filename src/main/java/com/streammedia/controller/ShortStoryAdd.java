@@ -31,7 +31,7 @@ import java.time.*;
 @Log4j2
 @WebServlet(
         name = "shortStoryAdd",
-        urlPatterns = {"/add-story"}
+        urlPatterns = {"/story-new"}
 )
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10 * 10 * 10,      // 1GB

@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 //TODO http://zetcode.com/java/hibernatevalidator/
 @WebServlet(
-        urlPatterns = {"/bkcategory-new"}
+        urlPatterns = {"/category-new"}
 )
 @Log4j2
 public class BKCategoryAdd extends HttpServlet {
@@ -42,7 +42,7 @@ public class BKCategoryAdd extends HttpServlet {
             dispatcher.forward(req,resp);
         }
         else{
-            resp.sendRedirect("bk-categories");
+            resp.sendRedirect("categories");
         }
     }
 
@@ -57,7 +57,7 @@ public class BKCategoryAdd extends HttpServlet {
             bkCategoryDao.insert(newBkCategory);
             String successMessage = "Successfully added book Category!";
             req.getSession().setAttribute("addBookCategorySuccess",successMessage);
-            resp.sendRedirect("bk-categories");
+            resp.sendRedirect("categories");
         } else {
             req.getSession().setAttribute("bookCategorySuccessError",newBkCategory.getTitle() + " was not created!");
             req.getRequestDispatcher("/book/bkCategoryAddEdit.jsp").forward(req,resp);
