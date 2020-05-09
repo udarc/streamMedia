@@ -39,7 +39,7 @@
                         <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
                         </span>
                         </c:if>
-                        <a href="bk-categories" class="btn btn-link" ><i class="fas fa-list"></i> BkCategory List</a>
+                        <a href="categories" class="btn btn-link" ><i class="fas fa-list"></i> BkCategory List</a>
                     </div>
                 </div>
             </c:when>

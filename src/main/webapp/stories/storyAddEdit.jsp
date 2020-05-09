@@ -33,7 +33,7 @@
             <input type="hidden" id="id" name="uid"  value="${story.shortStoryId}">
             </c:when>
             <c:otherwise>
-            <form action="add-story" method="post" class="card col-md-10 offset-md-1 was-validated"
+            <form action="story-new" method="post" class="card col-md-10 offset-md-1 was-validated"
                   enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
