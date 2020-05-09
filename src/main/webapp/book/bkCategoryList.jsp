@@ -43,7 +43,7 @@
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <p class="ml-auto"><a href="bkcategory-new" class="btn btn-success">
+                    <p class="ml-auto"><a href="category-new" class="btn btn-success">
                         <i class="fas fa-plus-square fa-1x"></i>Add BkCategory</a></p>
                 </c:if>
             </ul>

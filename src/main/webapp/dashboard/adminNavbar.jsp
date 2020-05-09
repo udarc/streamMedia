@@ -19,13 +19,13 @@
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow show">
+        <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= request.getRemoteUser() %></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-lg-inline text-capitalize"><%= request.getRemoteUser() %></span>
+                <img class="img-profile rounded-circle" src="${profileImage}" style="height: 3.75em; width: 3.75em;">
             </a>
             <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in show" aria-labelledby="userDropdown">
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="user-profile">
                     <i class="fas fa-user-alt"></i> Profile
                 </a>

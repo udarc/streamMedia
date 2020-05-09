@@ -58,7 +58,7 @@ public class Dashboard extends HttpServlet {
                     .forward(req,resp);
 
         } else{
-            resp.sendRedirect("login");
+            resp.sendRedirect(req.getContextPath());
         }
     }
 }

@@ -40,7 +40,7 @@ public class BKCategoryEdit extends HttpServlet {
             req.getRequestDispatcher("/book/bkCategoryAddEdit.jsp").forward(req,resp);
         }
         else{
-            resp.sendRedirect("bk-categories");
+            resp.sendRedirect("categories");
         }
     }
 
