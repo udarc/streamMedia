@@ -20,7 +20,7 @@ import java.util.List;
  * @since 05-05-2020
  */
 @WebServlet(
-        urlPatterns = {"/bk-categories"}
+        urlPatterns = {"/categories"}
 )
 public class BkCategoryList extends HttpServlet {
 

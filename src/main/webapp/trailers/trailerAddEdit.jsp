@@ -28,7 +28,7 @@
             <input type="hidden" id="id" name="uid"  value="${trailer.trailerId}">
             </c:when>
             <c:otherwise>
-            <form action="add-trailer" method="post" class="card col-md-10 offset-md-1 was-validated"
+            <form action="trailer-new" method="post" class="card col-md-10 offset-md-1 was-validated"
                   enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
