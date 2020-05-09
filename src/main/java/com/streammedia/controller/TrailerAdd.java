@@ -32,7 +32,7 @@ import java.time.*;
 @Log4j2
 @WebServlet(
         name = "trailerAdd",
-        urlPatterns = {"/add-trailer"}
+        urlPatterns = {"/trailer-new"}
 )
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10 * 10 * 10,      // 1GB

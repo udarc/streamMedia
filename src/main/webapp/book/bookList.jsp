@@ -54,10 +54,10 @@
         <div class="col-md-4 col-lg-3">
             <ul class="list-group list-group-flush">
                 <c:if test="${pageContext.request.isUserInRole('admin')}">
-                    <li class="list-group-item"><a class="btn btn-primary" href="bkcategory-new"> Add Book Category</a></li>
+                    <li class="list-group-item"><a class="btn btn-primary" href="category-new"> Add Book Category</a></li>
                 </c:if>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a class="btn btn-link" href="bk-categories">Book Category Genres</a></li>
+                    <li class="list-group-item"><a class="btn btn-link" href="categories">Book Category Genres</a></li>
                 </ul>
             </ul>
         </div>
