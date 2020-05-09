@@ -24,12 +24,12 @@
       <url-pattern>/users</url-pattern>
       <url-pattern>/account/listUser.jsp</url-pattern>
       <!--      Trailer-->
-      <url-pattern>/add-trailer</url-pattern>
+      <url-pattern>/trailer-new</url-pattern>
       <url-pattern>/trailer-edit</url-pattern>
       <url-pattern>/remove-trailer</url-pattern>
       <url-pattern>/trailers/trailerAddEdit.jsp</url-pattern>
       <!--      Short Story-->
-      <url-pattern>/add-story</url-pattern>
+      <url-pattern>/story-new</url-pattern>
       <url-pattern>/story-edit</url-pattern>
       <url-pattern>/story-delete</url-pattern>
       <url-pattern>/stories/storyAddEdit.jsp</url-pattern>
@@ -41,7 +41,7 @@
       <url-pattern>/book/bookAddEdit.jsp</url-pattern>
 
       <!--      BK Category -->
-      <url-pattern>/bkcategory-new</url-pattern>
+      <url-pattern>/category-new</url-pattern>
       <url-pattern>/bkcategory-edit</url-pattern>
       <url-pattern>/bkcategory-delete</url-pattern>
       <url-pattern>/book/bkCategoryAddEdit.jsp</url-pattern>
@@ -96,6 +96,10 @@
   <security-role>
     <role-name>media creator</role-name>
   </security-role>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/403Error.jsp</location>
+  </error-page>
   <error-page>
     <error-code>404</error-code>
     <location>/404Error.jsp</location>
