@@ -33,8 +33,8 @@
             </c:otherwise>
         </c:choose>
                 <c:if test="${not empty faqErrorMessage}">
-                    <h2 id="flash" class="alert alert-danger">${bookErrorMessage}</h2>
-                    <c:remove var="bookErrorMessage"/>
+                    <h2 id="flash" class="alert alert-danger">${faqErrorMessage}</h2>
+                    <c:remove var="faqErrorMessage"/>
                 </c:if>
                 <div class="form-group row">
                 <label for="title" class="col-md-3 col-form-label">Title</label>

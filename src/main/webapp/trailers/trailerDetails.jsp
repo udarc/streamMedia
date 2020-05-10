@@ -15,6 +15,14 @@
 <main class="container-fluid" role="main">
     <h1 class="text-center"> <span onclick="goBack()">
         <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Trailer Details</h1>
+    <c:if test="${not empty trailerEditSuccessMessage || not empty unsupportedVideoExtension || unsupportedExtension }">
+            <h3 id="flash" ><span class="alert alert-success"> ${trailerEditSuccessMessage}</span>
+                <span class="alert alert-success">${unsupportedVideoExtension} ${unsupportedExtension}</span>
+            </h3>
+            <c:remove var="trailerEditSuccessMessage"/>
+            <c:remove var="unsupportedVideoExtension"/>
+            <c:remove var="unsupportedExtension"/>
+        </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${trailer ne null}">
