@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,10 @@ import java.util.Set;
         urlPatterns = {"/film-edit"}
 )
 @Log4j2
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10 * 10 * 10,      // 1GB
+        maxRequestSize = 1024 * 1024 * 5 * 5 * 10   // 100MB
+)
 public class FilmEdit extends HttpServlet {
     private GenericDao filmDao;
     private  GenericDao userDao;

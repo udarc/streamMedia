@@ -24,12 +24,12 @@
         <c:choose>
             <c:when test="${film ne null}">
             <h1 class="text-center">Edit Film</h1>
-            <form class="card col-md-10 offset-md-1" action="film-edit" method="post">
+            <form class="card col-md-10 offset-md-1" action="film-edit" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="uid" value="${film.filmId}">
             </c:when>
             <c:otherwise>
             <h1 class="text-center">Add Film</h1>
-            <form class="card col-md-10 offset-md-1" action="film-new" method="post">
+            <form class="card col-md-10 offset-md-1" action="film-new" method="post" enctype="multipart/form-data">
             </c:otherwise>
         </c:choose>
                 <c:if test="${not empty filmErrorMessage}">
@@ -90,7 +90,7 @@
             <div class="form-group row">
                 <label for="cover" class="col-md-3 col-form-label">Cover</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="cover" id="cover" placeholder="Cover" value="${film.cover}">
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="form-group row">
                 <label for="video" class="col-md-3 col-form-label">Video</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="video" id="video" placeholder="Video" value="${film.video}">
                 </div>
             </div>
