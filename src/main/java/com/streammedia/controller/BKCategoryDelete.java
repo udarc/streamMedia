@@ -13,9 +13,10 @@ import java.io.IOException;
 /**
  * The type Category of book delete.
  * Remove Book Category
+ *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @WebServlet(
         urlPatterns = {"/bkcategory-delete"}
@@ -23,11 +24,24 @@ import java.io.IOException;
 public class BKCategoryDelete extends HttpServlet {
     private GenericDao bkCategory;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         bkCategory = new GenericDao(BkCategory.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("uid"));

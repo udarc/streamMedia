@@ -12,16 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * The type Popular movies db.
+ */
 @WebServlet(
         urlPatterns = {"/popular-movies"}
 )
 public class PopularMoviesDB extends HttpServlet {
     private APIMovieDao popularMovies;
+
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         popularMovies =  new APIMovieDao();
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ResultsItem> items = new ArrayList<>();

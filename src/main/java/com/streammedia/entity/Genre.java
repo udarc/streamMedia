@@ -68,6 +68,7 @@ public class Genre implements Serializable {
     /**
      * Add film.
      * https://thoughts-on-java.org/hibernate-tips-map-bidirectional-many-many-association/
+     *
      * @param film the film
      */
     public void addFilm(Film film) {

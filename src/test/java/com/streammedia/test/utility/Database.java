@@ -12,12 +12,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+
 /**
  * Provides access to the database
  * Created on 8/31/16.
- *
  * @author pwaite
  * @author Alex M - Fall 2019 - added multi-line sql capability
+ * @author  Jeanne - Modified
+ * @version 1.0
+ * @since 05-10-2020
  */
 
 @Log4j2
@@ -41,15 +44,30 @@ public class Database implements PropertiesLoader {
     }
 
 
-    // get the only Database object available
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
+// get the only Database object available
     public static Database getInstance() {
         return instance;
     }
 
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
         return connection;
     }
 
+    /**
+     * Connect.
+     *
+     * @throws Exception the exception
+     */
     public void connect() throws Exception {
         if (connection != null)
             return;
@@ -64,6 +82,9 @@ public class Database implements PropertiesLoader {
         connection = DriverManager.getConnection(url, properties.getProperty("username"),  properties.getProperty("password"));
     }
 
+    /**
+     * Disconnect.
+     */
     public void disconnect() {
         if (connection != null) {
             try {

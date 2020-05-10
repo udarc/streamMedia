@@ -13,9 +13,10 @@ import java.util.List;
 /**
  * The type Users.
  * Responsible for getting all the users and make them available to the JSP.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @Log4j2
 @WebServlet(
@@ -35,6 +36,15 @@ public class UserList extends HttpServlet {
 
         genericDao =  new GenericDao(User.class);
     }
+
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

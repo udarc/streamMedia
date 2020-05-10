@@ -15,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The type User dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
  */
 //@Disabled
     @Log4j2
@@ -148,7 +151,6 @@ class UserDaoTest {
      * Delete user with r ole success.
      * TODO Check this test
      */
-
     @Disabled
     @Test
     public void testDeleteUserWithRoleSuccess() {

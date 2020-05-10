@@ -31,8 +31,7 @@ import java.util.Properties;
  *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-25
- * TODO upload to S3  https://www.youtube.com/watch?v=iQrOmbCiFBs
+ * @since 2020 -02-25 TODO upload to S3  https://www.youtube.com/watch?v=iQrOmbCiFBs
  */
 @Log4j2
 @WebServlet(
@@ -47,6 +46,10 @@ public class TrailerAdd extends HttpServlet implements PropertiesLoader {
     private GenericDao trailerDao;
     private GenericDao userDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         trailerDao = new GenericDao(Trailer.class);
         userDao = new GenericDao(User.class);
@@ -73,6 +76,14 @@ public class TrailerAdd extends HttpServlet implements PropertiesLoader {
         }
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

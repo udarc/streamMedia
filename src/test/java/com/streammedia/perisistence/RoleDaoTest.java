@@ -12,13 +12,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The type Role dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
  */
-
 //@Disabled
 class RoleDaoTest {
 
+    /**
+     * The Generic dao.
+     */
     GenericDao genericDao;
+    /**
+     * The User generic dao.
+     */
     GenericDao userGenericDao;
+
     /**
      * Creating the dao.
      */
@@ -41,7 +50,6 @@ class RoleDaoTest {
         List<Role> roles = genericDao.getAll();
         assertEquals(5, roles.size());
     }
-
 
 
     /**

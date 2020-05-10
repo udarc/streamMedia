@@ -12,9 +12,21 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Bk category dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 @Log4j2
 public class BkCategoryDaoTest {
+    /**
+     * The Bk category dao.
+     */
     GenericDao bkCategoryDao;
+    /**
+     * The Book dao.
+     */
     GenericDao bookDao;
 
     /**
@@ -29,6 +41,7 @@ public class BkCategoryDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
     }
+
     /**
      * Verifies gets all BkCategories successfully.
      */
@@ -37,6 +50,7 @@ public class BkCategoryDaoTest {
         List<BkCategory> bkCategories = bkCategoryDao.getAll();
         assertEquals(6,bkCategories.size());
     }
+
     /**
      * Verifies a bkCategory is returned correctly based on id search
      */
@@ -47,6 +61,10 @@ public class BkCategoryDaoTest {
         assertNotNull(bkCategory);
 
     }
+
+    /**
+     * Insert bk categoriesuccess.
+     */
     @Test
     void  insertBkCategoriesuccess(){
         BkCategory newBkCategory = new BkCategory();
@@ -73,6 +91,7 @@ public class BkCategoryDaoTest {
         assertTrue(bkCategoryToUpdate.equals(retrievedBkCategory));
 
     }
+
     /**
      * Verify successful get by property (equal match)
      */
