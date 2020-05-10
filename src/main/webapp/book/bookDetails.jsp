@@ -24,8 +24,14 @@
             <c:when test="${book ne null}">
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-
+                        <c:choose>
+                        <c:when test="${ not empty book.cover}">
+                            <img class="card-img-top img-fluid" src="${book.cover}" alt="Book Cover"
+                        </c:when>
+                        <c:otherwise>
+                        <img class="card-img-top img-fluid" src="media/book.png"/>
+                            </c:otherwise>
+                        </c:choose>
                         <div class="card-body">
 
                             <h2 class="card-title"><a href=""></a>${book.title}</h2>

@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="../head.jsp" %>
+<c:set var="title" value="admin dashboard"/>
 <link rel="stylesheet" href="css/sb-admin-2.min.css">
 <link rel="stylesheet" href="css/admin.css">
 </head>
