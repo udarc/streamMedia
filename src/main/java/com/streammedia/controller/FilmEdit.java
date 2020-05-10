@@ -144,9 +144,7 @@ public class FilmEdit extends HttpServlet implements PropertiesLoader {
                     }
                 }
                 Part videoPart = req.getPart("video");
-                if (videoPart.getSubmittedFileName().isEmpty()) {
-                    filmToEdit.setVideo("media/trailer.mp4");
-                } else {
+                if (!videoPart.getSubmittedFileName().isEmpty()) {
                     String fileName = videoPart.getSubmittedFileName().toLowerCase();
                     if (fileName.endsWith(".mp4")) {
                         String accessKeyId = properties.getProperty("aws.access.key.id");

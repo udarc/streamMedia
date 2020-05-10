@@ -32,6 +32,11 @@
                   enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
+                    <c:if test="${not empty trailerErrorMessage}">
+                        <h2 id="flash" class="alert alert-danger">${trailerErrorMessage}</h2>
+                        <c:remove var="trailerErrorMessage"/>
+                    </c:if>
+                    trailerErrorMessage
                 <div class="form-group row">
                     <label for="title" class="col-md-3 col-form-label">Title</label>
                     <div class="col-md-9">
