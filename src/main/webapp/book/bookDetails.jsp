@@ -26,10 +26,10 @@
                     <div class="card">
                         <c:choose>
                         <c:when test="${ not empty book.cover}">
-                            <img class="card-img-top img-fluid" src="${book.cover}" alt="Book Cover"
+                            <img class="card-img-top" src="${book.cover}" alt="Book Cover"
                         </c:when>
                         <c:otherwise>
-                        <img class="card-img-top img-fluid" src="media/book.png"/>
+                        <img class="card-img-top" src="media/book.png"/>
                             </c:otherwise>
                         </c:choose>
                         <div class="card-body">

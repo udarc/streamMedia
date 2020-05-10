@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Jeanne
@@ -6,8 +6,10 @@
   Time: 4:49 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@include file="../head.jsp" %>
+<%@include file="../taglib.jsp"%>
 <c:set var="title" value="admin dashboard"/>
+<%@include file="../head.jsp" %>
+
 <link rel="stylesheet" href="css/sb-admin-2.min.css">
 <link rel="stylesheet" href="css/admin.css">
 </head>
