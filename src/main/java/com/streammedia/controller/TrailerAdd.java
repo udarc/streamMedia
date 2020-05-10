@@ -126,7 +126,7 @@ public class TrailerAdd extends HttpServlet {
 
         Part partVideo = req.getPart("video");
         if (partVideo.getSubmittedFileName().isEmpty()){
-            trailer.setVideo("media/trailerv.mp4");
+            trailer.setVideo("media/trailer.mp4");
         } else {
 
             //log.debug("Parts Data: " + partVideo.getSize());

@@ -48,7 +48,7 @@
                                 </c:when>
                                 <c:otherwise>
                                 <video class="rounded card-img-top" controls poster="media/trailer1.jpp">
-                                    <source  src="media/trailerv.mp4">
+                                    <source  src="media/trailer.mp4">
                                     </c:otherwise>
                                     </c:choose>
                                 </div>
