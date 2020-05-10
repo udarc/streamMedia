@@ -154,7 +154,7 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
             } catch (NullPointerException npe) {
                 log.error("Object Does not Exists", npe);
             }catch (Exception exception) {
-
+                log.error(exception);
             }
         } else {
             req.getRequestDispatcher("/stories/storyAddEdit.jsp").forward(req,resp);
