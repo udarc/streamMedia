@@ -29,9 +29,10 @@ import java.util.Properties;
  * The type Add story.
  * Responsible for getting form data for new story
  * and upload cover to S3
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-04-23
+ * @since 2020 -04-23
  */
 @Log4j2
 @WebServlet(
@@ -49,6 +50,10 @@ public class ShortStoryAdd extends HttpServlet implements PropertiesLoader {
     private String appTargetPathCover;
     private String appPathCover;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         //Extract the name of the class
         String className = ShortStory.class.getSimpleName().toLowerCase();
@@ -85,6 +90,14 @@ public class ShortStoryAdd extends HttpServlet implements PropertiesLoader {
         }
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

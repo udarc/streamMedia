@@ -16,13 +16,34 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+/**
+ * The type Film dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 @Log4j2
 public class FilmDaoTest {
+    /**
+     * The Generic dao.
+     */
     GenericDao genericDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
+    /**
+     * The Crew dao.
+     */
     GenericDao crewDao;
+    /**
+     * The Genre dao.
+     */
     GenericDao genreDao;
 
+    /**
+     * Set up.
+     */
     @BeforeEach
     void setUp(){
         genericDao =  new GenericDao(Film.class);
@@ -41,6 +62,10 @@ public class FilmDaoTest {
         List<Film> films = genericDao.getAll();
         assertEquals(3,films.size());
     }
+
+    /**
+     * Test get by id success.
+     */
     @Test
     public void  testGetByIdSuccess() {
         Film retrievedFilm = (Film)genericDao.getById(3);
@@ -48,6 +73,9 @@ public class FilmDaoTest {
         assertEquals("Calvin", retrievedFilm.getTitle());
     }
 
+    /**
+     * Test insert in middle table with new genre success.
+     */
     @Test
     public void  testInsertInMiddleTableWithNewGenreSuccess(){
         User user = (User) userDao.getById(2);
@@ -74,6 +102,10 @@ public class FilmDaoTest {
         filmOne.setGenres(genres);
         genericDao.insert(filmOne);
     }
+
+    /**
+     * Test insert middle table w ith existing genre success.
+     */
     @Test
     public void  testInsertMiddleTableWIthExistingGenreSuccess(){
         User user = (User) userDao.getById(2);
@@ -104,6 +136,10 @@ public class FilmDaoTest {
         Film  insertfilm = (Film)genericDao.getById(id);
         assertTrue(insertfilm.getTitle().equals(filmOne.getTitle()));
     }
+
+    /**
+     * Test insert middle table w ith existing crew and genre success.
+     */
     @Test
     public void  testInsertMiddleTableWIthExistingCrewAndGenreSuccess(){
         User user = (User) userDao.getById(2);
@@ -143,6 +179,10 @@ public class FilmDaoTest {
         int id = genericDao.insert(filmOne);
         assertTrue(id>0);
     }
+
+    /**
+     * Test insert middle table w ith existing crew success.
+     */
     @Test
     public void  testInsertMiddleTableWIthExistingCrewSuccess(){
         User user = (User) userDao.getById(2);
@@ -172,6 +212,9 @@ public class FilmDaoTest {
         assertTrue(id>0);
     }
 
+    /**
+     * Test update film w ith existing crew and genre success.
+     */
     @Test
     public void  testUpdateFilmWIthExistingCrewAndGenreSuccess(){
 
@@ -189,6 +232,10 @@ public class FilmDaoTest {
         assertTrue(filmToUpdate.equals(retrieveHFilm));
 
     }
+
+    /**
+     * Test delete success.
+     */
     @Test
     public void testDeleteSuccess() {
 

@@ -17,9 +17,10 @@ import java.util.stream.Collectors;
  * The type Trailer list.
  * Gets all the trailers and makes them available in JSP
  * Sort List Options: https://www.codebyamir.com/blog/sort-list-of-objects-by-field-java
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-19
+ * @since 2020 -02-19
  */
 @Log4j2
 @WebServlet(
@@ -31,10 +32,23 @@ public class TrailerList extends HttpServlet {
      */
     GenericDao genericDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
 
         genericDao =  new GenericDao(Trailer.class);
     }
+
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

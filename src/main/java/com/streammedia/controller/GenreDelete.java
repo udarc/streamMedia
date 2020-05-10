@@ -14,9 +14,10 @@ import java.io.IOException;
 /**
  * The type Genre delete.
  * Get form data of selected object and calls dao method to remove it.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @WebServlet(
         urlPatterns = {"/genre-delete"}
@@ -25,11 +26,24 @@ import java.io.IOException;
 public class GenreDelete extends HttpServlet {
     private GenericDao genreDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         genreDao = new GenericDao(Genre.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Genre genre = (Genre) genreDao.getById(Integer.parseInt(req.getParameter("uid")));

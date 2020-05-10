@@ -29,7 +29,7 @@ import java.util.Properties;
  *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-22
+ * @since 2020 -02-22
  */
 @Log4j2
 @WebServlet(
@@ -45,6 +45,10 @@ public class TrailerEdit extends HttpServlet implements PropertiesLoader {
     private GenericDao userDao;
 
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         trailerDao = new GenericDao<>(Trailer.class);
         userDao = new GenericDao<>(User.class);

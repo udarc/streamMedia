@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import javax.annotation.Generated;
 
+/**
+ * The type Genres item.
+ */
 @Generated("com.robohorse.robopojogenerator")
 @EqualsAndHashCode
 public class GenresItem{
@@ -15,23 +18,48 @@ public class GenresItem{
 	@JsonProperty("id")
 	private int id;
 
-	public void setName(String name){
+    /**
+     * Set name.
+     *
+     * @param name the name
+     */
+    public void setName(String name){
 		this.name = name;
 	}
 
-	public String getName(){
+    /**
+     * Get name string.
+     *
+     * @return the string
+     */
+    public String getName(){
 		return name;
 	}
 
-	public void setId(int id){
+    /**
+     * Set id.
+     *
+     * @param id the id
+     */
+    public void setId(int id){
 		this.id = id;
 	}
 
-	public int getId(){
+    /**
+     * Get id int.
+     *
+     * @return the int
+     */
+    public int getId(){
 		return id;
 	}
 
-	@Override
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
+    @Override
  	public String toString(){
 		return 
 			"GenresItem{" + 

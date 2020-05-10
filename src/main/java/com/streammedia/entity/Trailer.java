@@ -12,6 +12,7 @@ import java.time.LocalTime;
 
 /**
  * The type Trailer.
+ *
  * @author Jeanne
  */
 //Lombok annotations
@@ -72,6 +73,18 @@ public class Trailer {
     @JoinColumn(name = "user")
     private User user;
 
+    /**
+     * Instantiates a new Trailer.
+     *
+     * @param title           the title
+     * @param author          the author
+     * @param duration        the duration
+     * @param publicationDate the publication date
+     * @param summary         the summary
+     * @param createdAt       the created at
+     * @param updatedAt       the updated at
+     * @param user            the user
+     */
     public Trailer(String title, String author, LocalTime duration, LocalDateTime publicationDate, String summary, LocalDateTime createdAt, LocalDateTime updatedAt, User user) {
         this.title = title;
         this.author = author;

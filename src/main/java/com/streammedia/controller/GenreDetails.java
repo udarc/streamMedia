@@ -24,10 +24,23 @@ public class GenreDetails extends HttpServlet {
     private GenericDao genreDao;
     private GenericDao userDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         genreDao = new GenericDao(Genre.class);
         userDao = new GenericDao(User.class);
     }
+
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

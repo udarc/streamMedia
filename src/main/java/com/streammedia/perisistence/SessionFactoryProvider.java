@@ -12,7 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-09
+ * @since 2020 -02-09
  */
 public class SessionFactoryProvider {
 
@@ -24,6 +24,7 @@ public class SessionFactoryProvider {
     private SessionFactoryProvider() {
 
     }
+
     /**
      * Create session factory.
      */

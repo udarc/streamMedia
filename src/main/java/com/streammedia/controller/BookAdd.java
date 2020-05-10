@@ -32,9 +32,10 @@ import java.util.Set;
  * https://dzone.com/tutorials/java/hibernate/hibernate-example/hibernate-mapping-many-to-many-using-annotations-1.html
  * http://websystique.com/hibernate/hibernate-many-to-many-bidirectional-annotation-example/
  * Gets form data and send them to dao for persisting them
+ *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @WebServlet(
         urlPatterns = {"/book-new"}
@@ -48,6 +49,12 @@ public class BookAdd extends HttpServlet implements PropertiesLoader {
     private GenericDao bookDao;
     private GenericDao userDao;
     private GenericDao catDao;
+
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         bookDao = new GenericDao(Book.class);
@@ -55,6 +62,14 @@ public class BookAdd extends HttpServlet implements PropertiesLoader {
         catDao = new GenericDao(BkCategory.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<BkCategory> categoryList = catDao.getAll();
@@ -64,6 +79,14 @@ public class BookAdd extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(req,resp);
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);

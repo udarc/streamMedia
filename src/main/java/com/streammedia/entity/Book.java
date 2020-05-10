@@ -74,11 +74,21 @@ public class Book implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<BkCategory> categories = new HashSet<>();
 
+    /**
+     * Add category.
+     *
+     * @param category the category
+     */
     public void addCategory(BkCategory category) {
         this.categories.add(category);
         category.getBooks().add(this);
     }
 
+    /**
+     * Remove category.
+     *
+     * @param category the category
+     */
     public void removeCategory(BkCategory category) {
         this.categories.remove(category);
         category.getBooks().remove(this);

@@ -15,6 +15,7 @@ import java.util.Set;
 
 /**
  * The type Role.
+ *
  * @author Jeanne
  */
 @Getter

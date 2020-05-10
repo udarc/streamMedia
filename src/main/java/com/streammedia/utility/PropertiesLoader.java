@@ -5,14 +5,25 @@ import org.apache.logging.log4j.Logger;
 import java.io.*;
 import java.util.*;
 
-/** Represents the class that loads all the properties in a given file
+/**
+ * Represents the class that loads all the properties in a given file
  * with properties extension
- * @author Jeanne
  *
+ * @author Jeanne
  */
-
 public interface PropertiesLoader {
-     final Logger logger = LogManager.getLogger("PropertiesLoader");
+    /**
+     * The constant logger.
+     */
+    final Logger logger = LogManager.getLogger("PropertiesLoader");
+
+    /**
+     * Load properties properties.
+     *
+     * @param propertiesFilePath the properties file path
+     * @return the properties
+     * @throws Exception the exception
+     */
     default Properties loadProperties(String propertiesFilePath) throws Exception {
         Properties properties = new Properties();
         try {

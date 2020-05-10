@@ -5,9 +5,18 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Genre restapi dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 @Log4j2
 public class GenreRESTAPIDaoTest {
 
+    /**
+     * Get genres success.
+     */
     @Test
     public void getGenresSuccess(){
 
