@@ -15,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The type Faq dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
  */
 @Log4j2
 class FAQDaoTest {
@@ -23,6 +26,9 @@ class FAQDaoTest {
      * The Generic dao.
      */
     GenericDao genericDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
 
     /**
@@ -73,6 +79,7 @@ class FAQDaoTest {
         assertTrue(newFaq.equals(insertedFaq));
 
     }
+
     /**
      * Verify successful update of faq
      */
@@ -105,7 +112,7 @@ class FAQDaoTest {
         assertEquals(3, faqs.size());
     }
 
-  /**
+    /**
      * Verify successful delete of faq
      */
 //    @Disabled

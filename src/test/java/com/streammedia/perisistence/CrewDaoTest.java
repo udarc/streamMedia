@@ -10,11 +10,29 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+/**
+ * The type Crew dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 public class CrewDaoTest {
+    /**
+     * The Generic dao.
+     */
     GenericDao genericDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
+    /**
+     * The Film dao.
+     */
     GenericDao filmDao;
 
+    /**
+     * Set up.
+     */
     @BeforeEach
     void setUp(){
         genericDao =  new GenericDao(Crew.class);
@@ -32,6 +50,7 @@ public class CrewDaoTest {
         List<Crew> crews = genericDao.getAll();
         assertEquals(5,crews.size());
     }
+
     /**
      * Verify that all Crews are retrieved from db
      */
@@ -51,6 +70,9 @@ public class CrewDaoTest {
         assertTrue(crew.equals(insertedCrew));
     }
 
+    /**
+     * Update crew success.
+     */
     @Test
     void updateCrewSuccess(){
         User user = (User) userDao.getById(2);
@@ -62,6 +84,7 @@ public class CrewDaoTest {
         assertTrue(crewToUpdate.equals(retrieveCrew));
         
     }
+
     /**
      * Verify successful get by property (equal match)
      */

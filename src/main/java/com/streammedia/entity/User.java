@@ -22,6 +22,7 @@ import java.util.Set;
  * https://docs.oracle.com/javaee/5/api/javax/persistence/Column.html
  * Add Hibernate Search:
  * https://thoughts-on-java.org/add-full-text-search-application-hibernate-search/
+ *
  * @author Jeanne
  */
 @Getter
@@ -168,18 +169,24 @@ public class User implements Serializable {
         roles.add(role);
 
     }
+
+    /**
+     * Remove role.
+     *
+     * @param role the role
+     */
     public void removeRole(Role role){
         roles.remove(role);
     }
     //https://www.baeldung.com/hibernate-one-to-many
 
 
-
     /**
      * https://howtodoinjava.com/java/calculate-age-from-date-of-birth/
      * https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
      * Calculate age based on Today's date and birth date.
-     * @return age
+     *
+     * @return age int
      */
     public int getAge(){
         int years = 0;
@@ -190,6 +197,12 @@ public class User implements Serializable {
         }
     return years;
     }
+
+    /**
+     * Get full name string.
+     *
+     * @return the string
+     */
     public String getFullName(){
         return this.firstName + " " + this.lastName;
     }

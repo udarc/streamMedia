@@ -26,7 +26,7 @@
       <!--      Trailer-->
       <url-pattern>/trailer-new</url-pattern>
       <url-pattern>/trailer-edit</url-pattern>
-      <url-pattern>/remove-trailer</url-pattern>
+      <url-pattern>/trailer-delete</url-pattern>
       <url-pattern>/trailers/trailerAddEdit.jsp</url-pattern>
       <!--      Short Story-->
       <url-pattern>/story-new</url-pattern>

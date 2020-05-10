@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The type Trailer dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
  */
 @Log4j2
 class TrailerDaoTest {
@@ -24,6 +27,9 @@ class TrailerDaoTest {
      * The Generic dao.
      */
     GenericDao genericDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
 
     /**
@@ -74,6 +80,7 @@ class TrailerDaoTest {
         assertEquals(newTrailer,insertedTrailer);
 
     }
+
     /**
      * Verify successful update of trailer
      */

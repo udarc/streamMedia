@@ -8,14 +8,19 @@ import java.util.Properties;
 
 /**
  * The type Java mail utility.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-21
+ * @since 2020 -02-21
  */
 @Log4j2
 public  class JavaMailUtility implements PropertiesLoader {
     private Properties props;
-        public  JavaMailUtility(){
+
+    /**
+     * Instantiates a new Java mail utility.
+     */
+    public  JavaMailUtility(){
             try {
                 props = loadProperties("/contact.properties");
             } catch (Exception e) {
@@ -26,9 +31,10 @@ public  class JavaMailUtility implements PropertiesLoader {
     /**
      * Send as message.
      *
-     * @param toEmail the to email
-     * @param title   the title
-     * @param content the content
+     * @param fromEmail the from email
+     * @param toEmail   the to email
+     * @param title     the title
+     * @param content   the content
      * @throws MessagingException the messaging exception
      */
     public  void sendAsHtml(String fromEmail,String toEmail, String title, String content)

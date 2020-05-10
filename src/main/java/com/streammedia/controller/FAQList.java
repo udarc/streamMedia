@@ -23,9 +23,10 @@ import javax.servlet.http.HttpServletResponse;
  * This servlet acts as a page controller for the application, handling all
  * requests from the user to delete an object.
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-21
+ * @since 2020 -02-21
  */
 @Log4j2
 @WebServlet(
@@ -36,11 +37,23 @@ public class FAQList extends HttpServlet {
     private GenericDao faqDao;
 //    private GenericDao userDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         faqDao = new GenericDao(FAQ.class);
 //        userDao = new GenericDao(User.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -13,6 +13,7 @@ import java.io.IOException;
 /**
  * The type Genre edit.
  * Handles form data and set instance variable to update the Genre records.
+ *
  * @author Jeanne
  * @version 1.0
  * @since 2020 -02-22
@@ -25,6 +26,10 @@ import java.io.IOException;
 public class GenreEdit extends HttpServlet {
     private GenericDao genreDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         genreDao = new GenericDao(Genre.class);
     }

@@ -16,13 +16,31 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+/**
+ * The type Book dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 @Log4j2
 public class BookDaoTest {
+    /**
+     * The Book dao.
+     */
     GenericDao bookDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
+    /**
+     * The Category dao.
+     */
     GenericDao categoryDao;
-  
 
+
+    /**
+     * Set up.
+     */
     @BeforeEach
     void setUp(){
         bookDao =  new GenericDao(Book.class);
@@ -40,12 +58,20 @@ public class BookDaoTest {
         List<Book> books = bookDao.getAll();
         assertEquals(4,books.size());
     }
+
+    /**
+     * Test get by id success.
+     */
     @Test
     public void testGetByIdSuccess() {
         Book retrievedBook = (Book)bookDao.getById(4);
         assertNotNull(retrievedBook);
         assertEquals("Nadia Calm", retrievedBook.getAuthor());
     }
+
+    /**
+     * Test insert book with existing categories success.
+     */
     @Test
     public void  testInsertBookWithExistingCategoriesSuccess(){
         User user = (User) userDao.getById(2);
@@ -79,6 +105,9 @@ public class BookDaoTest {
     }
 
 
+    /**
+     * Test update book with category success.
+     */
     @Test
     public void  testUpdateBookWithCategorySuccess(){
 
@@ -96,6 +125,7 @@ public class BookDaoTest {
         assertTrue(bookToUpdate.getCategories().equals(retrieveHBook.getCategories()));
 
     }
+
     /**
      * Verify successful delete of books and detach them from category
      */

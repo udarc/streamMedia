@@ -1,26 +1,54 @@
 package com.streammedia.restapi;
 
+/**
+ * The type Dates.
+ */
 public class Dates{
 	private String maximum;
 	private String minimum;
 
-	public void setMaximum(String maximum){
+    /**
+     * Set maximum.
+     *
+     * @param maximum the maximum
+     */
+    public void setMaximum(String maximum){
 		this.maximum = maximum;
 	}
 
-	public String getMaximum(){
+    /**
+     * Get maximum string.
+     *
+     * @return the string
+     */
+    public String getMaximum(){
 		return maximum;
 	}
 
-	public void setMinimum(String minimum){
+    /**
+     * Set minimum.
+     *
+     * @param minimum the minimum
+     */
+    public void setMinimum(String minimum){
 		this.minimum = minimum;
 	}
 
-	public String getMinimum(){
+    /**
+     * Get minimum string.
+     *
+     * @return the string
+     */
+    public String getMinimum(){
 		return minimum;
 	}
 
-	@Override
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
+    @Override
  	public String toString(){
 		return 
 			"Dates{" + 

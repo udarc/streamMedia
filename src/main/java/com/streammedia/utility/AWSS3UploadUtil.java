@@ -14,9 +14,10 @@ import java.io.File;
 /**
  * The type Awss 3 upload util.
  * Responsible of authenticating user and upload to S3.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 09-05-2020
+ * @since 09 -05-2020
  */
 @Log4j2
 public class AWSS3UploadUtil {
@@ -30,10 +31,7 @@ public class AWSS3UploadUtil {
      * @param bucketName      the bucket name
      * @param fileObjKeyName  the file obj key name
      * @param fileToUpload    the file to upload
-     * @return the string
-     * https://stackoverflow.com/questions/21487066/get-urllink-of-a-public-s3-object-programmatically
-     *  https://stackoverflow.com/questions/54610830/how-come-doesobjectexist-and-listobjects-do-not-agree-on-s3s-java-api
-     *  https://stackoverflow.com/questions/7763239/delete-files-directories-and-buckets-in-amazon-s3-java
+     * @return the string https://stackoverflow.com/questions/21487066/get-urllink-of-a-public-s3-object-programmatically  https://stackoverflow.com/questions/54610830/how-come-doesobjectexist-and-listobjects-do-not-agree-on-s3s-java-api  https://stackoverflow.com/questions/7763239/delete-files-directories-and-buckets-in-amazon-s3-java
      */
     public String uploadToAWSS3(Part part, String accessKeyId, String secretAccessKey, String region, String bucketName, String fileObjKeyName, String fileToUpload) {
         BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);

@@ -53,8 +53,7 @@ public class JavaHelperMethods {
      *
      * @param appPath  the app path
      * @param username the username
-     * @return the string
-     * https://stackoverflow.com/questions/22031751/how-to-delete-all-files-in-a-folder-using-default-java-package
+     * @return the string https://stackoverflow.com/questions/22031751/how-to-delete-all-files-in-a-folder-using-default-java-package
      */
     public static String deleteAndCreateFilePath(String appPath, String username) {
         String saveImagePath = appPath  + File.separator + username;
@@ -72,6 +71,14 @@ public class JavaHelperMethods {
         }
         return saveImagePath;
     }
+
+    /**
+     * Create user image path string.
+     *
+     * @param appPath   the app path
+     * @param fieldName the field name
+     * @return the string
+     */
     public static String createUserImagePath(String appPath, String fieldName) {
         String saveImagePath = appPath  + File.separator + fieldName;
         File imageSaveDir = new File(saveImagePath);
@@ -92,11 +99,26 @@ public class JavaHelperMethods {
         return saveImagePath;
     }
 
+    /**
+     * Save file name string.
+     *
+     * @param saveImagePath the save image path
+     * @param part          the part
+     * @return the string
+     * @throws IOException the io exception
+     */
     public static String saveFileName(String saveImagePath, Part part) throws IOException {
         saveImagePath = saveMedia(saveImagePath, part);
         log.debug("Path " + saveImagePath);
         return saveImagePath;
     }
+
+    /**
+     * Is numeric boolean.
+     *
+     * @param str the str
+     * @return the boolean
+     */
 //    https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/
     public static boolean isNumeric(final String str) {
         // null or empty

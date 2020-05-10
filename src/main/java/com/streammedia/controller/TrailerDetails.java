@@ -11,9 +11,10 @@ import java.io.IOException;
 /**
  * The type Trailer details.
  * Responsible for getting a single Trailer from and setting it as an attribute to be accessible in JSP
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-21
+ * @since 2020 -02-21
  */
 @Log4j2
 @WebServlet(
@@ -26,9 +27,22 @@ public class TrailerDetails extends HttpServlet {
 
     GenericDao genericDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         genericDao =  new GenericDao(Trailer.class);
     }
+
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        Trailer trailer= (Trailer)genericDao.getById(Integer.parseInt(request.getParameter("uid")));
