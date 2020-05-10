@@ -25,6 +25,11 @@
         <h2 id="flash" class="alert alert-danger">${storyErrorMessage}</h2>
         <c:remove var="storyErrorMessage"/>
     </c:if>
+    <c:if test="${not empty unsupportedExtension}">
+        <h2 id="flash" class="alert alert-danger">${unsupportedExtension}</h2>
+        <c:remove var="unsupportedExtension"/>
+    </c:if>
+
     <div class="form row">
         <c:choose>
         <c:when test="${story ne null}">
