@@ -155,7 +155,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
                 } else {
                     String errorMessage = "Video not saved!Unsupported file extension! " +
                             "<br/>Please only upload mp4 files";
-                    req.getSession().setAttribute("unsupportedExtension",errorMessage);
+                    req.getSession().setAttribute("unsupportedVideoExtension",errorMessage);
                 }
             }
 
