@@ -28,11 +28,10 @@ import java.util.Properties;
 /**
  * The type Add story.
  * Responsible for getting form data for new story
- *
+ * and upload cover to S3
  * @author Jeanne
  * @version 1.0
  * @since 2020-04-23
- * TODO upload to S3  https://www.youtube.com/watch?v=iQrOmbCiFBs
  */
 @Log4j2
 @WebServlet(
