@@ -77,10 +77,27 @@
 |Apr 18, 2020|Research to increase the maximum file size in tomcat [Source](https://tecadmin.net/increase-tomcat-upload-file-size-limit/), Upload and display Image |3|
 |Apr 19, 2020|Upload and display Trailer video and updated time log|6.5|
 |Apr 23, 2020|Created Short Story JSPs and Add Short story JSP |2.5|
-|Apr 24, 2020|Updated all JSPs to dynamically change page tile, added Delete Display and updated Short story and add book Servlet|6.5|
-|Apr 24, 2020|Created and added Carousel to home page, logo in Navbar and favicon and Updated Time Log|5|
+|Apr 24, 2020|Updated all JSPs to dynamically change page tile, added Delete Display and updated Short story and add book Servlet|4.5|
+|Apr 24, 2020|Created and added Carousel to home page, logo in Navbar and favicon and Updated Time Log|3|
 |Apr 24, 2020| Resize Carousel Image and implement Add Book, display details|2.5| A wrong  import java.awt.print.Book and took a while to find out.|
-
+|Apr 25, 2020|Updated all JSPs to dynamically change page title and added Edit , Delete and details Servlet for Short Story and Secured JSPs and urls |6.5||
+|Apr 26, 2020|Added Popular API POJO, Test, servlet and JSP and links in Film List JSP|3.5||
+|Apr 27, 2020|Refactored API Pojo , added API Test and researched how to work with hibernate validator in Servlet and JSPs|7.0||q
+|Apr 29, 2020|Updated Tests |1.5||
+|Apr 29, 2020|Worked on peer code review|4.5||
+|Apr 30, 2020| Added test to insert and update book with category, Delete Test for Film and Book and detach category from book and  genre and crew from film and all the other CRUD test bor bookDao|5.5| Changing Cascade type from being all to excluding Remove|
+|May 1, 2020|Added AWS S3 (Upload did not work) and created user and credentials to allow upload to S3.Added Edit Book Functionality and updated Project Plan.|7.5||
+|May 1, 2020|Added film delete and edit functionality|0.5||
+|May 2, 2020| Added Hibernate Validation to Genre |2||
+|May 3, 2020| Researched how to use hibernate Search and S3 Objects |2.5||
+|May 5, 2020|Added success and failure message to all JSPs  and Servlets with form |5||
+|May 5, 2020| Added film Servlet and JSP functionality. |1.25||
+|May 5, 2020|  Added comments to servlet and worked on Code review again |3.5||
+|May 7, 2020| Implemented feed back from instructor about uploading qto S3 in userprofile and research on save to temporary directory |3.5||
+|May 8, 2020|Researched how to use accordion and style it.Added Admin Dashboard and Added admin and non admin user display for FAQ, add error and success messages|10.5||
+|May 9, 2020|Added Upload Cover to S3 in Book and SHort Story Add and Edit, User profile imd in Navbar and  cleaned up JSPs and servlet to allow upload media and added links in admin Dashboard|7.5||
+|May 10, 2020| Added Upload Cover and videos to S3 in Trailer and Film Add and Edit and sort by Id in Trailer List|3.5||
+|May 10, 2020|Updated Time Log|.75||
 
 
 
