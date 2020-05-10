@@ -17,6 +17,14 @@
     <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
         <p class="ml-auto"><a href="trailer-new" class="btn btn-success" >Add Trailer</a></p>
     </c:if>
+    <c:if test="${not empty trailerAddSuccessMessage || not empty unsupportedVideoExtension || unsupportedExtension }">
+        <h3 id="flash" ><span class="alert alert-success"> ${trailerAddSuccessMessage}</span>
+            <span class="alert alert-success">${unsupportedVideoExtension} ${unsupportedExtension}</span>
+        </h3>
+        <c:remove var="trailerAddSuccessMessage"/>
+        <c:remove var="unsupportedVideoExtension"/>
+        <c:remove var="unsupportedExtension"/>
+    </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${trailers ne null}">
@@ -36,21 +44,14 @@
                                 </c:when>
                                 <c:otherwise>
                                     <video width="320" height="240" controls poster="media/trailer1.jpg">
-                                        <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4" type="video/mp4" alt="trailer video">
+                                        <source class="rounded mx-auto d-block img-fluid" src="media/trailer.mp4" type="video/mp4" alt="trailer video">
                                     </video>
                                 </c:otherwise>
                             </c:choose>
-<%--                                <c:choose>--%>
-<%--                                    <c:when test="${ not empty trailer.cover}">--%>
-<%--                                        <img class="rounded mx-auto d-block img-fluid" src="${trailer.cover}" alt="trailer cover">--%>
-<%--                                    </c:when>--%>
-<%--                                    <c:otherwise>--%>
-<%--                                        <img class="rounded mx-auto d-block img-fluid" src="images/trailerc.jpg" alt="trailer cover">--%>
-<%--                                    </c:otherwise>--%>
-<%--                                </c:choose>--%>
+
 
                             <div class="card-body">
-                                <h2 class="card-title"><a class="btn btn-outline-primary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">${trailer.title}</a></h2>
+                                <h2 class="card-title"><a class="btn btn-outline-primary" href="trailer-details?uid=<c:out value="${trailer.trailerId}"/>">${trailer.title}</a></h2>
 
                                 <p class="card-text">${trailer.summary}</p>
                             </div>
@@ -58,7 +59,7 @@
                                 <li class="list-group-item">Published by ${trailer.author} on ${trailer.publicationDate}</li>
                             </ul>
                             <div class="card-body">
-                                <p><a  class="card-link btn btn-secondary" href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a></p>
+                                <p><a  class="card-link btn btn-secondary" href="trailer-details?uid=<c:out value="${trailer.trailerId}"/>">Trailer Details</a></p>
                                 <span class="btn-media-right">
                                 <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=${trailer.trailerId}">Edit</a>

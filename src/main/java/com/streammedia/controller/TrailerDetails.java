@@ -18,7 +18,7 @@ import java.io.IOException;
 @Log4j2
 @WebServlet(
         name = "trailerDetails",
-        urlPatterns = {"/trailer-detail"})
+        urlPatterns = {"/trailer-details"})
 public class TrailerDetails extends HttpServlet {
     /**
      * The Generic dao.
