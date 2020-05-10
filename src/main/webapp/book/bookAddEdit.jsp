@@ -25,15 +25,20 @@
             <h2 id="flash" class="alert alert-danger">${bookErrorMessage}</h2>
             <c:remove var="bookErrorMessage"/>
         </c:if>
+        <c:if test="${not empty unsupportedExtension}">
+            <h2 id="flash" class="alert alert-danger">${unsupportedExtension}</h2>
+            <c:remove var="unsupportedExtension"/>
+        </c:if>
+
         <c:choose>
             <c:when test="${book ne null}">
             <h1 class="text-center">Edit Book</h1>
-            <form class="card col-md-10 offset-md-1" action="book-edit" method="post">
+            <form class="card col-md-10 offset-md-1" action="book-edit" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="uid" value="${book.bookId}">
             </c:when>
             <c:otherwise>
             <h1 class="text-center">Add Book</h1>
-            <form class="card col-md-10 offset-md-1" action="book-new" method="post">
+            <form class="card col-md-10 offset-md-1" action="book-new" method="post" enctype="multipart/form-data">
             </c:otherwise>
         </c:choose>
             
@@ -45,7 +50,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="category" class="col-md-3 col-form-label">Category(s)</label>
+                <label for="category" class="col-md-3 col-form-label">Categories</label>
                 <div class="col-md-7">
                 <select name="category" class="form-control" id="category" multiple>
                     <option value="select a Category">Select</option>
@@ -89,7 +94,7 @@
             <div class="form-group row">
                 <label for="cover" class="col-md-3 col-form-label">Cover</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control"
+                    <input type="file" class="form-control"
                            name="cover" id="cover" placeholder="Cover" value="${book.cover}">
                 </div>
             </div>
