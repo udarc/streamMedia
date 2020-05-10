@@ -104,7 +104,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
             films.add(newFilm);
             Part part = req.getPart("cover");
             if (part.getSubmittedFileName().isEmpty()) {
-                newFilm.setCover("media/book.png");
+                newFilm.setCover("media/trailer1.jpg");
             } else {
                 String fileName = part.getSubmittedFileName().toLowerCase();
                 if (fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith("jpeg")) {
@@ -112,7 +112,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
                     String secretAccessKey = properties.getProperty("aws.secret.access.key");
                     String region = properties.getProperty("aws.region");
                     String bucketName = properties.getProperty("aws.bucket.name");
-                    String subdirectory = "media/" + Book.class.getSimpleName().toLowerCase();
+                    String subdirectory = "media/" + Film.class.getSimpleName().toLowerCase();
                     String fileObjKeyName = subdirectory + "/covers/" + newFilm.getTitle().toLowerCase().trim()
                             .replace(" ", "_") + "_" + newFilm.getDirector().trim()
                             .replace(" ", "_") + fileName.substring(
@@ -132,7 +132,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
             }
             Part videoPart = req.getPart("video");
             if (videoPart.getSubmittedFileName().isEmpty()) {
-                newFilm.setCover("media/book.png");
+                newFilm.setVideo("media/trailer.mp4");
             } else {
                 String fileName = videoPart.getSubmittedFileName().toLowerCase();
                 if (fileName.endsWith(".mp4")) {
@@ -140,7 +140,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
                     String secretAccessKey = properties.getProperty("aws.secret.access.key");
                     String region = properties.getProperty("aws.region");
                     String bucketName = properties.getProperty("aws.bucket.name");
-                    String subdirectory = "media/" + Book.class.getSimpleName().toLowerCase();
+                    String subdirectory = "media/" + Film.class.getSimpleName().toLowerCase();
                     String fileObjKeyName = subdirectory + "/videos/" + newFilm.getTitle().toLowerCase().trim()
                             .replace(" ", "_") + "_" + newFilm.getDirector().trim()
                             .replace(" ", "_") + fileName.substring(
@@ -149,7 +149,7 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
 
                     AWSS3UploadUtil awsS3 = new AWSS3UploadUtil();
                     String fileUrl = awsS3.uploadToAWSS3(videoPart, accessKeyId, secretAccessKey, region, bucketName, fileObjKeyName, fileToUpload);
-                    newFilm.setCover(fileUrl);
+                    newFilm.setVideo(fileUrl);
                     Files.deleteIfExists(Paths.get(fileToUpload));
 
                 } else {
@@ -186,7 +186,6 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
             req.getRequestDispatcher("/film/filmAddEdit.jsp").forward(req, resp);
         }
     }
-
     private void retrieveGenres(Set<Genre> genreList, String[] genreIds) {
         for (String id : genreIds) {
             genreList.add((Genre) genreDao.getById(Integer.parseInt(id)));
