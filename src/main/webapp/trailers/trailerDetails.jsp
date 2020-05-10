@@ -26,14 +26,13 @@
 
                                 <video width="400" controls poster="${trailer.cover}">
                                     <source class="rounded mx-auto d-block img-fluid" src="${trailer.video}" type="video/mp4">
-<%--                                    <source src="movie.ogg" type="video/ogg">--%>
+                                    <source src="movie.ogg" type="video/ogg">
                                         ${trailer.video}
                                 </video>
-
                             </c:when>
                             <c:otherwise>
                             <video width="320" height="240" controls poster="media/trailer1.jpp">
-                                <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4">
+                                <source class="rounded mx-auto d-block img-fluid" src="media/trailer.mp4">
                             </c:otherwise>
                         </c:choose>
                         <div class="card-body">
