@@ -16,10 +16,11 @@ import java.io.IOException;
  * The type Short story details.
  * Responsible for handling all
  * requests from the user to display Short Story Details.
-* @author Jeanne
-* @version 1.0
-* @since 2020-04-24
-*/
+ *
+ * @author Jeanne
+ * @version 1.0
+ * @since 2020 -04-24
+ */
 @Log4j2
 @WebServlet(
         name = "storyDetails",
@@ -31,10 +32,22 @@ public class ShortStoryDetails extends HttpServlet {
 
     GenericDao storyDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         storyDao = new GenericDao(ShortStory.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ShortStory story = (ShortStory) storyDao.getById(Integer.parseInt(request.getParameter("uid")));

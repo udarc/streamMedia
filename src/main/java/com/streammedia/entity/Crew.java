@@ -86,6 +86,11 @@ public class Crew {
         film.getCrews().remove(this);
     }
 
+    /**
+     * Get full name string.
+     *
+     * @return the string
+     */
     public String getFullName(){
         return firstName + " " + lastName;
     }

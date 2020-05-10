@@ -28,14 +28,23 @@ import java.util.*;
  * The link below is a Good tutorial for creating REST API
  * https://www.javaguides.net/2018/09/jax-rs-tutorial.html
  */
-
 @Log4j2
 @Path("/users")
 public class UserResource {
     private GenericDao userDao = new GenericDao(User.class);
     private GenericDao roleDao = new GenericDao(Role.class);
+    /**
+     * The Mapper.
+     */
     ObjectMapper mapper;
-        @GET
+
+    /**
+     * Gets all users.
+     *
+     * @return the all users
+     * @throws IOException the io exception
+     */
+    @GET
         @Produces({MediaType.APPLICATION_JSON})
         public Response getAllUsers() throws IOException {
             List<User> userList = userDao.getAll();
@@ -47,6 +56,13 @@ public class UserResource {
 
             return Response.status(200).entity(users).build();
         }
+
+    /**
+     * Gets all roles.
+     *
+     * @return the all roles
+     * @throws IOException the io exception
+     */
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("/roles")
@@ -60,6 +76,14 @@ public class UserResource {
 
         return Response.status(200).entity(roles).build();
     }
+
+    /**
+     * Gets user by user name.
+     *
+     * @param username the username
+     * @return the user by user name
+     * @throws JsonProcessingException the json processing exception
+     */
     @GET
     @Path("/username/{username}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -73,6 +97,14 @@ public class UserResource {
         }
         return Response.noContent().build();
     }
+
+    /**
+     * Gets user by id.
+     *
+     * @param id the id
+     * @return the user by id
+     * @throws JsonProcessingException the json processing exception
+     */
     @GET
     @Path("{userId}")
     @Produces({MediaType.APPLICATION_JSON})

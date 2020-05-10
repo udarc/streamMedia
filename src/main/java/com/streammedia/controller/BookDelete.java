@@ -15,9 +15,10 @@ import java.util.Set;
 /**
  * The type Book delete.
  * Get form data of selected object and calls dao method to remove it.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @WebServlet(
         urlPatterns = {"/book-delete"}
@@ -25,12 +26,25 @@ import java.util.Set;
 public class BookDelete extends HttpServlet {
     private GenericDao bookDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         bookDao = new GenericDao(Book.class);
 //
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = (Book) bookDao.getById(Integer.parseInt(req.getParameter("uid")));
         if (req.isUserInRole("admin")) {
@@ -44,6 +58,14 @@ public class BookDelete extends HttpServlet {
         }
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);

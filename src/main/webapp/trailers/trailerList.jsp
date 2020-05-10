@@ -63,7 +63,7 @@
                                 <span class="btn-media-right">
                                 <c:if test="${pageContext.request.isUserInRole(\"admin\")}">
                                     <a class="card-link btn btn-outline-primary" href="trailer-edit?uid=${trailer.trailerId}">Edit</a>
-                                    <a class="card-link btn btn-outline-danger" href="remove-trailer?uid=${trailer.trailerId}">Remove</a>
+                                    <a class="card-link btn btn-outline-danger" href="trailer-delete?uid=${trailer.trailerId}">Remove</a>
                                 </c:if>
                             </span>
                             </div>

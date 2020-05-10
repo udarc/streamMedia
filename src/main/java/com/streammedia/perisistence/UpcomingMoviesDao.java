@@ -3,6 +3,9 @@ package com.streammedia.perisistence;
 import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * The type Upcoming movies dao.
+ */
 @Log4j2
 public class UpcomingMoviesDao implements PropertiesLoader {
 

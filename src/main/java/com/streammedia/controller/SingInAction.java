@@ -9,10 +9,11 @@ import java.io.IOException;
  * The type Sing in action.
  * A simple servlet whose purpose is to redirect
  * after a log in attempt
- *https://stackoverflow.com/questions/1531197/how-do-i-redirect-to-the-current-page-in-servlet-filter
+ * https://stackoverflow.com/questions/1531197/how-do-i-redirect-to-the-current-page-in-servlet-filter
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-03-02
+ * @since 2020 -03-02
  */
 @WebServlet(
         urlPatterns = {"/login"}
@@ -20,6 +21,14 @@ import java.io.IOException;
 @Log4j2
 public class SingInAction extends HttpServlet {
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(resp.getStatus() == 200) {

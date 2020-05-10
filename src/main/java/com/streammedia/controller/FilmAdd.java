@@ -43,6 +43,12 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
     private GenericDao crewDao;
     private GenericDao genreDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     *
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         filmDao = new GenericDao(Film.class);
@@ -51,6 +57,14 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
         genreDao = new GenericDao(Genre.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Crew> crewList = crewDao.getAll();
@@ -61,6 +75,14 @@ public class FilmAdd extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.isUserInRole("admin")){

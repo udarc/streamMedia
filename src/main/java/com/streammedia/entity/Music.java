@@ -9,6 +9,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.*;
 
+/**
+ * The type Music.
+ */
 @Table(name = "Music")
 @Entity(name = "Music")
 @Data

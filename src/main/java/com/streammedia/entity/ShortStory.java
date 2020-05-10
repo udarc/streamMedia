@@ -11,6 +11,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * The type Short story.
+ */
 @Table(name = "ShortStory")
 @Entity(name = "ShortStory")
 @ToString

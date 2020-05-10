@@ -5,6 +5,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * The type Api movies db.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class APIMoviesDB {
 
@@ -20,39 +23,84 @@ public class APIMoviesDB {
 	@JsonProperty("total_results")
 	private int totalResults;
 
-	public void setPage(int page){
+    /**
+     * Set page.
+     *
+     * @param page the page
+     */
+    public void setPage(int page){
 		this.page = page;
 	}
 
-	public int getPage(){
+    /**
+     * Get page int.
+     *
+     * @return the int
+     */
+    public int getPage(){
 		return page;
 	}
 
-	public void setTotalPages(int totalPages){
+    /**
+     * Set total pages.
+     *
+     * @param totalPages the total pages
+     */
+    public void setTotalPages(int totalPages){
 		this.totalPages = totalPages;
 	}
 
-	public int getTotalPages(){
+    /**
+     * Get total pages int.
+     *
+     * @return the int
+     */
+    public int getTotalPages(){
 		return totalPages;
 	}
 
-	public void setResults(List<ResultsItem> results){
+    /**
+     * Set results.
+     *
+     * @param results the results
+     */
+    public void setResults(List<ResultsItem> results){
 		this.results = results;
 	}
 
-	public List<ResultsItem> getResults(){
+    /**
+     * Get results list.
+     *
+     * @return the list
+     */
+    public List<ResultsItem> getResults(){
 		return results;
 	}
 
-	public void setTotalResults(int totalResults){
+    /**
+     * Set total results.
+     *
+     * @param totalResults the total results
+     */
+    public void setTotalResults(int totalResults){
 		this.totalResults = totalResults;
 	}
 
-	public int getTotalResults(){
+    /**
+     * Get total results int.
+     *
+     * @return the int
+     */
+    public int getTotalResults(){
 		return totalResults;
 	}
 
-	@Override
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
+    @Override
  	public String toString(){
 		return 
 			"APIMoviesDB{" +

@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 
 import javax.annotation.Generated;
 
+/**
+ * The type Genres.
+ */
 @Generated("com.robohorse.robopojogenerator")
 @EqualsAndHashCode
 public class Genres{
@@ -13,15 +16,30 @@ public class Genres{
 	@JsonProperty("genres")
 	private List<GenresItem> genres;
 
-	public void setGenres(List<GenresItem> genres){
+    /**
+     * Set genres.
+     *
+     * @param genres the genres
+     */
+    public void setGenres(List<GenresItem> genres){
 		this.genres = genres;
 	}
 
-	public List<GenresItem> getGenres(){
+    /**
+     * Get genres list.
+     *
+     * @return the list
+     */
+    public List<GenresItem> getGenres(){
 		return genres;
 	}
 
-	@Override
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
+    @Override
  	public String toString(){
 		return 
 			"Genres{" + 
