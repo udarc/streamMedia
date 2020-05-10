@@ -36,7 +36,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <video width="320" height="240" controls poster="media/trailer1.jpg">
-                                        <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4" type="video/mp4" alt="trailer video">
+                                        <source class="rounded mx-auto d-block img-fluid" src="media/trailer.mp4" type="video/mp4" alt="trailer video">
                                     </video>
                                 </c:otherwise>
                             </c:choose>
