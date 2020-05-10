@@ -15,6 +15,14 @@
 <main class="container-fluid" role="main">
     <h1 class="text-center"> <span onclick="goBack()">
         <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Trailer Details</h1>
+    <c:if test="${not empty trailerEditSuccessMessage || not empty unsupportedVideoExtension || unsupportedExtension }">
+            <h3 id="flash" ><span class="alert alert-success"> ${trailerEditSuccessMessage}</span>
+                <span class="alert alert-success">${unsupportedVideoExtension} ${unsupportedExtension}</span>
+            </h3>
+            <c:remove var="trailerEditSuccessMessage"/>
+            <c:remove var="unsupportedVideoExtension"/>
+            <c:remove var="unsupportedExtension"/>
+        </c:if>
     <div class="row">
         <c:choose>
             <c:when test="${trailer ne null}">
@@ -26,14 +34,13 @@
 
                                 <video width="400" controls poster="${trailer.cover}">
                                     <source class="rounded mx-auto d-block img-fluid" src="${trailer.video}" type="video/mp4">
-<%--                                    <source src="movie.ogg" type="video/ogg">--%>
+                                    <source src="movie.ogg" type="video/ogg">
                                         ${trailer.video}
                                 </video>
-
                             </c:when>
                             <c:otherwise>
                             <video width="320" height="240" controls poster="media/trailer1.jpp">
-                                <source class="rounded mx-auto d-block img-fluid" src="media/trailerv.mp4">
+                                <source class="rounded mx-auto d-block img-fluid" src="media/trailer.mp4">
                             </c:otherwise>
                         </c:choose>
                         <div class="card-body">

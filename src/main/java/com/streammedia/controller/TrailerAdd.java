@@ -1,8 +1,12 @@
 package com.streammedia.controller;
 
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
 import com.streammedia.entity.*;
 import com.streammedia.perisistence.GenericDao;
+import com.streammedia.utility.AWSS3UploadUtil;
 import com.streammedia.utility.JavaHelperMethods;
+import com.streammedia.utility.PropertiesLoader;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.io.FileUtils;
 
@@ -17,6 +21,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.*;
+import java.util.Properties;
 
 
 /**
@@ -36,33 +41,15 @@ import java.time.*;
 )
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10 * 10 * 10,      // 1GB
-        maxRequestSize = 1024 * 1024 * 5 * 5 * 5   // 100MB
+        maxRequestSize = 1024 * 1024 * 5 * 5 * 10   // 100MB
 )
-public class TrailerAdd extends HttpServlet {
+public class TrailerAdd extends HttpServlet implements PropertiesLoader {
     private GenericDao trailerDao;
     private GenericDao userDao;
-    private final static String UPLOAD_DIR = "media";
-    private String appPath;
-    private String webPath;
-    private Trailer trailer;
-    private  String coverPath;
-    private  String videoPath;
 
     public void init() {
-        trailer = new Trailer();
-        //Extract the name of the class
-        String className = JavaHelperMethods.retrieveClassName(trailer);
-
-        coverPath =  "covers";
-        videoPath =  "videos";
         trailerDao = new GenericDao(Trailer.class);
         userDao = new GenericDao(User.class);
-        //Create Path to directories
-        // constructs path of the directory to save uploaded file
-        appPath = getServletContext().getRealPath(File.separator) + File.separator + UPLOAD_DIR + File.separator + className;
-        // constructs path of the directory to save uploaded file
-        File file = new File(appPath.substring(0, 39) + "src/main/webapp");
-        webPath = file.getAbsolutePath() + File.separator + UPLOAD_DIR + File.separator + className ;
 
     }
 
@@ -89,81 +76,112 @@ public class TrailerAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        //Create fullPath
-        String fileNameCover = "";
-        String fileNameVideo = "";
-        String coverExt = "";
-        String videoExt = "";
-        trailer.setTitle(req.getParameter("title").trim());
-        trailer.setAuthor(req.getParameter("author").trim());
-        trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
-        log.debug("After Duration: " + trailer);
-        String pubDate = req.getParameter("pub_date").trim();
-        if (pubDate == null || pubDate.length() <= 0) {
-            trailer.setPublicationDate(LocalDateTime.now());
-        } else {
-            trailer.setPublicationDate(LocalDateTime.parse(pubDate));
-        }
-        trailer.setLink(req.getParameter("link"));
-        log.debug("After Link " + pubDate);
-         Part part = req.getPart("cover");
-        if (part.getSubmittedFileName().isEmpty()){
-            trailer.setCover("media/trailer1.jpg");
-        } else {
-            String saveWebPathCover = JavaHelperMethods.createUserImagePath(webPath, coverPath).replace("//", "/");
-            String saveAppTargetCover = JavaHelperMethods.createUserImagePath(appPath, coverPath).replace("//", "/");
-            String webPathC = JavaHelperMethods.saveFileName(saveWebPathCover, part);
-            int i = webPathC.lastIndexOf('.');
-            int j = webPathC.lastIndexOf('/');
-            fileNameCover =  webPathC.substring(j+1, i);
-            coverExt = webPathC.substring(i);
-            log.debug("Extension of a File : " + webPathC.substring(i+1) );
-            String targertPathC = JavaHelperMethods.saveFileName(saveAppTargetCover, part);
-            trailer.setCover(targertPathC.substring(58, targertPathC.length()));
-        }
+        if (req.isUserInRole("admin")) {
+            try {
+                Trailer trailer = new Trailer();
+                Properties properties = loadProperties("/aws.properties");
+                User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
 
-        //Video
+                trailer.setTitle(req.getParameter("title").trim());
+                trailer.setAuthor(req.getParameter("author").trim());
+                trailer.setDuration(LocalTime.parse(req.getParameter("duration")));
+                log.debug("After Duration: " + trailer);
+                String pubDate = req.getParameter("pub_date").trim();
+                if (pubDate == null || pubDate.length() <= 0) {
+                    trailer.setPublicationDate(LocalDateTime.now());
+                } else {
+                    trailer.setPublicationDate(LocalDateTime.parse(pubDate));
+                }
+                trailer.setLink(req.getParameter("link"));
+                log.debug("After Link " + pubDate);
 
-        Part partVideo = req.getPart("video");
-        if (partVideo.getSubmittedFileName().isEmpty()){
-            trailer.setVideo("media/trailerv.mp4");
-        } else {
-
-            //log.debug("Parts Data: " + partVideo.getSize());
-            //TODO String saveAtWebApp = JavaHelperMethods.deleteAndCreateFilePath(webPath, className).replace("//", "/");
-            String saveWebAppVideo = JavaHelperMethods.createUserImagePath(webPath, videoPath).replace("//", "/");
-            String saveAppTargetVideo = JavaHelperMethods.createUserImagePath(appPath, videoPath).replace("//", "/");
-            //TODO Throws FileNotFound Error
-            //String targetPathV = JavaHelperMethods.saveFileName(saveAppTargetVideo, partVideo);
-            //TODO name Files by Id.
-            //TODO Rename file before save
-            String webPathV = JavaHelperMethods.saveFileName(saveWebAppVideo, partVideo);
-            int i = webPathV.lastIndexOf('.');
-            int j = webPathV.lastIndexOf('/');
-            fileNameVideo =  webPathV.substring(j+1, i);
-            videoExt = webPathV.substring(i);
-            Path destination = Paths.get(saveAppTargetVideo + File.separator + fileNameVideo + videoExt);
-            Path original =Paths.get(webPathV);
-            Files.copy(original, destination, StandardCopyOption.REPLACE_EXISTING);
-            trailer.setVideo(webPathV.substring(55, webPathV.length()));
-        }
-        trailer.setSummary(req.getParameter("summary"));
-        log.debug("After Summary: " + trailer);
-        log.error("After Summary: " + trailer);
-        try {
-            User user = (User) userDao.getByPropertyEqual("username", req.getRemoteUser()).get(0);
-            log.debug("User In trailer Add." + user);
-            if (!user.equals(null) && req.isUserInRole("admin")) {
+                trailer.setSummary(req.getParameter("summary"));
+                log.debug("After Summary: " + trailer);
+                log.error("After Summary: " + trailer);
+                log.debug("User In trailer Add." + user);
                 trailer.setUser(user);
-//                int trailerId = 19;
-                int trailerId = trailerDao.insert(trailer);
-//                log.debug("trailer.trailerId()" + trailerId);
+                Part part = req.getPart("cover");
+                if (part.getSubmittedFileName().isEmpty()) {
+                    trailer.setCover("media/trailer1.jpg");
+                } else {
+                    String fileName = part.getSubmittedFileName().toLowerCase();
+                    if (fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith("jpeg")) {
+                        String accessKeyId = properties.getProperty("aws.access.key.id");
+                        String secretAccessKey = properties.getProperty("aws.secret.access.key");
+                        String region = properties.getProperty("aws.region");
+                        String bucketName = properties.getProperty("aws.bucket.name");
+                        String subdirectory = "media/" + Trailer.class.getSimpleName().toLowerCase();
+                        String fileObjKeyName = subdirectory + "/covers/" + trailer.getTitle().toLowerCase().trim()
+                                .replace(" ", "_") + "_" + trailer.getAuthor().trim()
+                                .replace(" ", "_") + fileName.substring(
+                                fileName.lastIndexOf("."));
+                        String fileToUpload = JavaHelperMethods.saveFileName(System.getProperty("java.io.tmpdir"), part);
+
+                        AWSS3UploadUtil awsS3 = new AWSS3UploadUtil();
+                        String fileUrl = awsS3.uploadToAWSS3(part, accessKeyId, secretAccessKey, region, bucketName, fileObjKeyName, fileToUpload);
+                        trailer.setCover(fileUrl);
+                        Files.deleteIfExists(Paths.get(fileToUpload));
+
+                    } else {
+                        String errorMessage = "Cover not saved!Unsupported file extension! " +
+                                "<br/>Please only upload JPG, JPEG or PNG files";
+                        req.getSession().setAttribute("unsupportedExtension", errorMessage);
+                    }
+                }
+                Part videoPart = req.getPart("video");
+                if (videoPart.getSubmittedFileName().isEmpty()) {
+                    trailer.setVideo("media/trailer.mp4");
+                } else {
+                    String fileName = videoPart.getSubmittedFileName().toLowerCase();
+                    if (fileName.endsWith(".mp4")) {
+                        String accessKeyId = properties.getProperty("aws.access.key.id");
+                        String secretAccessKey = properties.getProperty("aws.secret.access.key");
+                        String region = properties.getProperty("aws.region");
+                        String bucketName = properties.getProperty("aws.bucket.name");
+                        String subdirectory = "media/" + Trailer.class.getSimpleName().toLowerCase();
+                        String fileObjKeyName = subdirectory + "/videos/" + trailer.getTitle().toLowerCase().trim()
+                                .replace(" ", "_") + "_" + trailer.getAuthor().trim()
+                                .replace(" ", "_") + fileName.substring(
+                                fileName.lastIndexOf("."));
+                        String fileToUpload = JavaHelperMethods.saveFileName(System.getProperty("java.io.tmpdir"), videoPart);
+
+                        AWSS3UploadUtil awsS3 = new AWSS3UploadUtil();
+                        String fileUrl = awsS3.uploadToAWSS3(videoPart, accessKeyId, secretAccessKey, region, bucketName, fileObjKeyName, fileToUpload);
+                        trailer.setVideo(fileUrl);
+                        Files.deleteIfExists(Paths.get(fileToUpload));
+
+                    } else {
+                        String errorMessage = "Video not saved!Unsupported file extension! " +
+                                "<br/>Please only upload mp4 files";
+                        req.getSession().setAttribute("unsupportedVideoExtension", errorMessage);
+                    }
+                }
+
+                trailerDao.insert(trailer);
+                String successMessage = "Successfully added " + Trailer.class.getSimpleName();
+                req.getSession().setAttribute("trailerAddSuccessMessage", successMessage);
                 resp.sendRedirect("trailers");
-            } else {
-                req.getRequestDispatcher("/trailers/trailerAddEdit.jsp").forward(req, resp);
+            } catch (NumberFormatException numberFormatException) {
+                log.error(numberFormatException);
+            } catch (
+                    AmazonServiceException e) {
+                // The call was transmitted successfully, but Amazon S3 couldn't process
+                // it, so it returned an error response.
+                log.error(e);
+            } catch (
+                    SdkClientException e) {
+                // Amazon S3 couldn't be contacted for a response, or the client
+                // couldn't parse the response from Amazon S3.
+                log.error(e);
+            } catch (NullPointerException npe) {
+                log.error("Object Does not Exists", npe);
+            } catch (Exception exception) {
+                log.error(exception);
             }
-        } catch (NullPointerException npe) {
-            log.error("User Does not Exists", npe);
+        } else {
+            req.getSession().setAttribute("trailerErrorMessage", "Failed to add " + Trailer.class.getSimpleName());
+
+            req.getRequestDispatcher("/trailers/trailerAddEdit.jsp").forward(req, resp);
         }
     }
 }
