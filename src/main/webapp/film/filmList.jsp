@@ -34,18 +34,27 @@
 
                         <div class="col-md-6 col-lg-4">
                             <div class="card">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="180"
-                                     xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap"
-                                     preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#868e96"/>
-                                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+                                <div class="card-header">
+                                <c:choose>
 
+                                <c:when test="${ not empty film.video}">
+
+                                    <video class="rounded card-img-top"  controls poster="${film.cover}">
+                                        <source src="${film.video}" type="video/mp4">
+                                            <source  src="movie.ogg" type="video/ogg">
+                                            ${film.video}
+                                    </video>
+
+                                </c:when>
+                                <c:otherwise>
+                                <video class="rounded card-img-top" controls poster="media/trailer1.jpp">
+                                    <source  src="media/trailerv.mp4">
+                                    </c:otherwise>
+                                    </c:choose>
+                                </div>
                                 <div class="card-body">
-                                    <h2 class="card-title">Title: ${film.title}
-                                            <%--                                        <a class="btn btn-outline-primary" --%>
-                                            <%--                                                              href="trailer-detail?uid=<c:out value="${trailer.trailerId}"/>">${trailer.title}</a>--%>
-                                    </h2>
-
+                                    <h2 class="card-title">Title: ${film.title}</h2>
+                                </div>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">Time: ${film.duration}</li>
                                         <li class="list-group-item">Directed by: ${film.director}</li>
@@ -59,7 +68,7 @@
                                         <li class="list-group-item">Publication Date: ${film.publicationDate}</li>
                                         <li class="list-group-item">${film.summary}</li>
                                     </ul>
-                                </div>
+
                                 <div class="card-body">
                                 <span class="btn-media-right">
                                 <a  class="card-link btn btn-secondary" href="film-details?uid=<c:out value="${film.filmId}"/>">Film Details</a>
