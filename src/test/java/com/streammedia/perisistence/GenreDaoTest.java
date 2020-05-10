@@ -9,9 +9,21 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Genre dao test.
+ * @author Jeanne
+ * @version 1.0
+ * @since 05-10-2020
+ */
 @Log4j2
 public class GenreDaoTest {
+    /**
+     * The Generic dao.
+     */
     GenericDao genericDao;
+    /**
+     * The Film dao.
+     */
     GenericDao filmDao;
 
     /**
@@ -26,6 +38,7 @@ public class GenreDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
     }
+
     /**
      * Verifies gets all Genres successfully.
      */
@@ -34,6 +47,7 @@ public class GenreDaoTest {
         List<Genre> genres = genericDao.getAll();
         assertEquals(4,genres.size());
     }
+
     /**
      * Verifies a genre is returned correctly based on id search
      */
@@ -44,6 +58,10 @@ public class GenreDaoTest {
         assertNotNull(genre);
 
     }
+
+    /**
+     * Insert genre success.
+     */
     @Test
     void  insertGenreSuccess(){
         Genre newGenre = new Genre();
@@ -70,6 +88,7 @@ public class GenreDaoTest {
         assertTrue(genreToUpdate.equals(retrievedGenre));
 
     }
+
     /**
      * Verify successful get by property (equal match)
      */
@@ -92,7 +111,6 @@ public class GenreDaoTest {
     /**
      * Verify successful delete of genre
      */
-
     @Test
     void deleteSuccess() {
         Genre  genre = (Genre)genericDao.getById(2);

@@ -19,26 +19,53 @@ import java.util.List;
  * This servlet acts as a page controller for the application, handling all
  * requests from the user to perform CRUD operations.
  * https://www.javaguides.net/2019/03/jsp-servlet-hibernate-crud-example.html
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-03-03
+ * @since 2020 -03-03
  */
 @Log4j2
 @WebServlet("/short-stories")
 public class ShortStoryList extends HttpServlet {
+    /**
+     * The Story dao.
+     */
     GenericDao storyDao;
+    /**
+     * The User dao.
+     */
     GenericDao userDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         userDao =  new GenericDao(User.class);
         storyDao =  new GenericDao(ShortStory.class);
     }
 
+    /**
+     * Do post.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
 
+    /**
+     * Do get.
+     *
+     * @param request  the request
+     * @param response the response
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        String action = request.getServletPath();

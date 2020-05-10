@@ -15,8 +15,9 @@ import java.util.List;
 
 /**
  * The type Generic dao.
- * @author Jeanne
+ *
  * @param <T> the type parameter
+ * @author Jeanne
  */
 @Log4j2
 public class GenericDao <T> {
@@ -40,6 +41,11 @@ public class GenericDao <T> {
         return list;
     }
 
+    /**
+     * Gets all with pagination.
+     *
+     * @return the all with pagination
+     */
     public List<T> getAllWithPagination() {
         Session session = getSession();
         int pageSize = 10;

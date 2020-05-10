@@ -11,8 +11,16 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Properties;
 
+/**
+ * The type Genre restapi dao.
+ */
 @Log4j2
 public class GenreRESTAPIDao implements PropertiesLoader {
+    /**
+     * Get genres genres.
+     *
+     * @return the genres
+     */
     public Genres getGenres(){
         Client client = ClientBuilder.newClient();
         Genres genres= null;

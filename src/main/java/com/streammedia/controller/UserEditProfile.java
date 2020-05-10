@@ -37,7 +37,7 @@ import java.util.Properties;
  *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @Log4j2
 @WebServlet(
@@ -57,6 +57,9 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
     private String appPath;
     private String rootPath;
 
+    /**
+     * Init.
+     */
     public void init() {
         // gets absolute path of the web application
         appPath = getServletContext().getRealPath("") + File.separator + SAVE_DIR;

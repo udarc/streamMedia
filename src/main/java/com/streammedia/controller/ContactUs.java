@@ -18,9 +18,10 @@ import javax.mail.*;
 /**
  * The type Contact us.
  * Responsible for getting form data to send to sender email address.
+ *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-12
+ * @since 2020 -02-12
  */
 @Log4j2
 @WebServlet(
@@ -35,12 +36,14 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
 //TO DO Message not getting in email
 
     /**
-     *  Handles HTTP GET requests.
+     * Handles HTTP GET requests.
      *
-     *@param  request               Description of the Parameter
-     *@param  response              Description of the Parameter
-     *@exception ServletException  if there is a Servlet failure
-     *@exception IOException       if there is an IO failure
+     * @param request  Description of the Parameter
+     * @param response Description of the Parameter
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     * @throws ServletException if there is a Servlet failure
+     * @throws IOException      if there is an IO failure
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,6 +54,14 @@ public class ContactUs extends HttpServlet implements PropertiesLoader {
 
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

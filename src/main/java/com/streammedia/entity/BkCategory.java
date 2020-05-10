@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Bk category.
+ */
 @Table(name="BKCategory")
 @Entity(name = "BKCategory")
 @Getter

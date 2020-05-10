@@ -29,9 +29,8 @@ import java.util.Properties;
  *
  * @author Jeanne
  * @version 1.0
- * @since 2020-02-22
+ * @since 2020 -02-22
  */
-
 @Log4j2
 @WebServlet(
         name = "storyEdit",
@@ -47,6 +46,10 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
     private String projectTargetPathCover;
     private String projectAppPathCover;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     public void init() {
         storyDao = new GenericDao<>(ShortStory.class);
         userDao = new GenericDao<>(User.class);

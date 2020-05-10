@@ -14,22 +14,46 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * The type Api movie dao.
+ */
 @Log4j2
 public class APIMovieDao implements PropertiesLoader {
+    /**
+     * Get playing movies list.
+     *
+     * @return the list
+     */
     public List<APIMoviesDB> getPlayingMovies(){
         String url = "playing.movies";
         return getApiMoviesDBS(url);
     }
+
+    /**
+     * Get popular movies list.
+     *
+     * @return the list
+     */
     public List<APIMoviesDB> getPopularMovies(){
         String url = "popular.movies";
         return getApiMoviesDBS(url);
     }
 
+    /**
+     * Get top rated movies list.
+     *
+     * @return the list
+     */
     public List<APIMoviesDB> getTopRatedMovies(){
         String url = "top.rated.movies";
         return getApiMoviesDBS(url);
     }
 
+    /**
+     * Get upcoming movies list.
+     *
+     * @return the list
+     */
     public List<APIMoviesDB> getUpcomingMovies(){
         String url = "upcoming.movies";
         return getApiMoviesDBS(url );

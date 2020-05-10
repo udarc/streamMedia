@@ -15,9 +15,10 @@ import java.io.IOException;
 /**
  * The type Bk(Stands for book) category add.
  * Gets form data and set them to be saved to database.
- *  @author Jeanne
- *  @version 1.0
- * @since 05-05-2020
+ *
+ * @author Jeanne
+ * @version 1.0
+ * @since 05 -05-2020
  */
 //TODO http://zetcode.com/java/hibernatevalidator/
 @WebServlet(
@@ -29,12 +30,26 @@ public class BKCategoryAdd extends HttpServlet {
     private GenericDao bkCategoryDao;
     private  GenericDao userDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     *
+     * @throws ServletException the servlet exception
+     */
     @Override
     public void init() throws ServletException {
         bkCategoryDao =  new GenericDao(BkCategory.class);
         userDao  = new GenericDao<>(User.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.isUserInRole("admin")){
@@ -46,6 +61,14 @@ public class BKCategoryAdd extends HttpServlet {
         }
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BkCategory newBkCategory =  new BkCategory();

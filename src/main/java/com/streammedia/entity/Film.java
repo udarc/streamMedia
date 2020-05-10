@@ -18,8 +18,9 @@ import java.util.Set;
 
 /**
  * The type Film.
- *https://thoughts-on-java.org/ultimate-guide-association-mappings-jpa-hibernate/
- * @author Jeanne  https://www.baeldung.com/hibernate-many-to-many
+ * https://thoughts-on-java.org/ultimate-guide-association-mappings-jpa-hibernate/
+ *
+ * @author Jeanne https://www.baeldung.com/hibernate-many-to-many
  */
 @Getter
 @Setter
@@ -98,21 +99,42 @@ public class Film {
     @Column(name = "updated_at",nullable = false)
     private LocalDate updatedAt;
 
+    /**
+     * Add crew.
+     *
+     * @param crew the crew
+     */
     public void addCrew(Crew crew) {
         this.crews.add(crew);
         crew.getFilms().add(this);
     }
 
+    /**
+     * Remove crew.
+     *
+     * @param crew the crew
+     */
     public void removeCrew(Crew crew) {
         this.crews.remove(crew);
         crew.getFilms().remove(this);
     }
+
+    /**
+     * Add genre.
+     *
+     * @param genre the genre
+     */
     public void addGenre(Genre genre) {
         genres.add(genre);
         genre.getFilms().add(this);
     }
 
-        public void removeGenre(Genre genre) {
+    /**
+     * Remove genre.
+     *
+     * @param genre the genre
+     */
+    public void removeGenre(Genre genre) {
             genres.remove(genre);
             genre.getFilms().remove(this);
         }

@@ -32,7 +32,7 @@ import java.util.Set;
  *
  * @author Jeanne
  * @version 1.0
- * @since 05-05-2020
+ * @since 05 -05-2020
  */
 @WebServlet(
         urlPatterns = {"/book-edit"}
@@ -47,6 +47,10 @@ public class BookEdit extends HttpServlet implements PropertiesLoader {
     private GenericDao userDao;
     private GenericDao catDao;
 
+    /**
+     * Init.
+     * Responsible to create an instance of dao.
+     */
     @Override
     public void init() {
         bookDao = new GenericDao(Book.class);
@@ -54,6 +58,14 @@ public class BookEdit extends HttpServlet implements PropertiesLoader {
         catDao = new GenericDao(BkCategory.class);
     }
 
+    /**
+     * Do get.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("uid"));
@@ -66,6 +78,14 @@ public class BookEdit extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(req, resp);
     }
 
+    /**
+     * Do post.
+     *
+     * @param req  the req
+     * @param resp the resp
+     * @throws ServletException the servlet exception
+     * @throws IOException      the io exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.isUserInRole("admin")) {
