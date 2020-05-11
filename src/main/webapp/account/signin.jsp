@@ -19,7 +19,7 @@
             <h2 id="flash" class="alert alert-success">${registerSuccess}</h2>
             <c:remove var="registerSuccess"/>
         </c:if>
-        <form method="post" action="j_security_check" class="card col-md-10 offset-md-1 need-validation" novalidate>
+        <form method="post" action="j_security_check" class="card col-md-10 offset-md-1 needs-validation" novalidate>
             <div class="form-group row">
                 <label for="username" class="col-md-3 col-form-label">Username</label>
                 <div class="col-md-9">
