@@ -155,7 +155,7 @@ public class ShortStoryAdd extends HttpServlet implements PropertiesLoader {
                 req.getSession().setAttribute("storyAddSuccessMessage", successMessage);
                 resp.sendRedirect("short-stories");
             } else {
-                req.getSession().setAttribute("storyErrorMessage", "Failed to add SHort Story!");
+                req.getSession().setAttribute("storyErrorMessage", "Failed to add Short Story!");
                 req.getRequestDispatcher("/story/storyAddEdit.jsp").forward(req, resp);
             }
         } catch (AmazonServiceException e) {

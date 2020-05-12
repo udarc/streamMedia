@@ -23,12 +23,12 @@
     <div class="form row">
         <c:choose>
         <c:when test="${trailer ne null}">
-        <form class="card col-md-10 offset-md-1 was-validated" action="trailer-edit" method="post"
+        <form class="card col-md-10 offset-md-1 needs-validation" novalidate action="trailer-edit" method="post"
               enctype="multipart/form-data">
             <input type="hidden" id="id" name="uid"  value="${trailer.trailerId}">
             </c:when>
             <c:otherwise>
-            <form action="trailer-new" method="post" class="card col-md-10 offset-md-1 was-validated"
+            <form action="trailer-new" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate
                   enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
@@ -41,21 +41,24 @@
                     <label for="title" class="col-md-3 col-form-label">Title</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="title"
-                               id="title" value="${trailer.title}" placeholder="Trailer Title">
+                               id="title" value="${trailer.title}" placeholder="Trailer Title" required>
+                        <div class="invalid-feedback">Trailer title is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="author" class="col-md-3 col-form-label">Author</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control"
-                               name="author" id="author" placeholder="Author" value="${trailer.author}">
+                               name="author" id="author" placeholder="Author" value="${trailer.author}" required>
+                        <div class="invalid-feedback">Trailer author is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="duration" class="col-md-3 col-form-label">Duration</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control"
-                               name="duration" id="duration" value="${trailer.duration}" placeholder="Duration">
+                        <input type="text" class="form-control" name="duration" id="duration"
+                               value="${trailer.duration}" placeholder="Duration (00:00:00)" required>
+                        <div class="invalid-feedback">Trailer duration is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -90,7 +93,8 @@
                     <label for="summary" class="col-md-3 col-form-label" >Summary</label>
                     <div class="col-md-9">
                     <textarea class="form-control"name="summary" id="Summary"
-                              rows="6">${trailer.summary}</textarea>
+                              rows="6" required>${trailer.summary}</textarea>
+                        <div class="invalid-feedback">Trailer summary is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">

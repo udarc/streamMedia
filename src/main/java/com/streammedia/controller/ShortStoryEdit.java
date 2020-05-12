@@ -140,7 +140,7 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
                     } else {
                         String errorMessage = " Unsupported file extension! <br/>Please only upload JPG, JPEG or PNG files";
                        req.getSession().setAttribute("unsupportedExtension",errorMessage);
-                        req.getRequestDispatcher("/stories/storyAddEdit.jsp").forward(req,resp);
+                        req.getRequestDispatcher("story-details?uid=" + story.getShortStoryId()).forward(req,resp);
                     }
                 }
 
@@ -160,6 +160,7 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
                 log.error(exception);
             }
         } else {
+            req.getSession().setAttribute("storyErrorMessage", "Failed to upldate Short Story!");
             req.getRequestDispatcher("/stories/storyAddEdit.jsp").forward(req,resp);
         }
     }
