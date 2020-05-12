@@ -48,9 +48,10 @@
                         <li class="btn-group"><a class="btn btn-outline-primary" href="profile-edit?user=<c:out 
                         value="${user.username}"/>">
                             <i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a>
+
+                    <c:if test="${pageContext.request.isUserInRole('admin')}" >
                             <a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">
                                 <i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a>
-                    <c:if test="${pageContext.request.isUserInRole('admin')}" >
                         <a class="btn btn-primary"  href="dashboard">
                             <i class="fas fa-user-cog fa-3x" aria-hidden="true"></i> Admin Dashboard</a></li>
                     </c:if>

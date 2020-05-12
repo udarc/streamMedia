@@ -23,8 +23,10 @@
             <td>
                     ${book.ISBN}
             </td>
-            <td><a class="btn btn-outline-primary" href="book-edit?uid=${book.bookId}"><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a></td>
-            <td><a class="btn btn-outline-danger"  href="book-delete?uid=${book.bookId}"><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></td>
+            <td><a class="btn btn-outline-primary" href="book-edit?uid=${book.bookId}">
+                <i class="fas fa-edit fa-1x" aria-hidden="true"></i>Edit</a></td>
+            <td><a class="btn btn-outline-danger"  href="book-delete?uid=${book.bookId}">
+                <i class="fas fa-trash-alt fa-1x" aria-hidden="true"></i>Delete</a></td>
         </tr>
     </c:forEach>
 </table>

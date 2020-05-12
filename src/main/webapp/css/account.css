@@ -36,3 +36,7 @@ video {
     height: 30em;
 }
 
+.invalid-feedback {
+    color: #f1a7a7 !important;
+}
+

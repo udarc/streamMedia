@@ -25,32 +25,34 @@
         <c:choose>
             <c:when test="${crew ne null}">
     <h1 class="text-center">Edit Crew</h1>
-    <form action="crew-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
+    <form action="crew-edit" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
         <input type="hidden" name="uid" value="${crew.crewId}">
             </c:when>
         <c:otherwise>
         <h1 class="text-center">Add Crew</h1>
-                <form action="crew-new" method="post" class="card col-md-10 offset-md-1 was-validated">
+                <form action="crew-new" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
                 </c:otherwise>
         </c:choose>
                     <c:if test="${not empty crewErrorMessage}">
                     <h2 id="flash" class="alert alert-success">${crewErrorMessage}</h2>
                         <c:remove var="crewErrorMessage"/>
                     </c:if>
-     <form action="crew-new" method="post" class="card col-md-10 offset-md-1 was-validated">
          <div class="form-group row">
              <label for="firstName" class="col-md-3 col-form-label">First Name</label>
              <div class="col-md-9">
                  <input type="text" class="form-control"
-                        name="firstname" id="firstName" placeholder="First Name" required
-                 value="${crew.firstName}">
+                        name="firstname" id="firstName" placeholder="First Name"
+                 value="${crew.firstName}" required>
+                 <div class="invalid-feedback">Crew first name is required!</div>
              </div>
          </div>
          <div class="form-group row">
              <label for="lastName" class="col-md-3 col-form-label">Last Name</label>
              <div class="col-md-9">
                  <input type="text" class="form-control"
-                        name="lastname" id="lastName" placeholder="Last Name" required value="${crew.lastName}">
+                        name="lastname" id="lastName" placeholder="Last Name"
+                         value="${crew.lastName}" required>
+                 <div class="invalid-feedback">Crew last name is required!</div>
              </div>
          </div>
          <div class="form-group row">
@@ -59,9 +61,8 @@
                  <input type="email" class="form-control"
                         name="email" id="inputEmail" placeholder="Email" required
                         value="${crew.email}">
+                 <div class="invalid-feedback">Crew email is required!</div>
              </div>
-             <div class="valid-feedback">Valid.</div>
-             <div class="invalid-feedback">Email is required.</div>
          </div>
          <div class="form-group row">
              <label for="profession" class="col-md-3 col-form-label">Profession</label>
@@ -69,15 +70,15 @@
                  <input type="text" class="form-control"
                         name="profession" id="profession" placeholder="Profession" required
                         value="${crew.profession}">
+                 <div class="invalid-feedback">Crew profession is required!</div>
              </div>
-             <div class="valid-feedback">Valid.</div>
-             <div class="invalid-feedback">Profession is required.</div>
          </div>
 
     <div class="form-group row">
         <label for="bio" class="col-md-3 col-form-label" >Biography</label>
         <div class="col-md-9">
-            <textarea class="form-control"name="biography" id="bio" rows="6">${crew.biography}</textarea>
+            <textarea class="form-control"name="biography" id="bio" rows="6" required>${crew.biography}</textarea>
+            <div class="invalid-feedback">Crew  biography is required!</div>
         </div>
     </div>
         <div class="form-group row">
