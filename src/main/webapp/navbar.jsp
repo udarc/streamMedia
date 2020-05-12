@@ -13,7 +13,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-capitalize"  href="user-profile">
                                 <span class="mr-2 d-none d-lg-inline"><%= request.getRemoteUser() %></span>
-                                <img class="img-profile rounded-circle" src="${profileImage}" style="height: 3.75em; width: 3.75em;"></a>
+                                <c:if test="${not empty profileImage}">
+                                <img class="img-profile rounded-circle" src="${profileImage}" style="height: 3.75em; width: 3.75em;">
+                                </c:if>
+                            </a>
+
                         </li>
                         <c:if test="${(pageContext.request.isUserInRole('admin'))}">
 
@@ -78,10 +82,10 @@
                 <a class="nav-link" href="faqs">FAQ</a>
             </li>
         </ul>
-        <form action="#" method="get" class="form-inline">
-            <input class="form-control mr-md-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-danger my-2 my-md-0" type="submit">Search</button>
-        </form>
+<%--        <form action="#" method="get" class="form-inline">--%>
+<%--            <input class="form-control mr-md-2" type="search" placeholder="Search" aria-label="Search">--%>
+<%--            <button class="btn btn-outline-danger my-2 my-md-0" type="submit">Search</button>--%>
+<%--        </form>--%>
 
     </nav>
 </header>
