@@ -100,7 +100,7 @@ public class UserRegister extends HttpServlet {
             String successMessage = "Successfully registered with " + user.getUsername()
                     + "username!Please Login!";
             req.getSession().setAttribute("registerSuccess",successMessage);
-            resp.sendRedirect("login");
+            resp.sendRedirect("user-profile");
         } else {
             req.getSession().setAttribute("errorMessage", "Failed to create an account.Try again!");
             req.getRequestDispatcher("/account/signup.jsp").forward(req,resp);
