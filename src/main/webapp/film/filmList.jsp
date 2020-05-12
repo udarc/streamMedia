@@ -18,8 +18,12 @@
         <div class="col-md-8 col-lg-9">
             <h1 class="text-center">List of Films</h1>
             <c:if test="${not empty successMessage}">
-                <h3 id="flash" class="alert alert-success">${successMessage}</h3>
+                <h3 id="flash" class="alert alert-success">${successMessage}
+                    <span class="alert alert-danger">${unsupportedVideoExtension} ${unsupportedExtension}</span>
+                </h3>
                 <c:remove var="successMessage"/>
+                <c:remove var="unsupportedVideoExtension"/>
+                <c:remove var="unsupportedExtension"/>
             </c:if>
             <c:if test="${pageContext.request.isUserInRole('admin')}">
                             <span> <a href="film-new" class="btn btn-success ml-auto">

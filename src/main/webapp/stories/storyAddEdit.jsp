@@ -25,20 +25,16 @@
         <h2 id="flash" class="alert alert-danger">${storyErrorMessage}</h2>
         <c:remove var="storyErrorMessage"/>
     </c:if>
-    <c:if test="${not empty unsupportedExtension}">
-        <h2 id="flash" class="alert alert-danger">${unsupportedExtension}</h2>
-        <c:remove var="unsupportedExtension"/>
-    </c:if>
 
     <div class="form row">
         <c:choose>
         <c:when test="${story ne null}">
-        <form class="card col-md-10 offset-md-1 was-validated" action="story-edit" method="post"
+        <form class="card col-md-10 offset-md-1 needs-validation" novalidate  action="story-edit" method="post"
               enctype="multipart/form-data">
             <input type="hidden" id="id" name="uid"  value="${story.shortStoryId}">
             </c:when>
             <c:otherwise>
-            <form action="story-new" method="post" class="card col-md-10 offset-md-1 was-validated"
+            <form action="story-new" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate
                   enctype="multipart/form-data">
                 </c:otherwise>
                 </c:choose>
@@ -46,14 +42,16 @@
                     <label for="title" class="col-md-3 col-form-label">Title</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="title"
-                               id="title" value="${story.title}" placeholder="Story Title">
+                               id="title" value="${story.title}" placeholder="Story Title" required>
+                        <div class="invalid-feedback">Story title is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="author" class="col-md-3 col-form-label">Author</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control"
-                               name="author" id="author" placeholder="Author" value="${story.author}">
+                        <input type="text" class="form-control" name="author"
+                               id="author" placeholder="Author" value="${story.author}" required>
+                        <div class="invalid-feedback">Story author is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -74,7 +72,8 @@
                     <label for="description" class="col-md-3 col-form-label" >Description</label>
                     <div class="col-md-9">
                     <textarea class="form-control"name="description" id="description"
-                              rows="6">${story.description}</textarea>
+                              rows="6" required>${story.description}</textarea>
+                        <div class="invalid-feedback">Story description is required!</div>
                     </div>
                 </div>
                 <div class="form-group row">

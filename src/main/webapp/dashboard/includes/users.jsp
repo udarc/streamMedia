@@ -6,7 +6,7 @@
   Time: 11:18 PM
   To change this template use File | Settings | File Templates.
 --%>
-<table class="table table-striped display" id="table">
+<table class="table table-striped display">
     <thead class="thead-dark">
     <tr>
         <th>Full Name</th>
@@ -27,8 +27,10 @@
                 </c:forEach>
             </td>
 
-            <td><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>"><i class="fas fa-edit fa-2x" aria-hidden="true"></i>Edit</a></td>
-            <td><a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>"><i class="fas fa-trash-alt fa-2x" aria-hidden="true"></i>Delete</a></td>
+            <td><a class="btn btn-outline-primary" href="profile-edit?user=<c:out value="${user.username}"/>">
+                <i class="fas fa-edit fa-1x" aria-hidden="true"></i>Edit</a></td>
+            <td><a class="btn btn-outline-danger"  href="deleteUser?user=<c:out value="${user.username}"/>">
+                <i class="fas fa-trash-alt fa-1x" aria-hidden="true"></i>Delete</a></td>
         </tr>
     </c:forEach>
 </table>

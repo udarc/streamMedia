@@ -15,7 +15,7 @@
 <main class="container-fluid wrapper" role="main">
     <h1 class="text-center">List of Stories</h1>
     <c:if test="${not empty storyAddSuccessMessage}">
-        <h2 id="flash" class="alert alert-danger">${storyAddSuccessMessage}</h2>
+        <h2 id="flash" class="alert alert-success">${storyAddSuccessMessage}</h2>
         <c:remove var="storyAddSuccessMessage"/>
     </c:if>
     <c:if test="${pageContext.request.isUserInRole(\"admin\")}" >
