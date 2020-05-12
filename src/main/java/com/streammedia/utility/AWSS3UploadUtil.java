@@ -35,27 +35,18 @@ public class AWSS3UploadUtil {
      */
     public String uploadToAWSS3(Part part, String accessKeyId, String secretAccessKey, String region, String bucketName, String fileObjKeyName, String fileToUpload) {
         BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
-
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
-
         if (s3Client.doesObjectExist(bucketName, fileObjKeyName)) {
-
             s3Client.deleteObject(new DeleteObjectRequest(bucketName, fileObjKeyName));
         }
         PutObjectRequest request = new PutObjectRequest(bucketName, fileObjKeyName, new File(fileToUpload));
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType(part.getContentType());
         request.setMetadata(metadata);
-//                    s3Client.putObject(request);/
-
-        //Make it public so we can use it as a public URL on the internet
         request.setCannedAcl(CannedAccessControlList.PublicRead);
-
-        //Upload the file. This can take a while for big files!
         PutObjectResult result = s3Client.putObject(request);
         log.debug("S3 Result: " + result.getContentMd5());
-        //Create a URL using the bucket, subdirectory, and file name
         return "https://" + bucketName + ".s3." + Regions.US_EAST_2.getName() + ".amazonaws.com/" + fileObjKeyName;
     }
 
