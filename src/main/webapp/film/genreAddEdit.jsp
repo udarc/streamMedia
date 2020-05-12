@@ -24,13 +24,12 @@
         <c:choose>
         <c:when test="${genre ne null}">
             <h1>Edit Genre</h1>
-        <form action="genre-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
+        <form action="genre-edit" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
             <input type="hidden" name="uid" value="${genre.genreId}">
             </c:when>
             <c:otherwise>
             <h1>Add Genre</h1>
-            <form action="genre-new" method="post" class="card col-md-10 offset-md-1 was-validated">
-                >
+            <form action="genre-new" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
                 </c:otherwise>
                 </c:choose>
 

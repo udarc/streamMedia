@@ -16,7 +16,7 @@
     <h1 class="text-center"> <span onclick="goBack()">
         <i class="fas fa-arrow-left fa-1x" aria-hidden="true"></i></span> Short Story Details</h1>
     <c:if test="${not empty storyEditSuccessMessage}">
-        <h2 id="flash" class="alert alert-danger">${storyEditSuccessMessage}</h2>
+        <h2 id="flash" class="alert alert-success">${storyEditSuccessMessage}</h2>
         <c:remove var="storyEditSuccessMessage"/>
     </c:if>
     <div class="row">

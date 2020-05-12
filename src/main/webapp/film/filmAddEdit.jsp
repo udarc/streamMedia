@@ -24,12 +24,14 @@
         <c:choose>
             <c:when test="${film ne null}">
             <h1 class="text-center">Edit Film</h1>
-            <form class="card col-md-10 offset-md-1" action="film-edit" method="post" enctype="multipart/form-data">
+            <form class="card col-md-10 offset-md-1 needs-validation" novalidate action="film-edit"
+                  method="post" enctype="multipart/form-data">
                 <input type="hidden" name="uid" value="${film.filmId}">
             </c:when>
             <c:otherwise>
             <h1 class="text-center">Add Film</h1>
-            <form class="card col-md-10 offset-md-1" action="film-new" method="post" enctype="multipart/form-data">
+            <form class="card col-md-10 offset-md-1 needs-validation"  novalidate a
+                  ction="film-new" method="post" enctype="multipart/form-data">
             </c:otherwise>
         </c:choose>
                 <c:if test="${not empty filmErrorMessage}">
@@ -40,13 +42,14 @@
                 <label for="title" class="col-md-3 col-form-label">Title</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control" name="title"
-                           id="title" placeholder="Film Title" value="${film.title}">
+                           id="title" placeholder="Film Title" value="${film.title}" required>
+                    <div class="invalid-feedback">Film  title is required!</div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="genre" class="col-md-3 col-form-label">Genre(s)</label>
                 <div class="col-md-7">
-                <select name="genre" class="form-control" id="genre" multiple>
+                <select name="genre" class="form-control" id="genre" multiple required>
                     <option value="select a Genre">Select</option>
                     <c:choose>
                         <c:when test="${film.genres ne null}">
@@ -60,6 +63,7 @@
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
+                    <div class="invalid-feedback">Film  genre is required!</div>
                 </select>
                 </div>
                 <div class="col-md-2"><a class="btn btn-secondary" href="genre-new">Add Genre</a></div>
@@ -76,7 +80,8 @@
                 <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="director" id="director" placeholder="Director"
-                    value="${film.director}">
+                    value="${film.director}" required>
+                    <div class="invalid-feedback">Film director is required!</div>
                 </div>
             </div>
                 <div class="form-group row">
@@ -84,7 +89,8 @@
                     <div class="col-md-9">
                         <input type="text" class="form-control"
                                name="duration" id="duration"  placeholder="Duration"
-                        value="${film.duration}">
+                        value="${film.duration}" required>
+                        <div class="invalid-feedback">Film  duration is required!</div>
                     </div>
                 </div>
             <div class="form-group row">
@@ -119,7 +125,7 @@
             <div class="form-group row">
                 <label for="genre" class="col-md-3 col-form-label">Crew(s)</label>
                 <div class="col-md-7">
-                <select name="crew" class="form-control" id="crew" multiple>
+                <select name="crew" class="form-control" id="crew" multiple required>
                     <option value="select crew members">Select Crew</option>
                     <c:choose>
                         <c:when test="${film.crews ne null}">
@@ -133,6 +139,7 @@
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
+                    <div class="invalid-feedback">Film crew is required!</div>
                  </select>
 
                 </div>
@@ -141,7 +148,9 @@
             <div class="form-group row">
                 <label for="summary" class="col-md-3 col-form-label" >Summary</label>
                 <div class="col-md-9">
-                    <textarea class="form-control"name="summary" id="Summary" rows="6">${film.summary}</textarea>
+                    <textarea class="form-control"name="summary" id="Summary"
+                              rows="6" required>${film.summary}</textarea>
+                    <div class="invalid-feedback">Film summary is required!</div>
                 </div>
             </div>
             <div class="form-group row">
