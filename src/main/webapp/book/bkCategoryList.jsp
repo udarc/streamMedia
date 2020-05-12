@@ -15,7 +15,7 @@
 <main class="container-fluid wrapper">
     <div class="row">
         <div class="col-md-8">
-            <h1 class="text-center">BkCategory List</h1>
+            <h1 class="text-center">Book Category List</h1>
             <c:if test="${not empty addBookCategorySuccess}">
                 <h2 id="flash" class="alert alert-success">${addBookCategorySuccess}</h2>
                 <c:remove var="addBookCategorySuccess"/>

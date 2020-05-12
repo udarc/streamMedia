@@ -28,12 +28,12 @@
         <c:choose>
         <c:when test="${bkCategory ne null}">
         <h1>Edit BkCategory</h1>
-        <form action="bkcategory-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
+        <form action="bkcategory-edit" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
             <input type="hidden" name="uid" value="${bkCategory.bkCategoryId}">
             </c:when>
             <c:otherwise>
             <h1>Add BkCategory</h1>
-            <form action="category-new" method="post" class="card col-md-10 offset-md-1 was-validated">
+            <form action="category-new" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
                 </c:otherwise>
                 </c:choose>
                 <div class="form-group row">
@@ -42,21 +42,20 @@
                         <input type="text" class="form-control"
                                name="title" id="title" placeholder="Title"
                                value="${bkCategory.title}" required>
+                        <div class="invalid-feedback">Please provide a valid Book Title!</div>
                     </div>
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Title is required.</div>
                 </div>
                 <div class="form-group row">
                     <label for="description" class="col-md-3 col-form-label" >Description</label>
                     <div class="col-md-9">
                     <textarea class="form-control"name="description"
-                              id="description" rows="6">${bkCategory.description}</textarea>
+                              id="description" rows="6" required>${bkCategory.description}</textarea>
+                        <div class="invalid-feedback">Description must not be empty!</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-9">
-                        <button type="submit"
-                                name="createFAQ" class="btn btn-lg btn-success">Save BkCategory</button>
+                        <button type="submit" name="createBookCatgeory" class="btn btn-lg btn-success">Save BkCategory</button>
                     </div>
                 </div>
             </form>

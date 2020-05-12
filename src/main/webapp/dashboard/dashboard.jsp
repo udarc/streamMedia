@@ -63,7 +63,7 @@
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4">
                             <div id="stories" class="card-header py-3">
-                                <h2 class="m-0 font-weight-bold text-primary">SHort Story</h2>
+                                <h2 class="m-0 font-weight-bold text-primary">Short Story</h2>
                             </div>
                             <div class="card-body">
                                 <%@include file="includes/stories.jsp"%>
