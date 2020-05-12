@@ -132,18 +132,17 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
                         String fileUrl = awsS3.uploadToAWSS3(coverPart, accessKeyId, secretAccessKey, region, bucketName, fileObjKeyName, fileToUpload);
                         story.setCover(fileUrl);
                         Files.deleteIfExists(Paths.get(fileToUpload));
-                        log.debug("Updating Story: " + story.getTitle());
-                        storyDao.saveOrUpdate(story);
-                        String successMessage = "Successfully Updated Short Story!";
-                        req.getSession().setAttribute("storyEditSuccessMessage", successMessage);
-                        resp.sendRedirect("story-details?uid=" + story.getShortStoryId());
                     } else {
                         String errorMessage = " Unsupported file extension! <br/>Please only upload JPG, JPEG or PNG files";
                        req.getSession().setAttribute("unsupportedExtension",errorMessage);
                         req.getRequestDispatcher("story-details?uid=" + story.getShortStoryId()).forward(req,resp);
                     }
                 }
-
+                log.debug("Updating Story: " + story.getTitle());
+                storyDao.saveOrUpdate(story);
+                String successMessage = "Successfully Updated Short Story!";
+                req.getSession().setAttribute("storyEditSuccessMessage", successMessage);
+                resp.sendRedirect("story-details?uid=" + story.getShortStoryId());
             } catch (NumberFormatException numberFormatException) {
                 log.error(numberFormatException);
             } catch (AmazonServiceException e) {
@@ -160,7 +159,7 @@ public class ShortStoryEdit extends HttpServlet implements PropertiesLoader {
                 log.error(exception);
             }
         } else {
-            req.getSession().setAttribute("storyErrorMessage", "Failed to upldate Short Story!");
+            req.getSession().setAttribute("storyErrorMessage", "Failed to updated Short Story!");
             req.getRequestDispatcher("/stories/storyAddEdit.jsp").forward(req,resp);
         }
     }
