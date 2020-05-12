@@ -54,18 +54,11 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
      */
     private static final String SAVE_DIR = "images";
     private GenericDao genericDao;
-    private String appPath;
-    private String rootPath;
 
     /**
      * Init.
      */
     public void init() {
-        // gets absolute path of the web application
-        appPath = getServletContext().getRealPath("") + File.separator + SAVE_DIR;
-        // constructs path of the directory to save uploaded file
-        File file = new File("/home/student/IdeaProjects/streamMedia/src/main/webapp");
-        rootPath = file.getAbsolutePath() + File.separator + SAVE_DIR;
         genericDao = new GenericDao(User.class);
     }
 
@@ -101,7 +94,6 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.debug("Root Project Path: " + rootPath);
         Properties properties = null;
         try {
             properties = loadProperties("/aws.properties");
@@ -155,7 +147,9 @@ public class UserEditProfile extends HttpServlet implements PropertiesLoader {
                     log.error(e);
                 }
             } else {
-                resp.getOutputStream().println("<p>Please only upload JPG or PNG files.</p>");
+                String errorMessage = " Unsupported file extension! <br/>Please only upload JPG, JPEG or PNG files";
+                req.getSession().setAttribute("unsupportedExtension",errorMessage);
+                req.getRequestDispatcher("user-profile").forward(req,resp);
             }
             user.setBiography(req.getParameter("biography"));
             log.error(user);

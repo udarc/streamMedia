@@ -23,7 +23,7 @@
     <div class="form row">
         <c:choose>
             <c:when test="${faq ne null}">
-            <form action="faq-edit" method="post" class="card col-md-10 offset-md-1 was-validated">
+            <form action="faq-edit" method="post" class="card col-md-10 offset-md-1 needs-validation" novalidate>
                 <h1 class="text-center">Edit FAQ</h1>
                 <input type="hidden" name="uid" value="${faq.faqId}">
             </c:when>
@@ -42,9 +42,9 @@
                     <input type="text" class="form-control"
                            name="title" id="title" placeholder="Title"
                            required value="${faq.title}">
+                    <div class="invalid-feedback">FAQ title is required!</div>
                 </div>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Title is required.</div>
+
             </div>
             <div class="form-group row">
                 <label for="category" class="col-md-3 col-form-label">Category</label>
@@ -52,15 +52,15 @@
                     <input type="text" class="form-control"
                            name="category" id="category" placeholder="Category" required
                     value="${faq.category}">
+                    <div class="invalid-feedback">FAQ category is required!</div>
                 </div>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Category is required.</div>
             </div>
             <div class="form-group row">
                 <label for="description" class="col-md-3 col-form-label" >Description</label>
                 <div class="col-md-9">
                     <textarea class="form-control"name="description" id="description"
-                              rows="6">${faq.description}</textarea>
+                              rows="6" required>${faq.description}</textarea>
+                    <div class="invalid-feedback">FAQ description is required!</div>
                 </div>
             </div>
             <div class="form-group row">

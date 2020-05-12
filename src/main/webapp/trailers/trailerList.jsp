@@ -19,7 +19,7 @@
     </c:if>
     <c:if test="${not empty trailerAddSuccessMessage || not empty unsupportedVideoExtension || unsupportedExtension }">
         <h3 id="flash" ><span class="alert alert-success"> ${trailerAddSuccessMessage}</span>
-            <span class="alert alert-success">${unsupportedVideoExtension} ${unsupportedExtension}</span>
+            <span class="alert alert-danger">${unsupportedVideoExtension} ${unsupportedExtension}</span>
         </h3>
         <c:remove var="trailerAddSuccessMessage"/>
         <c:remove var="unsupportedVideoExtension"/>
