@@ -40,7 +40,7 @@ public class UserRegister extends HttpServlet {
 
     /**
      * Handles HTTP GET requests.
-     *
+     *st
      * @param request  Description of the Parameter
      * @param response Description of the Parameter
      * @throws ServletException the servlet exception
