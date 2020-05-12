@@ -33,12 +33,14 @@
         <c:choose>
             <c:when test="${book ne null}">
             <h1 class="text-center">Edit Book</h1>
-            <form class="card col-md-10 offset-md-1" action="book-edit" method="post" enctype="multipart/form-data">
+            <form class="card col-md-10 offset-md-1 needs-validation" novalidate action="book-edit" method="post"
+                  enctype="multipart/form-data">
                 <input type="hidden" name="uid" value="${book.bookId}">
             </c:when>
             <c:otherwise>
             <h1 class="text-center">Add Book</h1>
-            <form class="card col-md-10 offset-md-1" action="book-new" method="post" enctype="multipart/form-data">
+            <form class="card col-md-10 offset-md-1 needs-validation" novalidate action="book-new" method="post"
+                  enctype="multipart/form-data">
             </c:otherwise>
         </c:choose>
             
@@ -46,13 +48,14 @@
                 <label for="title" class="col-md-3 col-form-label">Title</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control" name="title"
-                           id="title" placeholder="Book Title" value="${book.title}">
+                           id="title" placeholder="Book Title" value="${book.title}" required>
+                    <div class="invalid-feedback">Book Title is required!</div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="category" class="col-md-3 col-form-label">Categories</label>
                 <div class="col-md-7">
-                <select name="category" class="form-control" id="category" multiple>
+                <select name="category" class="form-control" id="category" multiple required>
                     <option value="select a Category">Select</option>
                     <c:forEach var="category" items="${categories}">
 
@@ -63,6 +66,7 @@
                         <option value="${category.bkCategoryId}">${category.title}</option>
 
                     </c:forEach>
+                    <div class="invalid-feedback">Book category is required!</div>
 <%--                    <option value="">${book.categories}</option>--%>
                 </select>
                 </div>
@@ -72,7 +76,8 @@
                 <label for="isbn" class="col-md-3 col-form-label">ISBN</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control"
-                           name="isbn" id="isbn" placeholder="Isbn" value="${book.ISBN}">
+                           name="isbn" id="isbn" placeholder="Isbn" value="${book.ISBN}" required>
+                    <div class="invalid-feedback">Book's ISBN is required!</div>
                 </div>
             </div>
             <div class="form-group row">
@@ -80,7 +85,8 @@
                 <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="author" id="author" placeholder="Author"
-                    value="${book.author}">
+                    value="${book.author}" required>
+                    <div class="invalid-feedback">Author is required!</div>
                 </div>
             </div>
                 <div class="form-group row">
@@ -110,20 +116,25 @@
                 <label for="publisher" class="col-md-3 col-form-label">Publisher</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control"
-                           name="publisher" id="publisher" placeholder="Publisher" value="${book.publisher}">
+                           name="publisher" id="publisher" placeholder="Publisher"
+                           value="${book.publisher}" required>
+                    <div class="invalid-feedback">Publisher is required!</div>
                 </div>
             </div>
                 <div class="form-group row">
                     <label for="page-number" class="col-md-3 col-form-label">Page Number</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control"
-                               name="page_number" id="page-number" placeholder="Page Number" value="${book.pageNumber}">
+                               name="page_number" id="page-number"
+                               placeholder="Page Number" value="${book.pageNumber}" required>
+                        <div class="invalid-feedback">Book page number is required!</div>
                     </div>
                 </div>
             <div class="form-group row">
                 <label for="summary" class="col-md-3 col-form-label" >Summary</label>
                 <div class="col-md-9">
-                    <textarea class="form-control"name="summary" id="Summary" rows="6">${book.summary}</textarea>
+                    <textarea class="form-control"name="summary" id="Summary" rows="6" required>${book.summary}</textarea>
+                    <div class="invalid-feedback">Book summary must not be empty!</div>
                 </div>
             </div>
             <div class="form-group row">

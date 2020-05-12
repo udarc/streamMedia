@@ -25,7 +25,7 @@
                 <div class="col-md-9">
                     <input type="text" class="form-control"
                            name="j_username" id="username" placeholder="Username" required>
-                    <div class="valid-tooltip">Valid Username</div>
+                    <div class="invalid-feedback">Please provide a valid username!</div>
                 </div>
             </div>
             <div class="form-group row">
@@ -33,6 +33,7 @@
                 <div class="col-md-9">
                     <input type="password" class="form-control" name="j_password"
                            id="inputPassword" placeholder="Password" required>
+                    <div class="invalid-feedback">Please provide a valid password!</div>
                 </div>
             </div>
             <div class="form-group row">

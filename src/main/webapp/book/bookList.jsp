@@ -57,7 +57,7 @@
                     <li class="list-group-item"><a class="btn btn-primary" href="category-new"> Add Book Category</a></li>
                 </c:if>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a class="btn btn-link" href="categories">Book Category Genres</a></li>
+                    <li class="list-group-item"><a class="btn btn-link" href="categories">Book Category</a></li>
                 </ul>
             </ul>
         </div>
