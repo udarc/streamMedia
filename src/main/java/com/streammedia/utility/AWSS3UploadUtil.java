@@ -35,9 +35,12 @@ public class AWSS3UploadUtil {
      */
     public String uploadToAWSS3(Part part, String accessKeyId, String secretAccessKey, String region, String bucketName, String fileObjKeyName, String fileToUpload) {
         BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+
         if (s3Client.doesObjectExist(bucketName, fileObjKeyName)) {
+
             s3Client.deleteObject(new DeleteObjectRequest(bucketName, fileObjKeyName));
         }
         PutObjectRequest request = new PutObjectRequest(bucketName, fileObjKeyName, new File(fileToUpload));
