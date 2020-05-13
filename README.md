@@ -73,4 +73,4 @@ IDE: IntelliJ IDEA
 * [UML Design](projectDesigns/SCHEMA:streamMedia.uml)
 * [High  Level Navigation](projectDesigns/image.png)
 * [Project Presentation](projectDesigns/StreamMediaWebsite.pptx)
-* [Project Presentation](https://www.youtube.com/watch?v=cMz1OX_o03c&feature=youtu.be)
+* [Project Video](https://www.youtube.com/watch?v=cMz1OX_o03c&feature=youtu.be)
