@@ -13,8 +13,8 @@
 <%@include file="navbar.jsp"%>
 <main class="container wrapper" >
 
-    <h1 class="alert alert-warning">Something is not right!</h1>
-    <h2 class="alert alert-info"><a class="btn btn-link"  href="/streamMedia">Back Home</a></h2>
+    <h1 class="alert alert-danger">Something is not right!</h1>
+    <h2 class="alert alert-primary"><a class="btn btn-link"  href="/streamMedia">Back Home</a></h2>
 </main>
 <%@include file="footer.jsp"%>
 <%@include file="afterFooter.jsp"%>
