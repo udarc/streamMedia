@@ -74,3 +74,4 @@ IDE: IntelliJ IDEA
 * [High  Level Navigation](projectDesigns/image.png)
 * [Project Presentation](projectDesigns/StreamMediaWebsite.pptx)
 * [Project Video](https://www.youtube.com/watch?v=cMz1OX_o03c&feature=youtu.be)
+* [Updated Project Video](https://youtu.be/LyfGdEmRKBg)
