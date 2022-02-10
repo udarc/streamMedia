@@ -23,7 +23,7 @@
         <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
         <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
         <lombok-verion>1.18.10</lombok-verion>
-        <hibernate-verion>5.4.4.Final</hibernate-verion>
+        <hibernate-verion>5.4.24.Final</hibernate-verion>
         <servlet-version>4.0.1</servlet-version>
         <javamail-version>1.6.2</javamail-version>
         <fileupload-version>1.4</fileupload-version>
